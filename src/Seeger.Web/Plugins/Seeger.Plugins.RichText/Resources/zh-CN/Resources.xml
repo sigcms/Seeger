@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="RichText.PluginDisplayName" value="富文本" />
+  <item key="RichText.PluginDescription">
+    <![CDATA[
+    允许向页面中添加“富文本”模块，富文本的内容可以自由编辑(可直接编辑HTML)
+    ]]>
+  </item>
+</localization>

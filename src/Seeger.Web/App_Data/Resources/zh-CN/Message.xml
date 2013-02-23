@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Message">
+  <item key="DeleteConfirm" value="确定要删除该记录吗?" />
+  <item key="LogoutConfirm" value="确定要退出吗?" />
+  <item key="OperationSuccess" value="操作成功" />
+  <item key="SaveSuccess" value="保存成功" />
+  <item key="UpdateSuccess" value="更新成功" />
+  <item key="DeleteSuccess" value="删除成功" />
+  <item key="Loading" value="正在加载" />
+  <item key="Processing" value="正在处理" />
+  <item key="Saving" value="正在保存" />
+  <item key="DeletePageConfirm" value="确定要删除该页面吗?" />
+  <item key="NoRecordToDisplay" value="没有记录" />
+  <item key="AccessDenied" value="权限不足，请联系系统管理员" />
+  <item key="OnlyAllowUploadImage" value="只能上传图片文件" />
+  <item>
+    <key>OfflineHintFormat</key>
+    <value>
+      <![CDATA[
+      当前网站处于关闭状态，<a href="/Admin/Settings/FrontendSettingsEdit.aspx">立即开启</a>
+      ]]>
+    </value>
+  </item>
+</localization>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Common">
+  <item key="AccordingToGlobalSetting" value="根据全局设置" />
+  <item key="Add" value="添加" />
+  <item key="AddRightNow" value="立即添加" />
+  <item key="AutoDetect" value="自动检测" />
+  <item key="All" value="全部" />
+  <item key="Back" value="返回" />
+  <item key="Cancel" value="取消" />
+  <item key="Configure" value="配置" />
+  <item key="Close" value="关闭" />
+  <item key="Create" value="创建" />
+  <item key="Customize" value="自定义" />
+  <item key="ContentManagement" value="内容管理" />
+  <item key="Dashboard" value="控制面板" />
+  <item key="Default" value="默认" />
+  <item key="Delete" value="删除" />
+  <item key="Designer" value="设计器" />
+  <item key="Disable" value="禁止" />
+  <item key="Edit" value="编辑" />
+  <item key="Empty" value="空白" />
+  <item key="Enable" value="启用" />
+  <item key="Homepage" value="网站首页" />
+  <item key="Insert" value="插入" />
+  <item key="Install" value="安装" />
+  <item key="NoExtension" value="无扩展名" />
+  <item key="Operations" value="操作" />
+  <item key="OK" value="确定" />
+  <item key="Page" value="页面" />
+  <item key="Remove" value="移除" />
+  <item key="Reload" value="刷新" />
+  <item key="Rename" value="重命名" />
+  <item key="Save" value="保存" />
+  <item key="Uncategorized" value="未分类" />
+  <item key="Unnamed" value="未命名" />
+  <item key="Uninstall" value="卸载" />
+  <item key="Upload" value="上传" />
+  <item key="Uploading" value="正在上传" />
+  <item key="YouMayNeedTo" value="您可能需要" />
+  <item key="Yes" value="是" />
+  <item key="No" value="否" />
+  <item key="None" value="无" />
+  <item key="Support" value="支持" />
+  <item key="NotSupport" value="不支持" />
+  <item key="WidgetTemplate" value="页面模块模板" />
+</localization>

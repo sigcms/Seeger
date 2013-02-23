@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{673DD4E1-FCED-476D-8DDB-D474FB4C6578}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Seeger</RootNamespace>
+    <AssemblyName>Seeger.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net35\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Licensing">
+      <HintPath>..\..\lib\Rhino Licensing\Rhino.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.RegularExpressions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AdminSkins.cs" />
+    <Compile Include="Caching\FrontendLanguageCache.cs" />
+    <Compile Include="CmsVirtualPath.cs" />
+    <Compile Include="Collections\CollectionChangeEventArgs.cs" />
+    <Compile Include="Collections\DictionaryExtensions.cs" />
+    <Compile Include="Collections\ISerializableCollection.cs" />
+    <Compile Include="Collections\ITreeNode.cs" />
+    <Compile Include="Collections\ITreeNodeVisitor.cs" />
+    <Compile Include="Collections\ObservableSerializableCollection.cs" />
+    <Compile Include="Collections\PagedList.cs" />
+    <Compile Include="Collections\ReadOnlySerializableCollection.cs" />
+    <Compile Include="Collections\SerializableCollection.cs" />
+    <Compile Include="Collections\TreeNodeExtensions.cs" />
+    <Compile Include="Data\Context\INhSessionContext.cs" />
+    <Compile Include="Data\Context\WebNhSessionContext.cs" />
+    <Compile Include="Data\Extensions\SessionExtensions.cs" />
+    <Compile Include="Data\INhMappingProvider.cs" />
+    <Compile Include="Data\IQueryableExtensions.cs" />
+    <Compile Include="Data\IQueryFilter.cs" />
+    <Compile Include="Data\Mapping\ByCodeMappingLoader.cs" />
+    <Compile Include="Data\Mapping\Extensions\IClassAttributesMapperExtensions.cs" />
+    <Compile Include="Data\Mapping\Impl\CustomRedirectMap.cs" />
+    <Compile Include="Data\Mapping\Impl\EntityPropertyLocalizationMap.cs" />
+    <Compile Include="Data\Mapping\Impl\FrontendLanguageMap.cs" />
+    <Compile Include="Data\Mapping\Impl\GlobalSettingMap.cs" />
+    <Compile Include="Data\Mapping\Impl\PageItemMap.cs" />
+    <Compile Include="Data\Mapping\Impl\RewriterIgnoredPathMap.cs" />
+    <Compile Include="Data\Mapping\Impl\RoleMap.cs" />
+    <Compile Include="Data\Mapping\Impl\RoleGrantedPermissionMap.cs" />
+    <Compile Include="Data\Mapping\Impl\SiteInfoMap.cs" />
+    <Compile Include="Data\Mapping\Impl\TaskItemMap.cs" />
+    <Compile Include="Data\Mapping\Impl\UserMap.cs" />
+    <Compile Include="Data\Mapping\Impl\WidgetInPageMap.cs" />
+    <Compile Include="EntityKeyAttribute.cs" />
+    <Compile Include="EntityKeyManager.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Extensions\FileSystemInfoExtensions.cs" />
+    <Compile Include="Extensions\LocalizableEntityExtensions.cs" />
+    <Compile Include="Extensions\NameValueCollectionExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\PageCollectionExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Files\FileExplorer.cs" />
+    <Compile Include="Files\FileSystemEntry.cs" />
+    <Compile Include="Files\FileType.cs" />
+    <Compile Include="Files\IFileNameFilter.cs" />
+    <Compile Include="Files\SecurityFileNameFilter.cs" />
+    <Compile Include="Globalization\DefaultEntityPropertyLocalizer.cs" />
+    <Compile Include="Globalization\EntityPropertyLocalization.cs" />
+    <Compile Include="Globalization\IEntityPropertyLocalizer.cs" />
+    <Compile Include="Globalization\ILocalizableEntity.cs" />
+    <Compile Include="Globalization\ResourcesFolder.cs" />
+    <Compile Include="Globalization\XmlResourceReader.cs" />
+    <Compile Include="InstallationInfo.cs" />
+    <Compile Include="Licensing\Domain.cs" />
+    <Compile Include="Licensing\Edition.cs" />
+    <Compile Include="Licensing\Editions.cs" />
+    <Compile Include="Licensing\Features.cs" />
+    <Compile Include="Licensing\InternationalEdition.cs" />
+    <Compile Include="Licensing\InvalidEdition.cs" />
+    <Compile Include="Licensing\License.cs" />
+    <Compile Include="Licensing\LicenseProperty.cs" />
+    <Compile Include="Licensing\SeegerInfo.cs" />
+    <Compile Include="Licensing\SeegerLicenseValidator.cs" />
+    <Compile Include="Licensing\StandardEdition.cs" />
+    <Compile Include="ObjectHelper.cs" />
+    <Compile Include="Plugins\AssemblyDeployer.cs" />
+    <Compile Include="Plugins\DefaultInstalledPluginService.cs" />
+    <Compile Include="Plugins\IInstalledPluginService.cs" />
+    <Compile Include="Plugins\InstalledPlugin.cs" />
+    <Compile Include="Plugins\InstalledPlugins.cs" />
+    <Compile Include="Plugins\IPlugin.cs" />
+    <Compile Include="Plugins\LoadedPlugin.cs" />
+    <Compile Include="Plugins\Loaders\DefaultPluginLoader.cs" />
+    <Compile Include="Plugins\Loaders\IPluginLoader.cs" />
+    <Compile Include="Plugins\PluginDefinition.cs" />
+    <Compile Include="Plugins\PluginLifecycleContext.cs" />
+    <Compile Include="Plugins\PluginManager.cs" />
+    <Compile Include="Plugins\PluginPaths.cs" />
+    <Compile Include="Plugins\Widgets\Loaders\DefaultWidgetLoader.cs" />
+    <Compile Include="Plugins\Widgets\Loaders\IWidgetLoader.cs" />
+    <Compile Include="Plugins\Widgets\WidgetDefinition.cs" />
+    <Compile Include="Plugins\Widgets\WidgetPaths.cs" />
+    <Compile Include="Require.cs" />
+    <Compile Include="Templates\LayoutCollection.cs" />
+    <Compile Include="Licensing\LicensingService.cs" />
+    <Compile Include="Services\PageService.cs" />
+    <Compile Include="Settings\DefaultSiteInfo.cs" />
+    <Compile Include="Settings\DevConfig.cs" />
+    <Compile Include="Settings\GlobalSettingManager.cs" />
+    <Compile Include="Settings\SmtpSettings.cs" />
+    <Compile Include="Caching\SiteInfoCache.cs" />
+    <Compile Include="Settings\TaskQueueSettings.cs" />
+    <Compile Include="Settings\TinyMceFontSetting.cs" />
+    <Compile Include="Settings\TinyMceFontSettingCollection.cs" />
+    <Compile Include="Tasks\Emails\EmailTaskData.cs" />
+    <Compile Include="Tasks\Emails\EmailTaskExecutor.cs" />
+    <Compile Include="Tasks\Emails\EmailTaskQueue.cs" />
+    <Compile Include="Tasks\ITaskExecutor.cs" />
+    <Compile Include="Tasks\TaskExecutorFactory.cs" />
+    <Compile Include="Tasks\TaskItem.cs" />
+    <Compile Include="Tasks\TaskQueue.cs" />
+    <Compile Include="Tasks\TaskQueueExecutor.cs" />
+    <Compile Include="Templates\TemplateSkin.cs" />
+    <Compile Include="Templates\TemplateSkinCollection.cs" />
+    <Compile Include="Templates\Parsers\FileReferencingUtil.cs" />
+    <Compile Include="Templates\Parsers\ILayoutFileParser.cs" />
+    <Compile Include="Templates\Parsers\LayoutFileParseResult.cs" />
+    <Compile Include="Templates\Parsers\WebFormLayoutParser.cs" />
+    <Compile Include="Templates\Loaders\DefaultTemplateLoader.cs" />
+    <Compile Include="Templates\Loaders\ITemplateLoader.cs" />
+    <Compile Include="Templates\TemplateManager.cs" />
+    <Compile Include="Utils\IOUtil.cs" />
+    <Compile Include="Utils\PropertyPathBuilder.cs" />
+    <Compile Include="Utils\XmlSerializerHelper.cs" />
+    <Compile Include="Web\AuthenticationService.cs" />
+    <Compile Include="Web\FrontendEnvironment.cs" />
+    <Compile Include="Web\Handlers\AlwaysIgnoredPathHandler.cs" />
+    <Compile Include="Web\Handlers\CultureHandler.cs" />
+    <Compile Include="Web\Handlers\InstallPathHandler.cs" />
+    <Compile Include="Web\Handlers\OfflineHandler.cs" />
+    <Compile Include="Web\Handlers\OfflineHelper.cs" />
+    <Compile Include="Web\Handlers\HomeRequestHandler.cs" />
+    <Compile Include="Web\Handlers\PageDomainBindingHandler.cs" />
+    <Compile Include="Web\HttpContextCache.cs" />
+    <Compile Include="Web\Server.cs" />
+    <Compile Include="Web\SmartLocalizer.cs" />
+    <Compile Include="Web\UI\Controls\AdminButton.cs" />
+    <Compile Include="Web\UI\Controls\AdminPlaceHolder.cs" />
+    <Compile Include="Web\UI\Controls\AdminLinkButton.cs" />
+    <Compile Include="Web\UI\Controls\AdminTextBox.cs" />
+    <Compile Include="Web\UI\Controls\DenyMethod.cs" />
+    <Compile Include="Web\UI\Controls\DevPlaceHolder.cs" />
+    <Compile Include="Web\UI\Controls\IAdminControl.cs" />
+    <Compile Include="Web\UI\Controls\ScriptReference.cs" />
+    <Compile Include="Web\UI\Controls\TinyMCE.cs" />
+    <Compile Include="Web\UI\DataManagement\EntityKeyCache.cs" />
+    <Compile Include="Web\UI\Extensions\ListItemCollectionExtensions.cs" />
+    <Compile Include="Web\FrontendUrlUtility.cs" />
+    <Compile Include="Web\UI\Extensions\PageExtensions.cs" />
+    <Compile Include="Web\UI\Extensions\RepeaterItemExtensions.cs" />
+    <Compile Include="Web\UI\Extensions\StateBagExtensions.cs" />
+    <Compile Include="Web\UI\IMessageProvider.cs" />
+    <Compile Include="Web\UI\IPageLifecycleInterceptor.cs" />
+    <Compile Include="Web\UI\PageLifecycleInterceptorCollection.cs" />
+    <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
+    <Compile Include="Web\UI\Pager.cs" />
+    <Compile Include="Web\Url.cs" />
+    <Compile Include="Web\UrlUtility.cs" />
+    <Compile Include="WidgetEditorSettings.cs" />
+    <Compile Include="Templates\Zone.cs" />
+    <Compile Include="Caching\CustomRedirectCache.cs" />
+    <Compile Include="Caching\PageCache.cs" />
+    <Compile Include="Caching\RewriterIgnoredPathCache.cs" />
+    <Compile Include="Collections\PageItemCollection.cs" />
+    <Compile Include="CustomRedirect.cs" />
+    <Compile Include="Security\PermissionGroup.cs" />
+    <Compile Include="Security\PermissionGroupCollection.cs" />
+    <Compile Include="Data\NhSessionManager.cs" />
+    <Compile Include="EntityAttribute.cs" />
+    <Compile Include="EntityAttributeCollection.cs" />
+    <Compile Include="Data\EntityAttributeCollectionUserType.cs" />
+    <Compile Include="Exceptions\ZoneNotFoundException.cs" />
+    <Compile Include="Exceptions\PluginNotFoundException.cs" />
+    <Compile Include="Exceptions\TemplateNotFoundException.cs" />
+    <Compile Include="Exceptions\WidgetNotFoundException.cs" />
+    <Compile Include="FrontendLanguage.cs" />
+    <Compile Include="Globalization\LocalizableText.cs" />
+    <Compile Include="Globalization\ResourceDescriptor.cs" />
+    <Compile Include="Globalization\XmlResourceProvider.cs" />
+    <Compile Include="Globalization\XmlResourceProviderFactory.cs" />
+    <Compile Include="GlobalSetting.cs" />
+    <Compile Include="CmsInitializer.cs" />
+    <Compile Include="Templates\Layout.cs" />
+    <Compile Include="DropPosition.cs" />
+    <Compile Include="Security\PermissionCollection.cs" />
+    <Compile Include="RewriterIgnoredPath.cs" />
+    <Compile Include="Security\Role.cs" />
+    <Compile Include="Security\RoleGrantedPermission.cs" />
+    <Compile Include="Settings\CmsConfiguration.cs" />
+    <Compile Include="Settings\SiteInfo.cs" />
+    <Compile Include="Settings\FrontendSettings.cs" />
+    <Compile Include="Templates\Template.cs" />
+    <Compile Include="Templates\Skin.cs" />
+    <Compile Include="Templates\SkinCollection.cs" />
+    <Compile Include="Security\User.cs" />
+    <Compile Include="PageItem.cs" />
+    <Compile Include="Web\Handlers\CustomRedirectHandler.cs" />
+    <Compile Include="Web\Handlers\RequestHandler.cs" />
+    <Compile Include="Web\Handlers\PageRequestHandler.cs" />
+    <Compile Include="Web\Handlers\RequestHandlerContext.cs" />
+    <Compile Include="Web\Handlers\RewriterIgnoredPathHandler.cs" />
+    <Compile Include="RedirectMode.cs" />
+    <Compile Include="Web\AdministrationSession.cs" />
+    <Compile Include="Web\UI\BackendPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\BackendUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\ZoneControl.cs" />
+    <Compile Include="Web\UI\ControlRenderingHostPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Controls\MessagePanel.cs" />
+    <Compile Include="Web\UI\DataManagement\DetailPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\DataManagement\ListPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\DataManagement\GridViewWrapper.cs" />
+    <Compile Include="Web\UI\DataManagement\IGridViewCallback.cs" />
+    <Compile Include="Web\UI\DataManagement\IRecrodFilter.cs" />
+    <Compile Include="Web\UI\DataManagement\ListUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\HtmlHelper.cs" />
+    <Compile Include="Web\UI\IEditorView.cs" />
+    <Compile Include="Web\UI\MessageType.cs" />
+    <Compile Include="Web\UI\Controls\GridView.cs" />
+    <Compile Include="Web\UI\Designer\DefaultWidgetDesigner.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Designer\DesignerZoneControl.cs" />
+    <Compile Include="Web\UI\Designer\DesignerLayoutService.cs" />
+    <Compile Include="Web\UI\Designer\InDesignerUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Designer\PageDesignerBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Designer\WidgetDesignerBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Designer\WidgetState.cs" />
+    <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
+    <Compile Include="Web\UI\Extensions\ZoneExtensions.cs" />
+    <Compile Include="Web\UI\Extensions\WidgetExtensions.cs" />
+    <Compile Include="Web\UI\IFormView.cs" />
+    <Compile Include="Web\UI\IPrivateResource.cs" />
+    <Compile Include="Web\UI\IWidgetProcessEventListener.cs" />
+    <Compile Include="Web\UI\LayoutPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Menu\XmlMenu.cs" />
+    <Compile Include="Web\UI\Menu\XmlMenuItem.cs" />
+    <Compile Include="Web\UI\Menu\XmlMenuItemCollection.cs" />
+    <Compile Include="Web\UI\Menu\XmlMenuLoader.cs" />
+    <Compile Include="Web\UI\OperationResult.cs" />
+    <Compile Include="Web\UI\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SEOInfo.cs" />
+    <Compile Include="Web\UI\UserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\WidgetControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Designer\WidgetEditorBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UrlRewriteModule.cs" />
+    <Compile Include="WidgetInPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Licensing\PublicKey.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

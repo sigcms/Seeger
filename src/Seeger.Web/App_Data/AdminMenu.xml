@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<admin-menu>
+  <menu>
+    <menu title="{ Menu.PageMgnt }" function="PageMgnt" url="Pages/PageList.aspx" />
+    <menu title="{ Menu.FileMgnt }" function="FileMgnt" url="Files/List.aspx" />
+  </menu>
+  <menu>
+    <menu title="{ Menu.SiteInfo }" function="SiteSetting" operation="SiteInfo" url="Settings/SiteInfoEdit.aspx" />
+    <menu title="{ Menu.FrontendSettings }" function="SiteSetting" operation="FrontendSetting" url="Settings/FrontendSettingsEdit.aspx" />
+    <menu title="{ Menu.FrontendLanguages }" function="SiteSetting" operation="FrontendLanguage" feature="Multilingual" url="Settings/FrontendLangList.aspx" />
+    <menu title="{ Menu.EmailSettings }" function="SiteSetting" operation="EmailSetting" url="Settings/SmtpSettingsEdit.aspx" />
+    <menu title="{ Menu.TaskQueueSettings }" function="SiteSetting" operation="TaskQueueSetting" url="Settings/TaskQueueSettingsEdit.aspx" />
+  </menu>
+  <menu>
+    <menu title="{ Menu.RoleMgnt }" function="RoleMgnt" url="Security/RoleList.aspx" />
+    <menu title="{ Menu.UserMgnt }" function="UserMgnt" url="Security/UserList.aspx" />
+  </menu>
+  <menu>
+    <menu title="{ Menu.CustomRedirectMgnt }" function="CustomRedirect" url="Urls/CustomRedirectList.aspx" />
+    <menu title="{ Menu.RewriterIgnoredPathMgnt }" function="RewriterIgnoredPath" url="Urls/RewriterIgnoredPathList.aspx" />
+  </menu>
+  <menu>
+    <menu title="{ Menu.PluginMgnt }" function="PluginMgnt" url="Plugins/PluginList.aspx" />
+  </menu>
+</admin-menu>

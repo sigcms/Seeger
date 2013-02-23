@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Dashboard">
+  <item key="NewVersionInfoFormat" value="有新版本发布，版本号为{VersionNumber}，发布于{PublishedDate}。" />
+  <item key="CheckNow" value="立即查看" />
+  <item key="GreetingFormat" value="{Greeting}, {UserName}! 欢迎使用西格CMS {VersionNumber}" />
+  <item key="Greeting_Morning" value="早上好" />
+  <item key="Greeting_Midnoon" value="中午好" />
+  <item key="Greeting_Afternoon" value="下午好" />
+  <item key="Greeting_Evening" value="晚上好" />
+  <item key="OutOfDateBrowserHint" value="您正在使用过时的{Browser} {Version}浏览器，为了拥有更好的操作体验，我们强烈建议您升级到以下现代浏览器：" />
+  <item key="IE6Hint" value="系统后台不支持过时的{Browser} {Version}浏览器，请升级至以下现代浏览器（网站前台没有浏览器限制）：" />
+  <item key="GoogleChrome" value="谷歌Chrome" />
+  <item key="Firefox" value="火狐" />
+  <item key="Maxthon3" value="遨游3" />
+</localization>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Offline">
+  <item key="PageTitle" value="网站维护中..." />
+  <item key="OfflineHint" value="网站维护中..." />
+</localization>

@@ -1,0 +1,1097 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5F68FE20-CA69-470E-822B-D2AF4CC72FF7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Seeger.Web.UI</RootNamespace>
+    <AssemblyName>Seeger.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Caches.SysCache">
+      <HintPath>..\packages\NHibernate.Caches.SysCache.3.2.0.4000\lib\Net35\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net35\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\403.aspx" />
+    <Content Include="Admin\Images\chrome.png" />
+    <Content Include="Admin\Images\firefox.png" />
+    <Content Include="Admin\Images\login-panel-bg.jpg" />
+    <Content Include="Admin\Images\login-bg.jpg" />
+    <Content Include="Admin\Images\maxthon.png" />
+    <Content Include="Admin\Images\ie.png" />
+    <Content Include="Admin\Controls\OfflineHint.ascx" />
+    <Content Include="Admin\Controls\SeegerNews.ascx" />
+    <Content Include="Admin\Controls\UpdateCheck.ascx" />
+    <Content Include="Admin\Controls\UpgradeBrowserHint.ascx" />
+    <Content Include="Admin\Dashboard.aspx" />
+    <Content Include="Admin\Designer\DesignerElement.ascx" />
+    <Content Include="Admin\Designer\widget-icon.png" />
+    <Content Include="Admin\Files\Services.asmx" />
+    <Content Include="Admin\Files\List.aspx" />
+    <Content Include="Admin\Files\Upload.aspx" />
+    <Content Include="Admin\Licensing\DomainBindingHint.ascx" />
+    <Content Include="Admin\Licensing\CurrentDomainHint.ascx" />
+    <Content Include="Admin\Licensing\InvalidLicenseHint.ascx" />
+    <Content Include="Admin\Licensing\ValidateSystem.aspx" />
+    <Content Include="Admin\Licensing\LicenseInfo.aspx" />
+    <Content Include="Admin\Logout.aspx" />
+    <Content Include="Admin\My\Profile.aspx" />
+    <Content Include="Admin\Pages\Controls\PropertyPanel.ascx" />
+    <Content Include="Admin\Pages\PageEdit.js" />
+    <Content Include="Admin\Pages\PageList.js" />
+    <Content Include="Admin\Pages\PageSEO.aspx" />
+    <Content Include="Admin\Plugins\PluginList.aspx" />
+    <Content Include="Admin\Scripts\product-service.js" />
+    <Content Include="Admin\Security\RoleEdit.aspx" />
+    <Content Include="Admin\Security\RoleList.aspx" />
+    <Content Include="Admin\Security\PrivilegeView.ascx" />
+    <Content Include="Admin\Security\UserEdit.aspx" />
+    <Content Include="Admin\Security\UserList.aspx" />
+    <Content Include="Admin\Settings\FrontendSettingsEdit.aspx" />
+    <Content Include="Admin\Settings\FrontendLangEdit.aspx" />
+    <Content Include="Admin\Settings\FrontendLangList.aspx" />
+    <Content Include="Admin\Designer\SaveChanges.ashx" />
+    <Content Include="Admin\Images\Web.config" />
+    <None Include="App_Data\cms.config" />
+    <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
+    <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
+    <Content Include="Admin\Settings\TaskQueueSettingsEdit.aspx" />
+    <Content Include="Admin\Shared\Controls\PageDropDownList.ascx" />
+    <Content Include="Admin\Shared\Uploader.aspx" />
+    <Content Include="Admin\Urls\CustomRedirectEdit.aspx" />
+    <Content Include="Admin\Urls\CustomRedirectList.aspx" />
+    <Content Include="Admin\Urls\RewriterIgnoredPathEdit.aspx" />
+    <Content Include="Admin\Urls\RewriterIgnoredPathList.aspx" />
+    <Content Include="App_Data\AdminMenu.xml" />
+    <None Include="App_Data\nhibernate.config" />
+    <Content Include="App_Data\Resources\en-US\Login.xml" />
+    <Content Include="App_Data\Resources\zh-CN\TaskQueue.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Email.xml" />
+    <Content Include="App_Data\Resources\zh-CN\SiteInfo.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Seeger.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Dashboard.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Offline.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Licensing.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Seo.xml" />
+    <Content Include="App_Data\Resources\zh-CN\SigDownload.xml" />
+    <Content Include="App_Data\Resources\zh-CN\SigImage.xml" />
+    <Content Include="App_Data\Resources\zh-CN\FileMgnt.xml" />
+    <Content Include="App_Themes\Classic\images\icon-excel.png" />
+    <Content Include="App_Themes\Classic\images\icon-flash.png" />
+    <Content Include="App_Themes\Classic\images\icon-image.png" />
+    <Content Include="App_Themes\Classic\images\icon-music.png" />
+    <Content Include="App_Themes\Classic\images\icon-smile.png" />
+    <Content Include="App_Themes\Classic\images\icon-accept.png" />
+    <Content Include="App_Themes\Classic\images\bullet-star.png" />
+    <Content Include="App_Themes\Classic\images\icon-help.png" />
+    <Content Include="App_Themes\Classic\images\icon-download.png" />
+    <Content Include="App_Themes\Classic\images\icon-folder.png" />
+    <Content Include="App_Themes\Classic\images\icon-close.png" />
+    <Content Include="App_Themes\Classic\images\icon-edit.png" />
+    <Content Include="App_Themes\Classic\images\icon-html.png" />
+    <Content Include="App_Themes\Classic\images\icon-ppt.png" />
+    <Content Include="App_Themes\Classic\images\icon-pdf.png" />
+    <Content Include="App_Themes\Classic\images\icon-file.png" />
+    <Content Include="App_Themes\Classic\images\icon-code.png" />
+    <Content Include="App_Themes\Classic\images\icon-txt.png" />
+    <Content Include="App_Themes\Classic\images\icon-video.png" />
+    <Content Include="App_Themes\Classic\images\icon-word.png" />
+    <Content Include="App_Themes\Classic\images\icon-zip.png" />
+    <Content Include="App_Themes\Classic\images\logo-cn.png" />
+    <Content Include="App_Themes\Classic\images\logo-en.png" />
+    <Content Include="App_Themes\Classic\images\icon-new.png" />
+    <Content Include="App_Themes\Classic\zh-CN\style.css" />
+    <Content Include="App_Themes\Classic\zh-CN\page-designer.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="App_Data\Resources\zh-CN\TextContent.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Login.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Designer.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Message.xml" />
+    <Content Include="App_Data\Resources\zh-CN\RedirectMode.xml" />
+    <Content Include="App_Data\Resources\zh-CN\CustomRedirect.xml" />
+    <Content Include="App_Data\Resources\zh-CN\SkinName.xml" />
+    <Content Include="App_Data\Resources\zh-CN\RewriterIgnoredPath.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Globalization.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Function.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Role.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Menu.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Common.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Page.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Security.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Setting.xml" />
+    <Content Include="App_Data\Resources\zh-CN\User.xml" />
+    <Content Include="App_Themes\Classic\a.common.css" />
+    <Content Include="App_Themes\Classic\c.management.css" />
+    <Content Include="App_Themes\Classic\images\icon-reload.png" />
+    <Content Include="App_Themes\Classic\images\icon-layout.png" />
+    <Content Include="App_Themes\Classic\images\drop-here-cn.png" />
+    <Content Include="App_Themes\Classic\images\drop-here-en.png" />
+    <Content Include="App_Themes\Classic\images\widget-overlay-bg.png" />
+    <Content Include="App_Themes\Classic\images\icon-hide-toolbox.gif" />
+    <Content Include="App_Themes\Classic\images\icon-delete.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-add.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-default.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-delete.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-design.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-edit.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-seo.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-offline.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-online.png" />
+    <Content Include="App_Themes\Classic\images\icon-page-view.png" />
+    <Content Include="App_Themes\Classic\images\icon-show-toolbox.gif" />
+    <Content Include="App_Themes\Classic\images\toolbar.gif" />
+    <Content Include="App_Themes\Classic\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_454545_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_888888_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="App_Themes\Classic\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="App_Themes\Classic\b.frame.css" />
+    <Content Include="App_Themes\Classic\d.jqueryui.css" />
+    <Content Include="Admin\Designer\Controls\AllWidgets.ascx" />
+    <Content Include="Admin\Designer\Controls\WidgetList.ascx" />
+    <Content Include="Offline.aspx" />
+    <Content Include="Scripts\designer\designer.editorcontext.js" />
+    <Content Include="Scripts\filebrowser\images\application.png" />
+    <Content Include="Scripts\filebrowser\images\code.png" />
+    <Content Include="Scripts\filebrowser\images\css.png" />
+    <Content Include="Scripts\filebrowser\images\db.png" />
+    <Content Include="Scripts\filebrowser\images\directory.png" />
+    <Content Include="Scripts\filebrowser\images\doc.png" />
+    <Content Include="Scripts\filebrowser\images\file.png" />
+    <Content Include="Scripts\filebrowser\images\film.png" />
+    <Content Include="Scripts\filebrowser\images\flash.png" />
+    <Content Include="Scripts\filebrowser\images\folder_open.png" />
+    <Content Include="Scripts\filebrowser\images\html.png" />
+    <Content Include="Scripts\filebrowser\images\java.png" />
+    <Content Include="Scripts\filebrowser\images\linux.png" />
+    <Content Include="Scripts\filebrowser\images\music.png" />
+    <Content Include="Scripts\filebrowser\images\pdf.png" />
+    <Content Include="Scripts\filebrowser\images\php.png" />
+    <Content Include="Scripts\filebrowser\images\picture.png" />
+    <Content Include="Scripts\filebrowser\images\ppt.png" />
+    <Content Include="Scripts\filebrowser\images\psd.png" />
+    <Content Include="Scripts\filebrowser\images\ruby.png" />
+    <Content Include="Scripts\filebrowser\images\script.png" />
+    <Content Include="Scripts\filebrowser\images\spinner.gif" />
+    <Content Include="Scripts\filebrowser\images\txt.png" />
+    <Content Include="Scripts\filebrowser\images\xls.png" />
+    <Content Include="Scripts\filebrowser\images\zip.png" />
+    <Content Include="Scripts\filebrowser\jquery.filebrowser.css" />
+    <Content Include="Scripts\filebrowser\jquery.filebrowser.js" />
+    <Content Include="Scripts\jquery.sigvalidate.js" />
+    <Content Include="Scripts\jquery.dropdown.js" />
+    <Content Include="Scripts\jquery.looklesstab.js" />
+    <Content Include="Scripts\designer\designer.states.js" />
+    <Content Include="Scripts\designer\designer.services.js" />
+    <Content Include="Scripts\designer\designer.widget.js" />
+    <Content Include="Scripts\designer\designer.zone.js" />
+    <Content Include="Scripts\designer\designer.logger.js" />
+    <Content Include="Scripts\designer\designer.commands.js" />
+    <Content Include="Scripts\designer\designer.context.js" />
+    <Content Include="Scripts\designer\designer.toolbox.js" />
+    <Content Include="Scripts\designer\designer.js" />
+    <Content Include="Scripts\designer\designer.common.js" />
+    <Content Include="Scripts\collections\Base.js" />
+    <Content Include="Scripts\collections\Queue.js" />
+    <Content Include="Scripts\collections\LinkedList.js" />
+    <Content Include="Scripts\collections\Stack.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.querystring.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\sig.validator.js" />
+    <Content Include="Scripts\telerik\telerik.common.js" />
+    <Content Include="Scripts\telerik\telerik.draganddrop.js" />
+    <Content Include="Scripts\telerik\telerik.treeview.ext.js" />
+    <Content Include="Scripts\telerik\telerik.treeview.js" />
+    <Content Include="Scripts\telerik\themes\Default\editor.png" />
+    <Content Include="Scripts\telerik\themes\Default\loading.gif" />
+    <Content Include="Scripts\telerik\themes\Default\sprite.png" />
+    <Content Include="Scripts\telerik\themes\Default\treeview-line.png" />
+    <Content Include="Scripts\telerik\themes\Default\treeview-nodes-rtl.png" />
+    <Content Include="Scripts\telerik\themes\Default\treeview-nodes.png" />
+    <Content Include="Scripts\telerik\themes\telerik.common.min.css" />
+    <Content Include="Scripts\telerik\themes\telerik.default.min.css" />
+    <Content Include="Scripts\tiny_mce\jquery.tinymce.js" />
+    <Content Include="Scripts\tiny_mce\langs\en-US.js" />
+    <Content Include="Scripts\tiny_mce\langs\zh-CN.js" />
+    <Content Include="Scripts\tiny_mce\langs\en.js" />
+    <Content Include="Scripts\tiny_mce\license.txt" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\css\advhr.css" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\js\rule.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advhr\rule.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\css\advimage.css" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\image.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\img\sample.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\js\image.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advimage\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\css\advlink.css" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\js\advlink.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlink\link.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\advlist\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\advlist\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\autoresize\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\autoresize\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\autosave\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\autosave\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\autosave\langs\en.js" />
+    <Content Include="Scripts\tiny_mce\plugins\bbcode\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\bbcode\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\contextmenu\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\contextmenu\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\directionality\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\directionality\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\emotions.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-cool.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-cry.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-frown.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-innocent.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-kiss.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-laughing.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-sealed.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-smile.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-surprised.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-undecided.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-wink.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\img\smiley-yell.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\js\emotions.js" />
+    <Content Include="Scripts\tiny_mce\plugins\emotions\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\example\dialog.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\example\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\example\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\example\img\example.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\example\js\dialog.js" />
+    <Content Include="Scripts\tiny_mce\plugins\example\langs\en.js" />
+    <Content Include="Scripts\tiny_mce\plugins\example\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\css\fullpage.css" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\fullpage.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\js\fullpage.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullpage\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullscreen\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullscreen\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\fullscreen\fullscreen.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\iespell\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\iespell\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\alert.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\button.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\buttons.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\confirm.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\corners.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\horizontal.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\img\vertical.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\skins\clearlooks2\window.css" />
+    <Content Include="Scripts\tiny_mce\plugins\inlinepopups\template.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\insertdatetime\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\insertdatetime\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\layer\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\layer\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\legacyoutput\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\legacyoutput\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\css\content.css" />
+    <Content Include="Scripts\tiny_mce\plugins\media\css\media.css" />
+    <Content Include="Scripts\tiny_mce\plugins\media\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\flash.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\flv_player.swf" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\quicktime.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\realmedia.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\shockwave.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\trans.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\img\windowsmedia.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\media\js\embed.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\js\media.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\media\media.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\nonbreaking\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\nonbreaking\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\noneditable\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\noneditable\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\pagebreak\css\content.css" />
+    <Content Include="Scripts\tiny_mce\plugins\pagebreak\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\pagebreak\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\pagebreak\img\pagebreak.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\pagebreak\img\trans.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\js\pastetext.js" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\js\pasteword.js" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\pastetext.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\paste\pasteword.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\preview\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\preview\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\preview\example.html" />
+    <Content Include="Scripts\tiny_mce\plugins\preview\jscripts\embed.js" />
+    <Content Include="Scripts\tiny_mce\plugins\preview\preview.html" />
+    <Content Include="Scripts\tiny_mce\plugins\print\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\print\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\save\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\save\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\css\searchreplace.css" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\js\searchreplace.js" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\searchreplace\searchreplace.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\sigdownload\Dialog.aspx" />
+    <Content Include="Scripts\tiny_mce\plugins\sigdownload\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\sigdownload\script.js" />
+    <Content Include="Scripts\tiny_mce\plugins\sigimage\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx" />
+    <Content Include="Scripts\tiny_mce\plugins\sigimage\script.js" />
+    <Content Include="Scripts\tiny_mce\plugins\spellchecker\css\content.css" />
+    <Content Include="Scripts\tiny_mce\plugins\spellchecker\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\spellchecker\img\wline.gif" />
+    <Content Include="Scripts\tiny_mce\plugins\style\css\props.css" />
+    <Content Include="Scripts\tiny_mce\plugins\style\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\style\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\style\js\props.js" />
+    <Content Include="Scripts\tiny_mce\plugins\style\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\style\props.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\tabfocus\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\tabfocus\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\cell.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\table\css\cell.css" />
+    <Content Include="Scripts\tiny_mce\plugins\table\css\row.css" />
+    <Content Include="Scripts\tiny_mce\plugins\table\css\table.css" />
+    <Content Include="Scripts\tiny_mce\plugins\table\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\js\cell.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\js\merge_cells.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\js\row.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\js\table.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\table\merge_cells.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\table\row.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\table\table.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\template\blank.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\template\css\template.css" />
+    <Content Include="Scripts\tiny_mce\plugins\template\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\template\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\template\js\template.js" />
+    <Content Include="Scripts\tiny_mce\plugins\template\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\plugins\template\template.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\visualchars\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\visualchars\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\wordcount\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\wordcount\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\abbr.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\acronym.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\attributes.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\cite.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\css\attributes.css" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\css\popup.css" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\del.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\editor_plugin.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\editor_plugin_src.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\ins.htm" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\abbr.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\acronym.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\attributes.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\cite.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\del.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\element_common.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\js\ins.js" />
+    <Content Include="Scripts\tiny_mce\plugins\xhtmlxtras\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\about.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\anchor.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\charmap.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\color_picker.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\editor_template.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\editor_template_src.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\image.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\img\colorpicker.jpg" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\img\icons.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\about.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\anchor.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\charmap.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\color_picker.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\image.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\link.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\js\source_editor.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\en-US.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\en-US_dlg.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\zh-CN_dlg.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\zh-CN.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\en.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\langs\en_dlg.js" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\link.htm" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\content.css" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\content.zh-CN.css" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\dialog.zh-CN.css" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\dialog.css" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\buttons.png" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\items.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\menu_arrow.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\menu_check.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\progress.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\img\tabs.gif" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\skins\default\ui.css" />
+    <Content Include="Scripts\tiny_mce\themes\advanced\source_editor.htm" />
+    <Content Include="Scripts\tiny_mce\tiny_mce.js" />
+    <Content Include="Scripts\tiny_mce\tiny_mce_popup.js" />
+    <Content Include="Scripts\tiny_mce\tiny_mce_src.js" />
+    <Content Include="Scripts\tiny_mce\utils\editable_selects.js" />
+    <Content Include="Scripts\tiny_mce\utils\form_utils.js" />
+    <Content Include="Scripts\tiny_mce\utils\mctabs.js" />
+    <Content Include="Scripts\tiny_mce\utils\validate.js" />
+    <Content Include="Admin\Pages\Services.asmx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Pages\PageEdit.aspx" />
+    <Content Include="Admin\Pages\PageList.aspx" />
+    <Content Include="Admin\Scripts\frame.js" />
+    <Content Include="Admin\Login.aspx" />
+    <Content Include="App_Themes\Classic\page-designer.css" />
+    <Content Include="Admin\Designer\Toolbox.ascx" />
+    <Content Include="Scripts\sig.common.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn1\Preview.gif" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx" />
+    <Content Include="Templates\Default\Layouts\ThreeColumn2\Preview.gif" />
+    <Content Include="Templates\Default\Layouts\TwoColumn1\Default.aspx" />
+    <Content Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx" />
+    <Content Include="Templates\Default\Layouts\TwoColumn1\Preview.gif" />
+    <Content Include="Templates\Default\Layouts\TwoColumn2\Default.aspx" />
+    <Content Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx" />
+    <Content Include="Templates\Default\Layouts\TwoColumn2\Preview.gif" />
+    <Content Include="Templates\Default\Resources\zh-CN\LayoutName.xml" />
+    <Content Include="Templates\Default\Resources\zh-CN\SkinName.xml" />
+    <Content Include="Templates\Default\Skins\ClassicBlue\a.main.css" />
+    <Content Include="Templates\Default\Skins\ClassicBlue\b.module-default.css" />
+    <Content Include="Templates\Default\Skins\ClassicBlue\c.module-articles.css" />
+    <Content Include="Templates\Default\Skins\ClassicBlue\preview.jpg" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\arrow.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\bg.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\footer-bg.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\header-bg.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\menu-bg-left.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\images\menu-bg-right.gif" />
+    <Content Include="Templates\Default\Skins\FreshPink\preview.jpg" />
+    <Content Include="Templates\Default\Skins\FreshPink\style.css" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Admin\Files\ListFiles.ashx" />
+    <Content Include="Scripts\tiny_mce\plugins\sigimage\Web.config" />
+    <Content Include="Scripts\tiny_mce\plugins\sigdownload\Web.config" />
+    <Content Include="Templates\Default\Layouts\Front.Master" />
+    <Content Include="Templates\Default\config.config" />
+    <Content Include="packages.config" />
+    <Content Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Admin\403.aspx.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\403.aspx.designer.cs">
+      <DependentUpon>403.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\OfflineHint.ascx.cs">
+      <DependentUpon>OfflineHint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\OfflineHint.ascx.designer.cs">
+      <DependentUpon>OfflineHint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\SeegerNews.ascx.cs">
+      <DependentUpon>SeegerNews.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\SeegerNews.ascx.designer.cs">
+      <DependentUpon>SeegerNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\UpdateCheck.ascx.cs">
+      <DependentUpon>UpdateCheck.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\UpdateCheck.ascx.designer.cs">
+      <DependentUpon>UpdateCheck.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Controls\UpgradeBrowserHint.ascx.cs">
+      <DependentUpon>UpgradeBrowserHint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Controls\UpgradeBrowserHint.ascx.designer.cs">
+      <DependentUpon>UpgradeBrowserHint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\DesignerElement.ascx.cs">
+      <DependentUpon>DesignerElement.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designer\DesignerElement.ascx.designer.cs">
+      <DependentUpon>DesignerElement.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\SaveChanges.ashx.cs">
+      <DependentUpon>SaveChanges.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\Services.asmx.cs">
+      <DependentUpon>Services.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\List.aspx.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\List.aspx.designer.cs">
+      <DependentUpon>List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Licensing\DomainBindingHint.ascx.cs">
+      <DependentUpon>DomainBindingHint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Licensing\DomainBindingHint.ascx.designer.cs">
+      <DependentUpon>DomainBindingHint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Licensing\CurrentDomainHint.ascx.cs">
+      <DependentUpon>CurrentDomainHint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Licensing\CurrentDomainHint.ascx.designer.cs">
+      <DependentUpon>CurrentDomainHint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Licensing\InvalidLicenseHint.ascx.cs">
+      <DependentUpon>InvalidLicenseHint.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Licensing\InvalidLicenseHint.ascx.designer.cs">
+      <DependentUpon>InvalidLicenseHint.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Licensing\ValidateSystem.aspx.cs">
+      <DependentUpon>ValidateSystem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Licensing\ValidateSystem.aspx.designer.cs">
+      <DependentUpon>ValidateSystem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Licensing\LicenseInfo.aspx.cs">
+      <DependentUpon>LicenseInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Licensing\LicenseInfo.aspx.designer.cs">
+      <DependentUpon>LicenseInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\My\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\My\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Controls\PropertyPanel.ascx.cs">
+      <DependentUpon>PropertyPanel.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\Controls\PropertyPanel.ascx.designer.cs">
+      <DependentUpon>PropertyPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AppCode\TreeNode.cs" />
+    <Compile Include="Admin\Pages\AppCode\TreeNodeCollection.cs" />
+    <Compile Include="Admin\Pages\PageSEO.aspx.cs">
+      <DependentUpon>PageSEO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\PageSEO.aspx.designer.cs">
+      <DependentUpon>PageSEO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Plugins\PluginList.aspx.cs">
+      <DependentUpon>PluginList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Plugins\PluginList.aspx.designer.cs">
+      <DependentUpon>PluginList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Security\RoleEdit.aspx.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\RoleEdit.aspx.designer.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Security\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Security\PrivilegeView.ascx.cs">
+      <DependentUpon>PrivilegeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\PrivilegeView.ascx.designer.cs">
+      <DependentUpon>PrivilegeView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Security\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Security\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangEdit.aspx.cs">
+      <DependentUpon>FrontendLangEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangEdit.aspx.designer.cs">
+      <DependentUpon>FrontendLangEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangList.aspx.cs">
+      <DependentUpon>FrontendLangList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangList.aspx.designer.cs">
+      <DependentUpon>FrontendLangList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendSettingsEdit.aspx.cs">
+      <DependentUpon>FrontendSettingsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendSettingsEdit.aspx.designer.cs">
+      <DependentUpon>FrontendSettingsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\SiteInfoEdit.aspx.cs">
+      <DependentUpon>SiteInfoEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\SiteInfoEdit.aspx.designer.cs">
+      <DependentUpon>SiteInfoEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\SmtpSettingsEdit.aspx.cs">
+      <DependentUpon>SmtpSettingsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\SmtpSettingsEdit.aspx.designer.cs">
+      <DependentUpon>SmtpSettingsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\TaskQueueSettingsEdit.aspx.cs">
+      <DependentUpon>TaskQueueSettingsEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\TaskQueueSettingsEdit.aspx.designer.cs">
+      <DependentUpon>TaskQueueSettingsEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Shared\Controls\PageDropDownList.ascx.cs">
+      <DependentUpon>PageDropDownList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Shared\Controls\PageDropDownList.ascx.designer.cs">
+      <DependentUpon>PageDropDownList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Shared\Uploader.aspx.cs">
+      <DependentUpon>Uploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Shared\Uploader.aspx.designer.cs">
+      <DependentUpon>Uploader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectEdit.aspx.cs">
+      <DependentUpon>CustomRedirectEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectEdit.aspx.designer.cs">
+      <DependentUpon>CustomRedirectEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectList.aspx.cs">
+      <DependentUpon>CustomRedirectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectList.aspx.designer.cs">
+      <DependentUpon>CustomRedirectList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Urls\RewriterIgnoredPathEdit.aspx.cs">
+      <DependentUpon>RewriterIgnoredPathEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Urls\RewriterIgnoredPathEdit.aspx.designer.cs">
+      <DependentUpon>RewriterIgnoredPathEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Urls\RewriterIgnoredPathList.aspx.cs">
+      <DependentUpon>RewriterIgnoredPathList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Urls\RewriterIgnoredPathList.aspx.designer.cs">
+      <DependentUpon>RewriterIgnoredPathList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\AppCode\PageItemView.cs" />
+    <Compile Include="Admin\Designer\Controls\AllWidgets.ascx.cs">
+      <DependentUpon>AllWidgets.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designer\Controls\AllWidgets.ascx.designer.cs">
+      <DependentUpon>AllWidgets.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\Controls\WidgetList.ascx.cs">
+      <DependentUpon>WidgetList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designer\Controls\WidgetList.ascx.designer.cs">
+      <DependentUpon>WidgetList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppCode\SeegerUrls.cs" />
+    <Compile Include="AppCode\PreApplicationStart.cs" />
+    <Compile Include="Templates\Default\AppCode\LanguageSwitchRenderer.cs" />
+    <Compile Include="Templates\Default\AppCode\MenuRenderer.cs" />
+    <Compile Include="Offline.aspx.cs">
+      <DependentUpon>Offline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Offline.aspx.designer.cs">
+      <DependentUpon>Offline.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\tiny_mce\plugins\sigdownload\Dialog.aspx.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scripts\tiny_mce\plugins\sigdownload\Dialog.aspx.designer.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx.designer.cs">
+      <DependentUpon>Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\ListFiles.ashx.cs">
+      <DependentUpon>ListFiles.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Shared\Management.Master.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Shared\Management.Master.designer.cs">
+      <DependentUpon>Management.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\Services.asmx.cs">
+      <DependentUpon>Services.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\PageEdit.aspx.cs">
+      <DependentUpon>PageEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\PageEdit.aspx.designer.cs">
+      <DependentUpon>PageEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Pages\PageList.aspx.cs">
+      <DependentUpon>PageList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Pages\PageList.aspx.designer.cs">
+      <DependentUpon>PageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\Toolbox.ascx.cs">
+      <DependentUpon>Toolbox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designer\Toolbox.ascx.designer.cs">
+      <DependentUpon>Toolbox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\WidgetPreview.ashx.cs">
+      <DependentUpon>WidgetPreview.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Shared\Popup.Master.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Shared\Popup.Master.designer.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\Front.Master.cs">
+      <DependentUpon>Front.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\Front.Master.designer.cs">
+      <DependentUpon>Front.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx.designer.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx.designer.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn1\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn1\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx.designer.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn2\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn2\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx.designer.cs">
+      <DependentUpon>Designer.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Designer\WidgetPreview.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Shared\Management.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Seeger.Core\Seeger.Core.csproj">
+      <Project>{673DD4E1-FCED-476D-8DDB-D474FB4C6578}</Project>
+      <Name>Seeger.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Shared\Popup.Master" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6973</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:6973/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

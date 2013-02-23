@@ -1,0 +1,114 @@
+﻿.fb-folder-panel, .fb-file-panel
+{
+    float: left;
+    width: 180px;
+    height: 230px;
+    padding: 2px;
+    overflow: auto;
+    border: #999 1px solid;
+}
+.fb-file-panel
+{
+    margin-left: 5px;
+}
+.fb-path-info
+{
+    padding: 5px 0;
+}
+
+.fb-folder-panel, .fb-file-panel
+{
+    background-color: #fff;
+}
+.fb-folder-panel ul,
+.fb-file-panel ul
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.fb-folder-panel ul li a,
+.fb-file-panel ul li a
+{
+    display: block;
+    text-decoration: none;
+    padding: 4px 4px 4px 22px;
+    background-position: 4px center;
+    background-repeat: no-repeat;
+}
+.fb-folder-panel ul li a:hover,
+.fb-file-panel ul li a:hover,
+.fb-browser-main ul li a.fb-selected
+{
+    background-color: #e9e9e9;
+}
+
+.fb-loading
+{
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 5px auto auto 5px;
+    background: url(images/spinner.gif) no-repeat left top;
+}
+
+.fb-folder
+{
+    background-image: url(images/directory.png);
+}
+.fb-file
+{
+    background-image: url(images/file.png);
+}
+.fb-txt
+{
+    background-image: url(images/txt.png);
+}
+.fb-pdf
+{
+    background-image: url(images/pdf.png);
+}
+.fb-swf
+{
+    background-image: url(images/flash.png);
+}
+.fb-mp3
+{
+    background-image: url(images/music.png);
+}
+.fb-js
+{
+    background-image: url(images/code.png);
+}
+.fb-css
+{
+    background-image: url(images/css.png);
+}
+.fb-htm, .fb-html
+{
+    background-image: url(images/html.png);
+}
+.fb-ppt, .fb-pptx
+{
+    background-image: url(images/ppt.png);
+}
+.fb-doc, .fb-docx
+{
+    background-image: url(images/doc.png);
+}
+.fb-xls, .fb-xlsx
+{
+    background-image: url(images/xls.png);
+}
+.fb-zip, .fb-rar, .fb-7z
+{
+    background-image: url(images/zip.png);
+}
+.fb-rm, .fb-wmv, .fb-rmvb, .fb-avi, .fb-flv, .fb-mp4
+{
+    background-image: url(images/film.png);
+}
+.fb-jpg, .fb-gif, .fb-png, .fb-bmp
+{
+    background-image: url(images/picture.png);
+}

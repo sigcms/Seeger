@@ -1,0 +1,102 @@
+﻿/* Header */
+#frame-header
+{
+    position: relative;
+    height: 70px;
+    font-size: 11px;
+    background: #404449;
+    color: #C7CCD1;
+}
+#frame-header a 
+{
+    color: #C7CCD1;
+}
+.frame-logo
+{
+    display: block;
+    position: absolute;
+    top: 15px;
+    width: 170px;
+    height: 40px;
+    background: url(images/logo-en.png) no-repeat left top;
+}
+
+.frame-user-links
+{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+.frame-user-links a
+{
+    display: inline-block;
+    margin-left: 5px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+}
+.frame-user-links a:hover
+{
+    text-decoration: underline;
+}
+
+/* Main */
+#frame-main
+{
+    position: relative;
+    padding-left: 181px;
+    min-height: 400px;
+}
+
+/* Main - Menu bar */
+.frame-menubar
+{
+    width: 180px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #DFE1E3;
+    border-right: #ccc 1px solid;
+}
+.frame-menubar ul
+{
+    padding: 4px 0;
+    border-bottom: #ccc 1px solid;
+}
+.frame-menubar li > a
+{
+    font-size: 11px;
+    display: block;
+    padding: 4px 18px;
+    text-decoration: none;
+}
+.frame-menubar li > a:hover
+{
+    background: #c9ced3;
+    text-decoration: none;
+}
+.frame-menubar ul.shortcut-menu
+{
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+.frame-menubar ul.shortcut-menu li > a
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.frame-menubar .section-title
+{
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0;
+    padding: 6px 18px 0;
+    background: url(images/bullet-star.png) no-repeat 2px 5px;
+}
+
+/* Frame Main */
+#frame-main-content
+{
+}

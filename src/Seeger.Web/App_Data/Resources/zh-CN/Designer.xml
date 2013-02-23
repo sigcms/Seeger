@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Designer">
+  <item key="ShowToolbox" value="显示工具栏" />
+  <item key="HideToolbox" value="隐藏工具栏" />
+  <item key="HighlightZones" value="突出显示页面区域" />
+  <item key="CancelHighlightZones" value="取消突出显示页面区域" />
+  <item key="CloseDesigner" value="关闭设计器" />
+  <item key="Widgets" value="页面模块" />
+  <item key="TemplateProvided" value="模板提供" />
+  <item key="NoChange" value="页面没有修改, 无需保存" />
+  <item key="ReloadConfirm_HasUnsavedChanges" value="页面已被修改，确定要刷新吗? 刷新后这些修改将丢失" />
+  <item key="ChangePageCultureConfirm_HasUnsavedChanges" value="页面已被修改，确定要切换页面语言吗? 切换后这些修改将丢失" />
+  <item key="CloseConfirm_HasUnsavedChanges" value="页面已被修改，确定要关闭吗? 关闭后这些修改将丢失" />
+  <item key="SavedAndReloading" value="保存成功! 正在重新载入设计器..." />
+</localization>

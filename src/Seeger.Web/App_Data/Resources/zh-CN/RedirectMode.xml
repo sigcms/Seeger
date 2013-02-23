@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="RedirectMode.">
+  <item key="Temporary" value="临时跳转(302)" />
+  <item key="Permanent" value="永久跳转(301)" />
+</localization>

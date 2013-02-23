@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <add key="TwoColumn1" value="两栏布局，边栏在左" />
+  <add key="TwoColumn2" value="两栏布局，边栏在右" />
+  <add key="ThreeColumn1" value="三栏布局，两个边栏" />
+  <add key="ThreeColumn2" value="三栏布局，三栏宽度相等" />
+</localization>

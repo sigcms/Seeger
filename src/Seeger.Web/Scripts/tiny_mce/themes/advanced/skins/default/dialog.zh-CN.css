@@ -1,0 +1,21 @@
+@import url(dialog.css);
+
+body
+{
+    font-size: 13px;
+}
+
+td { font-size:13px;}
+
+/* Forms */
+fieldset { font-size:13px;}
+input, select, textarea { font-size:13px;}
+
+#insert {background:url(img/buttons.png) 0 -52px}
+#cancel {background:url(img/buttons.png) 0 0; float:right}
+
+/* Tabs classes */
+.tabs a {text-decoration:none; font-family:Verdana, Arial; font-size:13px;}
+
+h3 {font-size:14px;}
+.title {font-size:14px; font-weight:bold; color:#2B6FB6;}

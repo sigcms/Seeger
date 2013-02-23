@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Management.Master.cs" Inherits="Seeger.Web.UI.Admin.Management" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-ui.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/sig.common.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.sigvalidate.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/sig.validator.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.tmpl.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.looklesstab.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.dropdown.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/json2.js" />
+    <asp:ContentPlaceHolder id="HeadHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>    
+    <form id="form1" runat="server">
+    <asp:ContentPlaceHolder ID="TopHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <div class="mgnt">
+        <asp:PlaceHolder runat="server" ID="PageTitlePanel">
+            <h1 class="mgnt-page-title">
+                <asp:Literal runat="server" ID="PageTitle"></asp:Literal>
+            </h1>
+        </asp:PlaceHolder>
+
+        <sig:MessagePanel runat="server" ID="Message" Visible="false" />
+
+        <div>
+            <asp:ContentPlaceHolder id="MainHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </div>
+
+    <asp:ContentPlaceHolder ID="FooterHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+    </form>
+</body>
+</html>

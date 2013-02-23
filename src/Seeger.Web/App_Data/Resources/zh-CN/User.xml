@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="User">
+  <item key="MyProfile" value="我的资料" />
+  <item key="UserName" value="用户名" />
+  <item key="Email" value="邮件" />
+  <item key="Password" value="密码" />
+  <item key="PasswordConfirm" value="密码确认" />
+  <item key="Skin" value="后台皮肤" />
+  <item key="Language" value="显示语言" />
+  <item key="Role" value="角色" />
+
+  <item key="List" value="用户列表" />
+  <item key="Add" value="添加用户" />
+  <item key="Edit" value="编辑用户" />
+
+  <item key="UserNameIsUsed" value="* 该用户名已被使用" />
+  <item key="TwoPasswordNotSame" value="* 两次输入的密码不一样" />
+</localization>

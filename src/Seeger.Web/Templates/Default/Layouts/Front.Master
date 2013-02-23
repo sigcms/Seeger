@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Front.master.cs" Inherits="Seeger.Web.UI.Templates.Default.Layouts.Front" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="container">
+        <div class="header">
+            <div class="header-inner">
+                <asp:Literal runat="server" ID="Logo" />
+                <asp:Literal runat="server" ID="Subtitle" />
+
+                <asp:Literal runat="server" ID="Menu" />
+                <asp:Literal runat="server" ID="LanguageSwitch" />
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-inner">
+                <asp:ContentPlaceHolder runat="server" ID="MainHodler" />
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-inner">
+                <div>
+                    <asp:Literal runat="server" ID="Copyright" />
+                    &nbsp;
+                    <asp:Literal runat="server" ID="PoweredBy" />
+                    &nbsp;
+                    <asp:Literal runat="server" ID="MiiBeiAnNumber" />
+                </div>
+            </div>
+        </div>
+    </div>    
+    </form>
+</body>
+</html>

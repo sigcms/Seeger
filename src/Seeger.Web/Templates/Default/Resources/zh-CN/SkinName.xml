@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <add key="ClassicBlue" value="经典蓝" />
+  <add key="FreshPink" value="清新粉红" />
+</localization>

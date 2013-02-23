@@ -1,0 +1,27 @@
+﻿.ui-widget.ui-dialog  
+{
+    font-size: 13px !important; 
+}
+
+.sig-toolbox
+{
+    font-size: 13px;
+}
+
+.sig-widget-toolbar > a
+{
+    font-size: 13px;
+}
+
+.sig-tooltip-message
+{
+    font-size: 13px;
+}
+.sig-tooltip-message.error
+{
+    background-color: #D54E21;
+}
+.sig-sortable-placeholder
+{
+    background-image: url(../images/drop-here-cn.png);
+}

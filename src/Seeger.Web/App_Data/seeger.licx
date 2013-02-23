@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license id="453cc188-ec12-40af-b95d-3ed07ff9a554" expiration="9999-12-31T23:59:59.9999999" type="None" CmsVersion="1.0.0.0" CmsEdition="International" SupportedDomains="seegercms.com,demo.seegercms.com,demo-cn.seegercms.com,demo-en.seegercms.com">
+  <name>西格CMS</name>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>DLg+h1KGqAD0knHwGSJo8Qkm2oM=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>mUwWZsruuXKTrajK3++JIhPDJFvAzxrQ9pi3OJJTIb9u836MX3os0TyCVOxYIrbfAj8g+cfKsFg2/FUoIPQCuz9gZ8om+X4ZqVnoRUIglw8uod+jI1AbiBxdaHFseuvjufwWCsOzT6sx226TeLtk5gXtI/sI39vlsBLLjCzuLDQ=</SignatureValue>
+  </Signature>
+</license>

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="Navigator.ExampleMenuText1" value="Page 1" />
+  <item key="Navigator.ExampleMenuText2" value="Page 2" />
+  <item key="Navigator.ExampleMenuText3" value="Page 3" />
+</localization>

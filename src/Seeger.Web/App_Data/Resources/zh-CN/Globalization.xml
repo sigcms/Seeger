@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Globalization">
+  <item key="FrontendLanguageList" value="语言列表" />
+  <item key="EditFrontendLanguage" value="编辑语言" />
+  <item key="LanguageName" value="语言" />
+  <item key="LanguageDisplayName" value="显示名称" />
+  <item key="LanguageIcon" value="语言图标" />
+  <item key="SelectLanguage" value="选择语言" />
+  <item key="BindedDomain" value="绑定域名" />
+
+  <item key="ErrMsg.LanguageAlreadyAdded" value="* 已添加过该语言" />
+
+  <item key="Help_BindedDomain" value="例如 en.seegercms.com" />
+</localization>

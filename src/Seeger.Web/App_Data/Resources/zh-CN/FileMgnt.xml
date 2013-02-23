@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="FileMgnt">
+  <item key="CreateFolder" value="创建文件夹" />
+  <item key="CreateFolderSuccess" value="创建文件夹成功" />
+  <item key="CreationTime" value="创建时间" />
+  <item key="CurrentPath" value="当前路径" />
+  <item key="Path" value="路径" />
+  <item key="Extension" value="扩展名" />
+  <item key="EmptyFolder" value="空文件夹" />
+  <item key="FileName" value="文件名" />
+  <item key="FileNotFound" value="未找到文件" />
+  <item key="FolderNameIsRequired" value="请输入文件夹名" />
+  <item key="DirectoryNotFound" value="未找到文件夹" />
+  <item key="FolderName" value="文件夹名" />
+  <item key="NewName" value="新名称" />
+  <item key="NewNameIsRequired" value="请输入新文件/文件夹名" />
+  <item key="FolderAlreadyExists" value="文件夹已经存在" />
+  <item key="File" value="文件" />
+  <item key="FileTypeNotSupported" value="不支持该文件类型" />
+  <item key="LastWriteTime" value="上次修改时间" />
+  <item key="NotSupportFileType{0}" value="不支持文件类型: {0}" />
+  <item key="GoUpperLevel" value="上一级" />
+  <item key="UploadFile" value="上传文件" />
+</localization>

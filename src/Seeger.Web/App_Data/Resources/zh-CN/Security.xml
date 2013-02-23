@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Security.">
+  <item key="AddRole" value="添加角色" />
+  <item key="AddUser" value="添加用户" />
+  <item key="Login" value="登陆" />
+  <item key="Logout" value="退出" />
+</localization>

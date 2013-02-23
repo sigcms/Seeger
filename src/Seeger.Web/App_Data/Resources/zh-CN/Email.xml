@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Email">
+  <item key="Server" value="服务器" />
+  <item key="Port" value="端口" />
+  <item key="EnableSsl" value="启用SSL" />
+  <item key="SenderName" value="发送人名称" />
+  <item key="SenderEmail" value="发送人邮件" />
+  <item key="AccountName" value="帐户名" />
+  <item key="AccountPassword" value="帐户密码" />
+  <item key="PortShouldBeNumber" value="端口号必须为数字" />
+  <item key="KeepBlankIfNoNeedToChange" value="如果不修改密码请保存密码输入框为空" />
+</localization>

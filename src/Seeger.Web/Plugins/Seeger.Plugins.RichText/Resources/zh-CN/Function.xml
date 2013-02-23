@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Function">
+  <item key="DefaultModule" value="默认模块" />
+  <item key="EditPageMenu" value="页面菜单" />
+  <item key="EditAnalytics" value="流量统计" />
+</localization>

@@ -1,0 +1,24 @@
+﻿/* Language Switch */
+.language-switch
+{
+    text-align: center;
+}
+.language-switch .language-link
+{
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.header .language-switch
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: #DDE4EC;
+}
+.header .language-switch .language-link
+{
+    color: #DDE4EC;
+}

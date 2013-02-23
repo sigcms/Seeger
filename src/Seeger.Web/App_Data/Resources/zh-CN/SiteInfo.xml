@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="SiteInfo">
+  <item key="BasicSetting" value="基本设置" />
+  <item key="SEOSetting" value="SEO设置" />
+  
+  <item key="SiteTitle" value="网站标题" />
+  <item key="SiteSubtitle" value="网站副标题" />
+  <item key="Copyright" value="版权信息" />
+  <item key="MiiBeiAnNumber" value="备案号" />
+  <item key="Logo" value="LOGO" />
+  <item key="DeleteLogo" value="删除LOGO" />
+</localization>

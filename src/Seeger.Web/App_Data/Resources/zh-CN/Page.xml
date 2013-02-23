@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Page">
+  <item key="PageManagement" value="页面管理" />
+  <item key="AddRootPage" value="添加顶级页面" />
+  <item key="CurrentPage" value="当前页面" />
+  <item key="Add" value="添加页面" />
+  <item key="Edit" value="编辑页面" />
+  <item key="Localize" value="本地化" />
+  <item key="View" value="查看" />
+  <item key="Design" value="设计" />
+  <item key="AddChild" value="添加子页面" />
+  <item key="SelectPageHint" value="请先选择页面" />
+
+  <item key="UniqueName" value="Unique Name" />
+  <item key="DisplayName" value="显示名称" />
+  <item key="Path" value="路径" />
+  <item key="Template" value="模板" />
+  <item key="Layout" value="布局" />
+  <item key="Skin" value="皮肤" />
+  <item key="CreatedTime" value="创建时间" />
+  <item key="ModifiedTime" value="修改时间" />
+  <item key="ParentPage" value="父页面" />
+  <item key="Extension" value="扩展名" />
+  <item key="VisibleInMenu" value="显示于菜单" />
+  <item key="Publish" value="发布" />
+  <item key="Published" value="已发布" />
+  <item key="Url" value="URL地址" />
+  <item key="UrlSegment" value="URL" />
+  <item key="BindedDomains" value="绑定域名" />
+  <item key="IsDeletable" value="可被删除" />
+
+  <item key="MenuText" value="菜单文字" />
+  <item key="Title" value="标题" />
+  <item key="MetaKeywords" value="关键字" />
+  <item key="MetaDescription" value="描述" />
+
+  <item key="NoPageNow" value="现在没有页面" />
+  <item key="AddPageRightNow" value="立即添加" />
+  <item key="ClickHereToAddPageRightNow" value="点击此处添加页面" />
+  
+  <item key="ErrMsg.DuplicateUrlSegment" value="* URL重复，同一层级中各页面的URL不能重复" />
+</localization>

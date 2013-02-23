@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizaion>
+  <item key="Analytics.PluginDisplayName">流量统计</item>
+  <item key="Analytics.PluginDescription">
+    <![CDATA[
+    添加流量统计代码到页面中
+    ]]>
+  </item>
+  <item key="Menu.Analytics">流量统计</item>
+  <item key="Function.EditAnalytics">更改流量统计代码</item>
+
+  <item key="Mgnt.AnalyticsCode">统计代码</item>
+  <item key="Mgnt.EnableAnalyticsCode">启用流量统计</item>
+</localizaion>

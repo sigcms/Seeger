@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Login.">
+  <item key="PageTitle" value="登录 - 西格内容管理系统" />
+  <item key="UserName" value="用户名" />
+  <item key="Password" value="密　码" />
+  <item key="Login" value="登 录" />
+  <item key="LoginFailed" value="登录失败，请检查用户名和密码" />
+  <item key="BackToHomepage" value="返回首页" />
+</localization>

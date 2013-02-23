@@ -1,0 +1,46 @@
+﻿.list ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-position: inside;
+}
+.list .list-title
+{
+    margin: 0;
+    font-weight: normal;
+    font-size: 20px;
+}
+.list ul li 
+{
+    margin: 4px auto 3px;
+    font-size: 1em;
+}
+
+.article-list .article-summary
+{
+    padding: 2px 0 3px 13px;
+}
+.article-list .article-summary p
+{
+    margin: 0;
+}
+
+.article-detail .article-title
+{
+    margin: 0;
+    font-size: 24px;
+}
+.article-detail .article-remark
+{
+    font-size: 13px;
+    padding: 8px 0 15px;
+}
+.article-detail .article-remark span
+{
+    display: inline-block;
+    margin-right: 10px;
+}
+.article-detail .article-content
+{
+    font-size: 1em;
+}

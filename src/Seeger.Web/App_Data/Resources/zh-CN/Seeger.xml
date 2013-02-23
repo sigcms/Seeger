@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Seeger">
+  <item key="Name" value="西格内容管理系统" />
+  <item key="ShortName" value="西格CMS" />
+  <item key="Homepage" value="官方首页" />
+  <item key="ProductIntroduction" value="产品介绍" />
+  <item key="Help" value="使用帮助" />
+  <item key="Suggest" value="建议意见" />
+  <item key="Purchase" value="系统购买" />
+  <item key="TechSupport" value="技术支持" />
+  <item key="FAQ" value="常见问题" />
+  <item key="Contact" value="联系我们" />
+  <item key="ReportBug" value="BUG反馈" />
+  <item key="About" value="关于我们" />
+</localization>

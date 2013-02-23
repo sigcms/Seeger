@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Role">
+  <item key="List" value="角色列表" />
+  <item key="Add" value="添加角色" />
+  <item key="Edit" value="编辑角色" />
+  <item key="Name" value="名称" />
+  <item key="Privileges" value="权限" />
+</localization>

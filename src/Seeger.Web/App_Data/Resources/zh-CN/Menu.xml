@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Menu.">
+  <item key="SiteMgnt" value="网站管理" />
+  <item key="PageMgnt" value="页面管理" />
+  <item key="CustomRedirectMgnt" value="自定义跳转" />
+  <item key="RewriterIgnoredPathMgnt" value="免重写路径" />
+  <item key="Settings" value="设置" />
+  <item key="FrontendSettings" value="前台设置" />
+  <item key="FrontendLanguages" value="前台语言" />
+  <item key="EmailSettings" value="邮件设置" />
+  <item key="TaskQueueSettings" value="任务队列设置" />
+  <item key="SiteInfo" value="网站信息" />
+  <item key="FileMgnt" value="文件管理" />
+  <item key="Security" value="安全" />
+  <item key="RoleMgnt" value="角色管理" />
+  <item key="UserMgnt" value="用户管理" />
+  <item key="PluginMgnt" value="插件管理" />
+</localization>

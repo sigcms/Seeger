@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="TaskQueue">
+  <item key="IntervalInMinutes" value="执行时间间隔(分钟)" />
+</localization>

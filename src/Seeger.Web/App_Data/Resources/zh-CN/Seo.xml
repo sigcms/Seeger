@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Seo">
+  <item key="H1" value="标题1(H1)" />
+  <item key="H2" value="标题2(H2)" />
+  <item key="H3" value="标题3(H3)" />
+  <item key="H4" value="标题4(H4)" />
+  <item key="H5" value="标题5(H5)" />
+  <item key="H6" value="标题6(H6)" />
+</localization>

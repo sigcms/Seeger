@@ -1,0 +1,270 @@
+﻿*, html, body, ul li
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body
+{
+    color: #333;
+    font-size: 62.5%;
+    font-family: Arial, Verdana, Lucida Sans, Sans-Serif;
+}
+h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+    padding: 0;
+}
+
+a
+{
+    color: #082A4E;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+
+a.caution
+{
+    color: #D54E21;
+}
+
+fieldset
+{
+    padding: 10px;
+}
+
+table
+{
+    empty-cells: show;
+}
+
+select
+{
+    border: #999 1px solid;
+    padding: 1px;
+}
+
+textarea
+{
+    overflow: auto;
+}
+
+input[type=text], input[type=password], textarea
+{
+    font-family: Arial, Verdana, Lucida Sans, Sans-Serif;
+    font-size: 1em;
+    border:1px solid #999;
+    padding: 2px;
+}
+
+.clear { clear: both; }
+
+.code
+{
+    font-family: Consolas, Courier New, Sans-Serif;
+}
+
+.sig-tooltip-message
+{
+    background: #4B981D;
+    color: white;
+    padding: 8px 15px;
+}
+.sig-tooltip-message.error
+{
+    background-color: #D54E21;
+}
+
+.message
+{
+    padding: 10px;
+    margin-bottom: 10px;
+    border: #FAD42E 1px solid;
+    background-color: #FBEC88;
+    line-height: 1.5em;
+}
+.message a
+{
+    text-decoration: underline;
+}
+.message.info, .message.info a
+{
+    color: #404449;
+}
+.message.success, .message.success a 
+{
+    color: green;
+}
+.message.error, .message.error a
+{
+    color: #CD0A0A;
+}
+
+.text-warning
+{
+    color: Red;
+}
+
+/* Buttons
+----------------------*/
+.button {
+	display: inline-block;
+	zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+	*display: inline;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding: .3em 1em .3em;
+}
+.button:hover {
+	text-decoration: none;	
+}
+.button:active {
+	position: relative;
+	top: 1px;
+}
+
+/* primary */
+.primary {
+	color: #e8f0de;
+	border: solid 1px #538312;
+	background: #64991e;
+}
+.primary:hover {
+	background: #538018;
+}
+
+.secondary 
+{
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: #fff;
+}
+.secondary:hover
+{
+	background: #ededed;
+}
+
+/* Drop Down
+----------------*/
+.dropdown-content 
+{
+    display: none;
+    position: absolute;
+    background: white;
+    border: #999 1px solid;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow: 2px 2px 2px rgba(0,0,0,.3);
+}
+.dropdown-content li > a
+{
+    display: block;
+    color: #333;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+.dropdown-content li > a:hover
+{
+    background: #eee;
+}
+
+/* Icon Link
+----------------*/
+.icon-link
+{
+    margin-right: 2px;
+    padding-left: 18px;
+    background-position: left;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.icon-link.view
+{
+    background-image: url(images/icon-page-view.png);
+}
+.icon-link.edit
+{
+    background-image: url(images/icon-page-edit.png);
+}
+.icon-link.delete
+{
+    color: Red;
+    background-image: url(images/icon-page-delete.png);
+}
+.icon-link.add
+{
+    background-image: url(images/icon-page-add.png);
+}
+.icon-link.seo
+{
+    background-image: url(images/icon-page-seo.png);
+}
+.icon-link .more
+{
+    display: inline-block;
+    width: 10px;
+    height: 16px;
+    background: url(images/ui-icons_454545_256x240.png) no-repeat -67px -13px;
+}
+.icon-folder
+{
+    background-image: url(images/icon-folder.png);
+}
+.icon-file
+{
+    background-image: url(images/icon-file.png);
+}
+.icon-pdf
+{
+    background-image: url(images/icon-pdf.png);
+}
+.icon-jpg, .icon-gif, .icon-png, .icon-bmp
+{
+    background-image: url(images/icon-image.png);
+}
+.icon-doc, .icon-docx
+{
+    background-image: url(images/icon-word.png);
+}
+.icon-ppt, .icon-pptx
+{
+    background-image: url(images/icon-ppt.png);
+}
+.icon-xsl, icon-xslx
+{
+    background-image: url(images/icon-excel.png);
+}
+.icon-html, icon-htm
+{
+    background-image: url(images/icon-html.png);
+}
+.icon-swf 
+{
+    background-image: url(images/icon-flash.png);
+}
+.icon-flv, .icon-mp4, .icon-wmv, .icon-avi, .icon-rm, .icon-rmvb
+{
+    background-image: url(images/icon-video.png);
+}
+.icon-mp3
+{
+    background-image: url(images/icon-music.png);
+}
+.icon-zip, .icon-rar
+{
+    background-image: url(images/icon-zip.png);
+}
+.icon-txt
+{
+    background-image: url(images/icon-txt.png);
+}
+.icon-js, .icon-css
+{
+    background-image: url(images/icon-code.png);
+}

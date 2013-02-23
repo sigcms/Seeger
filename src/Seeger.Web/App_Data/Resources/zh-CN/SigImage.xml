@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="SigImage">
+  <item key="SelectImage" value="选择图片" />
+  <item key="Preview" value="预览" />
+  <item key="Properties" value="属性" />
+  <item key="Upload" value="上传" />
+  <item key="Title" value="标题" />
+  <item key="Dimensions" value="尺寸" />
+  <item key="UploadSuccess" value="上传成功" />
+  <item key="PleaseSelectImage" value="请选择图片" />
+  <item key="DialogTitle" value="插入图片" />
+  <item key="CurrentPath" value="当前路径" />
+</localization>
