@@ -30,6 +30,10 @@ namespace Seeger.Data.Mapping
             Property(c => c.UserName);
             Property(c => c.Password);
             Property(c => c.Email);
+            Property(c => c.FailedPasswordAttemptCount);
+            Property(c => c.LastFailedPasswordAttemptTime);
+            Property(c => c.LastLoginTime);
+            Property(c => c.LastLoginIP);
             Property(c => c.IsSuperAdmin);
             Property("_skinName", m =>
             {

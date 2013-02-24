@@ -8,16 +8,22 @@ using System.Web.Security;
 using Seeger.Data;
 using Seeger.Security;
 using NHibernate.Linq;
+using Seeger.Globalization;
+using System.Globalization;
 
 namespace Seeger.Web
 {
     public class AuthenticationService
     {
+        public static readonly int MaxInvalidPasswordAttempts = 5;
+
+        public static readonly int PasswordAttemptWindowInMinutes = 30;
+
         public static readonly string PasswordHashAlgorithm = "SHA1";
 
-        public static User Login(string userName, string password, bool persistCredential)
+        public static User Login(string userName, string password, string ip, bool persistCredential)
         {
-            User user = Authenticate(userName, password);
+            var user = Authenticate(userName, password, ip);
             if (user != null)
             {
                 SetAuthCookie(user, persistCredential);
@@ -26,18 +32,47 @@ namespace Seeger.Web
             return user;
         }
 
-        public static User Authenticate(string userName, string password)
+        public static User Authenticate(string userName, string password, string ip)
         {
-            if (!String.IsNullOrEmpty(userName) && !String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password))
+                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+
+            var session = NhSessionManager.GetCurrentSession();
+
+            var user = session.Query<User>().FirstOrDefault(u => u.UserName == userName);
+
+            if (user == null)
+                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+
+            if (user.FailedPasswordAttemptCount >= MaxInvalidPasswordAttempts)
             {
-                string hashedPassword = HashPassword(password);
+                var unlockTime = user.LastFailedPasswordAttemptTime.Value.AddMinutes(PasswordAttemptWindowInMinutes);
 
-                User user = NhSessionManager.GetCurrentSession().Query<User>().FirstOrDefault(it =>it.UserName == userName && it.Password == hashedPassword);
-
-                return user;
+                if (DateTime.Now < unlockTime)
+                {
+                    throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LockedForTooManyInvalidPasswordAttempts", CultureInfo.CurrentUICulture));
+                }
             }
 
-            return null;
+            if (user.Password != HashPassword(password))
+            {
+                user.LastFailedPasswordAttemptTime = DateTime.Now;
+                user.FailedPasswordAttemptCount++;
+
+                session.Commit();
+
+                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+            }
+            else
+            {
+                user.LastLoginIP = ip;
+                user.LastLoginTime = DateTime.Now;
+                user.FailedPasswordAttemptCount = 0;
+            }
+
+            session.Commit();
+
+            return user;
         }
 
         public static string HashPassword(string password)

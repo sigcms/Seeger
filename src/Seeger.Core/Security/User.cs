@@ -16,10 +16,23 @@ namespace Seeger.Security
 
         [EntityKey]
         public virtual int Id { get; protected set; }
+        
         public virtual string UserName { get; set; }
+        
         public virtual string Password { get; protected set; }
+        
         public virtual string Email { get; set; }
+
+        public virtual int FailedPasswordAttemptCount { get; set; }
+
+        public virtual DateTime? LastFailedPasswordAttemptTime { get; set; }
+
+        public virtual DateTime? LastLoginTime { get; set; }
+
+        public virtual string LastLoginIP { get; set; }
+
         public virtual bool IsSuperAdmin { get; protected set; }
+        
         public virtual IList<Role> Roles { get; protected set; }
 
         public virtual Skin Skin

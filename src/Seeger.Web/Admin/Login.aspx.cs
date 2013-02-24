@@ -25,16 +25,15 @@ namespace Seeger.Web.UI
 
         protected void LoginButton_Click(object sender, EventArgs e)
         {
-            var user = AuthenticationService.Login(Name.Text.Trim(), Password.Text, false);
-
-            if (user == null)
+            try
+            {
+                AuthenticationService.Login(Name.Text.Trim(), Password.Text, Request.UserHostAddress, false);
+                Response.Redirect("~/Admin/Default.aspx");
+            }
+            catch (Exception ex)
             {
                 Message.Visible = true;
-                Message.Text = Localize("Login.LoginFailed");
-            }
-            else
-            {
-                Response.Redirect("~/Admin/Default.aspx");
+                Message.Text = ex.Message;
             }
         }
     }

@@ -6,4 +6,5 @@
   <item key="Login" value="登 录" />
   <item key="LoginFailed" value="登录失败，请检查用户名和密码" />
   <item key="BackToHomepage" value="返回首页" />
+  <item key="LockedForTooManyInvalidPasswordAttempts" value="您已连续多次输入错误密码，帐户已被锁定" />
 </localization>
