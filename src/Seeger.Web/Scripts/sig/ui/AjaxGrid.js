@@ -1,9 +1,9 @@
 ﻿(function ($) {
 
-    var sig = window.sig || {};
+    var sig = window.sig = window.sig || {};
     sig.ui = sig.ui || {};
 
-    sig.AjaxGrid = function (options) {
+    sig.ui.AjaxGrid = function (options) {
         var _this = this;
         var _$container = $(options.container);
         var _pageIndex = 0;
@@ -42,16 +42,16 @@
         this.load = function (pageIndex) {
             _pageIndex = pageIndex;
 
-            Sig.Message.show('Loading...');
+            sig.ui.Message.show(sig.GlobalResources.get('Message.Loading') + '...');
 
             if (window.PageMethods === undefined || window.PageMethods.LoadGridHtml === undefined)
                 throw new Error('ScriptManager must be added with EnablePageMethods set to true, and also the page must be subclass of AjaxGridPageBase.');
 
             PageMethods.LoadGridHtml(_this.gridId(), pageIndex, location.href, null, function (html) {
-                Sig.Message.hide();
+                sig.ui.Message.hide();
                 _gridPanel.html(html);
             }, function (e) {
-                Sig.Message.error(e.get_message());
+                sig.ui.Message.error(e.get_message());
             });
         }
 
@@ -64,7 +64,7 @@
         var _this = this;
         var _grid = grid;
         var _$element = grid.find('.grid-panel');
-        var _norecordMessage = 'No records to display';
+        var _norecordMessage = sig.GlobalResources.get('Message.NoRecordToDisplay');
 
         this.html = function (html) {
             _$element.html(html);
@@ -103,7 +103,7 @@
     $(function () {
         $('.ajax-grid').each(function () {
             var $grid = $(this);
-            var grid = new sig.AjaxGrid({
+            var grid = new sig.ui.AjaxGrid({
                 container: $grid
             });
             grid.init();

@@ -73,5 +73,12 @@ namespace Seeger.Globalization
 
             return null;
         }
+
+        public IDictionary<string, string> GetResourceDictionary(CultureInfo culture)
+        {
+            Dictionary<string, string> dictionary;
+            _cache.TryGetValue(culture, out dictionary);
+            return dictionary;
+        }
     }
 }

@@ -78,6 +78,22 @@ input[type=text], input[type=password], textarea
     background-color: #D54E21;
 }
 
+.sig-ui-message
+{
+    padding: 3px 25px;
+    background: #4B981D;
+    color: White;
+    position: fixed;
+    z-index: 5000;
+    font-size: 13px;
+    font-family: Arial, Verdana, Sans-Serif;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 1px 5px #999;
+}
+.sig-ui-message-error {
+    background: red;
+}
+
 .message
 {
     padding: 10px;

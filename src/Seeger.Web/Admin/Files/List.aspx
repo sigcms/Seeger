@@ -2,12 +2,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<asp:ScriptManager runat="server" ID="ScriptManager1">
+<asp:ScriptManagerProxy runat="server">
     <Services>
         <asp:ServiceReference Path="Services.asmx" />
     </Services>
-</asp:ScriptManager>
-
+</asp:ScriptManagerProxy>
 
 <div class="mgnt-toolbar">
     <span class="file-current-path">

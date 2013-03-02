@@ -43,5 +43,8 @@
 
     </form>
     <script type="text/javascript" src="/Scripts/sig.core.js"></script>
+    <script type="text/javascript">
+        sig.GlobalResources.init(<%= GetGlobalResourceDirectoryJson() %>);
+    </script>
 </body>
 </html>

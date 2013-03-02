@@ -15,12 +15,14 @@
 <script type="text/javascript">
     $(function () {
         $('.btn-delete').live('click', function () {
-            if (!confirm('Are you sure to delete this item?')) return;
+            if (!confirm(sig.GlobalResources.get('Message.DeleteConfirm'))) return;
+
+            sig.ui.Message.show(sig.GlobalResources.get('Message.Processing'));
 
             PageMethods.Delete($(this).attr('item-id'), function () {
                 $('.ajax-grid').data('AjaxGrid').refresh();
             }, function (e) {
-                Sig.Message.error(e.get_message());
+                sig.ui.Message.error(e.get_message());
             });
         });
     });

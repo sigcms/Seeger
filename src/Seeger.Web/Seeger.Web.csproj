@@ -313,7 +313,9 @@
     <Content Include="Scripts\jquery.querystring.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\sig.validator.js" />
+    <Content Include="Scripts\sig\GlobalResources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
+    <Content Include="Scripts\sig\ui\Message.js" />
     <Content Include="Scripts\telerik\telerik.common.js" />
     <Content Include="Scripts\telerik\telerik.draganddrop.js" />
     <Content Include="Scripts\telerik\telerik.treeview.ext.js" />

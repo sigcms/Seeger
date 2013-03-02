@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Seeger.Globalization;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -33,6 +36,12 @@ namespace Seeger.Web.UI.Admin
             {
                 PageTitlePanel.Visible = false;
             }
+        }
+
+        protected string GetGlobalResourceDirectoryJson()
+        {
+            var directory = ResourcesFolder.Global.GetResourceDictionary(CultureInfo.CurrentUICulture);
+            return JsonConvert.SerializeObject(directory);
         }
     }
 }
