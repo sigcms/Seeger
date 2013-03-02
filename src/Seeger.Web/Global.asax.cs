@@ -14,6 +14,7 @@ namespace Seeger.Web.UI
             _logger.Debug("Application starting...");
 
             CmsInitializer.Initialize();
+            ResourceBundler.Initialize();
         }
 
         void Application_BeginRequest(object sender, EventArgs e)

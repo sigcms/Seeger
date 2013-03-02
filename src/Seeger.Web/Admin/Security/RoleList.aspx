@@ -8,10 +8,22 @@
          Function="RoleMgnt" Operation="Add" />
 </div>
 
-<sig:GridView runat="server" ID="ListGrid">
-    <Columns>
-        <asp:BoundField HeaderText="<%$ Resources: Role.Name %>" DataField="Name" />
-    </Columns>
-</sig:GridView>
+<div class="ajax-grid">
+    <div class="grid-panel"></div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('.btn-delete').live('click', function () {
+            if (!confirm('Are you sure to delete this item?')) return;
+
+            PageMethods.Delete($(this).attr('item-id'), function () {
+                $('.ajax-grid').data('AjaxGrid').refresh();
+            }, function (e) {
+                Sig.Message.error(e.get_message());
+            });
+        });
+    });
+</script>
 
 </asp:Content>

@@ -8,10 +8,13 @@ using System.Web.UI.WebControls;
 using Seeger.Data;
 using Seeger.Web.UI.DataManagement;
 using Seeger.Security;
+using Seeger.Web.UI.Grid;
+using System.Web.Services;
+using System.Web.Script.Services;
 
 namespace Seeger.Web.UI.Admin.Security
 {
-    public partial class RoleList : ListPageBase<Role>
+    public partial class RoleList : AjaxGridPageBase<Role>
     {
         public override bool VerifyAccess(User user)
         {
@@ -22,9 +25,13 @@ namespace Seeger.Web.UI.Admin.Security
         {
         }
 
-        protected override GridView GridView
+        [WebMethod, ScriptMethod]
+        public static void Delete(int id)
         {
-            get { return ListGrid; }
+            var session = NhSessionManager.GetCurrentSession();
+            var role = session.Get<Role>(id);
+            session.Delete(role);
+            session.Commit();
         }
     }
 }

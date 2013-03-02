@@ -11,14 +11,5 @@ namespace Seeger.Web.UI.Admin.Security {
     
     
     public partial class RoleList {
-        
-        /// <summary>
-        /// ListGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Seeger.Web.UI.GridView ListGrid;
     }
 }

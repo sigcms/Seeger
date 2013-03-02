@@ -6,6 +6,7 @@ using System.Text;
 using Seeger.Data;
 using Seeger.Caching;
 using NHibernate;
+using System.Globalization;
 
 namespace Seeger.Web.UI
 {
@@ -22,6 +23,16 @@ namespace Seeger.Web.UI
             {
                 return NhSessionManager.GetCurrentSession();
             }
+        }
+
+        protected string Localize(string key)
+        {
+            return Localize(key, CultureInfo.CurrentUICulture);
+        }
+
+        protected string Localize(string key, CultureInfo culture)
+        {
+            return SmartLocalizer.GetForCurrentRequest().Localize(key, culture);
         }
     }
 

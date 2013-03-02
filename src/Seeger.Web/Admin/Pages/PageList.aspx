@@ -8,11 +8,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManagerProxy runat="server">
         <Services>
             <asp:ServiceReference Path="Services.asmx" />
         </Services>
-    </asp:ScriptManager>
+    </asp:ScriptManagerProxy>
 
     <div class="mgnt-toolbar">
         <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">

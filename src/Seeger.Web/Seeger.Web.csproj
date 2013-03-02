@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
@@ -82,6 +85,9 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -91,6 +97,9 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WebActivator">
       <HintPath>..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +136,7 @@
     <Content Include="Admin\Security\RoleEdit.aspx" />
     <Content Include="Admin\Security\RoleList.aspx" />
     <Content Include="Admin\Security\PrivilegeView.ascx" />
+    <Content Include="Admin\Security\RoleList_Grid.ascx" />
     <Content Include="Admin\Security\UserEdit.aspx" />
     <Content Include="Admin\Security\UserList.aspx" />
     <Content Include="Admin\Settings\FrontendSettingsEdit.aspx" />
@@ -303,6 +313,7 @@
     <Content Include="Scripts\jquery.querystring.js" />
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\sig.validator.js" />
+    <Content Include="Scripts\sig\ui\AjaxGrid.js" />
     <Content Include="Scripts\telerik\telerik.common.js" />
     <Content Include="Scripts\telerik\telerik.draganddrop.js" />
     <Content Include="Scripts\telerik\telerik.treeview.ext.js" />
@@ -567,6 +578,7 @@
     <Content Include="Admin\Designer\Toolbox.ascx" />
     <Content Include="Scripts\sig.common.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Preview.gif" />
@@ -779,6 +791,13 @@
     <Compile Include="Admin\Security\PrivilegeView.ascx.designer.cs">
       <DependentUpon>PrivilegeView.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Security\RoleList_Grid.ascx.cs">
+      <DependentUpon>RoleList_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\RoleList_Grid.ascx.designer.cs">
+      <DependentUpon>RoleList_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Security\UserEdit.aspx.cs">
       <DependentUpon>UserEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -892,6 +911,7 @@
     <Compile Include="Admin\Designer\Controls\WidgetList.ascx.designer.cs">
       <DependentUpon>WidgetList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AppCode\ResourceBundler.cs" />
     <Compile Include="AppCode\SeegerUrls.cs" />
     <Compile Include="AppCode\PreApplicationStart.cs" />
     <Compile Include="Templates\Default\AppCode\LanguageSwitchRenderer.cs" />

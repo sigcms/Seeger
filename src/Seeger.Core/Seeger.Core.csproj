@@ -57,6 +57,7 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.RegularExpressions" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -102,6 +103,7 @@
     <Compile Include="EntityKeyAttribute.cs" />
     <Compile Include="EntityKeyManager.cs" />
     <Compile Include="EnumHelper.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
     <Compile Include="Extensions\FileSystemInfoExtensions.cs" />
     <Compile Include="Extensions\LocalizableEntityExtensions.cs" />
     <Compile Include="Extensions\NameValueCollectionExtensions.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Licensing\SeegerLicenseValidator.cs" />
     <Compile Include="Licensing\StandardEdition.cs" />
     <Compile Include="ObjectHelper.cs" />
+    <Compile Include="PagedQueryable.cs" />
     <Compile Include="Plugins\AssemblyDeployer.cs" />
     <Compile Include="Plugins\DefaultInstalledPluginService.cs" />
     <Compile Include="Plugins\IInstalledPluginService.cs" />
@@ -195,6 +198,7 @@
     <Compile Include="Web\HttpContextCache.cs" />
     <Compile Include="Web\Server.cs" />
     <Compile Include="Web\SmartLocalizer.cs" />
+    <Compile Include="Web\UI\ControlHelper.cs" />
     <Compile Include="Web\UI\Controls\AdminButton.cs" />
     <Compile Include="Web\UI\Controls\AdminPlaceHolder.cs" />
     <Compile Include="Web\UI\Controls\AdminLinkButton.cs" />
@@ -210,6 +214,13 @@
     <Compile Include="Web\UI\Extensions\PageExtensions.cs" />
     <Compile Include="Web\UI\Extensions\RepeaterItemExtensions.cs" />
     <Compile Include="Web\UI\Extensions\StateBagExtensions.cs" />
+    <Compile Include="Web\UI\Grid\AjaxGridBindingContext.cs" />
+    <Compile Include="Web\UI\Grid\AjaxGridPageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web\UI\Grid\AjaxGridUserControlBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web\UI\IMessageProvider.cs" />
     <Compile Include="Web\UI\IPageLifecycleInterceptor.cs" />
     <Compile Include="Web\UI\PageLifecycleInterceptorCollection.cs" />
