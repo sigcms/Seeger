@@ -10,7 +10,12 @@ namespace Seeger.Web
     {
         public static void Initialize()
         {
-            BundleTable.Bundles.Add(new Bundle("~/Scripts/sig.core.js").IncludeDirectory("~/Scripts/sig", "*.js", true));
+            var coreScriptBundle = new Bundle("~/Scripts/sig.core.js")
+                                        .Include("~/Scripts/knockout.js", "~/Scripts/knockout.mapping.js")
+                                        .Include("~/Scripts/uploadify/jquery.uploadify.js")
+                                        .IncludeDirectory("~/Scripts/sig", "*.js", true);
+
+            BundleTable.Bundles.Add(coreScriptBundle);
         }
     }
 }

@@ -38,10 +38,9 @@ namespace Seeger.Web.UI.Admin
             }
         }
 
-        protected string GetGlobalResourceDirectoryJson()
+        protected string GetClientGlobalResourcesInitializationScript()
         {
-            var directory = ResourcesFolder.Global.GetResourceDictionary(CultureInfo.CurrentUICulture);
-            return JsonConvert.SerializeObject(directory);
+            return new ScriptsHelper(Context).GlobalResourcesInitialization();
         }
     }
 }

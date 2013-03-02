@@ -35,6 +35,7 @@
     border-bottom-color: #aaa;
     background-color: #F2F4F6;
     font-weight: normal;
+    text-align: center;
 }
 .datatable tr:hover td
 {
@@ -109,6 +110,9 @@
     display: inline-block;
     vertical-align: bottom;
 }
+    .formtable .datatable th {
+        text-align: center;
+    }
 
 label.required
 {

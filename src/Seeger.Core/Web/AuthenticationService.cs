@@ -10,6 +10,7 @@ using Seeger.Security;
 using NHibernate.Linq;
 using Seeger.Globalization;
 using System.Globalization;
+using System.Security.Principal;
 
 namespace Seeger.Web
 {
@@ -82,10 +83,8 @@ namespace Seeger.Web
             return FormsAuthentication.HashPasswordForStoringInConfigFile(password, PasswordHashAlgorithm);
         }
 
-        public static User GetCurrentUserFromCookie()
+        public static User GetCurrentUserFrom(IPrincipal principal)
         {
-            var principal = HttpContext.Current.User;
-
             if (principal != null && principal.Identity.IsAuthenticated)
             {
                 string userName = ExtractUserName(principal.Identity.Name);

@@ -68,6 +68,7 @@
     <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Web.config" />
     <Content Include="Widgets\ImageSlider\Default.ascx" />
+    <Content Include="Widgets\ImageSlider\Editor.aspx" />
     <Content Include="Widgets\ImageSlider\icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -75,11 +76,16 @@
     <Compile Include="Domain\Mapping\SliderMap.cs" />
     <Compile Include="Domain\Slider.cs" />
     <Compile Include="Domain\SliderItem.cs" />
+    <Compile Include="Handlers\UploadImage.ashx.cs">
+      <DependentUpon>UploadImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ImageSliderNhMappingProvider.cs" />
     <Compile Include="ImageSliderPlugin.cs" />
     <Compile Include="ImageSliderWidgetProcessEventListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strings.cs" />
+    <Compile Include="Utils\ImageUtility.cs" />
+    <Compile Include="Utils\ThumbLagerThanOriginalImageBehavior.cs" />
     <Compile Include="Widgets\ImageSlider\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -87,10 +93,18 @@
     <Compile Include="Widgets\ImageSlider\Default.ascx.designer.cs">
       <DependentUpon>Default.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\ImageSlider\Editor.aspx.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\ImageSlider\Editor.aspx.designer.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="config.config" />
+    <Content Include="Handlers\UploadImage.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

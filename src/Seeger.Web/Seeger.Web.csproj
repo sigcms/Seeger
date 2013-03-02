@@ -312,6 +312,8 @@
     <Content Include="Scripts\jquery\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.querystring.js" />
     <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\knockout.mapping.js" />
     <Content Include="Scripts\sig.validator.js" />
     <Content Include="Scripts\sig\GlobalResources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
@@ -580,6 +582,10 @@
     <Content Include="Admin\Designer\Toolbox.ascx" />
     <Content Include="Scripts\sig.common.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\uploadify\jquery.uploadify.js" />
+    <Content Include="App_Themes\Classic\images\uploadify-cancel.png" />
+    <Content Include="App_Themes\Classic\uploadify.css" />
+    <Content Include="Scripts\uploadify\uploadify.swf" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx" />

@@ -8,6 +8,7 @@ using Seeger.Security;
 using Seeger.Caching;
 using Seeger.Globalization;
 using Seeger.Templates;
+using System.Web;
 
 namespace Seeger.Web.UI
 {
@@ -65,16 +66,17 @@ namespace Seeger.Web.UI
             }
         }
 
-        private AdministrationSession(User user)
+        public AdministrationSession(User user)
         {
-            this.User = user;
+            User = user;
         }
 
         public static AdministrationSession Current
         {
             get
             {
-                return HttpContextCache.GetObject<AdministrationSession>("Seeger.AdministrationSession.Current", () => new AdministrationSession(AuthenticationService.GetCurrentUserFromCookie()));
+                return HttpContextCache.GetObject<AdministrationSession>("Seeger.AdministrationSession.Current", 
+                    () => new AdministrationSession(AuthenticationService.GetCurrentUserFrom(HttpContext.Current.User)));
             }
         }
     }

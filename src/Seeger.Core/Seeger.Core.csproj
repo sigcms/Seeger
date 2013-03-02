@@ -184,9 +184,12 @@
     <Compile Include="Templates\Loaders\ITemplateLoader.cs" />
     <Compile Include="Templates\TemplateManager.cs" />
     <Compile Include="Utils\IOUtil.cs" />
+    <Compile Include="Utils\JsonConvertUtil.cs" />
     <Compile Include="Utils\PropertyPathBuilder.cs" />
     <Compile Include="Utils\XmlSerializerHelper.cs" />
     <Compile Include="Web\AuthenticationService.cs" />
+    <Compile Include="Web\AuthRequiredHttpHandler.cs" />
+    <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Web\FrontendEnvironment.cs" />
     <Compile Include="Web\Handlers\AlwaysIgnoredPathHandler.cs" />
     <Compile Include="Web\Handlers\CultureHandler.cs" />
@@ -226,6 +229,7 @@
     <Compile Include="Web\UI\PageLifecycleInterceptorCollection.cs" />
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
+    <Compile Include="Web\UI\ScriptsHelper.cs" />
     <Compile Include="Web\Url.cs" />
     <Compile Include="Web\UrlUtility.cs" />
     <Compile Include="WidgetEditorSettings.cs" />
