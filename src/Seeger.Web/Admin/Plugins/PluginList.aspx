@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="{ Menu.PluginMgnt }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="PluginList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Plugins.PluginList" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-
     <asp:Repeater runat="server" ID="List" OnItemDataBound="List_ItemDataBound">
         <ItemTemplate>
             <div class="plugin-item" plugin-name="<%# Eval("Name") %>">

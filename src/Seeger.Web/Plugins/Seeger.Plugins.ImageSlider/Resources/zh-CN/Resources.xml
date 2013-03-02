@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="ImageSlider.PluginDisplayName" value="滚动图片" />
+  <item key="ImageSlider.PluginDescription">
+    <![CDATA[
+    可以上传多张图片，并在前台滚动播放
+    ]]>
+  </item>
+  <item key="WidgetName.ImageSlider" value="滚动图片" />
+</localization>
