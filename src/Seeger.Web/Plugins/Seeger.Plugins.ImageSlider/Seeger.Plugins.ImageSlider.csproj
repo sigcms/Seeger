@@ -66,6 +66,9 @@
   <ItemGroup>
     <Content Include="db\install.sql" />
     <Content Include="Resources\zh-CN\Resources.xml" />
+    <Content Include="Scripts\jquery.slides.css" />
+    <Content Include="Scripts\jquery.slides.min.js" />
+    <Content Include="Scripts\loading.gif" />
     <Content Include="Web.config" />
     <Content Include="Widgets\ImageSlider\Default.ascx" />
     <Content Include="Widgets\ImageSlider\Editor.aspx" />
@@ -81,6 +84,7 @@
     </Compile>
     <Compile Include="NhMappingProvider.cs" />
     <Compile Include="ImageSliderPlugin.cs" />
+    <Compile Include="PageLifecycleInterceptor.cs" />
     <Compile Include="WidgetProcessEventListener.cs" />
     <Compile Include="Models\SliderWidgetEditorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

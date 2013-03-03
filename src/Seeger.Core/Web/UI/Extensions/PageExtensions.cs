@@ -9,6 +9,15 @@ namespace Seeger.Web.UI
 {
     public static class PageExtensions
     {
+        public static void IncludeCss(this Page page, string cssFilePath)
+        {
+            var control = new LiteralControl
+            {
+                Text = "<link type=\"text/css\" rel=\"stylesheet\" href=\"" + cssFilePath + "\" />"
+            };
+            page.Header.Controls.Add(control);
+        }
+
         public static Control GetControl(this Page page, string id)
         {
             if (page == null)

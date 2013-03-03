@@ -1,0 +1,68 @@
+﻿.slider-widget {
+    position: relative;
+}
+
+.slides_container {
+	overflow:hidden;
+	position:relative;
+	display:none;
+}
+
+.slides_container div.slide {
+	width:570px;
+	height:270px;
+	display:block;
+}
+
+.slides_container .caption {
+	z-index:500;
+	position:absolute;
+    display: none;
+	bottom:-35px;
+	left:0;
+	height:30px;
+	padding:5px 20px 0 20px;
+	background:#000;
+	background:rgba(0,0,0,.5);
+	width:540px;
+	font-size:1.3em;
+	line-height:1.33;
+	color:#fff;
+	border-top:1px solid #000;
+	text-shadow:none;
+}
+    .slides_container .caption p {
+        margin: 0;
+        padding: 0;
+    }
+
+.slider-widget .pagination {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    bottom: 8px;
+    right: 5px;
+    z-index: 1000;
+    list-style: none;
+    display: none;
+}
+    .slider-widget .pagination li {
+        float: left;
+        display: inline;
+        margin-left: 2px;
+    }
+    .slider-widget .pagination a {
+        display: block;
+        color: #ccc;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        text-decoration: none;
+	    border: 1px solid #000;
+	    background:rgba(0,0,0,.5);
+    }
+    .slider-widget .pagination .current a {
+	    background:#f00;
+	    background:rgba(255,0,0,.5);
+    }
