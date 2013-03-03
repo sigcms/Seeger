@@ -24,13 +24,18 @@ namespace Seeger.Plugins.ImageSlider.Domain
                     return null;
                 }
 
-                var parent = VirtualPathUtility.GetDirectory(ImageUrl);
-                return VirtualPathUtility.Combine(parent, "min-" + VirtualPathUtility.GetFileName(ImageUrl));
+                return GetThumbImageUrl(ImageUrl);
             }
         }
 
         public virtual string NavigateUrl { get; set; }
 
         public virtual int DisplayOrder { get; set; }
+
+        public static string GetThumbImageUrl(string imageUrl)
+        {
+            var parent = VirtualPathUtility.GetDirectory(imageUrl);
+            return VirtualPathUtility.Combine(parent, "min-" + VirtualPathUtility.GetFileName(imageUrl));
+        }
     }
 }

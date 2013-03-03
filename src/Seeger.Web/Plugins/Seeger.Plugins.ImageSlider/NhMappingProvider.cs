@@ -9,7 +9,7 @@ using System.Web;
 
 namespace Seeger.Plugins.ImageSlider
 {
-    public class ImageSliderNhMappingProvider : INhMappingProvider
+    public class NhMappingProvider : INhMappingProvider
     {
         public IEnumerable<HbmMapping> GetMappings()
         {

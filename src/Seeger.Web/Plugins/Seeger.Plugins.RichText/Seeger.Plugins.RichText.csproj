@@ -80,7 +80,7 @@
     <Compile Include="Domain\TextContent.cs" />
     <Compile Include="Domain\TextContentLocalization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RichTextNhMappingProvider.cs" />
+    <Compile Include="NhMappingProvider.cs" />
     <Compile Include="RichTextPlugin.cs" />
     <Compile Include="WidgetProcessEventListener.cs" />
     <Compile Include="Widgets\RichText\Default.ascx.cs">

@@ -38,9 +38,9 @@
                                     <td>
                                         <img data-bind="attr: { src: imageThumbUrl }" />
                                     </td>
-                                    <td data-bind="html: caption"></td>
-                                    <td data-bind="html: navigateUrl"></td>
-                                    <td style="text-align:center">
+                                    <td data-bind="html: caption" style="vertical-align:middle"></td>
+                                    <td data-bind="html: navigateUrl" style="vertical-align:middle"></td>
+                                    <td style="text-align:center;vertical-align:middle">
                                         <a href="#" data-bind="click: $root.editItem"><%= Localize("Common.Edit") %></a>
                                         <a href="#" data-bind="click: $root.deleteItem"><%= Localize("Common.Delete") %></a>
                                     </td>
@@ -95,7 +95,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <a href="javascript:Editor.submit();" class="button primary"><%= Localize("Common.OK") %></a>
+                        <a href="#" class="button primary" data-bind="click: $root.save"><%= Localize("Common.OK") %></a>
                         <a href="javascript:editorContext.cancel();" class="button secondary"><%= Localize("Common.Cancel") %></a>
                     </td>
                 </tr>
@@ -111,7 +111,7 @@
             var aspNetAuth = '<%= AspNetAuth %>';
 
             var viewModel = new ViewModel();
-            var sliderId = getSliderIdFromEditorContext();
+            var sliderId = getSliderIdFromEditorContext() || <%= SliderId %>;
             var $uploader = $('#ImageUpload');
 
             initImageUploader();
@@ -182,7 +182,7 @@
                     _this.editedItemClientId(-1);
                     _this.editedItem(null);
                     _this.editedItemClone(null);
-                }
+               }
 
                 this.cancelEditItem = function () {
                     _this.editedItemClientId(-1);
@@ -193,6 +193,13 @@
                 this.deleteItem = function (item) {
                     if (!confirm(sig.GlobalResources.get('Message.DeleteConfirm'))) return;
                     _this.slider.items.remove(item);
+                }
+
+                this.save = function () {
+                    var stateItem = editorContext.get_stateItem();
+                    var customData = stateItem.get_customData();
+                    customData['ViewModelJson'] = ko.mapping.toJSON(_this);
+                    editorContext.accept();
                 }
             }
 
@@ -208,8 +215,7 @@
 
             function getViewModelJsonFromEditorContext() {
                 var stateItem = editorContext.get_stateItem();
-                var customData = stateItem ? stateItem.get_customData() : null;
-                return customData ? customData['ViewModelJson'] : null;
+                return stateItem.get_customData()['ViewModelJson'];
             }
 
             function initImageUploader() {
@@ -220,16 +226,17 @@
                     fileTypeDesc: '<%= Localize("Image") %>',
                     multi: false,
                     queueSizeLimit: 1,
-                    fileSizeLimit: '2MB',
+                    fileSizeLimit: '5MB',
                     removeTimeout: 0,
                     formData: { AspNetAuth: aspNetAuth },
                     buttonText: '<%= Localize("UploadImage") %>...',
                     onUploadSuccess: function (file, data, response) {
                         var result = JSON.parse(data);
                         if (result.Success) {
-                            var item = ko.mapping.fromJS(JSON.parse(result.SliderItemViewModel));
-                            item.clientId = ko.observable(viewModel.maxClientId() + 1);
-                            item.displayOrder(viewModel.maxDisplayOrder() + 1);
+                            var jsModel = JSON.parse(result.SliderItemViewModel);
+                            jsModel.clientId = viewModel.maxClientId() + 1;
+                            jsModel.displayOrder = viewModel.maxDisplayOrder() + 1;
+                            var item = ko.mapping.fromJS(jsModel);
                             viewModel.slider.items.push(item);
                             viewModel.editItem(item);
                         } else {

@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using Seeger.Data;
+using Seeger.Globalization;
 using Seeger.Plugins.ImageSlider.Domain;
+using Seeger.Plugins.ImageSlider.Models;
 using Seeger.Utils;
 using Seeger.Web;
 using Seeger.Web.UI;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Script.Services;
@@ -25,16 +28,18 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
             }
         }
 
+        protected int SliderId { get; private set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            SliderId = WidgetAttributes.GetValue<int>("SliderId");
         }
 
         [WebMethod, ScriptMethod]
         public static string GetViewModel(int sliderId)
         {
             var session = NhSessionManager.GetCurrentSession();
-            var model = new ViewModel();
+            var model = new SliderWidgetEditorViewModel();
 
             if (sliderId > 0)
             {
@@ -42,15 +47,13 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
             }
             else
             {
-                model.Slider = new Slider();
+                model.Slider = new Slider
+                {
+                    Name = ResourcesFolder.Global.GetValue("Common.Unnamed", CultureInfo.CurrentUICulture)
+                };
             }
 
             return JsonConvertUtil.CamelCaseSerializeObject(model);
         }
-    }
-
-    public class ViewModel
-    {
-        public Slider Slider { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Seeger.Plugins.RichText
 {
-    public class RichTextNhMappingProvider : Seeger.Data.INhMappingProvider
+    public class NhMappingProvider : Seeger.Data.INhMappingProvider
     {
         public IEnumerable<NHibernate.Cfg.MappingSchema.HbmMapping> GetMappings()
         {
