@@ -76,7 +76,6 @@
     <Compile Include="Collections\ITreeNode.cs" />
     <Compile Include="Collections\ITreeNodeVisitor.cs" />
     <Compile Include="Collections\ObservableSerializableCollection.cs" />
-    <Compile Include="Collections\PagedList.cs" />
     <Compile Include="Collections\ReadOnlySerializableCollection.cs" />
     <Compile Include="Collections\SerializableCollection.cs" />
     <Compile Include="Collections\TreeNodeExtensions.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="Data\Context\WebNhSessionContext.cs" />
     <Compile Include="Data\Extensions\SessionExtensions.cs" />
     <Compile Include="Data\INhMappingProvider.cs" />
-    <Compile Include="Data\IQueryableExtensions.cs" />
     <Compile Include="Data\IQueryFilter.cs" />
     <Compile Include="Data\Mapping\ByCodeMappingLoader.cs" />
     <Compile Include="Data\Mapping\Extensions\IClassAttributesMapperExtensions.cs" />

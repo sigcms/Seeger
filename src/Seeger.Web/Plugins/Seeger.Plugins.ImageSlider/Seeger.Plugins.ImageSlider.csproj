@@ -110,6 +110,7 @@
     <Content Include="packages.config" />
     <Content Include="config.config" />
     <Content Include="Handlers\UploadImage.ashx" />
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
