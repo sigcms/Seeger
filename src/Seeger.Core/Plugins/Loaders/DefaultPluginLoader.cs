@@ -37,7 +37,13 @@ namespace Seeger.Plugins.Loaders
                 plugin.PluginType = extensionTypes.PluginType;
 
                 if (extensionTypes.NhMappingProviderType != null)
-                    NhMappingProviderFactory.Register(pluginName, extensionTypes.NhMappingProviderType);
+                    NhMappingProviders.Register(pluginName, extensionTypes.NhMappingProviderType);
+
+                if (extensionTypes.PageLifecycleInterceptorTypes.Count > 0)
+                {
+                    PageLifecycleInterceptors.Register(pluginName,
+                        extensionTypes.PageLifecycleInterceptorTypes.Select(t => (IPageLifecycleInterceptor)Activator.CreateInstance(t)));
+                }
             }
 
             var widgetBaseFolderPath = HostingEnvironment.MapPath(PluginPaths.WidgetsFolderVirtualPath(pluginName));
@@ -149,6 +155,10 @@ namespace Seeger.Plugins.Loaders
                     {
                         result.NhMappingProviderType = type;
                     }
+                    if (typeof(IPageLifecycleInterceptor).IsAssignableFrom(type))
+                    {
+                        result.PageLifecycleInterceptorTypes.Add(type);
+                    }
                 }
             }
 
@@ -160,6 +170,13 @@ namespace Seeger.Plugins.Loaders
             public Type PluginType { get; set; }
 
             public Type NhMappingProviderType { get; set; }
+
+            public IList<Type> PageLifecycleInterceptorTypes { get; set; }
+
+            public ExtensionTypes()
+            {
+                PageLifecycleInterceptorTypes = new List<Type>();
+            }
         }
     }
 }

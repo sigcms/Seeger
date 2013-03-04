@@ -97,7 +97,7 @@ namespace Seeger.Plugins
                 Startup(plugin, false);
             }
 
-            if (enabledPlugins.Any(x => NhMappingProviderFactory.HasMappingProvider(x.Name)))
+            if (enabledPlugins.Any(x => NhMappingProviders.HasMappingProvider(x.Name)))
             {
                 NhSessionManager.Initialize();
             }
@@ -117,7 +117,7 @@ namespace Seeger.Plugins
                 var pluginImpl = (IPlugin)Activator.CreateInstance(plugin.PluginType);
                 pluginImpl.OnStartup(new PluginLifecycleContext(plugin));
 
-                if (reinitNhSessionManager && NhMappingProviderFactory.HasMappingProvider(plugin.Name))
+                if (reinitNhSessionManager && NhMappingProviders.HasMappingProvider(plugin.Name))
                 {
                     NhSessionManager.Initialize();
                 }

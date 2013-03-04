@@ -35,16 +35,6 @@ namespace Seeger.Plugins.ImageSlider
             }
         }
 
-        public override void OnStartup(PluginLifecycleContext context)
-        {
-            PageLifecycleInterceptors.Interceptors.Add(new PageLifecycleInterceptor());
-        }
-
-        public override void OnDisable(PluginLifecycleContext context)
-        {
-            PageLifecycleInterceptors.Interceptors.Remove(typeof(PageLifecycleInterceptor));
-        }
-
         private string LoadInstallSql()
         {
             var path = HostingEnvironment.MapPath("~/Plugins/" + Strings.PluginName + "/db/install.sql");

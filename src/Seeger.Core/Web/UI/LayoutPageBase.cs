@@ -103,7 +103,7 @@ namespace Seeger.Web.UI
             SetupWidgets();
             FixFromActionUrl();
 
-            foreach (var interceptor in PageLifecycleInterceptors.Interceptors)
+            foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
                 interceptor.OnInit(this);
             }
@@ -113,7 +113,7 @@ namespace Seeger.Web.UI
         {
             base.OnLoad(e);
 
-            foreach (var interceptor in PageLifecycleInterceptors.Interceptors)
+            foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
                 interceptor.OnLoad(this);
             }
@@ -125,7 +125,7 @@ namespace Seeger.Web.UI
             SetupSeo();
             SetupTheme();
 
-            foreach (var interceptor in PageLifecycleInterceptors.Interceptors)
+            foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
                 interceptor.OnPreRender(this);
             }
@@ -135,7 +135,7 @@ namespace Seeger.Web.UI
         {
             base.OnUnload(e);
 
-            foreach (var interceptor in PageLifecycleInterceptors.Interceptors)
+            foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
                 interceptor.OnUnload(this);
             }

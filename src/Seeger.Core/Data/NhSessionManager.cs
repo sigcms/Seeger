@@ -68,7 +68,7 @@ namespace Seeger.Data
 
             foreach (var plugin in PluginManager.EnabledPlugins)
             {
-                var mappingProviderType = NhMappingProviderFactory.GetMappingProviderType(plugin.Name);
+                var mappingProviderType = NhMappingProviders.GetMappingProviderType(plugin.Name);
                 if (mappingProviderType != null)
                 {
                     var mappingProvider = (INhMappingProvider)Activator.CreateInstance(mappingProviderType);

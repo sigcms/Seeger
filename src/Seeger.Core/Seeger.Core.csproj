@@ -100,6 +100,7 @@
     <Compile Include="Data\Mapping\Impl\TaskItemMap.cs" />
     <Compile Include="Data\Mapping\Impl\UserMap.cs" />
     <Compile Include="Data\Mapping\Impl\WidgetInPageMap.cs" />
+    <Compile Include="Data\NhMappingProviders.cs" />
     <Compile Include="EntityKeyAttribute.cs" />
     <Compile Include="EntityKeyManager.cs" />
     <Compile Include="EnumHelper.cs" />
@@ -226,7 +227,6 @@
     </Compile>
     <Compile Include="Web\UI\IMessageProvider.cs" />
     <Compile Include="Web\UI\IPageLifecycleInterceptor.cs" />
-    <Compile Include="Web\UI\PageLifecycleInterceptorCollection.cs" />
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
     <Compile Include="Web\UI\ScriptsHelper.cs" />
