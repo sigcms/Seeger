@@ -8,24 +8,35 @@ using System.Web;
 
 namespace Seeger.Web.UI.Grid
 {
-    public class AjaxGridBindingContext
+    public class AjaxGridContext
     {
+        private string _pageRawUrl;
+
         public string GridId { get; set; }
 
         public int PageIndex { get; set; }
 
-        public string PageRawUrl { get; set; }
-
-        public NameValueCollection QueryString { get; set; }
-
-        public AjaxGridBindingContext(string gridId, int pageIndex, string pageRawUrl)
+        public string PageRawUrl
         {
-            Require.NotNullOrEmpty(pageRawUrl, "pageRawUrl");
+            get
+            {
+                return _pageRawUrl;
+            }
+            set
+            {
+                if (value != _pageRawUrl)
+                {
+                    _pageRawUrl = value;
+                    QueryString = ParseQueryString(value);
+                }
+            }
+        }
 
-            GridId = gridId;
-            PageIndex = pageIndex;
-            PageRawUrl = pageRawUrl;
-            QueryString = ParseQueryString(pageRawUrl);
+        public NameValueCollection QueryString { get; private set; }
+
+        public AjaxGridContext()
+        {
+            QueryString = new NameValueCollection();
         }
 
         public string GetGridControlVirtualPath(string requestedAspxVirtualPath)
@@ -68,19 +79,13 @@ namespace Seeger.Web.UI.Grid
                     nv[parts[0]] = parts[1];
                 }
             }
-
+            
             return nv;
         }
     }
 
-    public class AjaxGridBindingContext<TSearchModel> : AjaxGridBindingContext
+    public class AjaxGridContext<TSearchModel> : AjaxGridContext
     {
         public TSearchModel SearchModel { get; set; }
-
-        public AjaxGridBindingContext(TSearchModel searchModel, string gridId, int pageIndex, string pageRawUrl)
-            : base(gridId, pageIndex, pageRawUrl)
-        {
-            SearchModel = searchModel;
-        }
     }
 }

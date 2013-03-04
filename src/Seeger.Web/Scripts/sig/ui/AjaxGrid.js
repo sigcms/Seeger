@@ -14,7 +14,7 @@
         }
 
         this.gridId = function () {
-            return _$container.attr('id');
+            return _$container.attr('id') || null;
         }
 
         this.pageIndex = function () {
@@ -47,7 +47,13 @@
             if (window.PageMethods === undefined || window.PageMethods.LoadGridHtml === undefined)
                 throw new Error('ScriptManager must be added with EnablePageMethods set to true, and also the page must be subclass of AjaxGridPageBase.');
 
-            PageMethods.LoadGridHtml(_this.gridId(), pageIndex, location.href, null, function (html) {
+            var context = {
+                GridId: _this.gridId(),
+                PageIndex: pageIndex,
+                PageRawUrl: location.href
+            };
+
+            PageMethods.LoadGridHtml(context, function (html) {
                 sig.ui.Message.hide();
                 _gridPanel.html(html);
             }, function (e) {

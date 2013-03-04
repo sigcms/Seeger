@@ -9,11 +9,11 @@ namespace Seeger.Web.UI.Grid
 {
     public abstract class AjaxGridUserControlBase : UserControlBase
     {
-        public abstract void Bind(AjaxGridBindingContext context);
+        public abstract void Bind(AjaxGridContext context);
     }
 
     public abstract class AjaxDataGridUserControlBase<TSearchModel> : UserControlBase
     {
-        public abstract void Bind(AjaxGridBindingContext<TSearchModel> context);
+        public abstract void Bind(AjaxGridContext<TSearchModel> context);
     }
 }

@@ -11,11 +11,20 @@ namespace Seeger.Plugins.ImageSlider
     {
         public override void OnLoad(System.Web.UI.Page page)
         {
-            page.IncludeCss("/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.css");
-            page.Form.Controls.Add(new LiteralControl
+            var layoutPage = page as LayoutPageBase;
+
+            if (layoutPage == null) return;
+
+            var pageItem = layoutPage.PageItem;
+
+            if (pageItem.WidgetInPages.Any(x => x.PluginName == Strings.PluginName && x.WidgetName == "ImageSlider"))
             {
-                Text = "<script type=\"text/javascript\" src=\"/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.min.js\"></script>"
-            });
+                page.IncludeCss("/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.css");
+                page.Form.Controls.Add(new LiteralControl
+                {
+                    Text = "<script type=\"text/javascript\" src=\"/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.min.js\"></script>"
+                });
+            }
         }
     }
 }

@@ -216,7 +216,7 @@
     <Compile Include="Web\UI\Extensions\PageExtensions.cs" />
     <Compile Include="Web\UI\Extensions\RepeaterItemExtensions.cs" />
     <Compile Include="Web\UI\Extensions\StateBagExtensions.cs" />
-    <Compile Include="Web\UI\Grid\AjaxGridBindingContext.cs" />
+    <Compile Include="Web\UI\Grid\AjaxGridContext.cs" />
     <Compile Include="Web\UI\Grid\AjaxGridPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

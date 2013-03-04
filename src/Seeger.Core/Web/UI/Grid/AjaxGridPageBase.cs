@@ -11,16 +11,14 @@ namespace Seeger.Web.UI.Grid
     public class AjaxGridPageBase : BackendPageBase
     {
         [WebMethod, ScriptMethod]
-        public static string LoadGridHtml(string gridId, int pageIndex, string pageRawUrl)
+        public static string LoadGridHtml(AjaxGridContext context)
         {
             // This try catch is useful when debugging
             try
             {
-                var bindingContext = new AjaxGridBindingContext(gridId, pageIndex, pageRawUrl);
-
-                var controlPath = bindingContext.GetGridControlVirtualPath(HttpContext.Current.Request.FilePath);
+                var controlPath = context.GetGridControlVirtualPath(HttpContext.Current.Request.FilePath);
                 var control = (AjaxGridUserControlBase)ControlHelper.LoadControl(controlPath);
-                control.Bind(bindingContext);
+                control.Bind(context);
 
                 return ControlHelper.RenderControl(control);
             }
@@ -34,15 +32,13 @@ namespace Seeger.Web.UI.Grid
     public class AjaxGridPageBase<TSearchModel> : BackendPageBase
     {
         [WebMethod, ScriptMethod]
-        public static string LoadGridHtml(string gridId, int pageIndex, string pageRawUrl, TSearchModel searchModel)
+        public static string LoadGridHtml(AjaxGridContext<TSearchModel> context)
         {
             try
             {
-                var bindingContext = new AjaxGridBindingContext<TSearchModel>(searchModel, gridId, pageIndex, pageRawUrl);
-
-                var controlPath = bindingContext.GetGridControlVirtualPath(HttpContext.Current.Request.FilePath);
+                var controlPath = context.GetGridControlVirtualPath(HttpContext.Current.Request.FilePath);
                 var control = (AjaxGridUserControlBase)ControlHelper.LoadControl(controlPath);
-                control.Bind(bindingContext);
+                control.Bind(context);
 
                 return ControlHelper.RenderControl(control);
             }

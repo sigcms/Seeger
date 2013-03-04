@@ -12,7 +12,7 @@ namespace Seeger.Web.UI.Admin.Security
 {
     public partial class RoleList_Grid : AjaxGridUserControlBase
     {
-        public override void Bind(AjaxGridBindingContext context)
+        public override void Bind(AjaxGridContext context)
         {
             var roles = NhSession.Query<Role>().OrderBy(x => x.Name).ThenBy(x => x.Id).Paging(Pager.PageSize);
 

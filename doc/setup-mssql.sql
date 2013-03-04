@@ -99,6 +99,10 @@ create table cms_User
 	SkinName nvarchar(50) null,
 	"Language" varchar(10) null,
 	IsSuperAdmin bit not null,
+	FailedPasswordAttemptCount int not null,
+	LastFailedPasswordAttemptTime datetime null,
+	LastLoginTime datetime null,
+	LastLoginIP varchar(50) null,
 
 	constraint PK_cms_User primary key ("Id")
 );
@@ -207,7 +211,7 @@ insert into cms_HiValue values ('cms_TaskItem', 1);
 insert into cms_HiValue values ('cms_EntityPropertyLocalization', 0);
 
 /* Password: abc123 */
-insert into cms_User values (1, 'sa', '6367C48DD193D56EA7B0BAAD25B19455E529F5EE', 'sa@seegercms.com', null, null, 1);
+insert into cms_User values (1, 'sa', '6367C48DD193D56EA7B0BAAD25B19455E529F5EE', 'support@sigcms.com', null, null, 1, 0, null, null, null);
 
 insert into cms_RewriterIgnoredPath values (1, 'Asset Files', '^.+\.(jpg|gif|png|bmp|jpeg|txt|csv|xls|xlsx|ppt|pptx|doc|docx|zip|rar|7z|css|js|axd|xml|asax|ashx)$', 1, 0);
 
