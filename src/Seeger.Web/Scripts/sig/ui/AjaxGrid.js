@@ -90,18 +90,19 @@
 
                 if (isTable) {
                     var cols = _$element.find('thead > tr > th').length;
-                    $datalist.append('<tr class="empty-item"><td colspan="' + cols + '">' + _norecordMessage + '</td></tr>');
+                    $datalist.append('<tr class="no-record"><td colspan="' + cols + '">' + _norecordMessage + '</td></tr>');
                 } else {
-                    $datalist.append('<div class="empty-item">' + _norecordMessage + '</div>');
+                    $datalist.append('<div class="no-record">' + _norecordMessage + '</div>');
                 }
             }
         }
 
         function initPager() {
             var $pager = _$element.find('.pager');
-            $pager.find('.page-num').click(function () {
+            $pager.find('.pager-num').click(function () {
                 var pageNumber = parseInt($(this).html());
                 _grid.load(pageNumber - 1);
+                return false;
             });
         }
     }

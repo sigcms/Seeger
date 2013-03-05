@@ -7,11 +7,9 @@
 	position:relative;
 	display:none;
 }
-
 .slides_container div.slide {
-	width:570px;
-	height:270px;
 	display:block;
+    height: 270px;
 }
 
 .slides_container .caption {
@@ -20,11 +18,10 @@
     display: none;
 	bottom:-35px;
 	left:0;
-	height:30px;
+	height:25px;
 	padding:5px 20px 0 20px;
 	background:#000;
 	background:rgba(0,0,0,.5);
-	width:540px;
 	font-size:1.3em;
 	line-height:1.33;
 	color:#fff;
@@ -40,7 +37,7 @@
     position: absolute;
     margin: 0;
     padding: 0;
-    bottom: 8px;
+    bottom: 5px;
     right: 5px;
     z-index: 1000;
     list-style: none;

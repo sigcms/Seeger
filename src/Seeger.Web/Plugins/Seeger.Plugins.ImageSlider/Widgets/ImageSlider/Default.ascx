@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
+<sig:ScriptReference ID="ScriptReference1" runat="server" Path="/Scripts/jquery/jquery.min.js" />
 <script type="text/javascript">
     (function ($) {
 
@@ -35,8 +35,10 @@
                 slidesLoaded: function () {
                     var $firstImage = $widget.find('img:first');
                     var width = $firstImage.width();
-                    $widget.width(width);
-                    $widget.find('.caption').fadeIn();
+                    var height = $firstImage.height();
+                    $widget.width(width).height(height);
+                    $widget.find('.slides_control .slide').width(width).height(height);
+                    $widget.find('.caption').width(width).fadeIn();
                     $widget.find('.pagination').fadeIn();
                 }
             });

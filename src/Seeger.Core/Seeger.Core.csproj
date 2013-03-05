@@ -102,6 +102,7 @@
     <Compile Include="EntityKeyAttribute.cs" />
     <Compile Include="EntityKeyManager.cs" />
     <Compile Include="EnumHelper.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\QueryableExtensions.cs" />
     <Compile Include="Extensions\FileSystemInfoExtensions.cs" />
     <Compile Include="Extensions\LocalizableEntityExtensions.cs" />
