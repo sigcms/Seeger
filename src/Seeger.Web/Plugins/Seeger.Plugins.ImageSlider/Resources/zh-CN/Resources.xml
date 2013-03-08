@@ -2,7 +2,7 @@
 <localization>
   <item key="ImageSlider.PluginDisplayName" value="滚动图片" />
   <item key="ImageSlider.PluginDescription" value="可以上传多张图片，并在前台滚动播放" />
-  <item key="WidgetName.ImageSlider" value="滚动图片" />
+  <item key="ImageSlider" value="滚动图片" />
   <item key="Name" value="名称" />
   <item key="Image" value="图片" />
   <item key="Caption" value="标题" />

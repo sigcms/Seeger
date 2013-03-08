@@ -599,8 +599,7 @@
     <Content Include="Templates\Default\Layouts\TwoColumn2\Default.aspx" />
     <Content Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\TwoColumn2\Preview.gif" />
-    <Content Include="Templates\Default\Resources\zh-CN\LayoutName.xml" />
-    <Content Include="Templates\Default\Resources\zh-CN\SkinName.xml" />
+    <Content Include="Templates\Default\Resources\zh-CN\Resources.xml" />
     <Content Include="Templates\Default\Skins\ClassicBlue\a.main.css" />
     <Content Include="Templates\Default\Skins\ClassicBlue\b.module-default.css" />
     <Content Include="Templates\Default\Skins\ClassicBlue\c.module-articles.css" />
@@ -624,7 +623,6 @@
     <Content Include="Scripts\tiny_mce\plugins\sigimage\Web.config" />
     <Content Include="Scripts\tiny_mce\plugins\sigdownload\Web.config" />
     <Content Include="Templates\Default\Layouts\Front.Master" />
-    <Content Include="Templates\Default\config.config" />
     <Content Include="packages.config" />
     <Content Include="NLog.config" />
     <None Include="NLog.xsd">

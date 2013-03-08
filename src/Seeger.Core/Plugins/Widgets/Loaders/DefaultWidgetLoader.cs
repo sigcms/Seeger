@@ -41,7 +41,7 @@ namespace Seeger.Plugins.Widgets.Loaders
 
             if (widget.DisplayName == null)
             {
-                widget.DisplayName = new LocalizableText(String.Format("{{ Plugin={0}, Key=WidgetName.{1} }}", widget.Plugin.Name, widget.Name));
+                widget.DisplayName = new LocalizableText(String.Format("{{ Plugin={0}, Key={1} }}", widget.Plugin.Name, widget.Name));
             }
         }
 

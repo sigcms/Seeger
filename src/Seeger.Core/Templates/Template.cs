@@ -80,7 +80,7 @@ namespace Seeger.Templates
             Require.NotNullOrEmpty(name, "name");
 
             Name = name;
-            DisplayName = new LocalizableText(name);
+            DisplayName = new LocalizableText(String.Format("{{ Template={0}, Key={1} }}", name, name));
             Skins = new TemplateSkinCollection(this);
             Layouts = new LayoutCollection(this);
             ResourcesFolder = new ResourcesFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
