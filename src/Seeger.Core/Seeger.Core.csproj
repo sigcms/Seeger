@@ -146,6 +146,7 @@
     <Compile Include="Plugins\LoadedPlugin.cs" />
     <Compile Include="Plugins\Loaders\DefaultPluginLoader.cs" />
     <Compile Include="Plugins\Loaders\IPluginLoader.cs" />
+    <Compile Include="Plugins\PluginAssemblyWatcher.cs" />
     <Compile Include="Plugins\PluginDefinition.cs" />
     <Compile Include="Plugins\PluginLifecycleContext.cs" />
     <Compile Include="Plugins\PluginManager.cs" />

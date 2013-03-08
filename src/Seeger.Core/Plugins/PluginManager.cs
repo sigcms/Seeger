@@ -320,18 +320,22 @@ namespace Seeger.Plugins
             foreach (var each in service.FindAll())
             {
                 var plugin = allPlugins.Find(each.PluginName);
-                if (plugin != null)
-                {
-                    plugin.MarkInstalled();
 
-                    if (each.IsEnabled)
-                    {
-                        plugin.MarkEnabled();
-                    }
-                }
+                if (plugin == null) continue;
+
+                plugin.MarkInstalled();
+
+                if (each.IsEnabled) plugin.MarkEnabled();
             }
 
             _loadedPlugins = allPlugins;
+
+            // watch plugin assemblies changes
+            foreach (var plugin in _loadedPlugins)
+            {
+                PluginAssemblyWatcher.Watch(plugin.PluginDefinition.Name);
+            }
+
             WasInitialized = true;
         }
 
