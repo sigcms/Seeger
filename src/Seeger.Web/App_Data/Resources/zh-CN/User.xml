@@ -2,6 +2,7 @@
 <localization prefix="User">
   <item key="MyProfile" value="我的资料" />
   <item key="UserName" value="用户名" />
+  <item key="Nick" value="昵称" />
   <item key="Email" value="邮件" />
   <item key="Password" value="密码" />
   <item key="PasswordConfirm" value="密码确认" />

@@ -10,6 +10,7 @@
 <sig:GridView runat="server" ID="ListGrid">
     <Columns>
         <asp:BoundField HeaderText="<%$ Resources: User.UserName %>" DataField="UserName" ItemStyle-HorizontalAlign="Center" />
+        <asp:BoundField HeaderText="<%$ Resources: User.Nick %>" DataField="Nick" ItemStyle-HorizontalAlign="Center" />
         <asp:BoundField HeaderText="<%$ Resources: User.Email %>" DataField="Email" ItemStyle-HorizontalAlign="Center" />
     </Columns>
 </sig:GridView>

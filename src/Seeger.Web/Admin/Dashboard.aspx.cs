@@ -41,7 +41,7 @@ namespace Seeger.Web.UI.Admin
                 }
 
                 return format.Replace("{Greeting}", greetingType)
-                             .Replace("{UserName}", CurrentUser.UserName)
+                             .Replace("{UserName}", CurrentUser.Nick)
                              .Replace("{VersionNumber}", Assembly.GetExecutingAssembly().GetName().Version.ToString(2));
             }
         }

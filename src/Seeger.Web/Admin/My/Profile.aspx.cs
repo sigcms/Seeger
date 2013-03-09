@@ -31,6 +31,7 @@ namespace Seeger.Web.UI.Admin.My
             LanguageList.DataBind();
 
             UserName.Text = CurrentUser.UserName;
+            Nick.Text = CurrentUser.Nick;
             Email.Text = CurrentUser.Email;
             
             if (CurrentUser.Skin != null)
@@ -49,6 +50,7 @@ namespace Seeger.Web.UI.Admin.My
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+            CurrentUser.Nick = Nick.Text.Trim();
             CurrentUser.Email = Email.Text;
             CurrentUser.Skin = AdminSkins.Find(SkinList.SelectedValue);
             CurrentUser.Language = LanguageList.SelectedValue;

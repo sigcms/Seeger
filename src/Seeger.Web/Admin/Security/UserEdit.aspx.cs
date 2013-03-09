@@ -48,6 +48,7 @@ namespace Seeger.Web.UI.Admin.Security
             }
 
             UserName.Text = entity.UserName;
+            Nick.Text = entity.Nick;
             Email.Text = entity.Email;
             Password.Text = entity.Password;
 
@@ -65,8 +66,9 @@ namespace Seeger.Web.UI.Admin.Security
 
         public override void UpdateObject(User entity)
         {
-            entity.UserName = UserName.Text;
-            entity.Email = Email.Text;
+            entity.UserName = UserName.Text.Trim();
+            entity.Nick = Nick.Text.Trim();
+            entity.Email = Email.Text.Trim();
 
             if (Password.Text.Length > 0)
             {

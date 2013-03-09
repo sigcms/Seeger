@@ -10,6 +10,13 @@
         </td>
     </tr>
     <tr>
+        <th><%= Localize("User.Nick") %></th>
+        <td>
+            <asp:TextBox runat="server" MaxLength="50" ID="Nick" />
+            <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="Nick" runat="server" />
+        </td>
+    </tr>
+    <tr>
         <th><%= Localize("User.Email") %></th>
         <td>
             <asp:TextBox runat="server" MaxLength="250" ID="Email" />

@@ -18,6 +18,8 @@ namespace Seeger.Security
         public virtual int Id { get; protected set; }
         
         public virtual string UserName { get; set; }
+
+        public virtual string Nick { get; set; }
         
         public virtual string Password { get; protected set; }
         

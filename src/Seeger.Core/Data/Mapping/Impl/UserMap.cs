@@ -28,6 +28,7 @@ namespace Seeger.Data.Mapping
             this.HighLowId(c => c.Id, TableName);
 
             Property(c => c.UserName);
+            Property(c => c.Nick);
             Property(c => c.Password);
             Property(c => c.Email);
             Property(c => c.FailedPasswordAttemptCount);
