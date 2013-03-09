@@ -11,7 +11,7 @@ using Seeger.Files;
 
 namespace Seeger.Web.UI.Admin.Shared
 {
-    public partial class Uploader : BackendPageBase
+    public partial class Uploader : AdminPageBase
     {
         protected bool ImageOnly
         {

@@ -68,7 +68,7 @@ namespace Seeger.Web.UI.Admin.Pages
         {
             string fileName = page.Published ? "icon-page-online.png" : "icon-page-offline.png";
 
-            return UrlUtility.ToAbsoluteHtmlPath(UrlUtility.Combine(AdministrationSession.Current.Theme.VirtualPath, "Images/" + fileName));
+            return UrlUtility.ToAbsoluteHtmlPath(UrlUtility.Combine(AdminSession.Current.Theme.VirtualPath, "Images/" + fileName));
         }
 
         public static string RenderHtml(TreeNodeCollection nodes)

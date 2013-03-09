@@ -8,7 +8,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Settings
 {
-    public partial class SmtpSettingsEdit : BackendPageBase
+    public partial class SmtpSettingsEdit : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

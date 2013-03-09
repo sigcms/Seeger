@@ -14,7 +14,7 @@ namespace Seeger.Web.UI.Scripts.tiny_mce.plugins.sigdownload
         {
             base.OnPreInit(e);
 
-            if (AdministrationSession.Current == null)
+            if (AdminSession.Current == null)
             {
                 Response.End();
             }
@@ -22,7 +22,7 @@ namespace Seeger.Web.UI.Scripts.tiny_mce.plugins.sigdownload
 
         protected string Localize(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, AdministrationSession.Current.UICulture);
+            return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
 
         protected void Page_Load(object sender, EventArgs e)

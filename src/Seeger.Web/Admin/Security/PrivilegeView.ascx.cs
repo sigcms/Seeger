@@ -15,7 +15,7 @@ namespace Seeger.Web.UI.Admin.Security
 
         private User CurrentUser
         {
-            get { return AdministrationSession.Current.User; }
+            get { return AdminSession.Current.User; }
         }
 
         protected void Page_Load(object sender, EventArgs e)

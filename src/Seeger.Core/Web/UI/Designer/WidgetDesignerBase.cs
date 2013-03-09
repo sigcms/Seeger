@@ -76,12 +76,7 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected string Localize(string key)
-        {
-            return Localize(key, CultureInfo.CurrentUICulture);
-        }
-
-        protected string Localize(string key, CultureInfo culture)
+        protected override string Localize(string key, CultureInfo culture)
         {
             if (culture == null)
             {
@@ -91,7 +86,7 @@ namespace Seeger.Web.UI
             return Widget.Localize(key, culture, true);
         }
 
-        public sealed override void RenderControl(System.Web.UI.HtmlTextWriter writer)
+        public override void RenderControl(System.Web.UI.HtmlTextWriter writer)
         {
             writer.AddAttribute("class", "sig-widget");
             writer.AddAttribute("plugin-name", PluginName);
@@ -126,7 +121,7 @@ namespace Seeger.Web.UI
             writer.RenderEndTag();
         }
 
-        protected sealed override void Render(System.Web.UI.HtmlTextWriter writer)
+        protected override void Render(System.Web.UI.HtmlTextWriter writer)
         {
             base.Render(writer);
             RenderWidgetContent(writer);

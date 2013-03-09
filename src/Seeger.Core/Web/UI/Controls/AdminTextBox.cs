@@ -41,7 +41,7 @@ namespace Seeger.Web.UI
         {
             get
             {
-                return this.ValidateAccess(AdministrationSession.Current.User);
+                return this.ValidateAccess(AdminSession.Current.User);
             }
             set
             {

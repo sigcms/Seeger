@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Seeger.Web.UI.Admin.Plugins
 {
-    public partial class PluginList : BackendPageBase
+    public partial class PluginList : AdminPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

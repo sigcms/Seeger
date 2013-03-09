@@ -12,7 +12,7 @@ using Seeger.Caching;
 
 namespace Seeger.Web.UI.Admin.Settings
 {
-    public partial class FrontendSettingsEdit : BackendPageBase
+    public partial class FrontendSettingsEdit : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

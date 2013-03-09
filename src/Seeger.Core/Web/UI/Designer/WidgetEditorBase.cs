@@ -10,7 +10,7 @@ using Seeger.Templates;
 
 namespace Seeger.Web.UI
 {
-    public class WidgetEditorBase : BackendPageBase
+    public class WidgetEditorBase : AdminPageBase
     {
         private string WidgetPluginName
         {

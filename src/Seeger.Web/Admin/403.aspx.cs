@@ -8,7 +8,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin
 {
-    public partial class _403 : BackendPageBase
+    public partial class _403 : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

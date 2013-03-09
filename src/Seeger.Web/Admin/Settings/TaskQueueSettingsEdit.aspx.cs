@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Seeger.Web.UI.Admin.Settings
 {
-    public partial class TaskQueueSettingsEdit : BackendPageBase
+    public partial class TaskQueueSettingsEdit : AdminPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

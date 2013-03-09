@@ -10,7 +10,7 @@ using Seeger.Caching;
 
 namespace Seeger.Web.UI.Admin.Pages
 {
-    public partial class PageList : BackendPageBase
+    public partial class PageList : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

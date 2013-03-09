@@ -41,7 +41,7 @@ namespace Seeger.Web
             }
         }
 
-        public AdministrationSession AdministrationSession { get; private set; }
+        public AdminSession AdministrationSession { get; private set; }
 
         public void ProcessRequest(HttpContext context)
         {
@@ -57,11 +57,11 @@ namespace Seeger.Web
             }
         }
 
-        private AdministrationSession Authenticate(HttpContext context)
+        private AdminSession Authenticate(HttpContext context)
         {
             if (AuthMode == HandlerAuthMode.AuthByCookie)
             {
-                return AdministrationSession.Current;
+                return AdminSession.Current;
             }
 
             var token = context.Request.Params[AuthTokenName];
@@ -80,10 +80,10 @@ namespace Seeger.Web
 
             var user = AuthenticationService.GetCurrentUserFrom(context.User);
 
-            return new AdministrationSession(user);
+            return new AdminSession(user);
         }
 
-        protected virtual bool ValidateAccess(HttpContext context, AdministrationSession adminSession)
+        protected virtual bool ValidateAccess(HttpContext context, AdminSession adminSession)
         {
             return adminSession.IsAuthenticated;
         }

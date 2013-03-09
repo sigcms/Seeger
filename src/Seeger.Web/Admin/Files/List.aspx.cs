@@ -10,7 +10,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Files
 {
-    public partial class List : BackendPageBase
+    public partial class List : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

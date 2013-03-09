@@ -166,7 +166,7 @@ namespace Seeger.Web.UI.DataManagement
             column.ItemTemplate = new EditColumnTemplate
             {
                 EditButtonID = "EditButton",
-                ImageUrl = UrlUtility.Combine(AdministrationSession.Current.Theme.VirtualPath, "Images/icon-edit.png")
+                ImageUrl = UrlUtility.Combine(AdminSession.Current.Theme.VirtualPath, "Images/icon-edit.png")
             };
         }
 
@@ -184,7 +184,7 @@ namespace Seeger.Web.UI.DataManagement
             column.ItemTemplate = new DeleteColumnTemplate
             {
                 ConfirmText = ResourcesFolder.Global.GetValue("Message.DeleteConfirm", CultureInfo.CurrentUICulture),
-                ImageUrl = UrlUtility.Combine(AdministrationSession.Current.Theme.VirtualPath, "Images/icon-delete.png")
+                ImageUrl = UrlUtility.Combine(AdminSession.Current.Theme.VirtualPath, "Images/icon-delete.png")
             };
         }
 

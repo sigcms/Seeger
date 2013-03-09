@@ -9,7 +9,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Files
 {
-    public partial class Upload : BackendPageBase
+    public partial class Upload : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

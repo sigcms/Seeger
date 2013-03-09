@@ -8,7 +8,7 @@ using System.Web.Services;
 
 namespace Seeger.Web.UI.Grid
 {
-    public class AjaxGridPageBase : BackendPageBase
+    public class AjaxGridPageBase : AdminPageBase
     {
         [WebMethod, ScriptMethod]
         public static string LoadGridHtml(AjaxGridContext context)
@@ -29,7 +29,7 @@ namespace Seeger.Web.UI.Grid
         }
     }
 
-    public class AjaxGridPageBase<TSearchModel> : BackendPageBase
+    public class AjaxGridPageBase<TSearchModel> : AdminPageBase
     {
         [WebMethod, ScriptMethod]
         public static string LoadGridHtml(AjaxGridContext<TSearchModel> context)

@@ -30,7 +30,7 @@ namespace Seeger.Web.UI
             return Localize(key, CultureInfo.CurrentUICulture);
         }
 
-        protected string Localize(string key, CultureInfo culture)
+        protected virtual string Localize(string key, CultureInfo culture)
         {
             return SmartLocalizer.GetForCurrentRequest().Localize(key, culture);
         }

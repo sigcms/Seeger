@@ -10,7 +10,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Licensing
 {
-    public partial class LicenseInfo : BackendPageBase
+    public partial class LicenseInfo : AdminPageBase
     {
         protected License License
         {

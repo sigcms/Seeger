@@ -10,7 +10,7 @@ using Seeger.Globalization;
 
 namespace Seeger.Web.UI.Admin.My
 {
-    public partial class Profile : BackendPageBase
+    public partial class Profile : AdminPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

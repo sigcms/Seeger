@@ -11,7 +11,7 @@ using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Licensing
 {
-    public partial class ValidateSystem : BackendPageBase
+    public partial class ValidateSystem : AdminPageBase
     {
         private new Management Master
         {

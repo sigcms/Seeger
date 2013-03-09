@@ -82,7 +82,7 @@ namespace Seeger.Web.UI
         {
             if (!_validated)
             {
-                _authorized = this.ValidateAccess(AdministrationSession.Current.User);
+                _authorized = this.ValidateAccess(AdminSession.Current.User);
                 _validated = true;
             }
             return _authorized;

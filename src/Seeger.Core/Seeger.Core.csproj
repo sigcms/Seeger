@@ -276,11 +276,11 @@
     <Compile Include="Web\Handlers\RequestHandlerContext.cs" />
     <Compile Include="Web\Handlers\RewriterIgnoredPathHandler.cs" />
     <Compile Include="RedirectMode.cs" />
-    <Compile Include="Web\AdministrationSession.cs" />
-    <Compile Include="Web\UI\BackendPageBase.cs">
+    <Compile Include="Web\AdminSession.cs" />
+    <Compile Include="Web\UI\AdminPageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\UI\BackendUserControlBase.cs">
+    <Compile Include="Web\UI\AdminUserControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\ZoneControl.cs" />

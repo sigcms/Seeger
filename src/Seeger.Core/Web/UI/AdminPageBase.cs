@@ -14,26 +14,26 @@ using Seeger.Licensing;
 
 namespace Seeger.Web.UI
 {
-    public abstract class BackendPageBase : PageBase, IPrivateResource
+    public abstract class AdminPageBase : PageBase, IPrivateResource
     {
         public User CurrentUser
         {
             get
             {
-                return AdministrationSession.User;
+                return AdminSession.User;
             }
         }
 
-        public AdministrationSession AdministrationSession
+        public AdminSession AdminSession
         {
-            get { return AdministrationSession.Current; }
+            get { return AdminSession.Current; }
         }
 
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
 
-            if (!AdministrationSession.IsAuthenticated)
+            if (!AdminSession.IsAuthenticated)
             {
                 AuthenticationService.RedirectToLoginPage();
             }
@@ -47,9 +47,9 @@ namespace Seeger.Web.UI
         {
             base.InitializeCulture();
 
-            if (AdministrationSession.IsAuthenticated)
+            if (AdminSession.IsAuthenticated)
             {
-                var culture = AdministrationSession.UICulture;
+                var culture = AdminSession.UICulture;
                 Thread.CurrentThread.CurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
             }
@@ -99,7 +99,7 @@ namespace Seeger.Web.UI
 
         protected virtual IEnumerable<string> GetCssFilePaths()
         {
-            return AdministrationSession.Theme.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
+            return AdminSession.Theme.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
         }
 
         protected string Localize(string key)

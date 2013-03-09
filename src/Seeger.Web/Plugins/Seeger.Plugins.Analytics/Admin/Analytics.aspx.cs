@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace Seeger.Plugins.Analytics.Admin
 {
-    public partial class Analytics : BackendPageBase
+    public partial class Analytics : AdminPageBase
     {
         public override bool VerifyAccess(Security.User user)
         {

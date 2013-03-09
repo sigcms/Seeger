@@ -20,14 +20,14 @@ namespace Seeger.Web.UI.Admin.Files
         {
             get
             {
-                return AdministrationSession.Current.UICulture;
+                return AdminSession.Current.UICulture;
             }
         }
 
         [WebMethod]
         public OperationResult CreateFolder(string containerVirtualPath, string folderName)
         {
-            if (!AdministrationSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
+            if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
             {
                 return CreateAccessDeniedResult();
             }
@@ -53,8 +53,8 @@ namespace Seeger.Web.UI.Admin.Files
         [WebMethod]
         public OperationResult Rename(bool isDirectory, string containerVirtualPath, string oldName, string newName)
         {
-            if ((isDirectory && !AdministrationSession.Current.User.HasPermission(null, "FileMgnt", "RenameFolder"))
-                || (!isDirectory && !AdministrationSession.Current.User.HasPermission(null, "FileMgnt", "RenameFile")))
+            if ((isDirectory && !AdminSession.Current.User.HasPermission(null, "FileMgnt", "RenameFolder"))
+                || (!isDirectory && !AdminSession.Current.User.HasPermission(null, "FileMgnt", "RenameFile")))
             {
                 return CreateAccessDeniedResult();
             }

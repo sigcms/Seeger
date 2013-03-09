@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace Seeger.Web.UI.Admin
 {
-    public partial class Dashboard : BackendPageBase
+    public partial class Dashboard : AdminPageBase
     {
         protected string Greeting
         {

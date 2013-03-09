@@ -10,7 +10,7 @@ using NHibernate;
 
 namespace Seeger.Web.UI.DataManagement
 {
-    public abstract class DetailPageBase<TEntity> : BackendPageBase, IFormView<TEntity>
+    public abstract class DetailPageBase<TEntity> : AdminPageBase, IFormView<TEntity>
         where TEntity : class
     {
         private static readonly string _idQueryStringParam = "id";

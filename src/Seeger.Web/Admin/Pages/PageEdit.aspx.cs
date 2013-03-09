@@ -17,7 +17,7 @@ using Seeger.Templates;
 
 namespace Seeger.Web.UI.Admin.Pages
 {
-    public partial class PageEdit : BackendPageBase
+    public partial class PageEdit : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

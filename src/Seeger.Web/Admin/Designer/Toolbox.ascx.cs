@@ -36,7 +36,7 @@ namespace Seeger.Web.UI.Admin.Designer
 
         protected string Localize(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, AdministrationSession.Current.UICulture);
+            return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
     }
 }

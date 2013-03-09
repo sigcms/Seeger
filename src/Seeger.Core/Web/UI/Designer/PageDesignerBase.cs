@@ -22,9 +22,9 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected AdministrationSession AdministrationSession
+        protected AdminSession AdministrationSession
         {
-            get { return AdministrationSession.Current; }
+            get { return AdminSession.Current; }
         }
 
         protected override void InitializeCulture()
@@ -78,10 +78,10 @@ namespace Seeger.Web.UI
         protected override IList<string> GetThemeFilePaths()
         {
             IList<string> paths = base.GetThemeFilePaths();
-            paths.Add(AdministrationSession.Current.Theme.GetFileVirtualPath("page-designer.css"));
-            if (AdministrationSession.Current.Theme.ContainsFile("page-designer.css", CultureInfo.CurrentUICulture))
+            paths.Add(AdminSession.Current.Theme.GetFileVirtualPath("page-designer.css"));
+            if (AdminSession.Current.Theme.ContainsFile("page-designer.css", CultureInfo.CurrentUICulture))
             {
-                paths.Add(AdministrationSession.Current.Theme.GetFileVirtualPath("page-designer.css", CultureInfo.CurrentUICulture));
+                paths.Add(AdminSession.Current.Theme.GetFileVirtualPath("page-designer.css", CultureInfo.CurrentUICulture));
             }
 
             return paths;

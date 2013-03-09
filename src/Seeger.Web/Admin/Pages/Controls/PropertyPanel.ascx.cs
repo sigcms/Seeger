@@ -10,7 +10,7 @@ using Seeger.Caching;
 
 namespace Seeger.Web.UI.Admin.Pages.Controls
 {
-    public partial class PropertyPanel : BackendUserControlBase
+    public partial class PropertyPanel : AdminUserControlBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

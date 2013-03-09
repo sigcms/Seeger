@@ -12,7 +12,7 @@ using System.Web;
 
 namespace Seeger.Web.UI
 {
-    public class AdministrationSession
+    public class AdminSession
     {
         public User User { get; private set; }
 
@@ -66,17 +66,17 @@ namespace Seeger.Web.UI
             }
         }
 
-        public AdministrationSession(User user)
+        public AdminSession(User user)
         {
             User = user;
         }
 
-        public static AdministrationSession Current
+        public static AdminSession Current
         {
             get
             {
-                return HttpContextCache.GetObject<AdministrationSession>("Seeger.AdministrationSession.Current", 
-                    () => new AdministrationSession(AuthenticationService.GetCurrentUserFrom(HttpContext.Current.User)));
+                return HttpContextCache.GetObject<AdminSession>("Seeger.Web.AdminSession.Current", 
+                    () => new AdminSession(AuthenticationService.GetCurrentUserFrom(HttpContext.Current.User)));
             }
         }
     }

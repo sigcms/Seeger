@@ -11,7 +11,7 @@ using Seeger.Caching;
 
 namespace Seeger.Web.UI.Admin.Settings
 {
-    public partial class SiteInfoEdit : BackendPageBase
+    public partial class SiteInfoEdit : AdminPageBase
     {
         public override bool VerifyAccess(User user)
         {

@@ -65,7 +65,7 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
                 }
                 else
                 {
-                    var categoryName = widget.Category.Localize(AdministrationSession.Current.UICulture);
+                    var categoryName = widget.Category.Localize(AdminSession.Current.UICulture);
                     var category = categories.FirstOrDefault(x => x.Name.IgnoreCaseEquals(categoryName));
                     if (category == null)
                     {

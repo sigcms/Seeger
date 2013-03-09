@@ -11,7 +11,7 @@ using Seeger.Plugins;
 
 namespace Seeger.Web.UI.Admin
 {
-    public partial class Default : Seeger.Web.UI.BackendPageBase
+    public partial class Default : Seeger.Web.UI.AdminPageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -9,7 +9,7 @@ using Seeger.Data;
 
 namespace Seeger.Web.UI.DataManagement
 {
-    public abstract class ListPageBase<TEntity> : BackendPageBase
+    public abstract class ListPageBase<TEntity> : AdminPageBase
         where TEntity : class
     {
         protected int PageIndex
