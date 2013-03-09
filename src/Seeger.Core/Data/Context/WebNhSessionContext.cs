@@ -18,7 +18,7 @@ namespace Seeger.Data.Context
             var session = context.Items[Key] as ISession;
             if (session == null)
             {
-                session = NhSessionManager.OpenSession();
+                session = Database.OpenSession();
                 context.Items[Key] = session;
             }
 

@@ -15,7 +15,7 @@ namespace Seeger.Web.Handlers
 
         public void Handle(RequestHandlerContext context)
         {
-            var redirect = CustomRedirectCache.From(NhSessionManager.GetCurrentSession()).Match(context.Request);
+            var redirect = CustomRedirectCache.From(Database.GetCurrentSession()).Match(context.Request);
 
             if (redirect != null)
             {

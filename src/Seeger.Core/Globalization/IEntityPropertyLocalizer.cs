@@ -52,6 +52,6 @@ namespace Seeger.Globalization
 
     public static class EntityPropertyLocalizers
     {
-        public static Func<IEntityPropertyLocalizer> Current = () => new DefaultEntityPropertyLocalizer(NhSessionManager.GetCurrentSession());
+        public static Func<IEntityPropertyLocalizer> Current = () => new DefaultEntityPropertyLocalizer(Database.GetCurrentSession());
     }
 }

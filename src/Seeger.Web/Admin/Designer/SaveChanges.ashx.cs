@@ -20,7 +20,7 @@ namespace Seeger.Web.UI.Admin.Designer
 
             try
             {
-                var page = NhSessionManager.GetCurrentSession().Get<PageItem>(pageId);
+                var page = Database.GetCurrentSession().Get<PageItem>(pageId);
 
                 if (page == null)
                     throw new ArgumentException(String.Format("Page was not found. Page ID: {0}.", pageId));

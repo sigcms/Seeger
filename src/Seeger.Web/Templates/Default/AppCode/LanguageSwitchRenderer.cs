@@ -11,7 +11,7 @@ namespace Seeger.Web.UI.Templates.Default
 {
     public class LanguageSwitchRenderer
     {
-        private FrontendLanguageCache _cache = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession());
+        private FrontendLanguageCache _cache = FrontendLanguageCache.From(Database.GetCurrentSession());
 
         public CultureInfo Culture { get; private set; }
 

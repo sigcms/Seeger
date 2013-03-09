@@ -19,7 +19,7 @@ namespace Seeger.Web.Handlers
 
             var frontendSettings = GlobalSettingManager.Instance.FrontendSettings;
 
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
 
             var offlinePage = session.Get<PageItem>(frontendSettings.OfflinePageId);
             if (offlinePage != null)
@@ -34,7 +34,7 @@ namespace Seeger.Web.Handlers
 
                     if (!String.IsNullOrEmpty(cultureSegment))
                     {
-                        var cache = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession());
+                        var cache = FrontendLanguageCache.From(Database.GetCurrentSession());
 
                         var language = cache.FindByName(cultureSegment);
                         if (language != null)

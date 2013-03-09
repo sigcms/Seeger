@@ -45,7 +45,7 @@ namespace Seeger.Web.Handlers
 
             Boolean.TryParse(context.Request.QueryString["showUnpublished"], out checkUnpublished);
 
-            var page = LongestMatch(PageCache.From(NhSessionManager.GetCurrentSession()).RootPages, segments[0], checkUnpublished);
+            var page = LongestMatch(PageCache.From(Database.GetCurrentSession()).RootPages, segments[0], checkUnpublished);
 
             if (page != null && segments.Length > 1)
             {

@@ -16,7 +16,7 @@ namespace Seeger.Web.Handlers
         {
             bool ignore = false;
 
-            foreach (var each in RewriterIgnoredPathCache.From(NhSessionManager.GetCurrentSession()).RewriterIgnoredPaths)
+            foreach (var each in RewriterIgnoredPathCache.From(Database.GetCurrentSession()).RewriterIgnoredPaths)
             {
                 if (each.Test(context.Request))
                 {

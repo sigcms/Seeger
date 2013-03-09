@@ -53,7 +53,7 @@ namespace Seeger.Web.UI.Admin.Shared.Controls
 
         public void Rebind()
         {
-            Bind(PageCache.From(NhSessionManager.GetCurrentSession()).RootPages, 0);
+            Bind(PageCache.From(Database.GetCurrentSession()).RootPages, 0);
         }
 
         private void Bind(IEnumerable<PageItem> pages, int indent)

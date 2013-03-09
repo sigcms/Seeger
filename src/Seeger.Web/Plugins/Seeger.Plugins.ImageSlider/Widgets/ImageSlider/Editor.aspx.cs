@@ -38,7 +38,7 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
         [WebMethod, ScriptMethod]
         public static string GetViewModel(int sliderId)
         {
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
             var model = new SliderWidgetEditorViewModel();
 
             if (sliderId > 0)

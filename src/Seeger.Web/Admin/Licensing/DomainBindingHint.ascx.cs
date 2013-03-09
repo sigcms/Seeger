@@ -18,7 +18,7 @@ namespace Seeger.Web.UI.Admin.Licensing
         {
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
             {
-                var languageCache = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession());
+                var languageCache = FrontendLanguageCache.From(Database.GetCurrentSession());
 
                 if (languageCache.Languages.Any(it => !String.IsNullOrEmpty(it.BindedDomain) 
                     && LicensingService.CurrentLicense.IsDomainLicensed(it.BindedDomain) == false))

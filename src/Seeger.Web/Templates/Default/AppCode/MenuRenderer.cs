@@ -23,9 +23,9 @@ namespace Seeger.Web.UI.Templates.Default
 
             Culture = culture;
 
-            _pageCache = PageCache.From(NhSessionManager.GetCurrentSession());
+            _pageCache = PageCache.From(Database.GetCurrentSession());
             _frontendSettings = GlobalSettingManager.Instance.FrontendSettings;
-            _currentLanguage = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession()).FindByName(culture.Name);
+            _currentLanguage = FrontendLanguageCache.From(Database.GetCurrentSession()).FindByName(culture.Name);
         }
 
         public string Render()

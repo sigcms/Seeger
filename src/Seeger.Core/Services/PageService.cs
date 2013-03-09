@@ -13,13 +13,13 @@ namespace Seeger.Services
     {
         public static PageItemCollection GetRootPages()
         {
-            var query = NhSessionManager.GetCurrentSession().Query<PageItem>().WhereIsRoot();
+            var query = Database.GetCurrentSession().Query<PageItem>().WhereIsRoot();
             return new PageItemCollection(null, query);
         }
 
         public static void Delete(int pageId, bool cascade)
         {
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
 
             var pageItem = session.Get<PageItem>(pageId);
 

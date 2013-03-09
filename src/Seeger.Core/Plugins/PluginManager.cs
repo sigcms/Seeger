@@ -99,7 +99,7 @@ namespace Seeger.Plugins
 
             if (enabledPlugins.Any(x => NhMappingProviders.HasMappingProvider(x.Name)))
             {
-                NhSessionManager.Initialize();
+                Database.Initialize();
             }
         }
 
@@ -119,7 +119,7 @@ namespace Seeger.Plugins
 
                 if (reinitNhSessionManager && NhMappingProviders.HasMappingProvider(plugin.Name))
                 {
-                    NhSessionManager.Initialize();
+                    Database.Initialize();
                 }
 
                 if (PluginStartedup != null)

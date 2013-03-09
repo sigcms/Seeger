@@ -13,7 +13,7 @@ namespace Seeger
         {
             CmsConfiguration.Initialize();
             LicensingService.ValidateCurrentLicense();
-            NhSessionManager.Initialize();
+            Database.Initialize();
             PluginManager.StartupEnabledPlugins();
             TaskQueueExecutor.Start();
         }

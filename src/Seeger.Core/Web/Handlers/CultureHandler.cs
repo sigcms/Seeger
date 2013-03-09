@@ -21,7 +21,7 @@ namespace Seeger.Web.Handlers
 
             if (frontendSettings.Multilingual)
             {
-                var languages = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession());
+                var languages = FrontendLanguageCache.From(Database.GetCurrentSession());
 
                 var language = languages.FindByDomain(context.Request.Url.Host);
 

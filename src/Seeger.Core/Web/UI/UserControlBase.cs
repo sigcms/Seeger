@@ -21,7 +21,7 @@ namespace Seeger.Web.UI
         {
             get
             {
-                return NhSessionManager.GetCurrentSession();
+                return Database.GetCurrentSession();
             }
         }
 

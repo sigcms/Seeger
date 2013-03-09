@@ -31,7 +31,7 @@ namespace Seeger.Web
 
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual && !String.IsNullOrEmpty(currentCulture))
             {
-                var cache = FrontendLanguageCache.From(NhSessionManager.GetCurrentSession());
+                var cache = FrontendLanguageCache.From(Database.GetCurrentSession());
 
                 var lang = cache.FindByName(currentCulture);
                 if (lang != null && !String.IsNullOrEmpty(lang.BindedDomain))

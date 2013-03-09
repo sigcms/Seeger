@@ -18,7 +18,7 @@ namespace Seeger.Web.Handlers
         {
             if (String.IsNullOrEmpty(context.TargetPath) || context.TargetPath == "/" || context.TargetPath.IgnoreCaseEquals("/default.aspx"))
             {
-                var pageCache = PageCache.From(NhSessionManager.GetCurrentSession());
+                var pageCache = PageCache.From(Database.GetCurrentSession());
 
                 if (pageCache.Homepage != null && pageCache.Homepage.Published)
                 {

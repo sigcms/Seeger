@@ -61,7 +61,7 @@ namespace Seeger.Web.UI.DataManagement
             {
                 if (_wrapper == null)
                 {
-                    _wrapper = new GridViewWrapper<TEntity>(GridView, NhSessionManager.GetCurrentSession());
+                    _wrapper = new GridViewWrapper<TEntity>(GridView, Database.GetCurrentSession());
                     _wrapper.PageIndex = PageIndex;
                     _wrapper.PagerUrlFormat = PagerUrlFormat;
                     _wrapper.AllowPaging = AllowPaging;

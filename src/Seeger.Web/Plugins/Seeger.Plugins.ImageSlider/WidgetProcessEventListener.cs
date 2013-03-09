@@ -21,7 +21,7 @@ namespace Seeger.Plugins.ImageSlider
 
         public void OnProcessed(WidgetProcessEventArgs e)
         {
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
 
             if (e.StateItem.State == WidgetState.Removed)
             {

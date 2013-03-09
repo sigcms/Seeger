@@ -62,7 +62,7 @@ namespace Seeger
                 {
                     if (IsDirty)
                     {
-                        var session = NhSessionManager.GetCurrentSession();
+                        var session = Database.GetCurrentSession();
 
                         foreach (var key in _settings.AllKeys)
                         {
@@ -96,7 +96,7 @@ namespace Seeger
             {
                 var settings = new NameValueCollection();
 
-                using (var session = NhSessionManager.OpenSession())
+                using (var session = Database.OpenSession())
                 {
                     foreach (var item in session.Query<GlobalSetting>())
                     {

@@ -23,7 +23,7 @@ namespace Seeger.Web.UI
 
         void Application_EndRequest(object sender, EventArgs e)
         {
-            NhSessionManager.CloseCurrentSession();
+            Database.CloseCurrentSession();
         }
 
         void Application_End(object sender, EventArgs e)

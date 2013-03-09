@@ -44,7 +44,7 @@ namespace Seeger.Tasks
                 {
                     try
                     {
-                        using (var session = NhSessionManager.OpenSession())
+                        using (var session = Database.OpenSession())
                         {
                             var tasks = session.Query<TaskItem>()
                                           .Where(it => !it.Completed)

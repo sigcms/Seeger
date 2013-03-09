@@ -10,7 +10,7 @@ namespace Seeger.Tasks
     {
         public static void Enqueue(TaskItem task)
         {
-            using (var session = NhSessionManager.OpenSession())
+            using (var session = Database.OpenSession())
             {
                 session.Save(task);
                 session.Commit();

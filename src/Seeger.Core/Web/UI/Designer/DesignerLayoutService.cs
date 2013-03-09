@@ -56,7 +56,7 @@ namespace Seeger.Web.UI
                 }
             }
 
-            NhSessionManager.GetCurrentSession().Commit();
+            Database.GetCurrentSession().Commit();
         }
 
         private WidgetInPage ProcessStateItem(WidgetStateItem stateItem, WidgetDefinition widget)

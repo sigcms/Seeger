@@ -10,7 +10,7 @@ using Seeger.Plugins;
 
 namespace Seeger.Data
 {
-    public static class NhSessionManager
+    public static class Database
     {
         static readonly Logger _log = LogManager.GetCurrentClassLogger();
 

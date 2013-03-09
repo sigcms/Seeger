@@ -241,7 +241,7 @@
     <Compile Include="CustomRedirect.cs" />
     <Compile Include="Security\PermissionGroup.cs" />
     <Compile Include="Security\PermissionGroupCollection.cs" />
-    <Compile Include="Data\NhSessionManager.cs" />
+    <Compile Include="Data\Database.cs" />
     <Compile Include="EntityAttribute.cs" />
     <Compile Include="EntityAttributeCollection.cs" />
     <Compile Include="Data\EntityAttributeCollectionUserType.cs" />

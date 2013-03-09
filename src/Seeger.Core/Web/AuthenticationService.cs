@@ -38,7 +38,7 @@ namespace Seeger.Web
             if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password))
                 throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
 
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
 
             var user = session.Query<User>().FirstOrDefault(u => u.UserName == userName);
 
@@ -91,7 +91,7 @@ namespace Seeger.Web
 
                 if (!String.IsNullOrEmpty(userName))
                 {
-                    return NhSessionManager.GetCurrentSession().Query<User>().FirstOrDefault(it => it.UserName == userName);
+                    return Database.GetCurrentSession().Query<User>().FirstOrDefault(it => it.UserName == userName);
                 }
             }
 

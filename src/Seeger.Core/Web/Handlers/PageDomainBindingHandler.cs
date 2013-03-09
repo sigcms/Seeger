@@ -14,7 +14,7 @@ namespace Seeger.Web.Handlers
         public void Handle(RequestHandlerContext context)
         {
             var domain = context.Request.Url.Host;
-            var page = PageCache.From(NhSessionManager.GetCurrentSession()).FindPageByDomain(domain);
+            var page = PageCache.From(Database.GetCurrentSession()).FindPageByDomain(domain);
 
             // TODO: What if requesting assets (jpg, swf) ?
             if (page != null)

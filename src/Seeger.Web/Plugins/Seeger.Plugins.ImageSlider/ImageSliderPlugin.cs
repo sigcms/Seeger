@@ -16,7 +16,7 @@ namespace Seeger.Plugins.ImageSlider
     {
         public override void OnInstall(PluginLifecycleContext context)
         {
-            using (var session = NhSessionManager.OpenSession())
+            using (var session = Database.OpenSession())
             {
                 var conn = session.Connection;
                 using (var cmd = conn.CreateCommand())

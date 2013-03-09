@@ -35,7 +35,7 @@ namespace Seeger.Web.UI.Admin.Pages
         [WebMethod]
         public OperationResult Move(int srcPageId, int destPageId, string moveType)
         {
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
 
             var srcPage = session.Get<PageItem>(srcPageId);
             var destPage = session.Get<PageItem>(destPageId);

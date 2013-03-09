@@ -40,7 +40,7 @@ namespace Seeger.Web.UI.Templates.Default.Layouts
 
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
             {
-                var siteInfo = SiteInfoCache.From(NhSessionManager.GetCurrentSession()).GetSiteInfo(_pageCulture);
+                var siteInfo = SiteInfoCache.From(Database.GetCurrentSession()).GetSiteInfo(_pageCulture);
                 if (siteInfo != null)
                 {
                     if (!String.IsNullOrEmpty(siteInfo.SiteTitle))
@@ -75,7 +75,7 @@ namespace Seeger.Web.UI.Templates.Default.Layouts
 
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
             {
-                var siteInfo = SiteInfoCache.From(NhSessionManager.GetCurrentSession()).GetSiteInfo(_pageCulture);
+                var siteInfo = SiteInfoCache.From(Database.GetCurrentSession()).GetSiteInfo(_pageCulture);
                 if (siteInfo != null && !String.IsNullOrEmpty(siteInfo.SiteSubtitle))
                 {
                     subtitle = siteInfo.SiteSubtitle;
@@ -129,7 +129,7 @@ namespace Seeger.Web.UI.Templates.Default.Layouts
 
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
             {
-                var siteInfo = SiteInfoCache.From(NhSessionManager.GetCurrentSession()).GetSiteInfo(_pageCulture);
+                var siteInfo = SiteInfoCache.From(Database.GetCurrentSession()).GetSiteInfo(_pageCulture);
                 if (siteInfo != null && !String.IsNullOrEmpty(siteInfo.Copyright))
                 {
                     copyright = siteInfo.Copyright;
@@ -153,7 +153,7 @@ namespace Seeger.Web.UI.Templates.Default.Layouts
 
             if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
             {
-                var siteInfo = SiteInfoCache.From(NhSessionManager.GetCurrentSession()).GetSiteInfo(_pageCulture);
+                var siteInfo = SiteInfoCache.From(Database.GetCurrentSession()).GetSiteInfo(_pageCulture);
                 if (siteInfo != null)
                 {
                     beiAnNumber = siteInfo.MiiBeiAnNumber;

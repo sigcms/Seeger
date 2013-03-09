@@ -28,7 +28,7 @@ namespace Seeger.Web.UI.Admin.Security
         [WebMethod, ScriptMethod]
         public static void Delete(int id)
         {
-            var session = NhSessionManager.GetCurrentSession();
+            var session = Database.GetCurrentSession();
             var role = session.Get<Role>(id);
             session.Delete(role);
             session.Commit();
