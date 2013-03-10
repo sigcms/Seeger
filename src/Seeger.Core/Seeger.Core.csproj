@@ -69,15 +69,9 @@
     </Compile>
     <Compile Include="AdminSkins.cs" />
     <Compile Include="Caching\FrontendLanguageCache.cs" />
-    <Compile Include="Collections\CollectionChangeEventArgs.cs" />
     <Compile Include="Collections\DictionaryExtensions.cs" />
-    <Compile Include="Collections\ISerializableCollection.cs" />
     <Compile Include="Collections\ITreeNode.cs" />
-    <Compile Include="Collections\ITreeNodeVisitor.cs" />
-    <Compile Include="Collections\ObservableSerializableCollection.cs" />
     <Compile Include="Collections\PageItemCollectionWrapper.cs" />
-    <Compile Include="Collections\ReadOnlySerializableCollection.cs" />
-    <Compile Include="Collections\SerializableCollection.cs" />
     <Compile Include="Collections\TreeNodeExtensions.cs" />
     <Compile Include="Data\Context\INhSessionContext.cs" />
     <Compile Include="Data\Context\WebNhSessionContext.cs" />
@@ -231,7 +225,6 @@
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
     <Compile Include="Web\UI\ScriptsHelper.cs" />
-    <Compile Include="Web\Url.cs" />
     <Compile Include="Web\UrlUtility.cs" />
     <Compile Include="WidgetEditorSettings.cs" />
     <Compile Include="Templates\Zone.cs" />

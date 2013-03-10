@@ -136,25 +136,16 @@ namespace Seeger.Collections
             return result;
         }
 
-        public static void DepthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visitor)
-            where T : ITreeNode<T>
-        {
-            DepthFirstVisit(node, includeSelf, new TreeNodeFuncVisitor<T>(visitor));
-        }
-
-        public static void DepthFirstVisit<T>(this T node, bool includeSelf, ITreeNodeVisitor<T> visitor)
+        public static void DepthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visit)
             where T : ITreeNode<T>
         {
             if (node == null)
-            {
                 throw new ArgumentNullException("node");
-            }
-            if (visitor == null)
-            {
-                throw new ArgumentNullException("visitor");
-            }
 
-            Stack<T> stack = new Stack<T>();
+            if (visit == null)
+                throw new ArgumentNullException("visit");
+
+            var stack = new Stack<T>();
             if (includeSelf)
             {
                 stack.Push(node);
@@ -171,7 +162,7 @@ namespace Seeger.Collections
             {
                 T current = stack.Pop();
 
-                if (visitor.Visit(current))
+                if (visit(current))
                 {
                     break;
                 }
@@ -242,25 +233,17 @@ namespace Seeger.Collections
             return result;
         }
 
-        public static void BreadthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visitor)
-            where T : ITreeNode<T>
-        {
-            BreadthFirstVisit<T>(node, includeSelf, new TreeNodeFuncVisitor<T>(visitor));
-        }
-
-        public static void BreadthFirstVisit<T>(this T node, bool includeSelf, ITreeNodeVisitor<T> visitor)
+        public static void BreadthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visit)
             where T : ITreeNode<T>
         {
             if (node == null)
-            {
                 throw new ArgumentNullException("node");
-            }
-            if (visitor == null)
-            {
-                throw new ArgumentNullException("visitor");
-            }
 
-            Queue<T> queue = new Queue<T>();
+            if (visit == null)
+                throw new ArgumentNullException("visit");
+
+            var queue = new Queue<T>();
+
             if (includeSelf)
             {
                 queue.Enqueue(node);
@@ -277,7 +260,7 @@ namespace Seeger.Collections
             {
                 T current = queue.Dequeue();
 
-                if (visitor.Visit(current))
+                if (visit(current))
                 {
                     break;
                 }
