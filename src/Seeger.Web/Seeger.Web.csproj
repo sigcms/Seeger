@@ -110,7 +110,6 @@
     <Content Include="Admin\Images\login-bg.jpg" />
     <Content Include="Admin\Images\maxthon.png" />
     <Content Include="Admin\Images\ie.png" />
-    <Content Include="Admin\Controls\OfflineHint.ascx" />
     <Content Include="Admin\Controls\SeegerNews.ascx" />
     <Content Include="Admin\Controls\UpdateCheck.ascx" />
     <Content Include="Admin\Controls\UpgradeBrowserHint.ascx" />
@@ -152,8 +151,6 @@
     <Content Include="Admin\Shared\Uploader.aspx" />
     <Content Include="Admin\Urls\CustomRedirectEdit.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList.aspx" />
-    <Content Include="Admin\Urls\RewriterIgnoredPathEdit.aspx" />
-    <Content Include="Admin\Urls\RewriterIgnoredPathList.aspx" />
     <Content Include="App_Data\AdminMenu.xml" />
     <None Include="App_Data\nhibernate.config" />
     <Content Include="App_Data\Resources\en-US\Login.xml" />
@@ -202,7 +199,6 @@
     <Content Include="App_Data\Resources\zh-CN\RedirectMode.xml" />
     <Content Include="App_Data\Resources\zh-CN\CustomRedirect.xml" />
     <Content Include="App_Data\Resources\zh-CN\SkinName.xml" />
-    <Content Include="App_Data\Resources\zh-CN\RewriterIgnoredPath.xml" />
     <Content Include="App_Data\Resources\zh-CN\Globalization.xml" />
     <Content Include="App_Data\Resources\zh-CN\Function.xml" />
     <Content Include="App_Data\Resources\zh-CN\Role.xml" />
@@ -641,13 +637,6 @@
     <Compile Include="Admin\403.aspx.designer.cs">
       <DependentUpon>403.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Controls\OfflineHint.ascx.cs">
-      <DependentUpon>OfflineHint.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Controls\OfflineHint.ascx.designer.cs">
-      <DependentUpon>OfflineHint.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Controls\SeegerNews.ascx.cs">
       <DependentUpon>SeegerNews.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -887,20 +876,6 @@
     </Compile>
     <Compile Include="Admin\Urls\CustomRedirectList.aspx.designer.cs">
       <DependentUpon>CustomRedirectList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Urls\RewriterIgnoredPathEdit.aspx.cs">
-      <DependentUpon>RewriterIgnoredPathEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Urls\RewriterIgnoredPathEdit.aspx.designer.cs">
-      <DependentUpon>RewriterIgnoredPathEdit.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\Urls\RewriterIgnoredPathList.aspx.cs">
-      <DependentUpon>RewriterIgnoredPathList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Urls\RewriterIgnoredPathList.aspx.designer.cs">
-      <DependentUpon>RewriterIgnoredPathList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Pages\AppCode\PageItemView.cs" />
     <Compile Include="Admin\Designer\Controls\AllWidgets.ascx.cs">

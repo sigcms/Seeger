@@ -82,16 +82,7 @@ namespace Seeger.Web
         {
             if (_requestPath == "/" || _requestPath.IgnoreCaseEquals("/Admin") || _requestPath.IgnoreCaseStartsWith("/Admin/")) return;
 
-            string path = _requestPath;
-
-            if (path.IgnoreCaseStartsWith(InstallationInfo.InstallPath))
-            {
-                if (path.Length == InstallationInfo.InstallPath.Length)
-                {
-                    return;
-                }
-                path = path.Substring(InstallationInfo.InstallPath.Length);
-            }
+            var path = _requestPath;
 
             if (path.Length == 0 || path == "/" || _requestPath.IgnoreCaseEquals("/Admin") || _requestPath.IgnoreCaseStartsWith("/Admin/")) return;
 

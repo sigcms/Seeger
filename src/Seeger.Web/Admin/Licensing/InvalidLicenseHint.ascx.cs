@@ -22,7 +22,7 @@ namespace Seeger.Web.UI.Admin.Licensing
                     Hint.Visible = true;
                     Hint.Text = ResourcesFolder.Global
                                           .GetValue("Licensing.InvalidLicenseHint", CultureInfo.CurrentCulture)
-                                          .Replace("{ValidationPath}", CmsVirtualPath.GetFull("/Admin/Licensing/ValidateSystem.aspx"))
+                                          .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
                                           .Replace("{PurchaseUrl}", SeegerUrls.Purchase);
                 }
             }

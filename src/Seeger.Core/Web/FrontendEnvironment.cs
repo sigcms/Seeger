@@ -40,7 +40,7 @@ namespace Seeger.Web
                 }
                 else
                 {
-                    url = "http://" + UrlUtility.Combine(requestUrl.Authority, CmsVirtualPath.GetFull(currentCulture));
+                    url = "http://" + UrlUtility.Combine(requestUrl.Authority, currentCulture);
                 }
             }
             else
@@ -70,7 +70,7 @@ namespace Seeger.Web
         {
             Require.NotNull(page, "page");
 
-            return GetFullUrl(targetCulture, page.GetPagePath(String.Empty, GlobalSettingManager.Instance.FrontendSettings.PageExtension));
+            return GetFullUrl(targetCulture, page.GetPagePath());
         }
 
         public static string GetFullUrl(CultureInfo targetCulture, string pathWithoutCultureInfo)

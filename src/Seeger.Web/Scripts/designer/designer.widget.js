@@ -113,7 +113,7 @@
                 throw new Error("Zone is required.");
             }
 
-            var path = Sig.UrlUtility.combine(designerContext.get_installPath(), "/Plugins/" + _pluginName);
+            var path = "/Plugins/" + _pluginName;
 
             if (_templateName != null) {
                 path += "/" + _templateName;

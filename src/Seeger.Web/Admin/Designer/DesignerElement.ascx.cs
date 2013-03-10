@@ -43,7 +43,7 @@ namespace Seeger.Web.UI.Admin.Designer
         {
             get
             {
-                return PageItem.GetPagePath(Request.QueryString["page-culture"], GlobalSettingManager.Instance.FrontendSettings.PageExtension);
+                return FrontendEnvironment.GetPageUrl(Request.QueryString["page-culture"], PageItem);
             }
         }
 

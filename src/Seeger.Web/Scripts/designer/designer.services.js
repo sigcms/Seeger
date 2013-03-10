@@ -7,7 +7,7 @@
             var pageId = context.get_pageId();
 
             $.ajax({
-                url: Sig.UrlUtility.combine(context.get_installPath(), '/Admin/Designer/WidgetPreview.ashx?culture=' + culture + '&pageid=' + pageId),
+                url: Sig.UrlUtility.combine('/Admin/Designer/WidgetPreview.ashx?culture=' + culture + '&pageid=' + pageId),
                 type: 'POST',
                 cache: false,
                 data: {
@@ -30,7 +30,7 @@
             var context = Sig.Designer.get_current().get_context();
 
             $.ajax({
-                url: Sig.UrlUtility.combine(context.get_installPath(), '/Admin/Designer/SaveChanges.ashx'),
+                url: '/Admin/Designer/SaveChanges.ashx',
                 type: 'POST',
                 cache: false,
                 data: {

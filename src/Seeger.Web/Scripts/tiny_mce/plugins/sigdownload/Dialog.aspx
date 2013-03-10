@@ -75,7 +75,7 @@
             <fieldset class="upload-panel">
                 <legend><%= Localize("SigDownload.Upload") %></legend>
                 <div style="padding-left:55px">
-                    <iframe id="uploadFrame" frameborder="0" src="<%= CmsVirtualPath.GetFull("/Admin/Shared/Uploader.aspx") %>" width="110" height="45" scrolling="no"></iframe>
+                    <iframe id="uploadFrame" frameborder="0" src="<%= "/Admin/Shared/Uploader.aspx" %>" width="110" height="45" scrolling="no"></iframe>
                 </div>
             </fieldset>
         </div>
@@ -95,8 +95,8 @@
 
         $(function () {
             filebrowser = $("#file-browser").filebrowser({
-                root: '<%= CmsVirtualPath.GetFull("/Files") %>',
-                serverHandler: '<%= CmsVirtualPath.GetFull("/Admin/Files/ListFiles.ashx") %>',
+                root: '/Files',
+                serverHandler: '/Admin/Files/ListFiles.ashx',
                 fileClick: function (fullPath, fileName) {
                     selectFile(fullPath, fileName);
                     return false;
@@ -104,7 +104,7 @@
                 directoryLoaded: function (dir) {
                     filePath = null;
                     $currentPath.html(dir);
-                    $("#uploadFrame").attr("src", "<%= CmsVirtualPath.GetFull("/Admin/Shared/Uploader.aspx?dir=") %>" + dir);
+                    $("#uploadFrame").attr("src", "/Admin/Shared/Uploader.aspx?dir=" + dir);
                 }
             });
 

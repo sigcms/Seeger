@@ -6,7 +6,6 @@
 <%@ Register TagPrefix="uc" TagName="DomainBindingHint" Src="Licensing/DomainBindingHint.ascx" %>
 <%@ Register TagPrefix="uc" TagName="UpdateCheck" Src="Controls/UpdateCheck.ascx" %>
 <%@ Register TagPrefix="uc" TagName="SeegerNews" Src="Controls/SeegerNews.ascx" %>
-<%@ Register TagPrefix="uc" TagName="OfflineHint" Src="Controls/OfflineHint.ascx" %>
 <%@ Register TagPrefix="uc" TagName="UpgradeBrowserHint" Src="Controls/UpgradeBrowserHint.ascx" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
@@ -18,7 +17,6 @@
             <uc:CurrentDomainHint runat="server" ID="CurrentDomainHint" />
             <uc:DomainBindingHint runat="server" ID="DomainBindingHint" />
             <uc:UpgradeBrowserHint runat="server" ID="UpgradeBrowserHint" />
-            <uc:OfflineHint runat="server" ID="OfflineHint" />
             <uc:UpdateCheck runat="server" ID="UpdateCheck" />
             <table class="quick-links">
                 <tr>

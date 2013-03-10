@@ -26,7 +26,7 @@ namespace Seeger
             Description = String.Empty;
         }
 
-        public virtual bool IsMatch(System.Web.HttpRequest request)
+        public virtual bool IsMatch(System.Web.HttpRequestBase request)
         {
             Require.NotNull(request, "request");
 

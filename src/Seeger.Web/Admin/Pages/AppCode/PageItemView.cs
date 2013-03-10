@@ -40,7 +40,7 @@ namespace Seeger.Web.UI.Admin
             Layout = page.Layout.DisplayName.Localize();
             LayoutPreviewImage = page.Layout.PreviewImageVirtualPath;
             DesignerPath = page.Layout.DesignerPath;
-            PagePath = page.GetPagePathRelativeToCmsRoot(String.Empty, null);
+            PagePath = page.GetPagePath();
             IsDeletable = page.IsDeletable;
             Skin = String.Empty;
             SkinPreviewImage = String.Empty;

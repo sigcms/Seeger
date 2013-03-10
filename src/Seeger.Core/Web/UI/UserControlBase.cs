@@ -25,7 +25,7 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected string Localize(string key)
+        protected virtual string Localize(string key)
         {
             return Localize(key, CultureInfo.CurrentUICulture);
         }

@@ -17,7 +17,6 @@
   </menu>
   <menu>
     <menu title="{ Menu.CustomRedirectMgnt }" function="CustomRedirect" url="Urls/CustomRedirectList.aspx" />
-    <menu title="{ Menu.RewriterIgnoredPathMgnt }" function="RewriterIgnoredPath" url="Urls/RewriterIgnoredPathList.aspx" />
   </menu>
   <menu>
     <menu title="{ Menu.PluginMgnt }" function="PluginMgnt" url="Plugins/PluginList.aspx" />

@@ -25,7 +25,6 @@
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.js" />
 
 <script type="text/javascript">
-    Sig.Designer._installPath = '<%= InstallationInfo.InstallPath %>';
     Sig.Designer._pageId = <%= PageId %>;
     Sig.Designer._pageTemplate = '<%= TemplateName %>';
     Sig.Designer._pageLayout = '<%= LayoutName %>';

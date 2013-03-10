@@ -144,17 +144,6 @@ create table cms_CustomRedirect
 	constraint PK_cms_CustomRedirect primary key (Id)
 );
 
-create table cms_RewriterIgnoredPath
-(
-	Id int not null,
-	Name nvarchar(50) not null,
-	"Path" nvarchar(300) not null,
-	MatchByRegex bit not null,
-	Reserved bit not null,
-
-	constraint PK_cms_RewriterIgnoredPath primary key (Id)
-);
-
 create table cms_SiteInfo
 (
 	Culture varchar(10) not null,
@@ -206,7 +195,6 @@ insert into cms_HiValue values ('cms_RoleGrantedPermission', 1);
 insert into cms_HiValue values ('cms_User', 1);
 insert into cms_HiValue values ('cms_UserInRole', 1);
 insert into cms_HiValue values ('cms_CustomRedirect', 0);
-insert into cms_HiValue values ('cms_RewriterIgnoredPath', 3);
 insert into cms_HiValue values ('cms_WidgetInPage', 0);
 insert into cms_HiValue values ('cms_TaskItem', 1);
 insert into cms_HiValue values ('cms_EntityPropertyLocalization', 0);

@@ -103,7 +103,7 @@ namespace Seeger.Web
             string loginUrl = FormsAuthentication.LoginUrl;
             if (String.IsNullOrEmpty(loginUrl))
             {
-                loginUrl = CmsVirtualPath.GetFull("/Admin/Login.aspx");
+                loginUrl = "/Admin/Login.aspx";
             }
 
             HttpContext.Current.Response.Redirect(loginUrl, true);
@@ -111,7 +111,7 @@ namespace Seeger.Web
 
         public static void RedirectToUnauthorizedPage()
         {
-            HttpContext.Current.Response.Redirect(CmsVirtualPath.GetFull("/Admin/403.aspx"), true);
+            HttpContext.Current.Response.Redirect("/Admin/403.aspx", true);
         }
 
         public static void SetAuthCookie(User user, bool persistCredential)

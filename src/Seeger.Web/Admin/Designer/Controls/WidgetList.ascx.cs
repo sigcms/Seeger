@@ -27,7 +27,7 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
             var widget = (WidgetDefinition)dataItem;
             if (String.IsNullOrEmpty(widget.IconUrl))
             {
-                return CmsVirtualPath.GetFull("/Admin/Designer/widget-icon.png");
+                return "/Admin/Designer/widget-icon.png";
             }
             return widget.IconUrl;
         }

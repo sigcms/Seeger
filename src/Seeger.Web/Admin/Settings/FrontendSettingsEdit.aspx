@@ -26,29 +26,9 @@
                </td>
             </tr>
        </sig:AdminPlaceHolder>
-       <tr>
-            <th><%= Localize("Setting.PageExtension") %></th>
-            <td>
-                <asp:DropDownList runat="server" ID="PageExtension" AppendDataBoundItems="true">
-                </asp:DropDownList>
-            </td>
-        </tr>
         <tr>
             <th></th>
             <td></td>
-        </tr>
-        <tr>
-            <th></th>
-            <td>
-                <asp:CheckBox runat="server" ID="CloseWebsite" CssClass="aspnet-checkbox" Text="<%$ Resources: Setting.CloseWebsite %>" />
-            </td>
-        </tr>
-        <tr id="offline-url-row" style='<%= GetOfflineUrlRowStyle() %>'>
-            <th></th>
-            <td>
-                <label style="display:block;padding-bottom:5px;"><%= Localize("Setting.SelectOfflinePage") %>:</label>
-                <uc:PageDropDownList ID="PageList" runat="server" AutoBind="false" />
-            </td>
         </tr>
         <sig:AdminPlaceHolder runat="server" PermissionGroup="FrontendSetting" Permission="Edit">
             <tr>
@@ -60,14 +40,4 @@
         </sig:AdminPlaceHolder>
     </table>
 
-    <script type="text/javascript">
-        $("#<%= CloseWebsite.ClientID %>").click(function () {
-            var $this = $(this);
-            if ($this.is(":checked")) {
-                $("#offline-url-row").show();
-            } else {
-                $("#offline-url-row").hide();
-            }
-        });
-    </script>
 </asp:Content>

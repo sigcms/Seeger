@@ -21,5 +21,27 @@ namespace Seeger
         {
             return pages.FirstOrDefault(p => p.UniqueName == uniqueName);
         }
+
+        public static void AdjustOrders(this IEnumerable<PageItem> pages, bool recursive)
+        {
+            PageItem last = null;
+
+            foreach (var page in pages)
+            {
+                if (last == null)
+                {
+                    last = page;
+                }
+                else if (last.Order >= page.Order)
+                {
+                    page.Order = last.Order + 1;
+                }
+
+                if (recursive)
+                {
+                    page.Pages.AdjustOrders(recursive);
+                }
+            }
+        }
     }
 }

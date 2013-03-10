@@ -69,13 +69,13 @@
     </Compile>
     <Compile Include="AdminSkins.cs" />
     <Compile Include="Caching\FrontendLanguageCache.cs" />
-    <Compile Include="CmsVirtualPath.cs" />
     <Compile Include="Collections\CollectionChangeEventArgs.cs" />
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\ISerializableCollection.cs" />
     <Compile Include="Collections\ITreeNode.cs" />
     <Compile Include="Collections\ITreeNodeVisitor.cs" />
     <Compile Include="Collections\ObservableSerializableCollection.cs" />
+    <Compile Include="Collections\PageItemCollectionWrapper.cs" />
     <Compile Include="Collections\ReadOnlySerializableCollection.cs" />
     <Compile Include="Collections\SerializableCollection.cs" />
     <Compile Include="Collections\TreeNodeExtensions.cs" />
@@ -91,7 +91,6 @@
     <Compile Include="Data\Mapping\Impl\FrontendLanguageMap.cs" />
     <Compile Include="Data\Mapping\Impl\GlobalSettingMap.cs" />
     <Compile Include="Data\Mapping\Impl\PageItemMap.cs" />
-    <Compile Include="Data\Mapping\Impl\RewriterIgnoredPathMap.cs" />
     <Compile Include="Data\Mapping\Impl\RoleMap.cs" />
     <Compile Include="Data\Mapping\Impl\RoleGrantedPermissionMap.cs" />
     <Compile Include="Data\Mapping\Impl\SiteInfoMap.cs" />
@@ -123,7 +122,6 @@
     <Compile Include="Globalization\ILocalizableEntity.cs" />
     <Compile Include="Globalization\ResourcesFolder.cs" />
     <Compile Include="Globalization\XmlResourceReader.cs" />
-    <Compile Include="InstallationInfo.cs" />
     <Compile Include="Licensing\Domain.cs" />
     <Compile Include="Licensing\Edition.cs" />
     <Compile Include="Licensing\Editions.cs" />
@@ -156,9 +154,9 @@
     <Compile Include="Plugins\Widgets\WidgetDefinition.cs" />
     <Compile Include="Plugins\Widgets\WidgetPaths.cs" />
     <Compile Include="Require.cs" />
+    <Compile Include="Services\PageMovementService.cs" />
     <Compile Include="Templates\LayoutCollection.cs" />
     <Compile Include="Licensing\LicensingService.cs" />
-    <Compile Include="Services\PageService.cs" />
     <Compile Include="Settings\DefaultSiteInfo.cs" />
     <Compile Include="Settings\DevConfig.cs" />
     <Compile Include="Settings\GlobalSettingManager.cs" />
@@ -192,14 +190,17 @@
     <Compile Include="Web\AuthRequiredHttpHandler.cs" />
     <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Web\FrontendEnvironment.cs" />
-    <Compile Include="Web\Handlers\AlwaysIgnoredPathHandler.cs" />
-    <Compile Include="Web\Handlers\CultureHandler.cs" />
-    <Compile Include="Web\Handlers\InstallPathHandler.cs" />
-    <Compile Include="Web\Handlers\OfflineHandler.cs" />
-    <Compile Include="Web\Handlers\OfflineHelper.cs" />
-    <Compile Include="Web\Handlers\HomeRequestHandler.cs" />
-    <Compile Include="Web\Handlers\PageDomainBindingHandler.cs" />
     <Compile Include="Web\HttpContextCache.cs" />
+    <Compile Include="Web\Processors\CultureProcessor.cs" />
+    <Compile Include="Web\Processors\CustomRedirectProcessor.cs" />
+    <Compile Include="Web\Processors\HomepageProcessor.cs" />
+    <Compile Include="Web\Processors\HttpProcessingContext.cs" />
+    <Compile Include="Web\Processors\HttpProcessors.cs" />
+    <Compile Include="Web\Processors\HttpRedirection.cs" />
+    <Compile Include="Web\Processors\IHttpProcessor.cs" />
+    <Compile Include="Web\Processors\IgnoredPathProcessor.cs" />
+    <Compile Include="Web\Processors\PageDomainBindingProcessor.cs" />
+    <Compile Include="Web\Processors\PageProcessor.cs" />
     <Compile Include="Web\Server.cs" />
     <Compile Include="Web\SmartLocalizer.cs" />
     <Compile Include="Web\UI\ControlHelper.cs" />
@@ -236,8 +237,6 @@
     <Compile Include="Templates\Zone.cs" />
     <Compile Include="Caching\CustomRedirectCache.cs" />
     <Compile Include="Caching\PageCache.cs" />
-    <Compile Include="Caching\RewriterIgnoredPathCache.cs" />
-    <Compile Include="Collections\PageItemCollection.cs" />
     <Compile Include="CustomRedirect.cs" />
     <Compile Include="Security\PermissionGroup.cs" />
     <Compile Include="Security\PermissionGroupCollection.cs" />
@@ -259,7 +258,6 @@
     <Compile Include="Templates\Layout.cs" />
     <Compile Include="DropPosition.cs" />
     <Compile Include="Security\PermissionCollection.cs" />
-    <Compile Include="RewriterIgnoredPath.cs" />
     <Compile Include="Security\Role.cs" />
     <Compile Include="Security\RoleGrantedPermission.cs" />
     <Compile Include="Settings\CmsConfiguration.cs" />
@@ -270,11 +268,6 @@
     <Compile Include="Templates\SkinCollection.cs" />
     <Compile Include="Security\User.cs" />
     <Compile Include="PageItem.cs" />
-    <Compile Include="Web\Handlers\CustomRedirectHandler.cs" />
-    <Compile Include="Web\Handlers\RequestHandler.cs" />
-    <Compile Include="Web\Handlers\PageRequestHandler.cs" />
-    <Compile Include="Web\Handlers\RequestHandlerContext.cs" />
-    <Compile Include="Web\Handlers\RewriterIgnoredPathHandler.cs" />
     <Compile Include="RedirectMode.cs" />
     <Compile Include="Web\AdminSession.cs" />
     <Compile Include="Web\UI\AdminPageBase.cs">
@@ -346,7 +339,7 @@
     <Compile Include="Web\UI\Designer\WidgetEditorBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\UrlRewriteModule.cs" />
+    <Compile Include="Web\HttpModule.cs" />
     <Compile Include="WidgetInPage.cs" />
   </ItemGroup>
   <ItemGroup>

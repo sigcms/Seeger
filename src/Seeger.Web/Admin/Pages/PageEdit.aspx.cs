@@ -118,7 +118,7 @@ namespace Seeger.Web.UI.Admin.Pages
 
             if (ParentPage != null)
             {
-                BaseUrl.Text += ParentPage.GetPagePath(String.Empty, null);
+                BaseUrl.Text += ParentPage.GetPagePath();
             }
 
             BaseUrl.Text += "/";
@@ -195,7 +195,7 @@ namespace Seeger.Web.UI.Admin.Pages
             PageItem page = CurrentPage;
             if (page == null)
             {
-                page = new PageItem();
+                page = new PageItem(ParentPage);
             }
 
             page.DisplayName = Name.Text.Trim();
@@ -221,27 +221,18 @@ namespace Seeger.Web.UI.Admin.Pages
             {
                 if (ParentPage != null)
                 {
-                    //page.ParentPageId = ParentPage.Id;
-                    page.Parent = NhSession.Get<PageItem>(ParentPage.Id);
-                    if (ParentPage.Pages.Count > 0)
-                    {
-                        page.Order = ParentPage.Pages.Max(it => it.Order) + 1;
-                    }
+                    ParentPage.Pages.Add(page);
+                    ParentPage.Pages.AdjustOrders(false);
                 }
                 else
                 {
-                    var pageCache = PageCache.From(NhSession);
+                    var rootPages = PageCache.From(NhSession).RootPages;
 
-                    if (pageCache.RootPages.Any())
-                    {
-                        page.Order = pageCache.RootPages.Max(it => it.Order) + 1;
-                    }
+                    if (rootPages.Any())
+                        page.Order = rootPages.Max(it => it.Order) + 1;
+
+                    NhSession.Save(page);
                 }
-            }
-
-            if (!IsEditing)
-            {
-                NhSession.Save(page);
             }
 
             page.ModifiedTime = DateTime.Now;

@@ -112,7 +112,7 @@ namespace Seeger.Web.UI
 
         private void IncludeDesignerElement()
         {
-            Form.Controls.Add(LoadControl(CmsVirtualPath.GetFull("/Admin/Designer/DesignerElement.ascx")));
+            Form.Controls.Add(LoadControl("/Admin/Designer/DesignerElement.ascx"));
         }
 
         private void IncludeScripts()

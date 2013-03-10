@@ -22,7 +22,19 @@ namespace Seeger.Web.UI.Admin.Pages
         {
             try
             {
-                PageService.Delete(pageId, true);
+                var session = Database.GetCurrentSession();
+                var page = session.Get<PageItem>(pageId);
+
+                if (page.Parent == null)
+                {
+                    session.Delete(page);
+                }
+                else
+                {
+                    page.Parent.Pages.Remove(page);
+                }
+
+                session.Commit();
 
                 return OperationResult.CreateSuccessResult();
             }
@@ -37,22 +49,20 @@ namespace Seeger.Web.UI.Admin.Pages
         {
             var session = Database.GetCurrentSession();
 
-            var srcPage = session.Get<PageItem>(srcPageId);
-            var destPage = session.Get<PageItem>(destPageId);
+            var from = session.Get<PageItem>(srcPageId);
+            var to = session.Get<PageItem>(destPageId);
 
-            DropPosition strategy = DropPosition.Over;
-            if (moveType == "before")
+            var strategy = DropPosition.Over;
+
+            if (!String.IsNullOrEmpty(moveType))
             {
-                strategy = DropPosition.Before;
-            }
-            else if (moveType == "after")
-            {
-                strategy = DropPosition.After;
+                strategy = (DropPosition)Enum.Parse(typeof(DropPosition), moveType, true);
             }
 
             try
             {
-                srcPage.MoveTo(destPage, strategy);
+                var service = new PageMovementService(session);
+                service.Move(from, to, strategy);
                 session.Commit();
 
                 return OperationResult.CreateSuccessResult();

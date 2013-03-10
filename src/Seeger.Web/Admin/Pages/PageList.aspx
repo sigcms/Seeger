@@ -42,9 +42,7 @@
     <script type="text/javascript" src="../../Scripts/telerik/telerik.treeview.ext.js"></script>
     <script type="text/javascript" src="PageList.js"></script>
     <script type="text/javascript">
-        settings.installPath = '<%= InstallationInfo.InstallPath %>';
         settings.multilingual = <%= FrontendSettings.Multilingual.ToString().ToLower() %>;
-        settings.pageExtension = '<%= FrontendSettings.PageExtension %>';
 
         Messages.Processing = '<%= Localize("Message.Processing") %>';
         Messages.Loading = '<%= Localize("Message.Loading") %>';

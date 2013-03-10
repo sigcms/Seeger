@@ -11,7 +11,7 @@ namespace Seeger
     {
         static AdminSkins()
         {
-            Skins = new SkinCollection(CmsVirtualPath.GetFull("/App_Themes"));
+            Skins = new SkinCollection("/App_Themes");
         }
 
         public static SkinCollection Skins { get; private set; }

@@ -52,7 +52,7 @@ namespace Seeger.Web.UI
 
             if (PathMode == PathMode.RelativeToCmsRoot)
             {
-                url = CmsVirtualPath.GetFull(Path);
+                url = Path;
             }
 
             bool render = true;

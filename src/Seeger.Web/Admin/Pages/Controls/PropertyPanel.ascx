@@ -4,7 +4,7 @@
     <table class="pageinfo-table">
         <tr>
             <th><%= Localize("Page.Path") %></th>
-            <td>${PagePath}<%= FrontendSettings.PageExtension %></td>
+            <td>${PagePath}</td>
         </tr>
         <tr>
             <th><%= Localize("Page.Layout") %></th>

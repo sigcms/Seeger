@@ -56,12 +56,12 @@ namespace Seeger.Data.Mapping
 
             ManyToOne(c => c.Parent, m => m.Column("ParentPageId"));
 
-            Bag<PageItem>("_nhChildPages", m =>
+            Bag<PageItem>(c => c.Pages, m =>
             {
                 m.Key(k => k.Column("ParentPageId"));
-                m.Access(Accessor.Field);
                 m.OrderBy("`Order`");
                 m.Cache(c => c.Usage(CacheUsage.ReadWrite));
+                m.Cascade(Cascade.All | Cascade.DeleteOrphans);
             }, m => m.OneToMany());
 
             Bag(c => c.WidgetInPages, m => {

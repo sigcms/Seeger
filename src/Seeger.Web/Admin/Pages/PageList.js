@@ -19,9 +19,7 @@ var Messages = {
 };
 
 var settings = {
-    multilingual: false,
-    pageExtension: '',
-    installPath: '/'
+    multilingual: false
 };
 var selectedPage = null;
 
@@ -205,10 +203,6 @@ function getFinalPagePath(pageInfo, culture) {
     if (settings.multilingual && culture != null) {
         url = "/" + culture + url;
     }
-    if (settings.pageExtension.length > 0) {
-        url += settings.pageExtension;
-    }
-    
     return getFullVirutalPath(url);
 }
 
@@ -305,11 +299,7 @@ function showNoPageHint() {
 }
 
 function getFullVirutalPath(virtualPathRelativeToCmsRoot) {
-    if (settings.installPath.length == 0 || settings.installPath == '/') {
-        return virtualPathRelativeToCmsRoot;
-    }
-
-    return settings.installPath + virtualPathRelativeToCmsRoot;
+    return virtualPathRelativeToCmsRoot;
 }
 
 /* Message */

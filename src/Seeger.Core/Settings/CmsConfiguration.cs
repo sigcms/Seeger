@@ -31,7 +31,7 @@ namespace Seeger
         {
             get
             {
-                return UrlUtility.Combine(InstallationInfo.InstallPath, "App_Data/Cms.config");
+                return UrlUtility.Combine("/App_Data/Cms.config");
             }
         }
 

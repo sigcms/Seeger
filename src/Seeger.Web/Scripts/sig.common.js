@@ -203,7 +203,9 @@ window.isDigit = function (val) {
     window.Sig.Message = Message;
 
     var UrlUtility = {
-        combine: function(url1, url2) {
+        combine: function (url1, url2) {
+            if (!url2) return url1;
+
             if (url1 == '' || url1 == '/') {
                 return url2; 
             }

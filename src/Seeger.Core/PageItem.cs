@@ -39,25 +39,18 @@ namespace Seeger
         public virtual PageItem Parent { get; set; }
         public virtual IList<WidgetInPage> WidgetInPages { get; protected set; }
         public virtual EntityAttributeCollection Attributes { get; protected set; }
-
-        private IList<PageItem> _nhChildPages = new List<PageItem>();
-        private PageItemCollection _pages;
-
-        public virtual PageItemCollection Pages
-        {
-            get
-            {
-                if (_pages == null)
-                {
-                    _pages = new PageItemCollection(this, _nhChildPages);
-                }
-                return _pages;
-            }
-        }
+        public virtual IList<PageItem> Pages { get; protected set; }
 
         public PageItem()
+            : this(null)
+        {
+        }
+
+        public PageItem(PageItem parent)
         {
             IsDeletable = true;
+
+            Parent = parent;
 
             MenuText = String.Empty;
             PageTitle = String.Empty;
@@ -65,6 +58,7 @@ namespace Seeger
             MetaDescription = String.Empty;
 
             WidgetInPages = new List<WidgetInPage>();
+            Pages = new List<PageItem>();
 
             VisibleInMenu = true;
             CreatedTime = DateTime.Now;
@@ -214,72 +208,15 @@ namespace Seeger
 
         #endregion
 
-        public virtual void MoveTo(PageItem destination, DropPosition position)
-        {
-            if (destination == null && position != DropPosition.Over)
-            {
-                throw new InvalidOperationException();
-            }
-
-            PageItemCollection rootPageItems = PageService.GetRootPages();
-
-            if (destination == null)
-            {
-                rootPageItems.AddLast(this);
-            }
-            else
-            {
-                if (position == DropPosition.Over)
-                {
-                    destination.Pages.AddLast(this);
-                }
-                else if (position == DropPosition.Before)
-                {
-                    var collection = destination.Parent == null ? rootPageItems : destination.Parent.Pages;
-
-                    if (this.IsSiblingOf(destination))
-                    {
-                        collection.MoveBefore(this, destination);
-                    }
-                    else
-                    {
-                        collection.AddBefore(this, destination);
-                    }
-                }
-                else if (position == DropPosition.After)
-                {
-                    var collection = destination.Parent == null ? rootPageItems : destination.Parent.Pages;
-
-                    if (this.IsSiblingOf(destination))
-                    {
-                        collection.MoveAfter(this, destination);
-                    }
-                    else
-                    {
-                        collection.AddAfter(this, destination);
-                    }
-                }
-            }
-        }
-
         public virtual bool IsSiblingOf(PageItem other)
         {
-            if (other == null)
-            {
-                return false;
-            }
+            if (other == null) return false;
 
-            if (Parent == null && other.Parent == null)
-            {
-                return true;
-            }
+            if (Parent == null && other.Parent == null) return true;
 
-            if (Parent != null && other.Parent != null && Parent.Id == other.Parent.Id)
-            {
-                return true;
-            }
+            if (Parent == null || other.Parent == null) return false;
 
-            return false;
+            return Parent.Id == other.Parent.Id;
         }
 
         public virtual PageItem FindDecendant(Func<PageItem, bool> predicate)
@@ -287,58 +224,32 @@ namespace Seeger
             return this.BreadthFirstSearch(false, predicate);
         }
 
-        public virtual string GetFinalPagePath()
+        public virtual string GetPagePath()
         {
-            var frontendSettings = GlobalSettingManager.Instance.FrontendSettings;
-
-            if (frontendSettings.Multilingual)
-            {
-                return GetPagePath(CultureInfo.CurrentCulture, frontendSettings.PageExtension);
-            }
-
-            return GetPagePath(String.Empty, frontendSettings.PageExtension);
+            return GetPagePathFrom(null);
         }
 
-        public virtual string GetPagePath(CultureInfo culture, string extension)
+        public virtual string GetPagePathFrom(PageItem root)
         {
-            return GetPagePath(culture == null ? null : culture.Name, extension);
-        }
-
-        public virtual string GetPagePath(string cultureName, string extension = null)
-        {
-            return CmsVirtualPath.GetFull(GetPagePathRelativeToCmsRoot(cultureName, extension));
-        }
-
-        public virtual string GetPagePathRelativeToCmsRoot(string cultureName, string extension = null)
-        {
-            var pagePath = ReCalculatePagePath();
-            var path = pagePath + (extension ?? String.Empty);
-            if (!String.IsNullOrEmpty(cultureName))
-            {
-                path = "/" + cultureName + path;
-            }
-
-            return path;
-        }
-
-        private string ReCalculatePagePath()
-        {
-            string path = this.UrlSegment;
             var current = this;
-            while (current.Parent != null)
+            var path = String.Empty;
+
+            while (current != null)
             {
-                path = current.Parent.UrlSegment + "/" + path;
+                if (root != null && root.Id == current.Id) break;
+
+                path = current.UrlSegment + "/" + path;
                 current = current.Parent;
             }
 
-            path = "/" + path;
+            path = "/" + path.TrimEnd('/');
 
             return path;
         }
 
         public override string ToString()
         {
-            return String.Format("Id:{0}, Name:{1}", Id, DisplayName ?? String.Empty);
+            return DisplayName;
         }
 
         IEnumerable<PageItem> ITreeNode<PageItem>.Children

@@ -25,8 +25,8 @@ namespace Seeger.Web.UI.Admin.Licensing
                 {
                     Hint.Visible = true;
                     Hint.Text = ResourcesFolder.Global.GetValue("Licensing.DomainBindingNotSupportedHint", CultureInfo.CurrentUICulture)
-                                          .Replace("{ValidationPath}", CmsVirtualPath.GetFull("/Admin/Licensing/ValidateSystem.aspx"))
-                                          .Replace("{FrontendLangListPath}", CmsVirtualPath.GetFull("/Admin/Settings/FrontendLangList.aspx"));
+                                          .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
+                                          .Replace("{FrontendLangListPath}", "/Admin/Settings/FrontendLangList.aspx");
                 }
             }
         }

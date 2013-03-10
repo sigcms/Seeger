@@ -30,7 +30,7 @@ namespace Seeger.Caching
             return new CustomRedirectCache(session);
         }
 
-        public CustomRedirect Match(HttpRequest request)
+        public CustomRedirect Match(HttpRequestBase request)
         {
             return CustomRedirects.FirstOrDefault(x => x.IsMatch(request));
         }

@@ -23,7 +23,7 @@ namespace Seeger.Web.UI
             string culture = CultureInfo.CurrentUICulture.Name;
 
             _settings = new NameValueCollection();
-            _settings["script_url"] = CmsVirtualPath.GetFull("/Scripts/tiny_mce/tiny_mce.js");
+            _settings["script_url"] = "/Scripts/tiny_mce/tiny_mce.js";
             _settings["theme"] = "advanced";
             _settings["language"] = culture;
             _settings["plugins"] = "pagebreak,sigimage,sigdownload,contextmenu,paste,fullscreen,xhtmlxtras";
@@ -45,8 +45,8 @@ namespace Seeger.Web.UI
 
             _settings["relative_urls"] = "false";
             _settings["convert_urls"] = "true";
-            _settings["content_css"] = CmsVirtualPath.GetFull("/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "content.css" : "content." + culture + ".css"));
-            _settings["popup_css"] = CmsVirtualPath.GetFull("/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "dialog.css" : "dialog." + culture + ".css"));
+            _settings["content_css"] = "/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "content.css" : "content." + culture + ".css");
+            _settings["popup_css"] = "/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "dialog.css" : "dialog." + culture + ".css");
         }
 
         #region TinyMCE Init Configurations
@@ -303,7 +303,7 @@ namespace Seeger.Web.UI
             string jqueryTinyMceScriptUrl = this.JQueryTinyMCEScriptUrl;
             if (String.IsNullOrEmpty(jqueryTinyMceScriptUrl))
             {
-                jqueryTinyMceScriptUrl = CmsVirtualPath.GetFull("/Scripts/tiny_mce/jquery.tinymce.js");
+                jqueryTinyMceScriptUrl = "/Scripts/tiny_mce/jquery.tinymce.js";
             }
 
             Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "TinyMCE", jqueryTinyMceScriptUrl);

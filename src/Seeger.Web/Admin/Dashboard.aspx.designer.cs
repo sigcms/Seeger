@@ -49,15 +49,6 @@ namespace Seeger.Web.UI.Admin {
         protected global::Seeger.Web.UI.Admin.Controls.UpgradeBrowserHint UpgradeBrowserHint;
         
         /// <summary>
-        /// OfflineHint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Seeger.Web.UI.Admin.Controls.OfflineHint OfflineHint;
-        
-        /// <summary>
         /// UpdateCheck control.
         /// </summary>
         /// <remarks>

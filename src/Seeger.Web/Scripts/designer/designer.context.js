@@ -6,10 +6,6 @@
             _culture = $.Params.get('page-culture');
         }
 
-        this.get_installPath = function () {
-            return Sig.Designer._installPath;
-        }
-
         this.get_pageLiveUrl = function () {
             return Sig.Designer._pageLiveUrl;
         }

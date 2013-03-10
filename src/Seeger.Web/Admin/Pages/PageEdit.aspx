@@ -42,7 +42,6 @@
             <td>
                 <asp:Literal runat="server" ID="BaseUrl" />
                 <asp:TextBox runat="server" ID="UrlSegment" Width="60" />
-                <%= FrontendSettings.PageExtension %>
                 <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="UrlSegment" Display="Dynamic"
                     runat="server" />
                 <asp:CustomValidator ID="UrlSegmentDuplicateValidator" ErrorMessage="<%$ Resources: Page.ErrMsg.DuplicateUrlSegment %>"

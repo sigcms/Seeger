@@ -9,12 +9,12 @@ namespace Seeger.Web.UI
     {
         public static string ScriptForCms(string virtualPathRelativeToCmsRoot)
         {
-            return String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", CmsVirtualPath.GetFull(virtualPathRelativeToCmsRoot));
+            return String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", virtualPathRelativeToCmsRoot);
         }
 
         public static string LinkCssFiles(IEnumerable<string> cssFilePaths, string media = null)
         {
-            StringBuilder html = new StringBuilder();
+            var html = new StringBuilder();
 
             foreach (var path in cssFilePaths)
             {

@@ -55,8 +55,6 @@ namespace Seeger.Files
                     string allowedPath = path.Trim();
                     if (allowedPath.Length > 0)
                     {
-                        allowedPath = CmsVirtualPath.GetFull(allowedPath);
-
                         if (!allowedPath.EndsWith("/"))
                         {
                             allowedPath += "/";

@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<localization prefix="RewriterIgnoredPath.">
-  <item key="List" value="免重写路径列表" />
-  <item key="Edit" value="编辑免重写路径" />
-  <item key="Name" value="名称" />
-  <item key="Path" value="路径" />
-  <item key="MatchByRegex" value="使用正则匹配" />
-  <item key="HelpHint" value="当使用正则匹配时，系统将针对完整的URL进行匹配，否则，若源地址是完整URL，则使用完整URL进行匹配，否则使用URL的路径部分进行匹配" />
-</localization>

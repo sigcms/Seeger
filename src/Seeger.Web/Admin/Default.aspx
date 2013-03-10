@@ -8,10 +8,10 @@
     <form id="form1" runat="server">
     <div class="frame-container">
         <div id="frame-header">
-            <a class="frame-logo" href="<%= CmsVirtualPath.GetFull("/") %>" target="_blank"></a>
+            <a class="frame-logo" href="/" target="_blank"></a>
             <div class="frame-user-links">
                 <span>
-                    <a href="<%= CmsVirtualPath.GetFull("/") %>" target="_blank"><%= Localize("Common.Homepage") %></a>&nbsp;
+                    <a href="/" target="_blank"><%= Localize("Common.Homepage") %></a>&nbsp;
                     |
                     <a href="My/Profile.aspx" target="content-iframe"><%= Localize("User.MyProfile") %></a>&nbsp;
                     <sig:AdminPlaceHolder runat="server" RequireSuperAdmin="true">

@@ -31,33 +31,6 @@ namespace Seeger.Web.UI.Admin.Settings {
         protected global::System.Web.UI.WebControls.DropDownList FrontendLang;
         
         /// <summary>
-        /// PageExtension control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PageExtension;
-        
-        /// <summary>
-        /// CloseWebsite control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CloseWebsite;
-        
-        /// <summary>
-        /// PageList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Seeger.Web.UI.Admin.Shared.Controls.PageDropDownList PageList;
-        
-        /// <summary>
         /// SaveButton control.
         /// </summary>
         /// <remarks>

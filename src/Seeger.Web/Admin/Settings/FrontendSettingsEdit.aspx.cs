@@ -33,16 +33,7 @@ namespace Seeger.Web.UI.Admin.Settings
             FrontendLang.DataSource = FrontendLanguageCache.From(NhSession).Languages;
             FrontendLang.DataBind();
 
-            PageExtension.Items.Add(new ListItem("(" + Localize("Common.NoExtension") + ")", String.Empty));
-            PageExtension.DataSource = FrontendSettings.SupportedPageExtensions;
-            PageExtension.DataBind();
-
             Multilingual.Checked = FrontendSettings.Multilingual;
-            PageExtension.SelectedValue = FrontendSettings.PageExtension;
-
-            CloseWebsite.Checked = FrontendSettings.IsWebsiteOffline;
-            PageList.Rebind();
-            PageList.SelectedPageId = FrontendSettings.OfflinePageId;
 
             if (!String.IsNullOrEmpty(FrontendSettings.DefaultLanguage))
             {
@@ -53,24 +44,11 @@ namespace Seeger.Web.UI.Admin.Settings
         protected void SaveButton_Click(object sender, EventArgs e)
         {
             FrontendSettings.Multilingual = Multilingual.Checked;
-            FrontendSettings.PageExtension = PageExtension.SelectedValue;
-
-            FrontendSettings.IsWebsiteOffline = CloseWebsite.Checked;
-            if (CloseWebsite.Checked)
-            {
-                FrontendSettings.OfflinePageId = PageList.SelectedPageId;
-            }
-
             FrontendSettings.DefaultLanguage = FrontendLang.SelectedValue;
 
             GlobalSettingManager.Instance.SubmitChanges();
 
             ((Management)Master).ShowMessage(Localize("Message.SaveSuccess"), MessageType.Success);
-        }
-
-        protected string GetOfflineUrlRowStyle()
-        {
-            return FrontendSettings.IsWebsiteOffline ? String.Empty : "display:none";
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             {
                 Hint.Visible = true;
                 Hint.Text = ResourcesFolder.Global.GetValue("Licensing.CurrentDomainNotSupportedHint", CultureInfo.CurrentUICulture)
-                                      .Replace("{ValidationPath}", CmsVirtualPath.GetFull("/Admin/Licensing/ValidateSystem.aspx"))
+                                      .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
                                       .Replace("{Domain}", Request.Url.Host);
             }
         }

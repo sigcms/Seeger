@@ -53,7 +53,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return CmsVirtualPath.GetFull("/Templates/" + Name);
+                return "/Templates/" + Name;
             }
         }
 

@@ -17,25 +17,6 @@ namespace Seeger
         private GlobalSettingManager _manager;
         private const string Prefix = "Seeger.Frontend.";
 
-        private readonly string[] _supportedPageExtensions = { ".aspx", ".html", ".htm" };
-
-        public IEnumerable<string> SupportedPageExtensions
-        {
-            get { return _supportedPageExtensions; }
-        }
-
-        public string PageExtension
-        {
-            get
-            {
-                return _manager.TryGetValue(Prefix + "PageExtension", _supportedPageExtensions[0]);
-            }
-            set
-            {
-                _manager.SetValue(Prefix + "PageExtension", value);
-            }
-        }
-
         public bool Multilingual
         {
             get
@@ -62,35 +43,6 @@ namespace Seeger
             set
             {
                 _manager.SetValue(Prefix + "DefaultLanguage", value);
-            }
-        }
-
-        public bool IsWebsiteOffline
-        {
-            get
-            {
-                return _manager.TryGetValue<bool>(Prefix + "IsWebsiteOffline", false);
-            }
-            set
-            {
-                _manager.SetValue(Prefix + "IsWebsiteOffline", value.ToString());
-            }
-        }
-
-        public int OfflinePageId
-        {
-            get
-            {
-                return _manager.TryGetValue(Prefix + "OfflinePageId", 0);
-            }
-            set
-            {
-                if (value < 0)
-                {
-                    value = 0;
-                }
-
-                _manager.SetValue(Prefix + "OfflinePageId", value.ToString());
             }
         }
 
