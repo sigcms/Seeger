@@ -98,10 +98,8 @@
         }
 
         function initPager() {
-            var $pager = _$element.find('.pager');
-            $pager.find('.pager-num').click(function () {
-                var pageNumber = parseInt($(this).html());
-                _grid.load(pageNumber - 1);
+            _$element.find('.pager a[data-page]').click(function () {
+                _grid.load($(this).data('page'));
                 return false;
             });
         }

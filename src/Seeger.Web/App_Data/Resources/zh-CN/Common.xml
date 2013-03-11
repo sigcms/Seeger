@@ -27,6 +27,7 @@
   <item key="Operations" value="操作" />
   <item key="OK" value="确定" />
   <item key="Page" value="页面" />
+  <item key="PrevPage" value="上一页" />
   <item key="Remove" value="移除" />
   <item key="Reload" value="刷新" />
   <item key="Rename" value="重命名" />
@@ -38,9 +39,10 @@
   <item key="Uploading" value="正在上传" />
   <item key="YouMayNeedTo" value="您可能需要" />
   <item key="Yes" value="是" />
+  <item key="NextPage" value="下一页" />
   <item key="No" value="否" />
   <item key="None" value="无" />
-  <item key="Support" value="支持" />
   <item key="NotSupport" value="不支持" />
+  <item key="Support" value="支持" />
   <item key="WidgetTemplate" value="页面模块模板" />
 </localization>

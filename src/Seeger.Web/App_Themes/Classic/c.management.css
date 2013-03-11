@@ -187,15 +187,18 @@ label.required
 	text-align:left;
 }
 .pager .pager-num,
-.pager .pager-indexpage,
-.pager .pager-lastpage,
+.pager .pager-prev,
+.pager .pager-next,
 .pager .pager-current
 {
-    padding: 2px 6px;
+    padding: 2px 7px;
     border: #ccc 1px solid;
     margin: 2px;
     display:inline-block;
     text-decoration: none;
+}
+.pager .pager-current {
+    font-weight: bold;
 }
 .pager a:hover,
 .pager .pager-current

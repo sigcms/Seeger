@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Seeger.Globalization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -15,13 +17,15 @@ namespace Seeger.Web.UI
     {
         public Pager()
         {
-            PageSize = 10;
             UrlFormat = "/{0}";
         }
 
         public int PageSize
         {
-            get { return Convert.ToInt32(ViewState["PageSize"]); }
+            get
+            {
+                return ViewState.TryGetValue<int>("PageSize", 15);
+            }
             set
             {
                 if (value > 0)
@@ -35,6 +39,18 @@ namespace Seeger.Web.UI
         {
             get { return Convert.ToInt32(ViewState["RecordCount"]); }
             set { ViewState["RecordCount"] = value; }
+        }
+
+        public int PageButtonCount
+        {
+            get
+            {
+                return ViewState.TryGetValue<int>("PageButtonCount", 11);
+            }
+            set
+            {
+                ViewState["PageButtonCount"] = value;
+            }
         }
 
         public int PageCount
@@ -69,6 +85,52 @@ namespace Seeger.Web.UI
             }
         }
 
+        public bool ShowPrevNextButtons
+        {
+            get
+            {
+                return ViewState.TryGetValue<bool>("ShowPrevNextButtons", true);
+            }
+            set
+            {
+                ViewState["ShowPrevNextButtons"] = value;
+            }
+        }
+
+        public string PrevButtonText
+        {
+            get
+            {
+                var text = ViewState["PrevButtonText"] as string;
+                if (String.IsNullOrEmpty(text))
+                {
+                    text = ResourcesFolder.Global.GetValue("Common.PrevPage", CultureInfo.CurrentUICulture);
+                }
+                return text;
+            }
+            set
+            {
+                ViewState["PrevButtonText"] = value;
+            }
+        }
+
+        public string NextButtonText
+        {
+            get
+            {
+                var text = ViewState["NextButtonText"] as string;
+                if (String.IsNullOrEmpty(text))
+                {
+                    text = ResourcesFolder.Global.GetValue("Common.NextPage", CultureInfo.CurrentUICulture);
+                }
+                return text;
+            }
+            set
+            {
+                ViewState["NextButtonText"] = value;
+            }
+        }
+
         public string UrlFormat
         {
             get { return (string)ViewState["UrlFormat"]; }
@@ -89,7 +151,7 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected override void RenderContents(HtmlTextWriter output)
+        protected override void RenderContents(HtmlTextWriter writer)
         {
             if (PageIndex >= PageCount)
             {
@@ -98,18 +160,84 @@ namespace Seeger.Web.UI
 
             if (PageCount <= 1) return;
 
-            int pageCount = PageCount;
-            for (int i = 0; i < pageCount; i++)
+            var pageCount = PageCount;
+            var pageIndex = PageIndex;
+
+            if (pageCount > 1 && pageIndex > 0 && ShowPrevNextButtons)
             {
-                if (PageIndex == i)
+                writer.Write(String.Format("<a class=\"pager-prev\" href=\"{0}\" data-page=\"{1}\">{2}</a>", GetPageUrl(pageIndex - 1), pageIndex - 1, PrevButtonText));
+            }
+
+            if (pageCount <= PageButtonCount)
+            {
+                for (var i = 0; i < pageCount; i++)
                 {
-                    output.Write(String.Format("<strong class='pager-current'>{0}</strong>", i + 1));
-                }
-                else
-                {
-                    output.Write(String.Format("<a class='pager-num' href='{0}'>{1}</a>", String.Format(UrlFormat, (UrlFieldMode == PagerUrlFieldMode.ZeroBased) ? i : (i + 1)), i + 1));
+                    RenderPageButton(i, PageIndex, writer);
                 }
             }
+            else
+            {
+                RenderPageButton(0, pageIndex, writer);
+
+                var buttonCount = PageButtonCount - 2 - 1; // 2: first and last page, 1: current page
+                var startPageIndex = pageIndex - buttonCount / 2;
+                var endPageIndex = pageIndex + buttonCount / 2 + buttonCount % 2;
+
+                if (startPageIndex < 1)
+                {
+                    endPageIndex += Math.Abs(startPageIndex - 1);
+                    startPageIndex = 1;
+                }
+                if (endPageIndex > pageCount - 2)
+                {
+                    startPageIndex -= endPageIndex - (pageCount - 2);
+                    endPageIndex = pageCount - 2;
+
+                    if (startPageIndex < 1)
+                    {
+                        startPageIndex = 1;
+                    }
+                }
+
+                if (startPageIndex > 1)
+                {
+                    writer.Write("<span class=\"pager-dots\">...</span>");
+                }
+
+                for (var i = startPageIndex; i <= endPageIndex; i++)
+                {
+                    RenderPageButton(i, pageIndex, writer);
+                }
+
+                if (endPageIndex < pageCount - 2)
+                {
+                    writer.Write("<span class=\"pager-dots\">...</span>");
+                }
+
+                RenderPageButton(pageCount - 1, pageIndex, writer);
+            }
+
+            if (pageCount > 1 && pageIndex < pageCount - 1 && ShowPrevNextButtons)
+            {
+                writer.Write(String.Format("<a class=\"pager-next\" href=\"{0}\" data-page=\"{1}\">{2}</a>", GetPageUrl(pageIndex + 1), pageIndex + 1, NextButtonText));
+            }
+        }
+
+        private void RenderPageButton(int pageIndex, int currentPageIndex, HtmlTextWriter writer)
+        {
+            if (pageIndex == currentPageIndex)
+            {
+                writer.Write(String.Format("<span class=\"pager-current\">{0}</span>", pageIndex + 1));
+            }
+            else
+            {
+                writer.Write(String.Format("<a class=\"pager-num\" href=\"{0}\" data-page=\"{1}\">{2}</a>", GetPageUrl(pageIndex), pageIndex, pageIndex + 1));
+            }
+        }
+
+        private string GetPageUrl(int pageIndex)
+        {
+            return String.Format(UrlFormat, (UrlFieldMode == PagerUrlFieldMode.ZeroBased) ? pageIndex : pageIndex + 1);
         }
     }
 
