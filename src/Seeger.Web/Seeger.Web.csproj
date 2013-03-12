@@ -578,6 +578,7 @@
     <Content Include="Admin\Designer\Toolbox.ascx" />
     <Content Include="Scripts\sig.common.js" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\uploadify\jquery.uploadify.js" />
     <Content Include="App_Themes\Classic\images\uploadify-cancel.png" />
     <Content Include="App_Themes\Classic\uploadify.css" />

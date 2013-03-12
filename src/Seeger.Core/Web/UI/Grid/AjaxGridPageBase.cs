@@ -37,7 +37,7 @@ namespace Seeger.Web.UI.Grid
             try
             {
                 var controlPath = context.GetGridControlVirtualPath(HttpContext.Current.Request.FilePath);
-                var control = (AjaxGridUserControlBase)ControlHelper.LoadControl(controlPath);
+                var control = (AjaxGridUserControlBase<TSearchModel>)ControlHelper.LoadControl(controlPath);
                 control.Bind(context);
 
                 return ControlHelper.RenderControl(control);

@@ -12,7 +12,7 @@ namespace Seeger.Web.UI.Grid
         public abstract void Bind(AjaxGridContext context);
     }
 
-    public abstract class AjaxDataGridUserControlBase<TSearchModel> : UserControlBase
+    public abstract class AjaxGridUserControlBase<TSearchModel> : UserControlBase
     {
         public abstract void Bind(AjaxGridContext<TSearchModel> context);
     }

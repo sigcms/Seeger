@@ -20,7 +20,7 @@
                     </td>
                     <td style="text-align:center">
                         <sig:AdminPlaceHolder runat="server" PermissionGroup="Role" Permission="Delete">
-                            <a href="#" class="btn-delete" item-id="<%# Eval("Id") %>"><%= Localize("Common.Delete") %></a>
+                            <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= Localize("Common.Delete") %></a>
                         </sig:AdminPlaceHolder>
                     </td>
                 </tr>

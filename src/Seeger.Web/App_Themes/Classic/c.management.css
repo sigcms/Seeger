@@ -16,7 +16,11 @@
     background: url(images/toolbar.gif) repeat-x top;
 }
 
-/* Datatable */
+.search-panel {
+    padding: 8px;
+    background: #ededed;
+    margin-bottom: 3px;
+}
 
 .datatable
 {

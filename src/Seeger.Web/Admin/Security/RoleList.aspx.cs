@@ -14,7 +14,7 @@ using System.Web.Script.Services;
 
 namespace Seeger.Web.UI.Admin.Security
 {
-    public partial class RoleList : AjaxGridPageBase<Role>
+    public partial class RoleList : AjaxGridPageBase
     {
         public override bool VerifyAccess(User user)
         {
