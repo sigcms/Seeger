@@ -7,7 +7,7 @@ namespace Seeger.Web.Processors
 {
     public class IgnoredPathProcessor : IHttpProcessor
     {
-        static readonly HashSet<string> _ignoredExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".aspx", ".ashx", ".swf", ".html", ".htm", ".axd", ".jpg", ".png", ".gif", ".ico", ".js", ".css" };
+        static readonly HashSet<string> _ignoredExtensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { ".txt", ".aspx", ".ashx", ".swf", ".html", ".htm", ".axd", ".jpg", ".png", ".gif", ".ico", ".js", ".css" };
         static readonly HashSet<string> _ignoredFolders = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Admin", "Plugins", "Templates", "Scripts", "App_Themes" };
 
         public void Process(HttpProcessingContext context)
