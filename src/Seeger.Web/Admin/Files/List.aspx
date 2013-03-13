@@ -22,33 +22,9 @@
     </span>
 </div>
 
-<sig:GridView runat="server" ID="Grid" AllowPaging="false" GridLines="None" AutoGenerateColumns="false" CssClass="datatable"
-     OnRowCommand="Grid_RowCommand"
-     OnRowDataBound="Grid_RowDataBound">
-     <EmptyDataRowStyle CssClass="no-record" />
-     <EmptyDataTemplate>
-        <%= Localize("FileMgnt.EmptyFolder") %>
-     </EmptyDataTemplate>
-    <Columns>
-        <asp:TemplateField HeaderStyle-HorizontalAlign="Left">
-            <ItemTemplate>
-                <asp:HyperLink runat="server" ID="ItemLink" CssClass="icon-link" />
-            </ItemTemplate>
-        </asp:TemplateField>
-        <asp:BoundField HeaderText="<%$ Resources: FileMgnt.Path %>" DataField="VirtualPath" />
-        <asp:BoundField HeaderText="<%$ Resources: FileMgnt.CreationTime %>" DataField="CreationTime" ItemStyle-Width="150" ItemStyle-HorizontalAlign="Center" />
-        <asp:BoundField HeaderText="<%$ Resources: FileMgnt.LastWriteTime %>" DataField="LastWriteTime" ItemStyle-Width="150" ItemStyle-HorizontalAlign="Center" />
-        <asp:TemplateField HeaderText="<%$ Resources: Common.Operations %>" ItemStyle-Width="130" ItemStyle-HorizontalAlign="Center">
-            <ItemTemplate>
-                <sig:AdminLinkButton runat="server" ID="RenameButton" OnClientClick="openRenameDialog($(this).closest('tr'));return false;" Text="<%$ Resources: Common.Rename %>"
-                     Function="FileMgnt" />
-                &nbsp;
-                <sig:AdminLinkButton runat="server" ID="DeleteButton" CssClass="caution" Text="<%$ Resources: Common.Delete %>" CommandName="DeleteItem" CommandArgument='<%# Eval("Name") %>'
-                     Function="FileMgnt" />
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</sig:GridView>
+<div class="ajax-grid">
+    <div class="grid-panel"></div>
+</div>
 
 <table id="create-folder-form" class="formtable" style="display:none;">
     <tr>

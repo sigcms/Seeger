@@ -207,7 +207,6 @@
     <Compile Include="Web\UI\Controls\IAdminControl.cs" />
     <Compile Include="Web\UI\Controls\ScriptReference.cs" />
     <Compile Include="Web\UI\Controls\TinyMCE.cs" />
-    <Compile Include="Web\UI\DataManagement\EntityKeyCache.cs" />
     <Compile Include="Web\UI\Extensions\ListItemCollectionExtensions.cs" />
     <Compile Include="Web\FrontendUrlUtility.cs" />
     <Compile Include="Web\UI\Extensions\PageExtensions.cs" />
@@ -274,22 +273,9 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\Controls\MessagePanel.cs" />
-    <Compile Include="Web\UI\DataManagement\DetailPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\UI\DataManagement\ListPageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\UI\DataManagement\GridViewWrapper.cs" />
-    <Compile Include="Web\UI\DataManagement\IGridViewCallback.cs" />
-    <Compile Include="Web\UI\DataManagement\IRecrodFilter.cs" />
-    <Compile Include="Web\UI\DataManagement\ListUserControlBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Web\UI\HtmlHelper.cs" />
     <Compile Include="Web\UI\IEditorView.cs" />
     <Compile Include="Web\UI\MessageType.cs" />
-    <Compile Include="Web\UI\Controls\GridView.cs" />
     <Compile Include="Web\UI\Designer\DefaultWidgetDesigner.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

@@ -7,10 +7,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Seeger.Files;
 using Seeger.Security;
+using System.Web.Services;
+using System.Web.Script.Services;
+using System.Web.Hosting;
+using Seeger.Web.UI.Grid;
 
 namespace Seeger.Web.UI.Admin.Files
 {
-    public partial class List : AdminPageBase
+    public partial class List : AjaxGridPageBase
     {
         public override bool VerifyAccess(User user)
         {
@@ -40,7 +44,6 @@ namespace Seeger.Web.UI.Admin.Files
             if (!IsPostBack)
             {
                 BindToolbar();
-                BindList(CurrentPath);
             }
         }
 
@@ -56,99 +59,17 @@ namespace Seeger.Web.UI.Admin.Files
             UploadFileButton.OnClientClick = "location.href='Upload.aspx?path=" + CurrentPath + "';return false;";
         }
 
-        private void BindList(string path)
+        [WebMethod, ScriptMethod]
+        public static void Delete(string virtualPath)
         {
-            var items = FileExplorer.List(path);
-            Grid.VirtualItemsCount = items.Count;
-            Grid.DataSource = items;
-            Grid.DataBind();
-        }
-
-        protected void Grid_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "DeleteItem")
+            var path = HostingEnvironment.MapPath(virtualPath);
+            if (File.Exists(path))
             {
-                string path = Server.MapPath(UrlUtility.Combine(CurrentPath, e.CommandArgument.ToString()));
-                if (File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-                else if (Directory.Exists(path))
-                {
-                    Directory.Delete(path, true);
-                }
-
-                BindList(CurrentPath);
+                File.Delete(path);
             }
-        }
-
-        protected void Grid_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
+            else if (Directory.Exists(path))
             {
-                InitFileNameCell(e.Row);
-                InitRenameButton(e.Row);
-                InitDeleteButton(e.Row);
-            }
-        }
-
-        private void InitRenameButton(GridViewRow row)
-        {
-            var button = (AdminLinkButton)row.Cells[row.Cells.Count - 1].FindControl("RenameButton");
-            button.Text = "[" + button.Text + "]";
-
-            if (((FileSystemEntry)row.DataItem).IsDirectory)
-            {
-                button.Permission = "RenameFolder";
-            }
-            else
-            {
-                button.Permission = "RenameFile";
-            }
-        }
-
-        private void InitDeleteButton(GridViewRow row)
-        {
-            var button = (AdminLinkButton)row.Cells[row.Cells.Count - 1].FindControl("DeleteButton");
-            button.ToolTip = Localize("Common.Delete");
-            button.Text = "[" + button.Text + "]";
-            button.OnClientClick = String.Format("if (!confirm('{0}')) return false;", Localize("Message.DeleteConfirm"));
-
-            if (((FileSystemEntry)row.DataItem).IsDirectory)
-            {
-                button.Permission = "DeleteFolder";
-            }
-            else
-            {
-                button.Permission = "DeleteFile";
-            }
-        }
-
-        private static void InitFileNameCell(GridViewRow row)
-        {
-            FileSystemEntry entry = (FileSystemEntry)row.DataItem;
-
-            HyperLink link = (HyperLink)row.Cells[0].FindControl("ItemLink");
-            link.Text = entry.Name;
-            link.Attributes["isdirectory"] = entry.IsDirectory ? "1" : "0";
-
-            if (entry.Extension != null && entry.Extension.Length > 1)
-            {
-                link.CssClass += " icon-file icon-" + entry.Extension.Substring(1).ToLower();
-            }
-            else
-            {
-                link.CssClass += " icon-folder";
-            }
-
-            if (entry.IsDirectory)
-            {
-                link.NavigateUrl = "?path=" + entry.VirtualPath;
-            }
-            else
-            {
-                link.NavigateUrl = entry.VirtualPath;
-                link.Target = "_blank";
+                Directory.Delete(path, true);
             }
         }
     }

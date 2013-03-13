@@ -22,7 +22,7 @@
     <tr>
         <th></th>
         <td>
-            <asp:LinkButton runat="server" ID="SubmitButton" Text="<%$ Resources: Common.Save %>" CssClass="button primary" />
+            <asp:LinkButton runat="server" ID="SubmitButton" Text="<%$ Resources: Common.Save %>" CssClass="button primary" OnClick="SubmitButton_Click" />
             <a href="RoleList.aspx" class="button secondary"><%= Localize("Common.Back") %></a>
         </td>
     </tr>

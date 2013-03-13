@@ -4,14 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
 using Seeger.Data;
-using Seeger.Web.UI.DataManagement;
 using Seeger.Security;
+using System.Web.Services;
+using System.Web.Script.Services;
+using Seeger.Web.UI.Grid;
 
 namespace Seeger.Web.UI.Admin.Security
 {
-    public partial class UserList : ListPageBase<Seeger.Security.User>, IRecordFilter<User>
+    public partial class UserList : AjaxGridPageBase
     {
         public override bool VerifyAccess(User user)
         {
@@ -22,29 +23,13 @@ namespace Seeger.Web.UI.Admin.Security
         {
         }
 
-        protected override IQueryable<User> Filter(IQueryable<User> src)
+        [WebMethod, ScriptMethod]
+        public static void Delete(int id)
         {
-            return src.Where(it => !it.IsSuperAdmin).OrderByDescending(it => it.Id);
-        }
-
-        protected override GridView GridView
-        {
-            get { return ListGrid; }
-        }
-
-        public bool IsVisible(User record)
-        {
-            return true;
-        }
-
-        public bool IsEditable(User record)
-        {
-            return record.Id != CurrentUser.Id;
-        }
-
-        public bool IsDeletable(User record)
-        {
-            return record.Id != CurrentUser.Id;
+            var db = Database.GetCurrentSession();
+            var user = db.Get<User>(id);
+            db.Delete(user);
+            db.Commit();
         }
     }
 }

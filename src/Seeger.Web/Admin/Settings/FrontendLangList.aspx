@@ -6,16 +6,8 @@
     <button type="button" onclick="location.href='FrontendLangEdit.aspx'"><%= Localize("Common.Add") %></button>
 </div>
 
-<sig:GridView runat="server" ID="Grid" AllowPaging="false">
-    <Columns>
-        <asp:BoundField HeaderText="<%$ Resources: Globalization.LanguageName %>" DataField="Name" ItemStyle-Width="120" ItemStyle-HorizontalAlign="Center" />
-        <asp:BoundField HeaderText="<%$ Resources: Globalization.LanguageDisplayName %>" DataField="DisplayName" ItemStyle-HorizontalAlign="Center" />
-        <asp:TemplateField HeaderText="<%$ Resources: Globalization.BindedDomain %>" ItemStyle-HorizontalAlign="Center">
-            <ItemTemplate>
-                <%# GetBindedDomainCellHtml(Container.DataItem) %>
-            </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</sig:GridView>
+<div class="ajax-grid">
+    <div class="grid-panel"></div>
+</div>
 
 </asp:Content>

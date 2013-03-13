@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Seeger.Web.UI.Admin.Urls {
+namespace Seeger.Web.UI.Admin.Settings {
     
     
-    public partial class CustomRedirectList {
+    public partial class FrontendLangList_Grid {
         
         /// <summary>
-        /// AddButton control.
+        /// List control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Seeger.Web.UI.AdminButton AddButton;
+        protected global::System.Web.UI.WebControls.Repeater List;
+        
+        /// <summary>
+        /// Pager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Seeger.Web.UI.Pager Pager;
     }
 }

@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-using Seeger.Web.UI.DataManagement;
 using Seeger.Data;
 using Seeger.Licensing;
 using Seeger.Security;
+using Seeger.Web.UI.Grid;
+using System.Web.Services;
+using System.Web.Script.Services;
 
 namespace Seeger.Web.UI.Admin.Settings
 {
-    public partial class FrontendLangList : ListPageBase<FrontendLanguage>
+    public partial class FrontendLangList : AjaxGridPageBase
     {
         public override bool VerifyAccess(User user)
         {
@@ -24,34 +25,13 @@ namespace Seeger.Web.UI.Admin.Settings
         {
         }
 
-        protected override string EditingPageUrl
+        [WebMethod, ScriptMethod]
+        public static void Delete(string name)
         {
-            get
-            {
-                return "FrontendLangEdit.aspx";
-            }
-        }
-
-        protected override GridView GridView
-        {
-            get
-            {
-                return Grid;
-            }
-        }
-
-        protected string GetBindedDomainCellHtml(object dataItem)
-        {
-            FrontendLanguage language = (FrontendLanguage)dataItem;
-
-            string html = language.BindedDomain;
-
-            if (!String.IsNullOrEmpty(language.BindedDomain) && !LicensingService.CurrentLicense.IsDomainLicensed(language.BindedDomain))
-            {
-                html += "<span class='text-warning'> [" + Localize("Licensing.DomainNotIncludedInLicense") + "]</span>";
-            }
-
-            return html;
+            var db = Database.GetCurrentSession();
+            var lang = db.Get<FrontendLanguage>(name);
+            db.Delete(lang);
+            db.Commit();
         }
     }
 }

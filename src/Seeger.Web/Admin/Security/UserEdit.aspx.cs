@@ -6,43 +6,46 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NHibernate.Linq;
 using Seeger.Data;
-using Seeger.Web.UI.DataManagement;
 using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Security
 {
-    public partial class UserEdit : DetailPageBase<Seeger.Security.User>
+    public partial class UserEdit : AdminPageBase
     {
+        protected int UserId
+        {
+            get
+            {
+                return Request.QueryString.TryGetValue<int>("id", 0);
+            }
+        }
+
         public override bool VerifyAccess(User user)
         {
-            return user.HasPermission(null, "UserMgnt", (FormState == UI.FormState.AddItem) ? "Add" : "Edit");
+            return user.HasPermission(null, "UserMgnt", (UserId == 0) ? "Add" : "Edit");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (UserId > 0)
+                {
+                    InitView(NhSession.Get<User>(UserId));
+                }
+                else
+                {
+                    InitView(new User());
+                }
+            }
         }
 
-        protected override object CreateKey(string keyStringValue)
-        {
-            return Convert.ToInt32(keyStringValue);
-        }
-
-        protected override void OnSubmitted()
-        {
-            Response.Redirect("UserList.aspx");
-        }
-
-        protected override void BindSubmitEventHandler(EventHandler handler)
-        {
-            SubmitButton.Click += handler;
-        }
-
-        public override void InitView(User entity)
+        public void InitView(User entity)
         {
             RoleList.DataSource = NhSession.Query<Role>().OrderBy(it => it.Id);
             RoleList.DataBind();
 
-            if (FormState == UI.FormState.EditItem)
+            if (UserId > 0)
             {
                 PasswordRequired.Enabled = false;
             }
@@ -64,7 +67,7 @@ namespace Seeger.Web.UI.Admin.Security
             }
         }
 
-        public override void UpdateObject(User entity)
+        public void UpdateObject(User entity)
         {
             entity.UserName = UserName.Text.Trim();
             entity.Nick = Nick.Text.Trim();
@@ -95,14 +98,35 @@ namespace Seeger.Web.UI.Admin.Security
 
         protected void UserNameDuplicateValidator_ServerValidate(object sender, ServerValidateEventArgs e)
         {
-            if (FormState == UI.FormState.AddItem)
+            if (UserId == 0)
             {
                 e.IsValid = NhSession.Query<User>().Any(u => u.UserName == e.Value) == false;
             }
             else
             {
-                e.IsValid = NhSession.Query<User>().Any(u => u.Id != Entity.Id && u.UserName == e.Value) == false;
+                e.IsValid = NhSession.Query<User>().Any(u => u.Id != UserId && u.UserName == e.Value) == false;
             }
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid) return;
+
+            if (UserId > 0)
+            {
+                var user = NhSession.Get<User>(UserId);
+                UpdateObject(user);
+            }
+            else
+            {
+                var user = new User();
+                UpdateObject(user);
+                NhSession.Save(user);
+            }
+
+            NhSession.Commit();
+
+            Response.Redirect("UserList.aspx");
         }
     }
 }

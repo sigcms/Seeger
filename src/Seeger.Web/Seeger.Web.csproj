@@ -104,6 +104,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\403.aspx" />
+    <Content Include="Admin\Files\List_Grid.ascx" />
     <Content Include="Admin\Images\chrome.png" />
     <Content Include="Admin\Images\firefox.png" />
     <Content Include="Admin\Images\login-panel-bg.jpg" />
@@ -138,6 +139,8 @@
     <Content Include="Admin\Security\RoleList_Grid.ascx" />
     <Content Include="Admin\Security\UserEdit.aspx" />
     <Content Include="Admin\Security\UserList.aspx" />
+    <Content Include="Admin\Security\UserList_Grid.ascx" />
+    <Content Include="Admin\Settings\FrontendLangList_Grid.ascx" />
     <Content Include="Admin\Settings\FrontendSettingsEdit.aspx" />
     <Content Include="Admin\Settings\FrontendLangEdit.aspx" />
     <Content Include="Admin\Settings\FrontendLangList.aspx" />
@@ -151,6 +154,7 @@
     <Content Include="Admin\Shared\Uploader.aspx" />
     <Content Include="Admin\Urls\CustomRedirectEdit.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList.aspx" />
+    <Content Include="Admin\Urls\CustomRedirectList_Grid.ascx" />
     <Content Include="App_Data\AdminMenu.xml" />
     <None Include="App_Data\nhibernate.config" />
     <Content Include="App_Data\Resources\en-US\Login.xml" />
@@ -676,6 +680,13 @@
     <Compile Include="Admin\Designer\SaveChanges.ashx.cs">
       <DependentUpon>SaveChanges.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Files\List_Grid.ascx.cs">
+      <DependentUpon>List_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\List_Grid.ascx.designer.cs">
+      <DependentUpon>List_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Files\Services.asmx.cs">
       <DependentUpon>Services.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -808,6 +819,13 @@
     <Compile Include="Admin\Security\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Security\UserList_Grid.ascx.cs">
+      <DependentUpon>UserList_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Security\UserList_Grid.ascx.designer.cs">
+      <DependentUpon>UserList_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Settings\FrontendLangEdit.aspx.cs">
       <DependentUpon>FrontendLangEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -821,6 +839,13 @@
     </Compile>
     <Compile Include="Admin\Settings\FrontendLangList.aspx.designer.cs">
       <DependentUpon>FrontendLangList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangList_Grid.ascx.cs">
+      <DependentUpon>FrontendLangList_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings\FrontendLangList_Grid.ascx.designer.cs">
+      <DependentUpon>FrontendLangList_Grid.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Settings\FrontendSettingsEdit.aspx.cs">
       <DependentUpon>FrontendSettingsEdit.aspx</DependentUpon>
@@ -892,6 +917,13 @@
     </Compile>
     <Compile Include="Admin\Designer\Controls\WidgetList.ascx.designer.cs">
       <DependentUpon>WidgetList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectList_Grid.ascx.cs">
+      <DependentUpon>CustomRedirectList_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Urls\CustomRedirectList_Grid.ascx.designer.cs">
+      <DependentUpon>CustomRedirectList_Grid.ascx</DependentUpon>
     </Compile>
     <Compile Include="AppCode\ResourceBundler.cs" />
     <Compile Include="AppCode\SeegerUrls.cs" />

@@ -6,38 +6,37 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using Seeger.Data;
-using Seeger.Web.UI.DataManagement;
 using Seeger.Security;
 
 namespace Seeger.Web.UI.Admin.Urls
 {
-    public partial class CustomRedirectEdit : DetailPageBase<CustomRedirect>
+    public partial class CustomRedirectEdit : AdminPageBase
     {
+        protected int RedirectId
+        {
+            get
+            {
+                return Request.QueryString.TryGetValue<int>("id", 0);
+            }
+        }
+
         public override bool VerifyAccess(User user)
         {
-            return user.HasPermission(null, "CustomRedirect", (FormState == UI.FormState.AddItem) ? "Add" : "Edit");
+            return user.HasPermission(null, "CustomRedirect", (RedirectId == 0) ? "Add" : "Edit");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (RedirectId > 0)
+                {
+                    InitView(NhSession.Get<CustomRedirect>(RedirectId));
+                }
+            }
         }
 
-        protected override object CreateKey(string keyStringValue)
-        {
-            return Convert.ToInt32(keyStringValue);
-        }
-
-        protected override void OnSubmitted()
-        {
-            Response.Redirect("CustomRedirectList.aspx");
-        }
-
-        protected override void BindSubmitEventHandler(EventHandler handler)
-        {
-            SubmitButton.Click += handler;
-        }
-
-        public override void InitView(CustomRedirect entity)
+        public void InitView(CustomRedirect entity)
         {
             RedirectMode.SelectedValue = entity.RedirectMode.ToString();
             From.Text = entity.From;
@@ -45,12 +44,33 @@ namespace Seeger.Web.UI.Admin.Urls
             MatchByRegex.Checked = entity.MatchByRegex;
         }
 
-        public override void UpdateObject(CustomRedirect entity)
+        public void UpdateObject(CustomRedirect entity)
         {
             entity.RedirectMode = (RedirectMode)Enum.Parse(typeof(RedirectMode), RedirectMode.SelectedValue);
             entity.From = From.Text.Trim();
             entity.To = To.Text.Trim();
             entity.MatchByRegex = MatchByRegex.Checked;
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e)
+        {
+            if (!Page.IsValid) return;
+
+            if (RedirectId > 0)
+            {
+                var redirect = NhSession.Get<CustomRedirect>(RedirectId);
+                UpdateObject(redirect);
+            }
+            else
+            {
+                var redirect = new CustomRedirect();
+                UpdateObject(redirect);
+                NhSession.Save(redirect);
+            }
+
+            NhSession.Commit();
+
+            Response.Redirect("CustomRedirectList.aspx");
         }
     }
 }
