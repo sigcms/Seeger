@@ -53,8 +53,8 @@ namespace Seeger.Plugins.ImageSlider.Handlers
 
             var fileName = DateTime.Now.ToString("yyyyMMddhhmmssfff") + Path.GetExtension(file.FileName);
 
-            var imageVirutalPath = UrlUtility.Combine(folderVirtualPath, fileName);
-            var thumbVirutalPath = UrlUtility.Combine(folderVirtualPath, "min-" + fileName);
+            var imageVirutalPath = UrlUtil.Combine(folderVirtualPath, fileName);
+            var thumbVirutalPath = UrlUtil.Combine(folderVirtualPath, "min-" + fileName);
 
             file.SaveAs(context.Server.MapPath(imageVirutalPath));
 

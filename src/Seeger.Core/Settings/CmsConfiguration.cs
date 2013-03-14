@@ -31,7 +31,7 @@ namespace Seeger
         {
             get
             {
-                return UrlUtility.Combine("/App_Data/Cms.config");
+                return UrlUtil.Combine("/App_Data/Cms.config");
             }
         }
 

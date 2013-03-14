@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace Seeger
+namespace Seeger.Utils
 {
     public static class IOUtil
     {

@@ -40,7 +40,7 @@ namespace Seeger.Plugins
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Resources");
+                return UrlUtil.Combine(VirtualPath, "Resources");
             }
         }
 

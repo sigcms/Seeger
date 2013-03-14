@@ -28,7 +28,7 @@ namespace Seeger.Plugins.Widgets.Loaders
             var iconFile = files.FirstOrDefault(f => f.Name.IgnoreCaseStartsWith("icon."));
             if (iconFile != null)
             {
-                widget.IconUrl = UrlUtility.Combine(widget.VirtualPath, iconFile.Name);
+                widget.IconUrl = UrlUtil.Combine(widget.VirtualPath, iconFile.Name);
             }
 
             widget.Editable = files.Any(f => f.Name.IgnoreCaseEquals("Editor.aspx"));

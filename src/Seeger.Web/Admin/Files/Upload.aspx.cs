@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Seeger.Files;
 using Seeger.Security;
+using Seeger.Utils;
 
 namespace Seeger.Web.UI.Admin.Files
 {
@@ -51,7 +52,7 @@ namespace Seeger.Web.UI.Admin.Files
 
                     IOUtil.EnsureDirectoryCreated(Server.MapPath(Path));
 
-                    FileUpload.SaveAs(Server.MapPath(UrlUtility.Combine(Path, fileName)));
+                    FileUpload.SaveAs(Server.MapPath(UrlUtil.Combine(Path, fileName)));
 
                     Response.Redirect("List.aspx?path=" + Server.UrlEncode(Path));
                 }

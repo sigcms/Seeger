@@ -42,7 +42,7 @@ namespace Seeger.Plugins.Widgets
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Designer.ascx");
+                return UrlUtil.Combine(VirtualPath, "Designer.ascx");
             }
         }
 
@@ -50,7 +50,7 @@ namespace Seeger.Plugins.Widgets
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Default.ascx");
+                return UrlUtil.Combine(VirtualPath, "Default.ascx");
             }
         }
 
@@ -58,7 +58,7 @@ namespace Seeger.Plugins.Widgets
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Resources");
+                return UrlUtil.Combine(VirtualPath, "Resources");
             }
         }
 

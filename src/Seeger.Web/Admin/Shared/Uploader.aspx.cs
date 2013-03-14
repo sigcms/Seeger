@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 
 using Seeger.Files;
+using Seeger.Utils;
 
 namespace Seeger.Web.UI.Admin.Shared
 {
@@ -67,7 +68,7 @@ namespace Seeger.Web.UI.Admin.Shared
 
             IOUtil.EnsureDirectoryCreated(Server.MapPath(dir));
 
-            FileUpload.SaveAs(Server.MapPath(UrlUtility.Combine(dir, fileName)));
+            FileUpload.SaveAs(Server.MapPath(UrlUtil.Combine(dir, fileName)));
 
             ClientScript.RegisterClientScriptBlock(GetType(), "Uploaded", String.Format("onUploaded('{0}', '{1}');", dir, fileName), true);
         }

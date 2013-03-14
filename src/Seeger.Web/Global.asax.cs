@@ -1,5 +1,8 @@
 ﻿using NLog;
 using Seeger.Data;
+using Seeger.Licensing;
+using Seeger.Plugins;
+using Seeger.Tasks;
 using System;
 using System.Web;
 
@@ -13,7 +16,12 @@ namespace Seeger.Web.UI
         {
             _logger.Debug("Application starting...");
 
-            CmsInitializer.Initialize();
+            CmsConfiguration.Initialize();
+            LicensingService.ValidateCurrentLicense();
+            Database.Initialize();
+            PluginManager.StartupEnabledPlugins();
+            TaskQueueExecutor.Start();
+
             ResourceBundler.Initialize();
         }
 

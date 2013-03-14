@@ -6,18 +6,16 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Xml;
 
-namespace Seeger
+namespace Seeger.Utils
 {
-    public class XmlSerializerHelper
+    public static class XmlSerializerUtil
     {
         public static string Serialize(object obj)
         {
             Require.NotNull(obj, "obj");
 
-            Type type = obj.GetType();
-
-            XmlSerializer serializer = new XmlSerializer(type);
-
+            var type = obj.GetType();
+            var serializer = new XmlSerializer(type);
             var builder = new StringBuilder();
 
             using (var writer = XmlWriter.Create(builder, new XmlWriterSettings{ Indent = true, IndentChars = "\t" }))
@@ -33,9 +31,8 @@ namespace Seeger
         {
             Require.NotNullOrEmpty(str, "str");
 
-            Type type = typeof(T);
-
-            XmlSerializer serializer = new XmlSerializer(type);
+            var type = typeof(T);
+            var serializer = new XmlSerializer(type);
 
             using (var reader = new StringReader(str))
             {

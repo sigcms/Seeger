@@ -28,7 +28,7 @@
                     </td>
                     <td style="text-align:center">
                         <a href="#" onclick="openRenameDialog($(this).closest('tr'));return false;">[<%= T("Common.Rename") %>]</a>
-                        <a href="#" class="caution grid-action" data-action="Delete" data-action-param-path="<%# UrlUtility.Combine(CurrentPath, Eval("Name") as string) %>">[<%= T("Common.Delete") %>]</a>
+                        <a href="#" class="caution grid-action" data-action="Delete" data-action-param-path="<%# UrlUtil.Combine(CurrentPath, Eval("Name") as string) %>">[<%= T("Common.Delete") %>]</a>
                     </td>
                 </tr>
             </ItemTemplate>

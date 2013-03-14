@@ -32,7 +32,7 @@ namespace Seeger.Web.UI.Admin.Files
                 return CreateAccessDeniedResult();
             }
 
-            string path = Server.MapPath(UrlUtility.Combine(containerVirtualPath, folderName));
+            string path = Server.MapPath(UrlUtil.Combine(containerVirtualPath, folderName));
 
             try
             {
@@ -59,8 +59,8 @@ namespace Seeger.Web.UI.Admin.Files
                 return CreateAccessDeniedResult();
             }
 
-            string srcPath = Server.MapPath(UrlUtility.Combine(containerVirtualPath, oldName));
-            string destPath = Server.MapPath(UrlUtility.Combine(containerVirtualPath, newName));
+            string srcPath = Server.MapPath(UrlUtil.Combine(containerVirtualPath, oldName));
+            string destPath = Server.MapPath(UrlUtil.Combine(containerVirtualPath, newName));
 
             if (isDirectory)
             {

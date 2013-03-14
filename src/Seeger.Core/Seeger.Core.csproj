@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="AdminSkins.cs" />
     <Compile Include="Caching\FrontendLanguageCache.cs" />
+    <Compile Include="Collections\Continuation.cs" />
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\ITreeNode.cs" />
     <Compile Include="Collections\PageItemCollectionWrapper.cs" />
@@ -179,15 +180,15 @@
     <Compile Include="Utils\IOUtil.cs" />
     <Compile Include="Utils\JsonConvertUtil.cs" />
     <Compile Include="Utils\PropertyPathBuilder.cs" />
-    <Compile Include="Utils\XmlSerializerHelper.cs" />
+    <Compile Include="Utils\XmlSerializerUtil.cs" />
     <Compile Include="Web\AuthenticationService.cs" />
     <Compile Include="Web\AuthRequiredHttpHandler.cs" />
     <Compile Include="Web\Compilation\CodeExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\SettingExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\TExpressionBuilder.cs" />
+    <Compile Include="Web\Extensions\HttpContextExtensions.cs" />
     <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Web\FrontendEnvironment.cs" />
-    <Compile Include="Web\HttpContextCache.cs" />
     <Compile Include="Web\Processors\CultureProcessor.cs" />
     <Compile Include="Web\Processors\CustomRedirectProcessor.cs" />
     <Compile Include="Web\Processors\HomepageProcessor.cs" />
@@ -211,7 +212,6 @@
     <Compile Include="Web\UI\Controls\ScriptReference.cs" />
     <Compile Include="Web\UI\Controls\TinyMCE.cs" />
     <Compile Include="Web\UI\Extensions\ListItemCollectionExtensions.cs" />
-    <Compile Include="Web\FrontendUrlUtility.cs" />
     <Compile Include="Web\UI\Extensions\PageExtensions.cs" />
     <Compile Include="Web\UI\Extensions\RepeaterItemExtensions.cs" />
     <Compile Include="Web\UI\Extensions\StateBagExtensions.cs" />
@@ -227,7 +227,7 @@
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
     <Compile Include="Web\UI\ScriptsHelper.cs" />
-    <Compile Include="Web\UrlUtility.cs" />
+    <Compile Include="Web\UrlUtil.cs" />
     <Compile Include="WidgetEditorSettings.cs" />
     <Compile Include="Templates\Zone.cs" />
     <Compile Include="Caching\CustomRedirectCache.cs" />
@@ -239,15 +239,10 @@
     <Compile Include="EntityAttribute.cs" />
     <Compile Include="EntityAttributeCollection.cs" />
     <Compile Include="Data\EntityAttributeCollectionUserType.cs" />
-    <Compile Include="Exceptions\ZoneNotFoundException.cs" />
-    <Compile Include="Exceptions\PluginNotFoundException.cs" />
-    <Compile Include="Exceptions\TemplateNotFoundException.cs" />
-    <Compile Include="Exceptions\WidgetNotFoundException.cs" />
     <Compile Include="FrontendLanguage.cs" />
     <Compile Include="Globalization\LocalizableText.cs" />
     <Compile Include="Globalization\ResourceDescriptor.cs" />
     <Compile Include="GlobalSetting.cs" />
-    <Compile Include="CmsInitializer.cs" />
     <Compile Include="Templates\Layout.cs" />
     <Compile Include="DropPosition.cs" />
     <Compile Include="Security\PermissionCollection.cs" />
@@ -275,7 +270,6 @@
     </Compile>
     <Compile Include="Web\UI\Controls\MessagePanel.cs" />
     <Compile Include="Web\UI\HtmlHelper.cs" />
-    <Compile Include="Web\UI\IEditorView.cs" />
     <Compile Include="Web\UI\MessageType.cs" />
     <Compile Include="Web\UI\Designer\DefaultWidgetDesigner.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -295,7 +289,6 @@
     <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
     <Compile Include="Web\UI\Extensions\ZoneExtensions.cs" />
     <Compile Include="Web\UI\Extensions\WidgetExtensions.cs" />
-    <Compile Include="Web\UI\IFormView.cs" />
     <Compile Include="Web\UI\IPrivateResource.cs" />
     <Compile Include="Web\UI\IWidgetProcessEventListener.cs" />
     <Compile Include="Web\UI\LayoutPageBase.cs">

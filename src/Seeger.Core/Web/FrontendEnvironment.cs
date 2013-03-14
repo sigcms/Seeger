@@ -40,7 +40,7 @@ namespace Seeger.Web
                 }
                 else
                 {
-                    url = "http://" + UrlUtility.Combine(requestUrl.Authority, currentCulture);
+                    url = "http://" + UrlUtil.Combine(requestUrl.Authority, currentCulture);
                 }
             }
             else
@@ -90,7 +90,7 @@ namespace Seeger.Web
                 pathWithoutCultureInfo = String.Empty;
             }
 
-            return UrlUtility.Combine(GetRootUrl(targetCulture), pathWithoutCultureInfo);
+            return UrlUtil.Combine(GetRootUrl(targetCulture), pathWithoutCultureInfo);
         }
     }
 }

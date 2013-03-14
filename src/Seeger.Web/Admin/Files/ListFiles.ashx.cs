@@ -81,7 +81,7 @@ namespace Seeger.Web.UI.Admin.Files
 
             if (!_isRoot)
             {
-                Response.Write(String.Format("<li><a href='#' rel='{0}' class='fb-folder'>..</a></li>", UrlUtility.GetParentPath(_directory)));
+                Response.Write(String.Format("<li><a href='#' rel='{0}' class='fb-folder'>..</a></li>", UrlUtil.GetParentPath(_directory)));
             }
 
             foreach (var dir in directories)

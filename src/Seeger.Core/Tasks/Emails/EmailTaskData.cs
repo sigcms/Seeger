@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Seeger.Utils;
 
 namespace Seeger.Tasks.Emails
 {
@@ -21,12 +22,12 @@ namespace Seeger.Tasks.Emails
 
         public string Serialize()
         {
-            return XmlSerializerHelper.Serialize(this);
+            return XmlSerializerUtil.Serialize(this);
         }
 
         public static EmailTaskData Deserialize(string data)
         {
-            return XmlSerializerHelper.Deserialize<EmailTaskData>(data);
+            return XmlSerializerUtil.Deserialize<EmailTaskData>(data);
         }
     }
 }

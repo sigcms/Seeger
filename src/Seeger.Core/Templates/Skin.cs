@@ -19,7 +19,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Preview.jpg");
+                return UrlUtil.Combine(VirtualPath, "Preview.jpg");
             }
         }
 
@@ -34,7 +34,7 @@ namespace Seeger.Templates
             Require.NotNullOrEmpty(virtualPath, "virtualPath");
 
             Name = name;
-            VirtualPath = UrlUtility.ToAbsoluteHtmlPath(virtualPath);
+            VirtualPath = UrlUtil.ToAbsoluteHtmlPath(virtualPath);
             DisplayName = new LocalizableText(String.IsNullOrEmpty(displayName) ? "{ " + name + " }" : displayName);
         }
 
@@ -42,7 +42,7 @@ namespace Seeger.Templates
         {
             Require.NotNullOrEmpty(fileName, "fileName");
 
-            return UrlUtility.Combine(VirtualPath, fileName);
+            return UrlUtil.Combine(VirtualPath, fileName);
         }
 
         public string GetFileVirtualPath(string fileName, CultureInfo culture)
@@ -50,14 +50,14 @@ namespace Seeger.Templates
             Require.NotNullOrEmpty(fileName, "fileName");
             Require.NotNull(culture, "culture");
 
-            return UrlUtility.Combine(VirtualPath, culture.Name, fileName);
+            return UrlUtil.Combine(VirtualPath, culture.Name, fileName);
         }
 
         public bool ContainsFile(string fileName)
         {
             Require.NotNullOrEmpty(fileName, "fileName");
 
-            return File.Exists(Server.MapPath(UrlUtility.Combine(VirtualPath, fileName)));
+            return File.Exists(Server.MapPath(UrlUtil.Combine(VirtualPath, fileName)));
         }
 
         public bool ContainsFile(string fileName, CultureInfo culture)
@@ -65,7 +65,7 @@ namespace Seeger.Templates
             Require.NotNullOrEmpty(fileName, "fileName");
             Require.NotNull(culture, "culture");
 
-            return File.Exists(Server.MapPath(UrlUtility.Combine(VirtualPath, culture.Name , fileName)));
+            return File.Exists(Server.MapPath(UrlUtil.Combine(VirtualPath, culture.Name , fileName)));
         }
 
         public IList<string> GetCssFileVirtualPaths(CultureInfo culture)
@@ -77,12 +77,12 @@ namespace Seeger.Templates
             DirectoryInfo root = new DirectoryInfo(Server.MapPath(VirtualPath));
             if (root.Exists)
             {
-                cssFiles.AddRange(GetCssFiles(root).Select(f => UrlUtility.Combine(VirtualPath, f.Name)));
+                cssFiles.AddRange(GetCssFiles(root).Select(f => UrlUtil.Combine(VirtualPath, f.Name)));
 
                 var cultureDir = root.GetDirectories(culture.Name);
                 if (cultureDir.Length == 1)
                 {
-                    cssFiles.AddRange(GetCssFiles(cultureDir[0]).Select(f => UrlUtility.Combine(VirtualPath, culture.Name, f.Name)));
+                    cssFiles.AddRange(GetCssFiles(cultureDir[0]).Select(f => UrlUtil.Combine(VirtualPath, culture.Name, f.Name)));
                 }
             }
 

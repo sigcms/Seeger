@@ -6,17 +6,15 @@ using System.Web;
 
 namespace Seeger.Web
 {
-    public class HttpContextCache
+    public static class HttpContextExtensions
     {
-        public static T GetObject<T>(string key, Func<T> factory)
+        public static T GetOrAdd<T>(this HttpContext context, string key, Func<T> valueFactory)
         {
-            var context = HttpContext.Current;
-
             var obj = context.Items[key];
 
             if (obj == null)
             {
-                obj = factory();
+                obj = valueFactory();
                 context.Items[key] = obj;
             }
 

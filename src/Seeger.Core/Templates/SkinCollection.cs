@@ -59,7 +59,7 @@ namespace Seeger.Templates
                     {
                         if (!each.IsHidden())
                         {
-                            themes.Add(each.Name, new Skin(each.Name, UrlUtility.Combine(_containerVirtualPath, each.Name)));
+                            themes.Add(each.Name, new Skin(each.Name, UrlUtil.Combine(_containerVirtualPath, each.Name)));
                         }
                     }
                 }

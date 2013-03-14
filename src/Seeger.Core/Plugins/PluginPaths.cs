@@ -13,12 +13,12 @@ namespace Seeger.Plugins
 
         public static string PluginDirectoryVirtualPath(string pluginName)
         {
-            return UrlUtility.Combine(ContainingDirectoryVirtualPath, pluginName);
+            return UrlUtil.Combine(ContainingDirectoryVirtualPath, pluginName);
         }
 
         public static string WidgetsFolderVirtualPath(string pluginName)
         {
-            return UrlUtility.Combine(PluginDirectoryVirtualPath(pluginName), "Widgets");
+            return UrlUtil.Combine(PluginDirectoryVirtualPath(pluginName), "Widgets");
         }
     }
 }

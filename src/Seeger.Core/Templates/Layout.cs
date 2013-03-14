@@ -26,7 +26,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(Template.VirtualPath, "Layouts", Name);
+                return UrlUtil.Combine(Template.VirtualPath, "Layouts", Name);
             }
         }
 
@@ -34,7 +34,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Default.aspx");
+                return UrlUtil.Combine(VirtualPath, "Default.aspx");
             }
         }
 
@@ -42,7 +42,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Designer.aspx");
+                return UrlUtil.Combine(VirtualPath, "Designer.aspx");
             }
         }
 
@@ -50,7 +50,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Preview.gif");
+                return UrlUtil.Combine(VirtualPath, "Preview.gif");
             }
         }
 
@@ -99,7 +99,7 @@ namespace Seeger.Templates
 
         private void Configure()
         {
-            string path = Server.MapPath(UrlUtility.Combine(VirtualPath, "config.config"));
+            string path = Server.MapPath(UrlUtil.Combine(VirtualPath, "config.config"));
 
             if (File.Exists(path))
             {

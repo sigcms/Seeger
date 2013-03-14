@@ -2,6 +2,7 @@
 using Seeger.Data;
 using Seeger.Plugins.ImageSlider.Domain;
 using Seeger.Plugins.ImageSlider.Models;
+using Seeger.Utils;
 using Seeger.Web;
 using Seeger.Web.UI;
 using System;
@@ -90,7 +91,7 @@ namespace Seeger.Plugins.ImageSlider
                     if (item.ImageUrl.StartsWith("/Files/Temp/", StringComparison.OrdinalIgnoreCase))
                     {
                         var imageFileName = Path.GetFileName(item.ImageUrl);
-                        var finalImageUrl = UrlUtility.Combine(finalFolderUrl, imageFileName);
+                        var finalImageUrl = UrlUtil.Combine(finalFolderUrl, imageFileName);
 
                         File.Move(HostingEnvironment.MapPath(item.ImageUrl), HostingEnvironment.MapPath(finalImageUrl));
                         File.Move(HostingEnvironment.MapPath(item.ImageThumbUrl), HostingEnvironment.MapPath(SliderItem.GetThumbImageUrl(finalImageUrl)));

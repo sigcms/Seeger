@@ -7,8 +7,6 @@ namespace Seeger.Collections
 {
     public static class TreeNodeExtensions
     {
-        #region Path
-
         public static IList<T> PathFromRoot<T>(this T node, bool includeSelf)
             where T : ITreeNode<T>
         {
@@ -18,12 +16,9 @@ namespace Seeger.Collections
         public static IList<T> PathToRoot<T>(this T node, bool includeSelf)
             where T : ITreeNode<T>
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException("node");
-            }
+            Require.NotNull(node, "node");
 
-            List<T> path = new List<T>();
+            var path = new List<T>();
             if (includeSelf)
             {
                 path.Add(node);
@@ -38,8 +33,6 @@ namespace Seeger.Collections
 
             return path;
         }
-
-        #endregion
 
         public static IEnumerable<T> Parents<T>(this T node, Func<T, bool> predicate)
             where T : ITreeNode<T>
@@ -80,19 +73,11 @@ namespace Seeger.Collections
             return node.Parent.Children.Where(it => !Object.ReferenceEquals(it, node) && predicate(it));
         }
 
-        #region Depth-First Visit / Search
-
         public static T DepthFirstSearch<T>(this T node, bool includeSelf, Func<T, bool> predicate)
             where T : ITreeNode<T>
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException("node");
-            }
-            if (predicate == null)
-            {
-                throw new ArgumentNullException("predicate");
-            }
+            Require.NotNull(node, "node");
+            Require.NotNull(predicate, "predicate");
 
             T result = default(T);
 
@@ -101,10 +86,9 @@ namespace Seeger.Collections
                 if (predicate(it))
                 {
                     result = it;
-                    return true;
+                    return Continuation.Stop;
                 }
-                return false;
-
+                return Continuation.Continue;
             });
 
             return result;
@@ -113,14 +97,8 @@ namespace Seeger.Collections
         public static IEnumerable<T> DepthFirstSearchAll<T>(this T node, bool includeSelf, Func<T, bool> predicate)
             where T : ITreeNode<T>
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException("node");
-            }
-            if (predicate == null)
-            {
-                throw new ArgumentNullException("predicate");
-            }
+            Require.NotNull(node, "node");
+            Require.NotNull(predicate, "predicate");
 
             List<T> result = new List<T>();
 
@@ -130,20 +108,17 @@ namespace Seeger.Collections
                 {
                     result.Add(it);
                 }
-                return false;
+                return Continuation.Continue;
             });
 
             return result;
         }
 
-        public static void DepthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visit)
+        public static void DepthFirstVisit<T>(this T node, bool includeSelf, Func<T, Continuation> visit)
             where T : ITreeNode<T>
         {
-            if (node == null)
-                throw new ArgumentNullException("node");
-
-            if (visit == null)
-                throw new ArgumentNullException("visit");
+            Require.NotNull(node, "node");
+            Require.NotNull(visit, "visit");
 
             var stack = new Stack<T>();
             if (includeSelf)
@@ -162,34 +137,22 @@ namespace Seeger.Collections
             {
                 T current = stack.Pop();
 
-                if (visit(current))
-                {
-                    break;
-                }
+                var continuation = visit(current);
+
+                if (continuation != Continuation.Continue) break;
 
                 foreach (T child in current.Children)
                 {
                     stack.Push(child);
                 }
-
             }
         }
-
-        #endregion
-
-        #region Breadth-First Visit / Search
 
         public static T BreadthFirstSearch<T>(this T node, bool includeSelf, Func<T, bool> predicate)
             where T : ITreeNode<T>
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException("node");
-            }
-            if (predicate == null)
-            {
-                throw new ArgumentNullException("predicate");
-            }
+            Require.NotNull(node, "node");
+            Require.NotNull(predicate, "predicate");
 
             T result = default(T);
 
@@ -198,10 +161,10 @@ namespace Seeger.Collections
                 if (predicate(it))
                 {
                     result = it;
-                    return true;
+                    return Continuation.Stop;
                 }
-                return false;
 
+                return Continuation.Continue;
             });
 
             return result;
@@ -210,16 +173,10 @@ namespace Seeger.Collections
         public static IEnumerable<T> BreadthFirstSearchAll<T>(this T node, bool includeSelf, Func<T, bool> predicate)
             where T : ITreeNode<T>
         {
-            if (node == null)
-            {
-                throw new ArgumentNullException("node");
-            }
-            if (predicate == null)
-            {
-                throw new ArgumentNullException("predicate");
-            }
+            Require.NotNull(node, "node");
+            Require.NotNull(predicate, "predicate");
 
-            List<T> result = new List<T>();
+            var result = new List<T>();
 
             node.BreadthFirstVisit(includeSelf, it =>
             {
@@ -227,20 +184,17 @@ namespace Seeger.Collections
                 {
                     result.Add(it);
                 }
-                return false;
+                return Continuation.Continue;
             });
 
             return result;
         }
 
-        public static void BreadthFirstVisit<T>(this T node, bool includeSelf, Func<T, bool> visit)
+        public static void BreadthFirstVisit<T>(this T node, bool includeSelf, Func<T, Continuation> visit)
             where T : ITreeNode<T>
         {
-            if (node == null)
-                throw new ArgumentNullException("node");
-
-            if (visit == null)
-                throw new ArgumentNullException("visit");
+            Require.NotNull(node, "node");
+            Require.NotNull(visit, "visit");
 
             var queue = new Queue<T>();
 
@@ -260,10 +214,9 @@ namespace Seeger.Collections
             {
                 T current = queue.Dequeue();
 
-                if (visit(current))
-                {
-                    break;
-                }
+                var continuation = visit(current);
+
+                if (continuation != Continuation.Continue) break;
 
                 foreach (T child in current.Children)
                 {
@@ -271,8 +224,6 @@ namespace Seeger.Collections
                 }
             }
         }
-
-        #endregion
     }
 
 }

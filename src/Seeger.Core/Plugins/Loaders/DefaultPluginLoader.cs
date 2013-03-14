@@ -62,7 +62,7 @@ namespace Seeger.Plugins.Loaders
 
         private void Configure(PluginDefinition plugin)
         {
-            string configFilePath = Server.MapPath(UrlUtility.Combine(plugin.VirtualPath, "config.config"));
+            string configFilePath = Server.MapPath(UrlUtil.Combine(plugin.VirtualPath, "config.config"));
             if (File.Exists(configFilePath))
             {
                 var xml = XDocument.Load(configFilePath).Root;
@@ -108,7 +108,7 @@ namespace Seeger.Plugins.Loaders
                     {
                         if (it.NavigateUrl != null && !it.NavigateUrl.StartsWith("/"))
                         {
-                            it.NavigateUrl = UrlUtility.ToAbsoluteHtmlPath(UrlUtility.Combine(plugin.VirtualPath, it.NavigateUrl));
+                            it.NavigateUrl = UrlUtil.ToAbsoluteHtmlPath(UrlUtil.Combine(plugin.VirtualPath, it.NavigateUrl));
                         }
 
                         it.Title.ResourceDescriptor.PluginName = plugin.Name;
@@ -118,7 +118,7 @@ namespace Seeger.Plugins.Loaders
                             it.Plugin = plugin.Name;
                         }
 
-                        return false;
+                        return Continuation.Continue;
                     });
                 }
 

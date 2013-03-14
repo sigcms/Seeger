@@ -58,11 +58,11 @@ namespace Seeger.Web.UI.Templates.Default
         private string GetLanguageLinkUrl(FrontendLanguage language)
         {
             string path = HttpContext.Current.Request.RawUrl;
-            string culture = UrlUtility.GetFirstSegment(path);
+            string culture = UrlUtil.GetFirstSegment(path);
 
             if (!String.IsNullOrEmpty(culture) && _cache.Contains(culture))
             {
-                path = UrlUtility.RemoveFirstSegment(path);
+                path = UrlUtil.RemoveFirstSegment(path);
             }
 
             return FrontendEnvironment.GetFullUrl(language.Name, path);

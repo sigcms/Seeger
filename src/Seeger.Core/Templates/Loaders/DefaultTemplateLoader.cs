@@ -20,7 +20,7 @@ namespace Seeger.Templates.Loaders
 
         private void Configure(Template template)
         {
-            string path = Server.MapPath(UrlUtility.Combine(template.VirtualPath, "config.config"));
+            string path = Server.MapPath(UrlUtil.Combine(template.VirtualPath, "config.config"));
             if (File.Exists(path))
             {
                 var xml = XDocument.Load(path).Root;

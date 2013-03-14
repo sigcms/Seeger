@@ -26,7 +26,7 @@ namespace Seeger.Templates
         }
 
         public TemplateSkin(string name, Template template, string displayName)
-            : base(name, UrlUtility.Combine(template.SkinFolderVirtualPath, name), displayName)
+            : base(name, UrlUtil.Combine(template.SkinFolderVirtualPath, name), displayName)
         {
             Template = template;
         }

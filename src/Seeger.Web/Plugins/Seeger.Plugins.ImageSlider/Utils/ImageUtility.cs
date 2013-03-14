@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Drawing.Imaging;
 using Seeger;
+using Seeger.Utils;
 
 namespace Seeger.Plugins.ImageSlider.Utils
 {

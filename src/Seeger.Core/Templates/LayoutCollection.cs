@@ -68,7 +68,7 @@ namespace Seeger.Templates
             {
                 var layouts = new Dictionary<string, Layout>();
 
-                string path = Server.MapPath(UrlUtility.Combine(_template.VirtualPath, "Layouts"));
+                string path = Server.MapPath(UrlUtil.Combine(_template.VirtualPath, "Layouts"));
 
                 DirectoryInfo directory = new DirectoryInfo(path);
                 if (directory.Exists)

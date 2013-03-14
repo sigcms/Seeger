@@ -61,7 +61,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Resources");
+                return UrlUtil.Combine(VirtualPath, "Resources");
             }
         }
 
@@ -69,7 +69,7 @@ namespace Seeger.Templates
         {
             get
             {
-                return UrlUtility.Combine(VirtualPath, "Skins");
+                return UrlUtil.Combine(VirtualPath, "Skins");
             }
         }
 

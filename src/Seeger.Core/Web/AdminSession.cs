@@ -75,7 +75,7 @@ namespace Seeger.Web.UI
         {
             get
             {
-                return HttpContextCache.GetObject<AdminSession>("Seeger.Web.AdminSession.Current", 
+                return HttpContext.Current.GetOrAdd<AdminSession>("Seeger.Web.AdminSession.Current", 
                     () => new AdminSession(AuthenticationService.GetCurrentUserFrom(HttpContext.Current.User)));
             }
         }

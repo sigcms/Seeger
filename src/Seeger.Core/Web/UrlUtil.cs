@@ -6,7 +6,7 @@ using System.Collections;
 
 namespace Seeger.Web
 {
-    public class UrlUtility
+    public class UrlUtil
     {
         public static string RemoveFirstSegment(string path)
         {
