@@ -12,13 +12,13 @@
         <div class="mgnt" style="padding:0">
             <table class="formtable" data-bind="with: slider">
                 <tr>
-                    <th><%= Localize("Name") %>:</th>
+                    <th><%= T("Name") %>:</th>
                     <td>
                         <input type="text" data-bind="value: name" />
                     </td>
                 </tr>
                 <tr>
-                    <th><%= Localize("Image") %>:</th>
+                    <th><%= T("Image") %>:</th>
                     <td>
                         <div>
                             <input type="file" id="ImageUpload" />
@@ -26,10 +26,10 @@
                         <table class="datatable">
                             <thead>
                                 <tr>
-                                    <th><%= Localize("Image") %></th>
-                                    <th><%= Localize("Caption") %></th>
-                                    <th><%= Localize("NavigateUrl") %></th>
-                                    <th><%= Localize("Common.Operations") %></th>
+                                    <th><%= T("Image") %></th>
+                                    <th><%= T("Caption") %></th>
+                                    <th><%= T("NavigateUrl") %></th>
+                                    <th><%= T("Common.Operations") %></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -41,33 +41,33 @@
                                     <td data-bind="html: caption" style="vertical-align:middle"></td>
                                     <td data-bind="html: navigateUrl" style="vertical-align:middle"></td>
                                     <td style="text-align:center;vertical-align:middle">
-                                        <a href="#" data-bind="click: $root.editItem"><%= Localize("Common.Edit") %></a>
-                                        <a href="#" data-bind="click: $root.deleteItem"><%= Localize("Common.Delete") %></a>
+                                        <a href="#" data-bind="click: $root.editItem"><%= T("Common.Edit") %></a>
+                                        <a href="#" data-bind="click: $root.deleteItem"><%= T("Common.Delete") %></a>
                                     </td>
                                 </tr>
                                 <tr data-bind="visible: $root.editedItemClientId() == clientId()" style="display:none">
                                     <td colspan="4" data-bind="with: $root.editedItemClone">
                                         <table class="formtable">
                                             <tr>
-                                                <th><%= Localize("Image") %></th>
+                                                <th><%= T("Image") %></th>
                                                 <td>
                                                     <img data-bind="attr: { src: imageThumbUrl }" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th><%= Localize("Caption") %></th>
+                                                <th><%= T("Caption") %></th>
                                                 <td>
                                                     <input type="text" data-bind="value: caption" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th><%= Localize("Description") %></th>
+                                                <th><%= T("Description") %></th>
                                                 <td>
                                                     <input type="text" data-bind="value: description" />
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <th><%= Localize("NavigateUrl") %></th>
+                                                <th><%= T("NavigateUrl") %></th>
                                                 <td>
                                                     <input type="text" data-bind="value: navigateUrl" />
                                                 </td>
@@ -75,8 +75,8 @@
                                             <tr>
                                                 <th></th>
                                                 <td>
-                                                    <button type="button" class="button primary" data-bind="click: $root.acceptEditedItem"><%= Localize("Common.OK") %></button>
-                                                    <button type="button" class="button secondary" data-bind="click: $root.cancelEditItem"><%= Localize("Common.Cancel") %></button>
+                                                    <button type="button" class="button primary" data-bind="click: $root.acceptEditedItem"><%= T("Common.OK") %></button>
+                                                    <button type="button" class="button secondary" data-bind="click: $root.cancelEditItem"><%= T("Common.Cancel") %></button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -85,7 +85,7 @@
                                 <!-- /ko -->
                                 <tr data-bind="visible: items().length == 0" class="no-record">
                                     <td colspan="4">
-                                        <%= Localize("Message.NoRecordToDisplay") %>
+                                        <%= T("Message.NoRecordToDisplay") %>
                                     </td>
                                 </tr>
                             </tbody>
@@ -95,8 +95,8 @@
                 <tr>
                     <td></td>
                     <td>
-                        <a href="#" class="button primary" data-bind="click: $root.save"><%= Localize("Common.OK") %></a>
-                        <a href="javascript:editorContext.cancel();" class="button secondary"><%= Localize("Common.Cancel") %></a>
+                        <a href="#" class="button primary" data-bind="click: $root.save"><%= T("Common.OK") %></a>
+                        <a href="javascript:editorContext.cancel();" class="button secondary"><%= T("Common.Cancel") %></a>
                     </td>
                 </tr>
             </table>
@@ -223,13 +223,13 @@
                     swf: '/Scripts/uploadify/uploadify.swf',
                     uploader: '/Plugins/Seeger.Plugins.ImageSlider/Handlers/UploadImage.ashx',
                     fileTypeExts: '*.jpg;*.jpeg;*.png;',
-                    fileTypeDesc: '<%= Localize("Image") %>',
+                    fileTypeDesc: '<%= T("Image") %>',
                     multi: false,
                     queueSizeLimit: 1,
                     fileSizeLimit: '5MB',
                     removeTimeout: 0,
                     formData: { AspNetAuth: aspNetAuth },
-                    buttonText: '<%= Localize("UploadImage") %>...',
+                    buttonText: '<%= T("UploadImage") %>...',
                     onUploadSuccess: function (file, data, response) {
                         var result = JSON.parse(data);
                         if (result.Success) {

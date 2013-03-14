@@ -6,7 +6,7 @@
 
         function onSaved() {
             window.parent.Sig.Window.close('Dialog');
-            window.parent.Sig.Message.show('<%= Localize("Message.SaveSuccess") %>');
+            window.parent.Sig.Message.show('<%= T("Message.SaveSuccess") %>');
         }
     
     </script>
@@ -17,26 +17,26 @@
 <table class="formtable">
     <asp:PlaceHolder runat="server" ID="LanguageHolder" Visible="false">
         <tr>
-            <th><%= Localize("Globalization.LanguageName") %></th>
+            <th><%= T("Globalization.LanguageName") %></th>
             <td>
                 <asp:Literal runat="server" ID="LanguageName" />
             </td>
         </tr>
     </asp:PlaceHolder>
     <tr>
-        <th><%= Localize("Page.Title") %></th>
+        <th><%= T("Page.Title") %></th>
         <td>
             <asp:TextBox runat="server" ID="PageTitle" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Page.MetaKeywords") %></th>
+        <th><%= T("Page.MetaKeywords") %></th>
         <td>
             <asp:TextBox runat="server" ID="PageMetaKeywords" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Page.MetaDescription") %></th>
+        <th><%= T("Page.MetaDescription") %></th>
         <td>
             <asp:TextBox runat="server" ID="PageMetaDescription" TextMode="MultiLine" />
         </td>
@@ -44,8 +44,8 @@
     <tr>
         <th></th>
         <td>
-            <asp:LinkButton runat="server" ID="SaveButton" Text='<%$ Resources: Common.Save %>' CssClass="button primary" OnClick="SaveButton_Click" />
-            <a href="javascript:window.parent.Sig.Window.close('Dialog');" class="button secondary"><%= Localize("Common.Cancel") %></a>
+            <asp:LinkButton runat="server" ID="SaveButton" Text='<%$ T: Common.Save %>' CssClass="button primary" OnClick="SaveButton_Click" />
+            <a href="javascript:window.parent.Sig.Window.close('Dialog');" class="button secondary"><%= T("Common.Cancel") %></a>
         </td>
     </tr>
 </table>

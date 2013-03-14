@@ -33,7 +33,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <button id="fake" type="button"><%= Localize("Common.Upload") %></button>
+        <button id="fake" type="button"><%= T("Common.Upload") %></button>
         <asp:FileUpload runat="server" ID="FileUpload" CssClass="file-upload" />
 
         <script type="text/javascript">
@@ -58,9 +58,9 @@
             $uploader.change(function () {
                 var fileName = this.value;
                 if (regex != null && !regex.test(fileName)) {
-                    alert('<%= Localize("FileMgnt.FileTypeNotSupported") %>');
+                    alert('<%= T("FileMgnt.FileTypeNotSupported") %>');
                 } else {
-                    $("#fake").html('<%= Localize("Common.Uploading") %>...');
+                    $("#fake").html('<%= T("Common.Uploading") %>...');
                     $("#<%= form1.ClientID %>").submit();
                 }
             });

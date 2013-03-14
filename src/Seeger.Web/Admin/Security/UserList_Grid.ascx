@@ -3,14 +3,14 @@
 <table class="datatable">
     <thead>
         <tr>
-            <th><%= Localize("User.UserName") %></th>
-            <th><%= Localize("User.Nick") %></th>
-            <th><%= Localize("User.Email") %></th>
+            <th><%= T("User.UserName") %></th>
+            <th><%= T("User.Nick") %></th>
+            <th><%= T("User.Email") %></th>
             <% if (HasPermission("UserMgnt", "Edit")) { %>
-            <th><%= Localize("Common.Edit") %></th>
+            <th><%= T("Common.Edit") %></th>
             <% } %>
             <% if (HasPermission("UserMgnt", "Delete")) { %>
-            <th><%= Localize("Common.Delete") %></th>
+            <th><%= T("Common.Delete") %></th>
             <% } %>
         </tr>
     </thead>
@@ -23,12 +23,12 @@
                     <td><%# Eval("Email") %></td>
                     <% if (HasPermission("UserMgnt", "Edit")) { %>
                     <td style="text-align:center">
-                        <a href="UserEdit.aspx?id=<%# Eval("Id") %>"><%= Localize("Common.Edit") %></a>
+                        <a href="UserEdit.aspx?id=<%# Eval("Id") %>"><%= T("Common.Edit") %></a>
                     </td>
                     <% } %>
                     <% if (HasPermission("UserMgnt", "Delete")) { %>
                     <td style="text-align:center">
-                        <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= Localize("Common.Delete") %></a>
+                        <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Common.Delete") %></a>
                     </td>
                     <% } %>
                 </tr>

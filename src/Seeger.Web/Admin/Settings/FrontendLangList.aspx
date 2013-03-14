@@ -3,7 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
 <div class="mgnt-toolbar">
-    <button type="button" onclick="location.href='FrontendLangEdit.aspx'"><%= Localize("Common.Add") %></button>
+    <button type="button" onclick="location.href='FrontendLangEdit.aspx'"><%= T("Common.Add") %></button>
 </div>
 
 <div class="ajax-grid">

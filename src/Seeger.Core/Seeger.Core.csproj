@@ -182,6 +182,9 @@
     <Compile Include="Utils\XmlSerializerHelper.cs" />
     <Compile Include="Web\AuthenticationService.cs" />
     <Compile Include="Web\AuthRequiredHttpHandler.cs" />
+    <Compile Include="Web\Compilation\CodeExpressionBuilder.cs" />
+    <Compile Include="Web\Compilation\SettingExpressionBuilder.cs" />
+    <Compile Include="Web\Compilation\TExpressionBuilder.cs" />
     <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Web\FrontendEnvironment.cs" />
     <Compile Include="Web\HttpContextCache.cs" />
@@ -243,8 +246,6 @@
     <Compile Include="FrontendLanguage.cs" />
     <Compile Include="Globalization\LocalizableText.cs" />
     <Compile Include="Globalization\ResourceDescriptor.cs" />
-    <Compile Include="Globalization\XmlResourceProvider.cs" />
-    <Compile Include="Globalization\XmlResourceProviderFactory.cs" />
     <Compile Include="GlobalSetting.cs" />
     <Compile Include="CmsInitializer.cs" />
     <Compile Include="Templates\Layout.cs" />

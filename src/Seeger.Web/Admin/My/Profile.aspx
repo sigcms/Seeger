@@ -4,48 +4,48 @@
 
 <table class="formtable">
     <tr>
-        <th><%= Localize("User.UserName") %></th>
+        <th><%= T("User.UserName") %></th>
         <td>
             <asp:Literal runat="server" ID="UserName" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.Nick") %></th>
+        <th><%= T("User.Nick") %></th>
         <td>
             <asp:TextBox runat="server" MaxLength="50" ID="Nick" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="Nick" runat="server" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.Email") %></th>
+        <th><%= T("User.Email") %></th>
         <td>
             <asp:TextBox runat="server" MaxLength="250" ID="Email" />
             <asp:RequiredFieldValidator runat="server" ID="EmailRequiredValidator" ControlToValidate="Email" ErrorMessage="*" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.Password") %></th>
+        <th><%= T("User.Password") %></th>
         <td>
             <asp:TextBox runat="server" AutoCompleteType="None" MaxLength="20" ID="Password" TextMode="Password" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.PasswordConfirm") %></th>
+        <th><%= T("User.PasswordConfirm") %></th>
         <td>
             <asp:TextBox runat="server" AutoCompleteType="None" MaxLength="20" ID="PasswordConfirm" TextMode="Password" />
             <asp:CompareValidator runat="server" ID="PasswordConfirmValidator" ControlToValidate="Password"
-                 ControlToCompare="PasswordConfirm" Operator="Equal" ErrorMessage="<%$ Resources: User.TwoPasswordNotSame %>" />
+                 ControlToCompare="PasswordConfirm" Operator="Equal" ErrorMessage="<%$ T: User.TwoPasswordNotSame %>" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.Skin") %></th>
+        <th><%= T("User.Skin") %></th>
         <td>
             <asp:DropDownList runat="server" ID="SkinList">
             </asp:DropDownList>
         </td>
     </tr>
     <tr>
-        <th><%= Localize("User.Language") %></th>
+        <th><%= T("User.Language") %></th>
         <td>
             <asp:DropDownList runat="server" ID="LanguageList" DataTextField="DisplayName" DataValueField="Name">
             </asp:DropDownList>
@@ -54,9 +54,9 @@
     <tr>
         <th></th>
         <td>
-            <asp:LinkButton runat="server" ID="SubmitButton" CssClass="button primary" Text="<%$ Resources: Common.Save %>" OnClick="SubmitButton_Click" />
+            <asp:LinkButton runat="server" ID="SubmitButton" CssClass="button primary" Text="<%$ T: Common.Save %>" OnClick="SubmitButton_Click" />
 
-            <a href="javascript:history.back();" class="button secondary"><%= Localize("Common.Back") %></a>
+            <a href="javascript:history.back();" class="button secondary"><%= T("Common.Back") %></a>
         </td>
     </tr>
 </table>

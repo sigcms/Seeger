@@ -158,7 +158,7 @@
                 <table class="login-table">
                     <tr>
                         <th>
-                            <%= Localize("Login.UserName") %>
+                            <%= T("Login.UserName") %>
                         </th>
                         <td>
                             <asp:TextBox runat="server" ID="Name" CssClass="text-input"></asp:TextBox>
@@ -168,7 +168,7 @@
                     </tr>
                     <tr>
                         <th>
-                            <%= Localize("Login.Password") %>
+                            <%= T("Login.Password") %>
                         </th>
                         <td>
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="text-input"></asp:TextBox>
@@ -180,10 +180,10 @@
                         <td>
                         </td>
                         <td>
-                            <asp:Button runat="server" ID="LoginButton" CssClass="button primary" Text="<%$ Resources: Login.Login %>"
+                            <asp:Button runat="server" ID="LoginButton" CssClass="button primary" Text="<%$ T: Login.Login %>"
                                 OnClick="LoginButton_Click" />
 
-                            <a href="/" class="button secondary"><%= Localize("Login.BackToHomepage") %></a>
+                            <a href="/" class="button secondary"><%= T("Login.BackToHomepage") %></a>
                         </td>
                     </tr>
                 </table>
@@ -192,18 +192,18 @@
         </div>
         <div class="footer">
             <div class="links">
-                <a href="<%= SeegerUrls.Homepage %>" target="_blank"><%= Localize("Seeger.Homepage")%></a>
+                <a href="<%= SeegerUrls.Homepage %>" target="_blank"><%= T("Seeger.Homepage")%></a>
                 |
-                <a href="<%= SeegerUrls.Purchase %>", target="_blank"><%= Localize("Seeger.Purchase") %></a>
+                <a href="<%= SeegerUrls.Purchase %>", target="_blank"><%= T("Seeger.Purchase") %></a>
                 |
-                <a href="<%= SeegerUrls.Help %>" target="_blank"><%= Localize("Seeger.Help") %></a>
+                <a href="<%= SeegerUrls.Help %>" target="_blank"><%= T("Seeger.Help") %></a>
                 |
-                <a href="<%= SeegerUrls.Contact %>" target="_blank"><%= Localize("Seeger.Contact") %></a>
+                <a href="<%= SeegerUrls.Contact %>" target="_blank"><%= T("Seeger.Contact") %></a>
                 |
-                <a href="<%= SeegerUrls.About %>" target="_blank"><%= Localize("Seeger.About") %></a>
+                <a href="<%= SeegerUrls.About %>" target="_blank"><%= T("Seeger.About") %></a>
             </div>
             <div class="copyright">
-                &copy; 2011<%= DateTime.Today.Year == 2011 ? "" : " - " + DateTime.Today.Year %> <a href="<%= SeegerUrls.Homepage %>" target="_blank" title='<%= Localize("Seeger.ShortName") %>'><%= Localize("Seeger.ShortName") %></a>
+                &copy; 2011<%= DateTime.Today.Year == 2011 ? "" : " - " + DateTime.Today.Year %> <a href="<%= SeegerUrls.Homepage %>" target="_blank" title='<%= T("Seeger.ShortName") %>'><%= T("Seeger.ShortName") %></a>
             </div>
         </div>
     </div>

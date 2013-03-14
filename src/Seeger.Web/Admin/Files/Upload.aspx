@@ -4,11 +4,11 @@
 
 <table class="formtable">
     <tr>
-        <th><%= Localize("FileMgnt.Path") %></th>
+        <th><%= T("FileMgnt.Path") %></th>
         <td><%= Path %></td>
     </tr>
     <tr>
-        <th><label class="required"><%= Localize("FileMgnt.File") %></label></th>
+        <th><label class="required"><%= T("FileMgnt.File") %></label></th>
         <td>
             <asp:FileUpload runat="server" ID="FileUpload" />
             <asp:RequiredFieldValidator runat="server" ControlToValidate="FileUpload" ErrorMessage="*" />
@@ -17,9 +17,9 @@
     <tr>
         <th></th>
         <td>
-            <asp:LinkButton runat="server" ID="UploadButton" Text="<%$ Resources: Common.Upload %>" CssClass="button primary"
+            <asp:LinkButton runat="server" ID="UploadButton" Text="<%$ T: Common.Upload %>" CssClass="button primary"
                  OnClick="UploadButton_Click" />
-            <a href="javascript:location.href='List.aspx?path=<%= Path %>'" class="button secondary"><%= Localize("Common.Cancel") %></a>
+            <a href="javascript:location.href='List.aspx?path=<%= Path %>'" class="button secondary"><%= T("Common.Cancel") %></a>
         </td>
     </tr>
 </table>

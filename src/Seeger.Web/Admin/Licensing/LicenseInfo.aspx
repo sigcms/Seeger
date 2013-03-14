@@ -17,54 +17,54 @@
         <div class="license-info">
             <table class="datatable vertical-header">
                 <tr>
-                    <th style="width:150px"><%= Localize("Licensing.Id") %></th>
+                    <th style="width:150px"><%= T("Licensing.Id") %></th>
                     <td>
                         <%= License.Id.ToString() %>
                     </td>
                 </tr>
                 <tr>
-                    <th><%= Localize("Licensing.UserName") %></th>
+                    <th><%= T("Licensing.UserName") %></th>
                     <td>
                         <%= License.UserName %>
                     </td>
                </tr>
                <tr>
-                    <th><%= Localize("Licensing.FittingCmsVersion") %></th>
+                    <th><%= T("Licensing.FittingCmsVersion") %></th>
                     <td>
-                        <%= Localize("Seeger.ShortName") + " " + License.CmsVersion.ToString(2) + " " + Localize("Licensing.Edition_" + License.CmsEdition.Name) %>
+                        <%= T("Seeger.ShortName") + " " + License.CmsVersion.ToString(2) + " " + T("Licensing.Edition_" + License.CmsEdition.Name) %>
                     </td>
                 </tr>
                 <tr>
-                    <th><%= Localize("Licensing.IsTrial") %></th>
+                    <th><%= T("Licensing.IsTrial") %></th>
                     <td>
-                        <%= License.IsTrial ? Localize("Common.Yes") : Localize("Common.No") %>
+                        <%= License.IsTrial ? T("Common.Yes") : T("Common.No") %>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        <%= Localize("Licensing.Multilingual") %>
+                        <%= T("Licensing.Multilingual") %>
                     </th>
                     <td>
-                        <%= License.IsFeatureAvailable(Seeger.Licensing.Features.Multilingual) ? Localize("Common.Support") : Localize("Common.NotSupport") %>
+                        <%= License.IsFeatureAvailable(Seeger.Licensing.Features.Multilingual) ? T("Common.Support") : T("Common.NotSupport") %>
                     </td>
                 </tr>
                 <tr>
-                    <th><%= Localize("Licensing.SupportedDomains") %></th>
+                    <th><%= T("Licensing.SupportedDomains") %></th>
                     <td>
                         <%= String.Join(", ", License.SupportedDomains) %>
                     </td>
                 </tr>
                 <tr>
-                    <th><%= Localize("Licensing.ExpirationDate") %></th>
+                    <th><%= T("Licensing.ExpirationDate") %></th>
                     <td>
-                        <%= License.NeverExpire ? Localize("Licensing.NeverExpire") : License.ExpirationDate.ToString(System.Globalization.CultureInfo.CurrentCulture) %>
+                        <%= License.NeverExpire ? T("Licensing.NeverExpire") : License.ExpirationDate.ToString(System.Globalization.CultureInfo.CurrentCulture) %>
                     </td>
                 </tr>
             </table>
 
             <div style="padding-top:8px;">
-                <a href="ValidateSystem.aspx" class="button primary"><%= Localize("Licensing.ChangeLicense") %></a>
-                <a href="<%= SeegerUrls.Purchase %>" target="_blank" class="button secondary"><%= Localize("Licensing.PurchaseLicense") %></a>
+                <a href="ValidateSystem.aspx" class="button primary"><%= T("Licensing.ChangeLicense") %></a>
+                <a href="<%= SeegerUrls.Purchase %>" target="_blank" class="button secondary"><%= T("Licensing.PurchaseLicense") %></a>
             </div>
         </div>
     </asp:PlaceHolder>

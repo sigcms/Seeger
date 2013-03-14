@@ -20,14 +20,14 @@ namespace Seeger.Web.UI.Scripts.tiny_mce.plugins.sigimage
             }
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Title = Localize("SigImage.DialogTitle");
+            Title = T("SigImage.DialogTitle");
         }
     }
 }

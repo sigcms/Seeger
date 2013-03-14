@@ -20,16 +20,16 @@
             <uc:UpdateCheck runat="server" ID="UpdateCheck" />
             <table class="quick-links">
                 <tr>
-                    <td><a href="<%= SeegerUrls.Homepage %>" target="_blank"><%= Localize("Seeger.Homepage") %></a></td>
-                    <td><a href="<%= SeegerUrls.Purchase %>" target="_blank"><%= Localize("Seeger.Purchase") %></a></td>
-                    <td><a href="<%= SeegerUrls.Suggest %>" target="_blank"><%= Localize("Seeger.Suggest") %></a></td>
-                    <td><a href="<%= SeegerUrls.ReportBug %>" target="_blank"><%= Localize("Seeger.ReportBug") %></a></td>
+                    <td><a href="<%= SeegerUrls.Homepage %>" target="_blank"><%= T("Seeger.Homepage") %></a></td>
+                    <td><a href="<%= SeegerUrls.Purchase %>" target="_blank"><%= T("Seeger.Purchase") %></a></td>
+                    <td><a href="<%= SeegerUrls.Suggest %>" target="_blank"><%= T("Seeger.Suggest") %></a></td>
+                    <td><a href="<%= SeegerUrls.ReportBug %>" target="_blank"><%= T("Seeger.ReportBug") %></a></td>
                 </tr>
                 <tr>
-                    <td><a href="<%= SeegerUrls.Help %>" target="_blank"><%= Localize("Seeger.Help") %></a></td>
-                    <td><a href="<%= SeegerUrls.TechSupport %>" target="_blank"><%= Localize("Seeger.TechSupport") %></a></td>
-                    <td><a href="<%= SeegerUrls.FAQ %>" target="_blank"><%= Localize("Seeger.FAQ") %></a></td>
-                    <td><a href="<%= SeegerUrls.Contact %>" target="_blank"><%= Localize("Seeger.Contact") %></a></td>
+                    <td><a href="<%= SeegerUrls.Help %>" target="_blank"><%= T("Seeger.Help") %></a></td>
+                    <td><a href="<%= SeegerUrls.TechSupport %>" target="_blank"><%= T("Seeger.TechSupport") %></a></td>
+                    <td><a href="<%= SeegerUrls.FAQ %>" target="_blank"><%= T("Seeger.FAQ") %></a></td>
+                    <td><a href="<%= SeegerUrls.Contact %>" target="_blank"><%= T("Seeger.Contact") %></a></td>
                 </tr>
             </table>
             <uc:SeegerNews runat="server" ID="SeegerNews" />

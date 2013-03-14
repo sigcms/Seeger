@@ -7,14 +7,14 @@
 
 <table class="formtable">
     <tr>
-        <th><label class="required"><%= Localize("Role.Name") %></label></th>
+        <th><label class="required"><%= T("Role.Name") %></label></th>
         <td>
             <asp:TextBox runat="server" ID="Name" MaxLength="50" />
             <asp:RequiredFieldValidator runat="server" ID="NameRequiredValidator" ErrorMessage="*" ControlToValidate="Name" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Role.Privileges") %></th>
+        <th><%= T("Role.Privileges") %></th>
         <td>
             <uc:PrivilegeView runat="server" ID="Privileges" />
         </td>
@@ -22,8 +22,8 @@
     <tr>
         <th></th>
         <td>
-            <asp:LinkButton runat="server" ID="SubmitButton" Text="<%$ Resources: Common.Save %>" CssClass="button primary" OnClick="SubmitButton_Click" />
-            <a href="RoleList.aspx" class="button secondary"><%= Localize("Common.Back") %></a>
+            <asp:LinkButton runat="server" ID="SubmitButton" Text="<%$ T: Common.Save %>" CssClass="button primary" OnClick="SubmitButton_Click" />
+            <a href="RoleList.aspx" class="button secondary"><%= T("Common.Back") %></a>
         </td>
     </tr>
 </table>

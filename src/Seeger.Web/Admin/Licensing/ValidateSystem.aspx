@@ -2,17 +2,17 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainHolder">
     <div class="activate-cms-form">
-        <label><%= Localize("Licensing.PleaseEnterLicenseKey") %>:</label>
+        <label><%= T("Licensing.PleaseEnterLicenseKey") %>:</label>
         <asp:TextBox runat="server" ID="LicenseKey" Width="350" Height="100" TextMode="MultiLine" />
-        <label style="padding-top:15px"><%= Localize("Licensing.OrUploadLicenseFile") %></label>
+        <label style="padding-top:15px"><%= T("Licensing.OrUploadLicenseFile") %></label>
         <asp:FileUpload runat="server" ID="LicenseUpload" />
         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="LicenseUpload"
-             ValidationExpression="^.+\.licx$" ErrorMessage="<%$ Resources: Licensing.LicenseFileTypeNotValid %>" />
+             ValidationExpression="^.+\.licx$" ErrorMessage="<%$ T: Licensing.LicenseFileTypeNotValid %>" />
         <div style="padding-top:30px">
-            <asp:LinkButton runat="server" ID="ActivateButton" CssClass="button primary" Text="<%$ Resources: Licensing.ActivateNow %>"
+            <asp:LinkButton runat="server" ID="ActivateButton" CssClass="button primary" Text="<%$ T: Licensing.ActivateNow %>"
                  OnClick="ActivateButton_Click" />
 
-            <a href="<%= SeegerUrls.Purchase %>" target="_blank" class="button secondary"><%= Localize("Licensing.PurchaseLicense") %></a>
+            <a href="<%= SeegerUrls.Purchase %>" target="_blank" class="button secondary"><%= T("Licensing.PurchaseLicense") %></a>
         </div>
     </div>
 </asp:Content>

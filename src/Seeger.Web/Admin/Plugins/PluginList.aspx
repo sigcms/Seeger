@@ -10,16 +10,16 @@
                 </div>
                 <div>
                     <asp:PlaceHolder runat="server" ID="InstallHolder" Visible="false">
-                        <button class="btn-install button primary"><%= Localize("Common.Install") %></button>
+                        <button class="btn-install button primary"><%= T("Common.Install") %></button>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder runat="server" ID="UninstallHolder" Visible="false">
-                        <button class="btn-uninstall button secondary"><%= Localize("Common.Uninstall") %></button>
+                        <button class="btn-uninstall button secondary"><%= T("Common.Uninstall") %></button>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder runat="server" ID="EnableHolder" Visible="false">
-                        <button class="btn-enable button secondary"><%= Localize("Common.Enable") %></button>
+                        <button class="btn-enable button secondary"><%= T("Common.Enable") %></button>
                     </asp:PlaceHolder>
                     <asp:PlaceHolder runat="server" ID="DisableHolder" Visible="false">
-                        <button class="btn-disable button secondary"><%= Localize("Common.Disable") %></button>
+                        <button class="btn-disable button secondary"><%= T("Common.Disable") %></button>
                     </asp:PlaceHolder>
                 </div>
             </div>

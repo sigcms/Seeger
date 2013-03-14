@@ -31,18 +31,18 @@
     Sig.Designer._pageLiveUrl = '<%= PageLiveUrl %>';
 
     // Init messages
-    Sig.Messages.ShowToobox = '<%= Localize("Designer.ShowToolbox") %>';
-    Sig.Messages.Edit = '<%= Localize("Common.Edit") %>';
-    Sig.Messages.Save = '<%= Localize("Common.Save") %>';
-    Sig.Messages.Remove = '<%= Localize("Common.Remove") %>';
-    Sig.Messages.Saving = '<%= Localize("Message.Saving") %>';
-    Sig.Messages.Loading = '<%= Localize("Message.Loading") %>';
-    Sig.Messages.NoChange = '<%= Localize("Designer.NoChange") %>';
-    Sig.Messages.HighlightZones = '<%= Localize("Designer.HighlightZones") %>';
-    Sig.Messages.CancelHighlightZones = '<%= Localize("Designer.CancelHighlightZones") %>';
-    Sig.Messages.ReloadConfirm_HasUnsavedChanges = '<%= Localize("Designer.ReloadConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.ChangePageCultureConfirm_HasUnsavedChanges = '<%= Localize("Designer.ChangePageCultureConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.CloseConfirm_HasUnsavedChanges = '<%= Localize("Designer.CloseConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.SavedAndReloading = '<%= Localize("Designer.SavedAndReloading") %>';
+    Sig.Messages.ShowToobox = '<%= T("Designer.ShowToolbox") %>';
+    Sig.Messages.Edit = '<%= T("Common.Edit") %>';
+    Sig.Messages.Save = '<%= T("Common.Save") %>';
+    Sig.Messages.Remove = '<%= T("Common.Remove") %>';
+    Sig.Messages.Saving = '<%= T("Message.Saving") %>';
+    Sig.Messages.Loading = '<%= T("Message.Loading") %>';
+    Sig.Messages.NoChange = '<%= T("Designer.NoChange") %>';
+    Sig.Messages.HighlightZones = '<%= T("Designer.HighlightZones") %>';
+    Sig.Messages.CancelHighlightZones = '<%= T("Designer.CancelHighlightZones") %>';
+    Sig.Messages.ReloadConfirm_HasUnsavedChanges = '<%= T("Designer.ReloadConfirm_HasUnsavedChanges") %>';
+    Sig.Messages.ChangePageCultureConfirm_HasUnsavedChanges = '<%= T("Designer.ChangePageCultureConfirm_HasUnsavedChanges") %>';
+    Sig.Messages.CloseConfirm_HasUnsavedChanges = '<%= T("Designer.CloseConfirm_HasUnsavedChanges") %>';
+    Sig.Messages.SavedAndReloading = '<%= T("Designer.SavedAndReloading") %>';
 </script>
     

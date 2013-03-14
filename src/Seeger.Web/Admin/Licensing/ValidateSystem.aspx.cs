@@ -36,13 +36,13 @@ namespace Seeger.Web.UI.Admin.Licensing
 
             if (String.IsNullOrEmpty(licenseKey) && !LicenseUpload.HasFile)
             {
-                Master.ShowMessage(Localize("Licensing.PleaseEnterKeyOrUploadFile"), MessageType.Error);
+                Master.ShowMessage(T("Licensing.PleaseEnterKeyOrUploadFile"), MessageType.Error);
                 return;
             }
 
             if (!String.IsNullOrEmpty(licenseKey) && LicenseUpload.HasFile)
             {
-                Master.ShowMessage(Localize("Licensing.EnterKeyOrUploadFileButNotBoth"), MessageType.Error);
+                Master.ShowMessage(T("Licensing.EnterKeyOrUploadFileButNotBoth"), MessageType.Error);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             string ext = Path.GetExtension(LicenseUpload.FileName);
             if (!ext.IgnoreCaseEquals(".licx"))
             {
-                Master.ShowMessage(Localize("Licensing.LicenseFileTypeNotValid"), MessageType.Error);
+                Master.ShowMessage(T("Licensing.LicenseFileTypeNotValid"), MessageType.Error);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace Seeger.Web.UI.Admin.Licensing
                 }
                 else
                 {
-                    Master.ShowMessage(Localize("Licensing.LicenseFileNotValid"), MessageType.Error);
+                    Master.ShowMessage(T("Licensing.LicenseFileNotValid"), MessageType.Error);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             }
             else
             {
-                Master.ShowMessage(Localize("Licensing.LicenseKeyNotValid"), MessageType.Error);
+                Master.ShowMessage(T("Licensing.LicenseKeyNotValid"), MessageType.Error);
             }
         }
 

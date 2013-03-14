@@ -114,7 +114,7 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected override string Localize(string key, CultureInfo culture)
+        protected override string T(string key, CultureInfo culture)
         {
             return Widget.Localize(key, culture, true);
         }

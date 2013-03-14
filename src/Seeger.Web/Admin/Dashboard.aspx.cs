@@ -14,30 +14,30 @@ namespace Seeger.Web.UI.Admin
         {
             get
             {
-                string format = Localize("Dashboard.GreetingFormat");
+                string format = T("Dashboard.GreetingFormat");
 
                 string greetingType = String.Empty;
                 int hour = DateTime.Now.Hour;
 
                 if (hour < 5)
                 {
-                    greetingType = Localize("Dashboard.Greeting_Evening");
+                    greetingType = T("Dashboard.Greeting_Evening");
                 }
                 else if (hour < 12)
                 {
-                    greetingType = Localize("Dashboard.Greeting_Morning");
+                    greetingType = T("Dashboard.Greeting_Morning");
                 }
                 else if (hour < 14)
                 {
-                    greetingType = Localize("Dashboard.Greeting_Midnoon");
+                    greetingType = T("Dashboard.Greeting_Midnoon");
                 }
                 else if (hour < 18)
                 {
-                    greetingType = Localize("Dashboard.Greeting_Afternoon");
+                    greetingType = T("Dashboard.Greeting_Afternoon");
                 }
                 else
                 {
-                    greetingType = Localize("Dashboard.Greeting_Evening");
+                    greetingType = T("Dashboard.Greeting_Evening");
                 }
 
                 return format.Replace("{Greeting}", greetingType)

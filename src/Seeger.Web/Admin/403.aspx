@@ -14,7 +14,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
 <div class="message error access-denied">
-    <%= Localize("Message.AccessDenied") %>
+    <%= T("Message.AccessDenied") %>
 </div>
 
 </asp:Content>

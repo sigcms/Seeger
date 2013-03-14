@@ -15,10 +15,10 @@ namespace Seeger.Web.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Title = Localize("Login.PageTitle");
+            Title = T("Login.PageTitle");
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }

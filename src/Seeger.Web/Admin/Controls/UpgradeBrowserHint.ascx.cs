@@ -21,18 +21,18 @@ namespace Seeger.Web.UI.Admin.Controls
 
                 if (Request.Browser.MajorVersion < 7)
                 {
-                    hintFormat = Localize("Dashboard.IE6Hint");
+                    hintFormat = T("Dashboard.IE6Hint");
                 }
                 else
                 {
-                    hintFormat = Localize("Dashboard.OutOfDateBrowserHint");
+                    hintFormat = T("Dashboard.OutOfDateBrowserHint");
                 }
 
                 HintMessage.Text = hintFormat.Replace("{Browser}", "IE").Replace("{Version}", Request.Browser.Version);
             }
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }

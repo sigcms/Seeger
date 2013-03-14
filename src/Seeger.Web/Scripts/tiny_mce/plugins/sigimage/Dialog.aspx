@@ -49,25 +49,25 @@
     <div>
         <div class="browser-panel">
             <fieldset class="select-file-panel">
-                <legend><%= Localize("SigImage.SelectImage") %></legend>
+                <legend><%= T("SigImage.SelectImage") %></legend>
                 <div class="path-info">
-                    <%= Localize("SigImage.CurrentPath") %>: <span id="current-path"></span>
+                    <%= T("SigImage.CurrentPath") %>: <span id="current-path"></span>
                 </div>
                 <div id="file-browser"></div>
             </fieldset>
         </div>
         <div class="settings-panel">
             <fieldset class="properties-panel">
-                <legend><%= Localize("SigImage.Properties") %></legend>
+                <legend><%= T("SigImage.Properties") %></legend>
                 <table>
                     <tr>
-                        <td class="column1"><label for="img-title"><%= Localize("SigImage.Title") %>:</label></td>
+                        <td class="column1"><label for="img-title"><%= T("SigImage.Title") %>:</label></td>
                         <td>
                             <input id="img-title" type="text" maxlength="100" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="column1"><label for="img-width"><%= Localize("SigImage.Dimensions") %>:</label></td>
+                        <td class="column1"><label for="img-width"><%= T("SigImage.Dimensions") %>:</label></td>
                         <td>
                             <input id="img-width" type="text" maxlength="4" size="4" />
                             x
@@ -77,13 +77,13 @@
                 </table>
             </fieldset>
             <fieldset class="upload-panel">
-                <legend><%= Localize("SigImage.Upload") %></legend>
+                <legend><%= T("SigImage.Upload") %></legend>
                 <div style="padding-left:55px">
                     <iframe id="uploadFrame" frameborder="0" src="/Admin/Shared/Uploader.aspx?imageOnly=1" width="110" height="45" scrolling="no"></iframe>
                 </div>
             </fieldset>
             <fieldset class="preview-panel">
-                <legend><%= Localize("SigImage.Preview") %></legend>
+                <legend><%= T("SigImage.Preview") %></legend>
                 <div id="preview"></div>
             </fieldset>
         </div>
@@ -91,8 +91,8 @@
     </div>
 
 	<div class="mceActionPanel">
-		<input type="button" id="insert" value='<%= Localize("Common.Insert") %>' />
-		<input type="button" id="cancel" value='<%= Localize("Common.Cancel") %>' onclick="tinyMCEPopup.close();" />
+		<input type="button" id="insert" value='<%= T("Common.Insert") %>' />
+		<input type="button" id="cancel" value='<%= T("Common.Cancel") %>' onclick="tinyMCEPopup.close();" />
     </div>
 
     <script type="text/javascript">
@@ -118,7 +118,7 @@
 
             $("#insert").click(function () {
                 if (!imageSrc) {
-                    alert('<%= Localize("SigImage.PleaseSelectImage") %>');
+                    alert('<%= T("SigImage.PleaseSelectImage") %>');
                 } else {
                     var width = Math.floor(parseInt($.trim($("#img-width").val())));
                     var height = Math.floor(parseInt($.trim($("#img-height").val())));
@@ -139,7 +139,7 @@
             filebrowser.addFile(fullName, true);
             selectFile(fullName);
 
-            alert('<%= Localize("SigImage.UploadSuccess") %>');
+            alert('<%= T("SigImage.UploadSuccess") %>');
         }
     
     </script>

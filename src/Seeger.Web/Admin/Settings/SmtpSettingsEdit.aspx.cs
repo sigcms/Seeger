@@ -48,7 +48,7 @@ namespace Seeger.Web.UI.Admin.Settings
 
             GlobalSettingManager.Instance.SubmitChanges();
 
-            ((IMessageProvider)Master).ShowMessage(Localize("Message.SaveSuccess"), MessageType.Success);
+            ((IMessageProvider)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
     }
 }

@@ -180,7 +180,7 @@ namespace Seeger.Web.UI.Admin.Settings
                 BindLogo(info.LogoFilePath);
             }
 
-            ((Management)Master).ShowMessage(Localize("Message.SaveSuccess"), MessageType.Success);
+            ((Management)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
 
         private void DeleteOldLogo(string oldLogoPath)

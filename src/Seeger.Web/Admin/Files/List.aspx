@@ -10,15 +10,15 @@
 
 <div class="mgnt-toolbar">
     <span class="file-current-path">
-        <%= Localize("FileMgnt.CurrentPath") %>: <%= CurrentPath %>
+        <%= T("FileMgnt.CurrentPath") %>: <%= CurrentPath %>
     </span>
     <span class="file-actions">
-        <asp:Button ID="UpButton" Enabled="false" runat="server" UseSubmitBehavior="false" Text="<%$ Resources: FileMgnt.GoUpperLevel %>" />
-        <sig:AdminButton runat="server" OnClientClick="$('#create-folder-form').dialog('open');return false;" Text="<%$ Resources: FileMgnt.CreateFolder %>"
+        <asp:Button ID="UpButton" Enabled="false" runat="server" UseSubmitBehavior="false" Text="<%$ T: FileMgnt.GoUpperLevel %>" />
+        <sig:AdminButton runat="server" OnClientClick="$('#create-folder-form').dialog('open');return false;" Text="<%$ T: FileMgnt.CreateFolder %>"
              Function="FileMgnt" Operation="AddFolder" />
-        <sig:AdminButton runat="server" ID="UploadFileButton" Text="<%$ Resources: FileMgnt.UploadFile %>"
+        <sig:AdminButton runat="server" ID="UploadFileButton" Text="<%$ T: FileMgnt.UploadFile %>"
              Function="FileMgnt" Operation="UploadFile" />
-        <button type="button" onclick="location.href=location.href;"><%= Localize("Common.Reload") %></button>
+        <button type="button" onclick="location.href=location.href;"><%= T("Common.Reload") %></button>
     </span>
 </div>
 
@@ -28,7 +28,7 @@
 
 <table id="create-folder-form" class="formtable" style="display:none;">
     <tr>
-        <th style="width:auto;"><label class="required"><%= Localize("FileMgnt.FolderName") %></label></th>
+        <th style="width:auto;"><label class="required"><%= T("FileMgnt.FolderName") %></label></th>
         <td>
             <input type="text" maxlength="50" id="folder-name" class="required" />
         </td>
@@ -36,15 +36,15 @@
     <tr>
         <th style="width:auto;"></th>
         <td>
-            <button id="create-folder-button" class="button primary"><%= Localize("Common.Create") %></button>
-            <button id="cancel-create-folder-button" class="button secondary"><%= Localize("Common.Cancel") %></button>
+            <button id="create-folder-button" class="button primary"><%= T("Common.Create") %></button>
+            <button id="cancel-create-folder-button" class="button secondary"><%= T("Common.Cancel") %></button>
         </td>
     </tr>
 </table>
 
 <table id="rename-form" class="formtable" style="display:none">
     <tr>
-        <th style="width:auto"><label class="required"><%= Localize("FileMgnt.NewName") %></label></th>
+        <th style="width:auto"><label class="required"><%= T("FileMgnt.NewName") %></label></th>
         <td>
             <input type="text" maxlength="50" id="new-name" class="required" />
             <span id="file-extension"></span>
@@ -53,8 +53,8 @@
     <tr>
         <th style="width:auto"></th>
         <td>
-            <button id="rename-button" class="button primary"><%= Localize("Common.Rename") %></button>
-            <button id="cancel-rename-button" class="button secondary"><%= Localize("Common.Cancel") %></button>
+            <button id="rename-button" class="button primary"><%= T("Common.Rename") %></button>
+            <button id="cancel-rename-button" class="button secondary"><%= T("Common.Cancel") %></button>
         </td>
     </tr>
 </table>
@@ -63,14 +63,14 @@
         var currentPath = '<%= CurrentPath %>';
 
         var ErrorMessages = {
-            "folder-name": '<%= Localize("FileMgnt.FolderNameIsRequired") %>',
-            "new-name": '<%= Localize("FileMgnt.NewNameIsRequired") %>'
+            "folder-name": '<%= T("FileMgnt.FolderNameIsRequired") %>',
+            "new-name": '<%= T("FileMgnt.NewNameIsRequired") %>'
         };
         
         $(function () {
             // Create Folder
             $("#create-folder-form").dialog({
-                title: '<%= Localize("FileMgnt.CreateFolder") %>',
+                title: '<%= T("FileMgnt.CreateFolder") %>',
                 autoOpen: false,
                 modal: true,
                 resizable: false
@@ -107,7 +107,7 @@
 
             // Rename
             $("#rename-form").dialog({
-                title: '<%= Localize("Common.Rename") %>',
+                title: '<%= T("Common.Rename") %>',
                 autoOpen: false,
                 modal: true,
                 resizable: false,

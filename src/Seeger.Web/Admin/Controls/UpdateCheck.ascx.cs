@@ -22,7 +22,7 @@ namespace Seeger.Web.UI.Admin.Controls
 
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentCulture);
         }

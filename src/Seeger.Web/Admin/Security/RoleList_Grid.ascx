@@ -3,9 +3,9 @@
 <table class="datatable">
     <thead>
         <tr>
-            <th><%= Localize("Role.Name") %></th>
-            <th class="edit-column"><%= Localize("Common.Edit") %></th>
-            <th class="delete-column"><%= Localize("Common.Delete") %></th>
+            <th><%= T("Role.Name") %></th>
+            <th class="edit-column"><%= T("Common.Edit") %></th>
+            <th class="delete-column"><%= T("Common.Delete") %></th>
         </tr>
     </thead>
     <tbody>
@@ -15,12 +15,12 @@
                     <td><%# Eval("Name") %></td>
                     <td style="text-align:center">
                         <sig:AdminPlaceHolder runat="server" PermissionGroup="Role" Permission="Edit">
-                            <a href="RoleEdit.aspx?id=<%# Eval("Id") %>"><%= Localize("Common.Edit") %></a>
+                            <a href="RoleEdit.aspx?id=<%# Eval("Id") %>"><%= T("Common.Edit") %></a>
                         </sig:AdminPlaceHolder>
                     </td>
                     <td style="text-align:center">
                         <sig:AdminPlaceHolder runat="server" PermissionGroup="Role" Permission="Delete">
-                            <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= Localize("Common.Delete") %></a>
+                            <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Common.Delete") %></a>
                         </sig:AdminPlaceHolder>
                     </td>
                 </tr>

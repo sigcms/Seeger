@@ -3,11 +3,11 @@
 <table class="datatable">
     <thead>
         <tr>
-            <th><%= Localize("Globalization.LanguageName") %></th>
-            <th><%= Localize("Globalization.LanguageDisplayName") %></th>
-            <th><%= Localize("Globalization.BindedDomain") %></th>
-            <th><%= Localize("Common.Edit") %></th>
-            <th><%= Localize("Common.Delete") %></th>
+            <th><%= T("Globalization.LanguageName") %></th>
+            <th><%= T("Globalization.LanguageDisplayName") %></th>
+            <th><%= T("Globalization.BindedDomain") %></th>
+            <th><%= T("Common.Edit") %></th>
+            <th><%= T("Common.Delete") %></th>
         </tr>
     </thead>
     <tbody>
@@ -18,10 +18,10 @@
                     <td><%# Eval("DisplayName") %></td>
                     <td><%# Eval("BindedDomain") %></td>
                     <td>
-                        <a href="FrontendSettingsEdit.aspx?name=<%# Eval("Name") %>"><%= Localize("Common.Edit") %></a>
+                        <a href="FrontendSettingsEdit.aspx?name=<%# Eval("Name") %>"><%= T("Common.Edit") %></a>
                     </td>
                     <td>
-                        <a href="#" class="grid-action" data-action="Delete" data-action-param-name="<%# Eval("Name") %>"><%= Localize("Common.Delete") %></a>
+                        <a href="#" class="grid-action" data-action="Delete" data-action-param-name="<%# Eval("Name") %>"><%= T("Common.Delete") %></a>
                     </td>
                 </tr>
             </ItemTemplate>

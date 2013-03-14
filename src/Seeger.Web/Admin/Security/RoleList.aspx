@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
 <div class="mgnt-toolbar">
-    <sig:AdminButton runat="server" OnClientClick="location.href='RoleEdit.aspx';return false;" Text="<%$ Resources: Role.Add %>"
+    <sig:AdminButton runat="server" OnClientClick="location.href='RoleEdit.aspx';return false;" Text="<%$ T: Role.Add %>"
          Function="RoleMgnt" Operation="Add" />
 </div>
 

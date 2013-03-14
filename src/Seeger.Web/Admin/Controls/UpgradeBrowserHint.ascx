@@ -6,32 +6,32 @@
 </div>
 <div class="browser-list" style="padding-top:5px;">
     <div class="browser-item">
-        <a href="http://www.maxthon.cn/mx3/" target="_blank" title="<%= Localize("Dashboard.Maxthon3") %>">
-            <img src="/Admin/Images/maxthon.png" alt="<%= Localize("Dashboard.Maxthon3") %>" />
+        <a href="http://www.maxthon.cn/mx3/" target="_blank" title="<%= T("Dashboard.Maxthon3") %>">
+            <img src="/Admin/Images/maxthon.png" alt="<%= T("Dashboard.Maxthon3") %>" />
         </a>
         <span>
-            <a href="http://www.maxthon.cn/mx3/" target="_blank" title="<%= Localize("Dashboard.Maxthon3") %>">
-                <%= Localize("Dashboard.Maxthon3")%>
+            <a href="http://www.maxthon.cn/mx3/" target="_blank" title="<%= T("Dashboard.Maxthon3") %>">
+                <%= T("Dashboard.Maxthon3")%>
             </a>
         </span>
     </div>
     <div class="browser-item">
-        <a href="http://firefox.com.cn/" target="_blank" title="<%= Localize("Dashboard.Firefox") %>">
-            <img src="/Admin/Images/firefox.png" alt="<%= Localize("Dashboard.Firefox") %>" />
+        <a href="http://firefox.com.cn/" target="_blank" title="<%= T("Dashboard.Firefox") %>">
+            <img src="/Admin/Images/firefox.png" alt="<%= T("Dashboard.Firefox") %>" />
         </a>
         <span>
-            <a href="http://firefox.com.cn/" target="_blank" title="<%= Localize("Dashboard.Firefox") %>">
-                <%= Localize("Dashboard.Firefox") %>
+            <a href="http://firefox.com.cn/" target="_blank" title="<%= T("Dashboard.Firefox") %>">
+                <%= T("Dashboard.Firefox") %>
             </a>
         </span>
     </div>
     <div class="browser-item">
-        <a href="http://www.google.com/chrome?hl=zh-cn" target="_blank" title="<%= Localize("Dashboard.GoogleChrome") %>">
-            <img src="/Admin/Images/chrome.png" alt="<%= Localize("Dashboard.GoogleChrome") %>" />
+        <a href="http://www.google.com/chrome?hl=zh-cn" target="_blank" title="<%= T("Dashboard.GoogleChrome") %>">
+            <img src="/Admin/Images/chrome.png" alt="<%= T("Dashboard.GoogleChrome") %>" />
         </a>
         <span>
-            <a href="http://www.google.com/chrome?hl=zh-cn" target="_blank" title="<%= Localize("Dashboard.GoogleChrome") %>">
-                <%= Localize("Dashboard.GoogleChrome")%>
+            <a href="http://www.google.com/chrome?hl=zh-cn" target="_blank" title="<%= T("Dashboard.GoogleChrome") %>">
+                <%= T("Dashboard.GoogleChrome")%>
             </a>
         </span>
     </div>

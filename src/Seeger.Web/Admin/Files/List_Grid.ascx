@@ -4,10 +4,10 @@
     <thead>
         <tr>
             <th></th>
-            <th><%= Localize("FileMgnt.Path") %></th>
-            <th><%= Localize("FileMgnt.CreationTime") %></th>
-            <th><%= Localize("FileMgnt.LastWriteTime") %></th>
-            <th><%= Localize("Common.Operations") %></th>
+            <th><%= T("FileMgnt.Path") %></th>
+            <th><%= T("FileMgnt.CreationTime") %></th>
+            <th><%= T("FileMgnt.LastWriteTime") %></th>
+            <th><%= T("Common.Operations") %></th>
         </tr>
     </thead>
     <tbody>
@@ -27,8 +27,8 @@
                         <%# Eval("LastWriteTime") %>
                     </td>
                     <td style="text-align:center">
-                        <a href="#" onclick="openRenameDialog($(this).closest('tr'));return false;">[<%= Localize("Common.Rename") %>]</a>
-                        <a href="#" class="caution grid-action" data-action="Delete" data-action-param-path="<%# UrlUtility.Combine(CurrentPath, Eval("Name") as string) %>">[<%= Localize("Common.Delete") %>]</a>
+                        <a href="#" onclick="openRenameDialog($(this).closest('tr'));return false;">[<%= T("Common.Rename") %>]</a>
+                        <a href="#" class="caution grid-action" data-action="Delete" data-action-param-path="<%# UrlUtility.Combine(CurrentPath, Eval("Name") as string) %>">[<%= T("Common.Delete") %>]</a>
                     </td>
                 </tr>
             </ItemTemplate>

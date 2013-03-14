@@ -57,7 +57,7 @@ namespace Seeger.Web.UI.Admin.Designer
             get { return PageItem.Layout.Name; }
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }

@@ -6,7 +6,7 @@
     jQuery(function () {
         var culture = '<%= System.Globalization.CultureInfo.CurrentCulture.Name %>';
         var Messages = {
-            SeegerNews: '<%= Localize("Dashboard.SeegerNews") %>'
+            SeegerNews: '<%= T("Dashboard.SeegerNews") %>'
         };
 
         ProductService.getSeegerNews(culture, function (newsList) {

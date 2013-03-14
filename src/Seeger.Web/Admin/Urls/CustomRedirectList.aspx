@@ -6,7 +6,7 @@
 <div class="mgnt-toolbar">
     <sig:AdminButton runat="server" ID="AddButton" UseSubmitBehavior="false" 
          OnClientClick="location.href='CustomRedirectEdit.aspx';return false;" 
-         Text="<%$ Resources: Common.Add %>"
+         Text="<%$ T: Common.Add %>"
          Function="CustomRedirect"
          Operation="Add" />
 </div>

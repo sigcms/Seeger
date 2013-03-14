@@ -25,12 +25,12 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected virtual string Localize(string key)
+        protected virtual string T(string key)
         {
-            return Localize(key, CultureInfo.CurrentUICulture);
+            return T(key, CultureInfo.CurrentUICulture);
         }
 
-        protected virtual string Localize(string key, CultureInfo culture)
+        protected virtual string T(string key, CultureInfo culture)
         {
             return SmartLocalizer.GetForCurrentRequest().Localize(key, culture);
         }

@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
 <div class="mgnt-toolbar">
-    <sig:AdminButton runat="server" OnClientClick="location.href='UserEdit.aspx';return false;" Text="<%$ Resources: User.Add %>" Function="UserMgnt" Operation="Add" />
+    <sig:AdminButton runat="server" OnClientClick="location.href='UserEdit.aspx';return false;" Text="<%$ T: User.Add %>" Function="UserMgnt" Operation="Add" />
 </div>
 
 <div class="ajax-grid">

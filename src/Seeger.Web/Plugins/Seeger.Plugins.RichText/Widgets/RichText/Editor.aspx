@@ -20,8 +20,8 @@
         </tr>
         <tr>
             <td>
-                <a href="javascript:Editor.submit();" class="button primary"><%= Localize("Common.OK") %></a>
-                <a href="javascript:editorContext.cancel();" class="button secondary"><%= Localize("Common.Cancel") %></a>
+                <a href="javascript:Editor.submit();" class="button primary"><%= T("Common.OK") %></a>
+                <a href="javascript:editorContext.cancel();" class="button secondary"><%= T("Common.Cancel") %></a>
             </td>
         </tr>
     </table>

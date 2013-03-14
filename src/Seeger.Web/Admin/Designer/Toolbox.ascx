@@ -5,7 +5,7 @@
 
         <div id="sig-tabs">
             <ul>
-                <li><a href="#plugin-widgets-tab"><%= Localize("Designer.Widgets") %></a></li>
+                <li><a href="#plugin-widgets-tab"><%= T("Designer.Widgets") %></a></li>
             </ul>
             <div id="plugin-widgets-tab" class="sig-tab-content">
                 <uc:AllWidgets runat="server" ID="AllWidgets" />
@@ -18,18 +18,18 @@
                     </span>
                 </asp:PlaceHolder>
                 <span class="sig-buttonset">
-                    <a href="javascript:void(0);" id="sig-view-button" class="sig-button sig-trivial" title="<%= Localize("Page.View") %>">&nbsp;</a>
-                    <a href="javascript:void(0);" id="sig-highlight-button" class="sig-button sig-trivial" title="<%= Localize("Designer.HighlightZones") %>">&nbsp;</a>
-                    <a href="javascript:void(0);" id="sig-reload-button" class="sig-button sig-trivial" title="<%= Localize("Common.Reload") %>">&nbsp;</a>
+                    <a href="javascript:void(0);" id="sig-view-button" class="sig-button sig-trivial" title="<%= T("Page.View") %>">&nbsp;</a>
+                    <a href="javascript:void(0);" id="sig-highlight-button" class="sig-button sig-trivial" title="<%= T("Designer.HighlightZones") %>">&nbsp;</a>
+                    <a href="javascript:void(0);" id="sig-reload-button" class="sig-button sig-trivial" title="<%= T("Common.Reload") %>">&nbsp;</a>
                 </span>
                 <span class="sig-buttonset">
-                    <button type="button" id="sig-save-button" class="sig-button sig-primary" title="<%= Localize("Common.Save") %>"><%= Localize("Common.Save") %></button>
-                    <button type="button" id="sig-close-button" class="sig-button sig-secondary" title="<%= Localize("Designer.CloseDesigner") %>"><%= Localize("Common.Close") %></button>
+                    <button type="button" id="sig-save-button" class="sig-button sig-primary" title="<%= T("Common.Save") %>"><%= T("Common.Save") %></button>
+                    <button type="button" id="sig-close-button" class="sig-button sig-secondary" title="<%= T("Designer.CloseDesigner") %>"><%= T("Common.Close") %></button>
                 </span>
             </div>
         </div>
 
-       <a id="sig-hide-toolbox-button" href="#" title="<%= Localize("Designer.HideToolbox") %>"></a>
+       <a id="sig-hide-toolbox-button" href="#" title="<%= T("Designer.HideToolbox") %>"></a>
 
        <script type="text/javascript">
            $("#<%= CultureList.ClientID %>").change(function () {

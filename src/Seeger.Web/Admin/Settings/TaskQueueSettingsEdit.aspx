@@ -4,25 +4,25 @@
 
 <table class="formtable">
     <tr>
-        <th><%= Localize("TaskQueue.IntervalInMinutes")%></th>
+        <th><%= T("TaskQueue.IntervalInMinutes")%></th>
         <td>
             <asp:TextBox runat="server" ID="Interval" Width="50" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="Interval"
                 runat="server" Display="Dynamic" />
-            <asp:RegularExpressionValidator ErrorMessage="<%$ Resources: TaskQueue.IntervalInMinuesErrorMessage %>" ControlToValidate="Interval"
+            <asp:RegularExpressionValidator ErrorMessage="<%$ T: TaskQueue.IntervalInMinuesErrorMessage %>" ControlToValidate="Interval"
                 runat="server" Display="Dynamic" ValidationExpression="^\d*[1-9]\d*$" />
         </td>
     </tr>
     <tr>
         <th></th>
         <td>
-            <asp:CheckBox runat="server" ID="Enable" Text="<%$ Resources: Common.Enable %>" />
+            <asp:CheckBox runat="server" ID="Enable" Text="<%$ T: Common.Enable %>" />
         </td>
     </tr>
     <tr>
         <th></th>
         <td>
-            <asp:Button runat="server" ID="SaveButton" Text="<%$ Resources: Common.Save %>" CssClass="button primary"
+            <asp:Button runat="server" ID="SaveButton" Text="<%$ T: Common.Save %>" CssClass="button primary"
                  OnClick="SaveButton_Click" />
         </td>
     </tr>

@@ -37,43 +37,43 @@
     <div>
         <div class="browser-panel">
             <fieldset class="select-file-panel">
-                <legend><%= Localize("SigDownload.SelectFile") %></legend>
+                <legend><%= T("SigDownload.SelectFile") %></legend>
                 <div class="path-info">
-                    <%= Localize("SigDownload.CurrentPath")%>: <span id="current-path"></span>
+                    <%= T("SigDownload.CurrentPath")%>: <span id="current-path"></span>
                 </div>
                 <div id="file-browser"></div>
             </fieldset>
         </div>
         <div class="settings-panel">
             <fieldset class="properties-panel">
-                <legend><%= Localize("SigDownload.Properties")%></legend>
+                <legend><%= T("SigDownload.Properties")%></legend>
                 <table>
                     <tr>
-                        <td class="column1"><label for="link-text"><%= Localize("SigDownload.LinkText")%></label></td>
+                        <td class="column1"><label for="link-text"><%= T("SigDownload.LinkText")%></label></td>
                         <td>
                             <input id="link-text" type="text" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="column1"><label for="link-title"><%= Localize("SigDownload.LinkTitle") %></label></td>
+                        <td class="column1"><label for="link-title"><%= T("SigDownload.LinkTitle") %></label></td>
                         <td>
                             <input id="link-title" type="text" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="column1"><label><%= Localize("SigDownload.OpenType") %></label></td>
+                        <td class="column1"><label><%= T("SigDownload.OpenType") %></label></td>
                         <td>
                             <select id="link-target">
-                                <option value=""><%= Localize("SigDownload.OpenType.Default") %></option>
-                                <option value="_self"><%= Localize("SigDownload.OpenType.CurrentWindow") %></option>
-                                <option value="_blank"><%= Localize("SigDownload.OpenType.NewWindow") %></option>
+                                <option value=""><%= T("SigDownload.OpenType.Default") %></option>
+                                <option value="_self"><%= T("SigDownload.OpenType.CurrentWindow") %></option>
+                                <option value="_blank"><%= T("SigDownload.OpenType.NewWindow") %></option>
                             </select>
                         </td>
                     </tr>
                 </table>
             </fieldset>
             <fieldset class="upload-panel">
-                <legend><%= Localize("SigDownload.Upload") %></legend>
+                <legend><%= T("SigDownload.Upload") %></legend>
                 <div style="padding-left:55px">
                     <iframe id="uploadFrame" frameborder="0" src="<%= "/Admin/Shared/Uploader.aspx" %>" width="110" height="45" scrolling="no"></iframe>
                 </div>
@@ -83,8 +83,8 @@
     </div>
 
 	<div class="mceActionPanel">
-		<input type="button" id="insert" value='<%= Localize("Common.Insert") %>' />
-		<input type="button" id="cancel" value='<%= Localize("Common.Cancel") %>' onclick="tinyMCEPopup.close();" />
+		<input type="button" id="insert" value='<%= T("Common.Insert") %>' />
+		<input type="button" id="cancel" value='<%= T("Common.Cancel") %>' onclick="tinyMCEPopup.close();" />
     </div>
 
     <script type="text/javascript">
@@ -110,7 +110,7 @@
 
             $("#insert").click(function () {
                 if (!filePath) {
-                    alert('<%= Localize("SigDownload.PleaseSelectFile") %>');
+                    alert('<%= T("SigDownload.PleaseSelectFile") %>');
                 } else {
                     DownloadDialog.insert($("#link-text").val(), $("#link-title").val(), filePath, $("#link-target").val());
                 }
@@ -129,7 +129,7 @@
             filebrowser.addFile(fullName, true);
             selectFile(fullName, fileName);
 
-            alert('<%= Localize("SigDownload.UploadSuccess") %>');
+            alert('<%= T("SigDownload.UploadSuccess") %>');
         }
     
     </script>

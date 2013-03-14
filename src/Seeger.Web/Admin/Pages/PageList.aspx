@@ -16,15 +16,15 @@
 
     <div class="mgnt-toolbar">
         <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">
-            <button type="button" onclick="addChildPage(null);return false;"><%= Localize("Page.AddRootPage") %></button>
-            <button id="add-child-button" type="button" onclick="addChildPage(selectedPage);return false;" disabled="disabled"><%= Localize("Page.AddChild") %></button>
+            <button type="button" onclick="addChildPage(null);return false;"><%= T("Page.AddRootPage") %></button>
+            <button id="add-child-button" type="button" onclick="addChildPage(selectedPage);return false;" disabled="disabled"><%= T("Page.AddChild") %></button>
         </sig:AdminPlaceHolder>
     </div>
     <div id="pagelist-container">
         <div id="no-page-hint" style="<%= GetNoPageHintPanelStyle() %>">
-            <%= Localize("Page.NoPageNow") %>
+            <%= T("Page.NoPageNow") %>
             <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">
-                , <a href='javascript:addChildPage(null);' title='<%= Localize("Page.ClickHereToAddPageRightNow") %>'><%= Localize("Page.AddPageRightNow") %></a>
+                , <a href='javascript:addChildPage(null);' title='<%= T("Page.ClickHereToAddPageRightNow") %>'><%= T("Page.AddPageRightNow") %></a>
             </sig:AdminPlaceHolder>
         </div>
         <div id="pagelist-treepanel">
@@ -44,13 +44,13 @@
     <script type="text/javascript">
         settings.multilingual = <%= FrontendSettings.Multilingual.ToString().ToLower() %>;
 
-        Messages.Processing = '<%= Localize("Message.Processing") %>';
-        Messages.Loading = '<%= Localize("Message.Loading") %>';
-        Messages.Success = '<%= Localize("Message.OperationSuccess") %>';
-        Messages.None = '<%= Localize("Common.None") %>';
-        Messages.DeleteSuccess = '<%= Localize("Message.DeleteSuccess") %>';
-        Messages.DeletePageConfirm = '<%= Localize("Message.DeletePageConfirm") %>';
-        Messages.DialogTitle.AddPage = '<%= Localize("Page.Add") %>';
-        Messages.DialogTitle.EditPage = '<%= Localize("Page.Edit") %>';
+        Messages.Processing = '<%= T("Message.Processing") %>';
+        Messages.Loading = '<%= T("Message.Loading") %>';
+        Messages.Success = '<%= T("Message.OperationSuccess") %>';
+        Messages.None = '<%= T("Common.None") %>';
+        Messages.DeleteSuccess = '<%= T("Message.DeleteSuccess") %>';
+        Messages.DeletePageConfirm = '<%= T("Message.DeletePageConfirm") %>';
+        Messages.DialogTitle.AddPage = '<%= T("Page.Add") %>';
+        Messages.DialogTitle.EditPage = '<%= T("Page.Edit") %>';
     </script>
 </asp:Content>

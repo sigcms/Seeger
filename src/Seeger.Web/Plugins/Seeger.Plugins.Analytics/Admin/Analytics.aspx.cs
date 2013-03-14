@@ -43,7 +43,7 @@ namespace Seeger.Plugins.Analytics.Admin
 
             settings.SubmitChanges();
 
-            ShowMessage(Localize("Message.SaveSuccess"), MessageType.Success);
+            ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
 
         private void ShowMessage(string message, MessageType type)

@@ -11,22 +11,22 @@
             <a class="frame-logo" href="/" target="_blank"></a>
             <div class="frame-user-links">
                 <span>
-                    <a href="/" target="_blank"><%= Localize("Common.Homepage") %></a>&nbsp;
+                    <a href="/" target="_blank"><%= T("Common.Homepage") %></a>&nbsp;
                     |
-                    <a href="My/Profile.aspx" target="content-iframe"><%= Localize("User.MyProfile") %></a>&nbsp;
+                    <a href="My/Profile.aspx" target="content-iframe"><%= T("User.MyProfile") %></a>&nbsp;
                     <sig:AdminPlaceHolder runat="server" RequireSuperAdmin="true">
                     |
-                    <a href="Licensing/LicenseInfo.aspx" target="content-iframe"><%= Localize("Licensing.LicenseInfo") %></a>&nbsp;
+                    <a href="Licensing/LicenseInfo.aspx" target="content-iframe"><%= T("Licensing.LicenseInfo") %></a>&nbsp;
                     </sig:AdminPlaceHolder>
                     |
-                    <a href="Logout.aspx" title="<%= Localize("Security.Logout") %>" onclick='return confirm(&quot;<%= Localize("Message.LogoutConfirm") %>&quot;)'><%= Localize("Security.Logout") %></a>
+                    <a href="Logout.aspx" title="<%= T("Security.Logout") %>" onclick='return confirm(&quot;<%= T("Message.LogoutConfirm") %>&quot;)'><%= T("Security.Logout") %></a>
                 </span>
             </div>
         </div>
         <div id="frame-main">
             <div id="frame-menubar" class="frame-menubar">
                 <ul class="shortcut-menu">
-                    <li><a target="content-iframe" href="Dashboard.aspx"><%= Localize("Common.Dashboard") %></a></li>
+                    <li><a target="content-iframe" href="Dashboard.aspx"><%= T("Common.Dashboard") %></a></li>
                 </ul>
                 <%= RenderAdminMenu() %>
                 <%= RenderModuleMenus() %>

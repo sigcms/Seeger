@@ -29,7 +29,7 @@ namespace Seeger.Web.UI.Admin.Settings
 
         private void BindForm()
         {
-            FrontendLang.Items.Add(new ListItem("(" + Localize("Common.AutoDetect") + ")", String.Empty));
+            FrontendLang.Items.Add(new ListItem("(" + T("Common.AutoDetect") + ")", String.Empty));
             FrontendLang.DataSource = FrontendLanguageCache.From(NhSession).Languages;
             FrontendLang.DataBind();
 
@@ -48,7 +48,7 @@ namespace Seeger.Web.UI.Admin.Settings
 
             GlobalSettingManager.Instance.SubmitChanges();
 
-            ((Management)Master).ShowMessage(Localize("Message.SaveSuccess"), MessageType.Success);
+            ((Management)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
     }
 }

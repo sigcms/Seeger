@@ -20,14 +20,14 @@ namespace Seeger.Web.UI.Scripts.tiny_mce.plugins.sigdownload
             }
         }
 
-        protected string Localize(string key)
+        protected string T(string key)
         {
             return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Title = Localize("SigDownload.DialogTitle");
+            Title = T("SigDownload.DialogTitle");
         }
     }
 }

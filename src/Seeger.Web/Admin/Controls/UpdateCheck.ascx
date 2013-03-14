@@ -9,8 +9,8 @@
         var culture = '<%= System.Globalization.CultureInfo.CurrentCulture.Name %>';
 
         var Messages = {
-            NewVersionInfoFormat: '<%= Localize("Dashboard.NewVersionInfoFormat") %>',
-            CheckNow: '<%= Localize("Dashboard.CheckNow") %>'
+            NewVersionInfoFormat: '<%= T("Dashboard.NewVersionInfoFormat") %>',
+            CheckNow: '<%= T("Dashboard.CheckNow") %>'
         };
 
         ProductService.checkUpdates(culture, function (result) {

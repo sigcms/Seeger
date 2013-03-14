@@ -4,7 +4,7 @@
 
 <table class="formtable">
     <tr>
-        <th><%= Localize("Email.Server")%></th>
+        <th><%= T("Email.Server")%></th>
         <td>
             <asp:TextBox runat="server" ID="SmtpServer" MaxLength="50" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="SmtpServer"
@@ -13,19 +13,19 @@
     </tr>
     <tr>
         <th>
-            <%= Localize("Email.Port") %>
+            <%= T("Email.Port") %>
         </th>
         <td>
             <asp:TextBox runat="server" ID="Port" MaxLength="5" Width="50" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="Port"
                 runat="server" />
-            <asp:CheckBox runat="server" ID="EnableSsl" Text="<%$ Resources: Email.EnableSsl %>" />
-            <asp:RegularExpressionValidator ErrorMessage="<%$ Resources: Email.PortShouldBeNumber %>" ControlToValidate="Port"
+            <asp:CheckBox runat="server" ID="EnableSsl" Text="<%$ T: Email.EnableSsl %>" />
+            <asp:RegularExpressionValidator ErrorMessage="<%$ T: Email.PortShouldBeNumber %>" ControlToValidate="Port"
                 runat="server" Display="Dynamic" ValidationExpression="^\d+$" />
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Email.SenderName") %></th>
+        <th><%= T("Email.SenderName") %></th>
         <td>
             <asp:TextBox runat="server" ID="SenderName" MaxLength="50" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="SenderName"
@@ -33,7 +33,7 @@
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Email.SenderEmail") %></th>
+        <th><%= T("Email.SenderEmail") %></th>
         <td>
             <asp:TextBox runat="server" ID="SenderEmail" MaxLength="50" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="SenderEmail"
@@ -41,7 +41,7 @@
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Email.AccountName") %></th>
+        <th><%= T("Email.AccountName") %></th>
         <td>
             <asp:TextBox runat="server" ID="AccountName" MaxLength="50" autocomplete="off" />
             <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="AccountName"
@@ -49,16 +49,16 @@
         </td>
     </tr>
     <tr>
-        <th><%= Localize("Email.AccountPassword") %></th>
+        <th><%= T("Email.AccountPassword") %></th>
         <td>
             <asp:TextBox runat="server" ID="AccountPassword" TextMode="Password" MaxLength="50" autocomplete="off" />
-            <span class="input-hint"><%= Localize("Email.KeepBlankIfNoNeedToChange") %></span>
+            <span class="input-hint"><%= T("Email.KeepBlankIfNoNeedToChange") %></span>
         </td>
     </tr>
     <tr>
         <th></th>
         <td>
-            <asp:Button runat="server" ID="SaveButton" Text="<%$ Resources: Common.Save %>" CssClass="button primary"
+            <asp:Button runat="server" ID="SaveButton" Text="<%$ T: Common.Save %>" CssClass="button primary"
                  OnClick="SaveButton_Click" />
         </td>
     </tr>

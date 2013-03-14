@@ -5,27 +5,27 @@
     <table class="formtable">
         <asp:PlaceHolder runat="server" ID="ParentPageHolder" Visible="false">
             <tr>
-                <th><%= Localize("Page.ParentPage") %></th>
+                <th><%= T("Page.ParentPage") %></th>
                 <td>
                     <asp:Literal runat="server" ID="ParentPageName" />
                 </td>
             </tr>
         </asp:PlaceHolder>
         <tr>
-            <th><label class="required"><%= Localize("Page.DisplayName") %></label></th>
+            <th><label class="required"><%= T("Page.DisplayName") %></label></th>
             <td>
                 <asp:TextBox runat="server" ID="Name" />
                 <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="Name" runat="server" />
                 <asp:PlaceHolder runat="server" ID="VisibleInMenuHolder">
                     <span>
-                        <asp:CheckBox runat="server" ID="VisibleInMenu" CssClass="aspnet-checkbox" Checked="true" Text="<%$ Resources: Page.VisibleInMenu %>" />
+                        <asp:CheckBox runat="server" ID="VisibleInMenu" CssClass="aspnet-checkbox" Checked="true" Text="<%$ T: Page.VisibleInMenu %>" />
                     </span>
                 </asp:PlaceHolder>
             </td>
         </tr>
         <sig:DevPlaceHolder runat="server">
             <tr>
-                <th><%= Localize("Page.UniqueName") %></th>
+                <th><%= T("Page.UniqueName") %></th>
                 <td>
                     <asp:TextBox runat="server" ID="PageUniqueName" MaxLength="50" />
                 </td>
@@ -33,36 +33,36 @@
              <tr>
                 <th></th>
                 <td>
-                    <asp:CheckBox runat="server" ID="Deletable" Text="<%$ Resources: Page.IsDeletable %>" Checked="true" />
+                    <asp:CheckBox runat="server" ID="Deletable" Text="<%$ T: Page.IsDeletable %>" Checked="true" />
                 </td>
             </tr>
         </sig:DevPlaceHolder>
         <tr>
-            <th><label class="required"><%= Localize("Page.Url") %></label></th>
+            <th><label class="required"><%= T("Page.Url") %></label></th>
             <td>
                 <asp:Literal runat="server" ID="BaseUrl" />
                 <asp:TextBox runat="server" ID="UrlSegment" Width="60" />
                 <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="UrlSegment" Display="Dynamic"
                     runat="server" />
-                <asp:CustomValidator ID="UrlSegmentDuplicateValidator" ErrorMessage="<%$ Resources: Page.ErrMsg.DuplicateUrlSegment %>"
+                <asp:CustomValidator ID="UrlSegmentDuplicateValidator" ErrorMessage="<%$ T: Page.ErrMsg.DuplicateUrlSegment %>"
                     ControlToValidate="UrlSegment" Display="Dynamic" runat="server" OnServerValidate="UrlSegmentDuplicateValidator_ServerValidate" />
             </td>
         </tr>
         <tr>
-            <th><%= Localize("Page.BindedDomains") %></th>
+            <th><%= T("Page.BindedDomains") %></th>
             <td>
                 <asp:TextBox runat="server" ID="BindedDomains" />
             </td>
         </tr>
         <tr>
-            <th><%= Localize("Page.Template") %></th>
+            <th><%= T("Page.Template") %></th>
             <td>
                 <asp:DropDownList runat="server" ID="TemplateList">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <th><%= Localize("Page.Layout") %></th>
+            <th><%= T("Page.Layout") %></th>
             <td>
                 <div id="layout-list-container">
                     <asp:Repeater runat="server" ID="TemplateLayoutList"
@@ -86,7 +86,7 @@
             </td>
         </tr>
         <tr id="skin-row">
-            <th><%= Localize("Page.Skin") %></th>
+            <th><%= T("Page.Skin") %></th>
             <td>
                 <div id="skin-list-container">
                     <asp:Repeater runat="server" ID="TemplateSkinList"
@@ -113,21 +113,21 @@
          <tr>
             <th></th>
             <td>
-                <asp:CheckBox runat="server" ID="Published" Text="<%$ Resources: Page.Publish %>" Checked="true" />
+                <asp:CheckBox runat="server" ID="Published" Text="<%$ T: Page.Publish %>" Checked="true" />
             </td>
         </tr>
        <tr>
             <th></th>
             <td>
-                <asp:LinkButton Text='<%$ Resources: Common.Save %>' runat="server" ID="SaveButton" CssClass="button primary" OnClick="SaveButton_Click" />
-                <a href="javascript:window.parent.Sig.Window.close('Dialog');" class="button secondary"><%= Localize("Common.Cancel") %></a>
+                <asp:LinkButton Text='<%$ T: Common.Save %>' runat="server" ID="SaveButton" CssClass="button primary" OnClick="SaveButton_Click" />
+                <a href="javascript:window.parent.Sig.Window.close('Dialog');" class="button secondary"><%= T("Common.Cancel") %></a>
             </td>
         </tr>
     </table>
 
     <script type="text/javascript">
         var Messages = {
-            SaveSuccess: '<%= Localize("Message.SaveSuccess") %>'
+            SaveSuccess: '<%= T("Message.SaveSuccess") %>'
         }
 
         var $currentLayout = $("#<%= CurrentLayout.ClientID %>");

@@ -9,17 +9,17 @@
         <sig:AdminPlaceHolder runat="server" Feature="Multilingual">
             <tr>
                 <th>
-                    <%= Localize("Setting.Multilingual") %><br />
+                    <%= T("Setting.Multilingual") %><br />
                 </th>
                 <td>
                     <asp:CheckBox ID="Multilingual" runat="server" />
                     <span class="input-hint">
-                        <%= Localize("Common.YouMayNeedTo") %><a href="FrontendLangList.aspx"><%= Localize("Setting.ManageFrontendLanguages") %></a>
+                        <%= T("Common.YouMayNeedTo") %><a href="FrontendLangList.aspx"><%= T("Setting.ManageFrontendLanguages") %></a>
                     </span>
                 </td>
             </tr>
             <tr>
-                <th><%= Localize("Setting.DefaultLanguage") %></th>
+                <th><%= T("Setting.DefaultLanguage") %></th>
                 <td>
                      <asp:DropDownList runat="server" ID="FrontendLang" DataTextField="DisplayName" DataValueField="Name" AppendDataBoundItems="true">
                      </asp:DropDownList>
@@ -34,7 +34,7 @@
             <tr>
                 <th></th>
                 <td>
-                    <asp:LinkButton Text="<%$ Resources: Common.Save %>" ID="SaveButton" CssClass="button primary" OnClick="SaveButton_Click" runat="server" />
+                    <asp:LinkButton Text="<%$ T: Common.Save %>" ID="SaveButton" CssClass="button primary" OnClick="SaveButton_Click" runat="server" />
                 </td>
             </tr>
         </sig:AdminPlaceHolder>

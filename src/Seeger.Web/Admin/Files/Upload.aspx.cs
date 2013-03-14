@@ -57,7 +57,7 @@ namespace Seeger.Web.UI.Admin.Files
                 }
                 else
                 {
-                    ((Management)Master).ShowMessage(String.Format(Localize("FileMgnt.NotSupportFileType{0}"), ext), MessageType.Error);
+                    ((Management)Master).ShowMessage(String.Format(T("FileMgnt.NotSupportFileType{0}"), ext), MessageType.Error);
                 }
             }
         }
