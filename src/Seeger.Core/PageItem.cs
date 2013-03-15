@@ -219,11 +219,6 @@ namespace Seeger
             return Parent.Id == other.Parent.Id;
         }
 
-        public virtual PageItem FindDecendant(Func<PageItem, bool> predicate)
-        {
-            return this.BreadthFirstSearch(false, predicate);
-        }
-
         public virtual string GetPagePath()
         {
             return GetPagePathFrom(null);

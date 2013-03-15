@@ -6,7 +6,7 @@ using System.Text;
 namespace Seeger.Collections
 {
     public interface ITreeNode<T>
-        where T : ITreeNode<T>
+        where T : class, ITreeNode<T>
     {
         T Parent { get; }
         IEnumerable<T> Children { get; }

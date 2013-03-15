@@ -71,48 +71,28 @@ namespace Seeger.Caching
 
         public PageItem FindPage(int pageId)
         {
-            if (pageId <= 0)
-            {
-                return null;
-            }
-
-            PageItem result = null;
-
-            foreach (var page in RootPages)
-            {
-                if (page.Id.Equals(pageId))
-                {
-                    result = page;
-                    break;
-                }
-                result = page.FindDecendant(it => it.Id.Equals(pageId));
-                if (result != null)
-                {
-                    break;
-                }
-            }
-
-            return result;
+            return FindPage(p => p.Id == pageId);
         }
 
         public PageItem FindPage(Func<PageItem, bool> predicate)
         {
-            if (predicate == null)
-            {
-                throw new ArgumentNullException("predicate");
-            }
+            Require.NotNull(predicate, "predicate");
 
-            PageItem result = null;
             foreach (var page in RootPages)
             {
-                result = page.DepthFirstSearch(true, predicate);
+                if (predicate(page))
+                {
+                    return page;
+                }
+
+                var result = page.FindDescendant(predicate);
                 if (result != null)
                 {
-                    break;
+                    return result;
                 }
             }
 
-            return result;
+            return null;
         }
 
         public PageItem FindPageByDomain(string domain)

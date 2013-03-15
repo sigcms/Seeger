@@ -69,7 +69,6 @@
     </Compile>
     <Compile Include="AdminSkins.cs" />
     <Compile Include="Caching\FrontendLanguageCache.cs" />
-    <Compile Include="Collections\Continuation.cs" />
     <Compile Include="Collections\DictionaryExtensions.cs" />
     <Compile Include="Collections\ITreeNode.cs" />
     <Compile Include="Collections\PageItemCollectionWrapper.cs" />

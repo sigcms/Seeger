@@ -101,28 +101,28 @@ namespace Seeger.Plugins.Loaders
             if (menuElement != null)
             {
                 var menu = XmlMenuLoader.LoadMenu(menuElement);
+                RecursivelyAdjustMenuItems(menu.Items, plugin);
+                plugin.Menu = menu;
+            }
+        }
 
-                foreach (var item in menu.Items)
+        private void RecursivelyAdjustMenuItems(IEnumerable<XmlMenuItem> items, PluginDefinition plugin)
+        {
+            foreach (var item in items)
+            {
+                if (item.NavigateUrl != null && !item.NavigateUrl.StartsWith("/"))
                 {
-                    item.DepthFirstVisit(true, it =>
-                    {
-                        if (it.NavigateUrl != null && !it.NavigateUrl.StartsWith("/"))
-                        {
-                            it.NavigateUrl = UrlUtil.ToAbsoluteHtmlPath(UrlUtil.Combine(plugin.VirtualPath, it.NavigateUrl));
-                        }
-
-                        it.Title.ResourceDescriptor.PluginName = plugin.Name;
-
-                        if (String.IsNullOrEmpty(it.Plugin))
-                        {
-                            it.Plugin = plugin.Name;
-                        }
-
-                        return Continuation.Continue;
-                    });
+                    item.NavigateUrl = UrlUtil.ToAbsoluteHtmlPath(UrlUtil.Combine(plugin.VirtualPath, item.NavigateUrl));
                 }
 
-                plugin.Menu = menu;
+                item.Title.ResourceDescriptor.PluginName = plugin.Name;
+
+                if (String.IsNullOrEmpty(item.Plugin))
+                {
+                    item.Plugin = plugin.Name;
+                }
+
+                RecursivelyAdjustMenuItems(item.Items, plugin);
             }
         }
 
