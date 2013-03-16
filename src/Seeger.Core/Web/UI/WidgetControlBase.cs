@@ -25,16 +25,16 @@ namespace Seeger.Web.UI
             }
         }
 
-        public LocatedWidget WidgetInPage { get; internal set; }
+        public LocatedWidget LocatedWidget { get; internal set; }
 
         public WidgetDefinition Widget
         {
             get
             {
-                var plugin = PluginManager.FindEnabledPlugin(WidgetInPage.PluginName);
+                var plugin = PluginManager.FindEnabledPlugin(LocatedWidget.PluginName);
                 if (plugin != null)
                 {
-                    return plugin.FindWidget(WidgetInPage.WidgetName);
+                    return plugin.FindWidget(LocatedWidget.WidgetName);
                 }
 
                 return null;
@@ -45,11 +45,11 @@ namespace Seeger.Web.UI
         {
             get
             {
-                if (WidgetInPage == null)
+                if (LocatedWidget == null)
                 {
-                    throw new InvalidOperationException("WidgetInPage is required.");
+                    throw new InvalidOperationException("LocatedWidget is required.");
                 }
-                return WidgetInPage.Attributes;
+                return LocatedWidget.Attributes;
             }
         }
 

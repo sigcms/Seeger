@@ -45,11 +45,9 @@ namespace Seeger.Web.UI
                     // Try merge page seo settings
                     if (FrontendSettings.Multilingual)
                     {
-                        var page = NhSession.Get<PageItem>(PageId);
-
-                        var title = page.GetLocalized(p => p.PageTitle);
-                        var keywords = page.GetLocalized(p => p.MetaKeywords);
-                        var description = page.GetLocalized(p => p.MetaDescription);
+                        var title = PageItem.GetLocalized(p => p.PageTitle);
+                        var keywords = PageItem.GetLocalized(p => p.MetaKeywords);
+                        var description = PageItem.GetLocalized(p => p.MetaDescription);
 
                         _seoInfo.Merge(title, keywords, description);
 
@@ -85,22 +83,10 @@ namespace Seeger.Web.UI
             }
         }
 
-        public IList<ZoneControl> GetZoneControls()
-        {
-            var controls = new List<ZoneControl>();
-            foreach (var ctrl in this.GetControls(typeof(ZoneControl), true))
-            {
-                controls.Add((ZoneControl)ctrl);
-            }
-
-            return controls;
-        }
-
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
 
-            SetupWidgets();
             FixFromActionUrl();
 
             foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
@@ -178,26 +164,6 @@ namespace Seeger.Web.UI
             }
 
             return new List<string>();
-        }
-
-        protected virtual void SetupWidgets()
-        {
-            foreach (var zone in PageItem.Layout.Zones)
-            {
-                var widgetInPages = PageItem.LocatedWidgets.Where(x => x.ZoneName == zone.Name);
-
-                foreach (var setting in widgetInPages)
-                {
-                    var plugin = PluginManager.FindEnabledPlugin(setting.PluginName);
-                    if (plugin == null) continue;
-
-                    var widget = plugin.FindWidget(setting.WidgetName);
-                    if (widget != null)
-                    {
-                        widget.TryAddToPage(this, zone, setting);
-                    }
-                }
-            }
         }
     }
 }

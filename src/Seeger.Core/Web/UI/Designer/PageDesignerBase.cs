@@ -18,11 +18,11 @@ namespace Seeger.Web.UI
         {
             get
             {
-                return AdministrationSession.User;
+                return AdminSession.User;
             }
         }
 
-        protected AdminSession AdministrationSession
+        protected AdminSession AdminSession
         {
             get { return AdminSession.Current; }
         }
@@ -31,9 +31,9 @@ namespace Seeger.Web.UI
         {
             base.InitializeCulture();
 
-            if (AdministrationSession.IsAuthenticated)
+            if (AdminSession.IsAuthenticated)
             {
-                var culture = AdministrationSession.UICulture;
+                var culture = AdminSession.UICulture;
                 Thread.CurrentThread.CurrentCulture = culture;
                 Thread.CurrentThread.CurrentUICulture = culture;
             }
@@ -46,33 +46,6 @@ namespace Seeger.Web.UI
         protected override void FixFromActionUrl()
         {
             // Don't fix action url in designer
-        }
-
-        protected override void SetupWidgets()
-        {
-            foreach (var block in PageItem.Layout.Zones)
-            {
-                var holder = block.LoadDesigner(this);
-                if (holder != null)
-                {
-                    foreach (var widgetSetting in PageItem.FindLocatedWidgetsByZone(block.Name).OrderBy(it => it.Order))
-                    {
-                        var plugin = PluginManager.FindEnabledPlugin(widgetSetting.PluginName);
-                        if (plugin == null) continue;
-
-                        var widget = plugin.FindWidget(widgetSetting.WidgetName);
-
-                        if (widget != null)
-                        {
-                            var designer = widget.LoadDesigner(this);
-                            designer.WidgetInPageId = widgetSetting.Id.ToString();
-                            designer.WidgetDisplayOrder = widgetSetting.Order;
-                            designer.WidgetAttributes.AddRange(widgetSetting.Attributes);
-                            holder.Controls.Add(designer);
-                        }
-                    }
-                }
-            }
         }
 
         protected override IList<string> GetThemeFilePaths()
@@ -91,7 +64,7 @@ namespace Seeger.Web.UI
         {
             base.OnPreInit(e);
 
-            if (!AdministrationSession.IsAuthenticated)
+            if (!AdminSession.IsAuthenticated)
             {
                 AuthenticationService.RedirectToLoginPage();
             }

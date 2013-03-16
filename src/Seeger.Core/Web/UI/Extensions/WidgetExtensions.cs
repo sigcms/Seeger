@@ -15,8 +15,6 @@ namespace Seeger.Web.UI
 {
     public static class WidgetExtensions
     {
-        #region UI Rendering
-
         public static WidgetControlBase LoadWidgetControl(this WidgetDefinition widget, Page page)
         {
             Require.NotNull(widget, "widget");
@@ -80,27 +78,5 @@ namespace Seeger.Web.UI
 
             HttpContext.Current.Server.Execute(page, writer, true);
         }
-
-        public static void TryAddToPage(this WidgetDefinition widget, LayoutPageBase page, Zone block, LocatedWidget setting)
-        {
-            Require.NotNull(widget, "widget");
-            Require.NotNull(page, "page");
-            Require.NotNull(block, "block");
-
-            ZoneControl blockControl = block.LoadZoneControl(page);
-            if (blockControl == null)
-            {
-                return;
-            }
-
-            WidgetControlBase widgetControl = LoadWidgetControl(widget, page);
-            if (widgetControl != null)
-            {
-                widgetControl.WidgetInPage = setting;
-                blockControl.Controls.Add(widgetControl);
-            }
-        }
-
-        #endregion
     }
 }

@@ -273,7 +273,6 @@
     <Compile Include="Web\UI\Designer\DefaultWidgetDesigner.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Web\UI\Designer\DesignerZoneControl.cs" />
     <Compile Include="Web\UI\Designer\DesignerLayoutService.cs" />
     <Compile Include="Web\UI\Designer\InDesignerUserControlBase.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -286,7 +285,6 @@
     </Compile>
     <Compile Include="Web\UI\Designer\WidgetState.cs" />
     <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
-    <Compile Include="Web\UI\Extensions\ZoneExtensions.cs" />
     <Compile Include="Web\UI\Extensions\WidgetExtensions.cs" />
     <Compile Include="Web\UI\IPrivateResource.cs" />
     <Compile Include="Web\UI\IWidgetProcessEventListener.cs" />

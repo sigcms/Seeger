@@ -36,10 +36,10 @@ namespace Seeger.Web.UI
             set { ViewState["TemplateName"] = value; }
         }
 
-        public string WidgetInPageId
+        public int LocatedWidgetId
         {
-            get { return ViewState["WidgetInPageId"] as String ?? String.Empty; }
-            set { ViewState["WidgetInPageId"] = value; }
+            get { return ViewState.TryGetValue<int>("LocatedWidgetId", 0); }
+            set { ViewState["LocatedWidgetId"] = value; }
         }
 
         public int WidgetDisplayOrder
@@ -92,7 +92,7 @@ namespace Seeger.Web.UI
             writer.AddAttribute("plugin-name", PluginName);
             writer.AddAttribute("template-name", TemplateName);
             writer.AddAttribute("widget-name", WidgetName);
-            writer.AddAttribute("widget-in-page-id", WidgetInPageId);
+            writer.AddAttribute("widget-in-page-id", LocatedWidgetId.ToString());
             writer.AddAttribute("editable", Widget.Editable.ToString().ToLower());
             writer.AddAttribute("editor-width", Widget.EditorSettings.Width.ToString());
             writer.AddAttribute("editor-height", Widget.EditorSettings.Height.ToString());
