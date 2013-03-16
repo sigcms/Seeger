@@ -155,7 +155,7 @@ namespace Seeger
 
         public virtual IEnumerable<LocatedWidget> FindLocatedWidgetsByZone(string zoneName)
         {
-            return LocatedWidgets.Where(it => it.ZoneName == zoneName);
+            return LocatedWidgets.Where(it => it.ZoneName == zoneName).OrderBy(it => it.Order);
         }
 
         public virtual void RemoveLocatedWidgetsByZone(string zoneName)

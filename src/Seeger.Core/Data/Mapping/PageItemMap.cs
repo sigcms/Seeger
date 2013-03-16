@@ -67,6 +67,7 @@ namespace Seeger.Data.Mapping
             Bag(c => c.LocatedWidgets, m => {
                 m.Key(k => k.Column("PageId"));
                 m.Inverse(true);
+                m.OrderBy("`Order`");
                 m.Cascade(Cascade.All | Cascade.DeleteOrphans);
                 m.Cache(c => c.Usage(CacheUsage.ReadWrite));
             }, m => m.OneToMany());

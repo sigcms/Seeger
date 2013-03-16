@@ -88,6 +88,11 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
                 categories.Insert(0, uncategorized);
             }
 
+            foreach (var category in categories)
+            {
+                category.SortWidgets();
+            }
+
             CategoryRepeater.DataSource = categories;
             CategoryRepeater.DataBind();
 
@@ -121,6 +126,11 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
             public WidgetCategory()
             {
                 Widgets = new List<WidgetDefinition>();
+            }
+
+            public void SortWidgets()
+            {
+                Widgets = Widgets.OrderBy(x => x.DisplayName.Localize()).ToList();
             }
         }
     }
