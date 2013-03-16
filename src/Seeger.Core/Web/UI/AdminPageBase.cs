@@ -43,18 +43,6 @@ namespace Seeger.Web.UI
             }
         }
 
-        protected override void InitializeCulture()
-        {
-            base.InitializeCulture();
-
-            if (AdminSession.IsAuthenticated)
-            {
-                var culture = AdminSession.UICulture;
-                Thread.CurrentThread.CurrentUICulture = culture;
-                Thread.CurrentThread.CurrentCulture = culture;
-            }
-        }
-
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);

@@ -29,6 +29,19 @@ namespace Seeger.Web.UI
         {
         }
 
+        void Application_PostAuthorizeRequest(object sender, EventArgs e)
+        {
+            if (Request.RawUrl.StartsWith("/Admin/", StringComparison.OrdinalIgnoreCase))
+            {
+                var culture = AdminSession.Current.UICulture;
+                if (culture != null)
+                {
+                    System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = culture;
+                }
+            }
+        }
+
         void Application_EndRequest(object sender, EventArgs e)
         {
             Database.CloseCurrentSession();
