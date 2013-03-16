@@ -3,7 +3,7 @@
         var _culture = null;
 
         this.init = function () {
-            _culture = $.Params.get('page-culture');
+            _culture = $.Params.get('culture');
         }
 
         this.get_pageLiveUrl = function () {

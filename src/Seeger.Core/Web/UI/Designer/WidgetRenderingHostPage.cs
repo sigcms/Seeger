@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace Seeger.Web.UI
 {
-    internal class ControlRenderingHostPage : PageBase
+    class WidgetRenderingHostPage : Page
     {
         public override void VerifyRenderingInServerForm(Control control)
         {

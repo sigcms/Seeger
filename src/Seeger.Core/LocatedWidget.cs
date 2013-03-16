@@ -13,6 +13,7 @@ namespace Seeger
     public class LocatedWidget
     {
         public virtual int Id { get; set; }
+
         public virtual int Order { get; set; }
 
         public virtual string PluginName { get; set; }
@@ -21,6 +22,8 @@ namespace Seeger
         
         public virtual string ZoneName { get; set; }
 
+        public virtual EntityAttributeCollection Attributes { get; protected set; }
+
         public virtual PageItem Page { get; protected set; }
 
         protected LocatedWidget() { }
@@ -28,27 +31,8 @@ namespace Seeger
         public LocatedWidget(PageItem page)
         {
             Require.NotNull(page, "page");
-
             Page = page;
-            PluginName = String.Empty;
-        }
-
-        private EntityAttributeCollection _attributes = null;
-        public virtual EntityAttributeCollection Attributes
-        {
-            get
-            {
-                if (_attributes == null)
-                {
-                    _attributes = new EntityAttributeCollection();
-                }
-                return _attributes;
-            }
-            protected set
-            {
-                _attributes = value;
-            }
+            Attributes = new EntityAttributeCollection();
         }
     }
-
 }

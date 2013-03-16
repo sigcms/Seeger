@@ -7,28 +7,22 @@ namespace Seeger.Web.UI
 {
     public class HtmlHelper
     {
-        public static string ScriptForCms(string virtualPathRelativeToCmsRoot)
-        {
-            return String.Format("<script type=\"text/javascript\" src=\"{0}\"></script>", virtualPathRelativeToCmsRoot);
-        }
-
-        public static string LinkCssFiles(IEnumerable<string> cssFilePaths, string media = null)
+        public static string IncludeCssFiles(IEnumerable<string> paths, string media = null)
         {
             var html = new StringBuilder();
 
-            foreach (var path in cssFilePaths)
+            foreach (var path in paths)
             {
-                html.AppendFormat("<link href=\"{0}\" rel=\"stylesheet\" type=\"text/css\"", path);
-
-                if (!String.IsNullOrEmpty(media))
-                {
-                    html.AppendFormat(" media=\"{0}\"", media);
-                }
-
-                html.Append(" />");
+                html.AppendLine(IncludeCssFile(path, media));
             }
 
             return html.ToString();
+        }
+
+        public static string IncludeCssFile(string path, string media = null)
+        {
+            return String.Format("<link href=\"{0}\" rel=\"stylesheet\" type=\"text/css\"{1} />",
+                path, String.IsNullOrEmpty(media) ? String.Empty : " media=\"" + media + "\"");
         }
     }
 }

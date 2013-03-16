@@ -83,20 +83,13 @@ namespace Seeger.Web.UI
             var widget = plugin.FindWidget(locatedWidget.WidgetName);
             if (widget == null) return;
 
-            if (IsInDesignMode)
-            {
-                var designer = widget.LoadDesigner(Page);
-                designer.LocatedWidgetId = locatedWidget.Id;
-                designer.WidgetDisplayOrder = locatedWidget.Order;
-                designer.WidgetAttributes.AddRange(locatedWidget.Attributes);
-                Controls.Add(designer);
-            }
-            else
-            {
-                var widgetControl = widget.LoadWidgetControl(Page);
-                widgetControl.LocatedWidget = locatedWidget;
-                Controls.Add(widgetControl);
-            }
+            var control = WidgetControlLoader.Load(widget, Page, IsInDesignMode);
+
+            control.LocatedWidget = locatedWidget;
+            control.Widget = widget;
+            control.WidgetAttributes.AddRange(locatedWidget.Attributes);
+
+            Controls.Add(control);
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Seeger.Web.UI
 {
-    public class DefaultWidgetDesigner : WidgetDesignerBase
+    class DefaultWidgetControl : WidgetControlBase
     {
-        protected override void RenderWidgetContent(System.Web.UI.HtmlTextWriter writer)
+        protected override void RenderChildren(System.Web.UI.HtmlTextWriter writer)
         {
             writer.Write("<div class=\"sig-default-widget\"><span class='sig-widget-name'>" + Widget.DisplayName.Localize() + "</span></div>");
         }

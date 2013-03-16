@@ -182,9 +182,6 @@
             _id = Widget.parseWidgetId($element);
             _name = $element.attr("widget-name");
 
-            _templateName = $element.attr("template-name");
-            if (_templateName.length == 0) _templateName = null;
-
             _pluginName = $element.attr("plugin-name");
             if (_pluginName.length == 0)
                 throw new Error("'plugin-name' attribute is missing.");

@@ -109,7 +109,7 @@ namespace Seeger.Web.UI
         {
             base.OnPreRender(e);
             SetupSeo();
-            SetupTheme();
+            IncludeSkinCssFiles();
 
             foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
@@ -127,11 +127,24 @@ namespace Seeger.Web.UI
             }
         }
 
-        private void SetupTheme()
+        protected virtual void IncludeSkinCssFiles()
         {
-            Literal ctrl = new Literal();
+            if (PageItem.Skin != null)
+            {
+                foreach (var path in PageItem.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture))
+                {
+                    IncludeCssFile(path);
+                }
+            }
+        }
+
+        protected void IncludeCssFile(string path, string media = null)
+        {
+            var ctrl = new Literal
+            {
+                Text = HtmlHelper.IncludeCssFile(path, media)
+            };
             Header.Controls.Add(ctrl);
-            ctrl.Text = HtmlHelper.LinkCssFiles(GetThemeFilePaths());
         }
 
         protected virtual void FixFromActionUrl()
@@ -154,16 +167,6 @@ namespace Seeger.Web.UI
             {
                 MetaDescription = SEOInfo.MetaDescription;
             }
-        }
-
-        protected virtual IList<string> GetThemeFilePaths()
-        {
-            if (PageItem.Skin != null)
-            {
-                return PageItem.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
-            }
-
-            return new List<string>();
         }
     }
 }

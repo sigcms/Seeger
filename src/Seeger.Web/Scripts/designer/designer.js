@@ -78,7 +78,7 @@
             window.open(_context.get_pageLiveUrl() + "?showUnpublished=true");
         }
         this.changeCulture = function (culture) {
-            var url = location.href.replace('page-culture=' + _context.get_culture(), 'page-culture=' + culture);
+            var url = location.href.replace('culture=' + _context.get_culture(), 'page-culture=' + culture);
             location.href = url;
         }
         // Command Helpers

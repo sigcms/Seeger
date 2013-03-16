@@ -59,7 +59,7 @@ namespace Seeger.Web.UI
         {
             base.OnPreRender(e);
 
-            string html = HtmlHelper.LinkCssFiles(GetCssFilePaths());
+            string html = HtmlHelper.IncludeCssFiles(GetCssFilePaths());
 
             if (!String.IsNullOrEmpty(html))
             {

@@ -11,8 +11,16 @@ using Seeger.Caching;
 
 namespace Seeger.Web.UI.Admin.Designer
 {
-    public partial class Toolbox : InDesignerUerControlBase
+    public partial class Toolbox : AdminUserControlBase
     {
+        protected string PageCulture
+        {
+            get
+            {
+                return Request.QueryString["culture"];
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,7 +38,7 @@ namespace Seeger.Web.UI.Admin.Designer
                 CultureList.DataSource = FrontendLanguageCache.From(NhSession).Languages;
                 CultureList.DataBind();
 
-                CultureList.SelectedValue = PageCulture.Name;
+                CultureList.SelectedValue = PageCulture;
             }
         }
 

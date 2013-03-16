@@ -10,7 +10,7 @@ using Seeger.Plugins.RichText.Domain;
 
 namespace Seeger.Plugins.RichText.Widgets.RichText
 {
-    public partial class Designer : Seeger.Web.UI.WidgetDesignerBase
+    public partial class Designer : Seeger.Web.UI.WidgetControlBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

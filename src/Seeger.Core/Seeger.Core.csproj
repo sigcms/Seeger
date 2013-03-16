@@ -226,6 +226,8 @@
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
     <Compile Include="Web\UI\ScriptsHelper.cs" />
+    <Compile Include="Web\UI\WidgetControlLoader.cs" />
+    <Compile Include="Web\UI\WidgetDesignerRenderer.cs" />
     <Compile Include="Web\UrlUtil.cs" />
     <Compile Include="WidgetEditorSettings.cs" />
     <Compile Include="Templates\Zone.cs" />
@@ -264,28 +266,21 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\ZoneControl.cs" />
-    <Compile Include="Web\UI\ControlRenderingHostPage.cs">
+    <Compile Include="Web\UI\Designer\WidgetRenderingHostPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\Controls\MessagePanel.cs" />
     <Compile Include="Web\UI\HtmlHelper.cs" />
     <Compile Include="Web\UI\MessageType.cs" />
-    <Compile Include="Web\UI\Designer\DefaultWidgetDesigner.cs">
+    <Compile Include="Web\UI\Designer\DefaultWidgetControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\Designer\DesignerLayoutService.cs" />
-    <Compile Include="Web\UI\Designer\InDesignerUserControlBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Web\UI\Designer\PageDesignerBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web\UI\Designer\WidgetDesignerBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\Designer\WidgetState.cs" />
     <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
-    <Compile Include="Web\UI\Extensions\WidgetExtensions.cs" />
     <Compile Include="Web\UI\IPrivateResource.cs" />
     <Compile Include="Web\UI\IWidgetProcessEventListener.cs" />
     <Compile Include="Web\UI\LayoutPageBase.cs">
