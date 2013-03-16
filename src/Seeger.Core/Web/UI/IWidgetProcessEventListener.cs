@@ -18,7 +18,7 @@ namespace Seeger.Web.UI
         public PageItem CurrentPage { get; internal set; }
         public CultureInfo DesignerCulture { get; internal set; }
         public WidgetStateItem StateItem { get; internal set; }
-        public WidgetInPage WidgetInPage { get; internal set; }
+        public LocatedWidget WidgetInPage { get; internal set; }
 
         public WidgetProcessEventArgs()
         {

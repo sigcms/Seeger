@@ -10,7 +10,7 @@ using Seeger.Plugins.Widgets;
 
 namespace Seeger
 {
-    public class WidgetInPage
+    public class LocatedWidget
     {
         public virtual int Id { get; set; }
         public virtual int Order { get; set; }
@@ -23,9 +23,9 @@ namespace Seeger
 
         public virtual PageItem Page { get; protected set; }
 
-        protected WidgetInPage() { }
+        protected LocatedWidget() { }
 
-        public WidgetInPage(PageItem page)
+        public LocatedWidget(PageItem page)
         {
             Require.NotNull(page, "page");
 

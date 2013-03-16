@@ -7,17 +7,17 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace Seeger.Data.Mapping
 {
-    class WidgetInPageMap : ClassMapping<WidgetInPage>
+    class LocatedWidgetMap : ClassMapping<LocatedWidget>
     {
         public string TableName
         {
             get
             {
-                return "cms_" + typeof(WidgetInPage).Name;
+                return "cms_" + typeof(LocatedWidget).Name;
             }
         }
 
-        public WidgetInPageMap()
+        public LocatedWidgetMap()
         {
             Table(TableName);
 

@@ -17,7 +17,7 @@ namespace Seeger.Plugins.ImageSlider
 
             var pageItem = layoutPage.PageItem;
 
-            if (pageItem.WidgetInPages.Any(x => x.PluginName == Strings.PluginName && x.WidgetName == "ImageSlider"))
+            if (pageItem.LocatedWidgets.Any(x => x.PluginName == Strings.PluginName && x.WidgetName == "ImageSlider"))
             {
                 page.IncludeCss("/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.css");
                 page.Form.Controls.Add(new LiteralControl

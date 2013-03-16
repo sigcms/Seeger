@@ -64,7 +64,7 @@ namespace Seeger.Data.Mapping
                 m.Cascade(Cascade.All | Cascade.DeleteOrphans);
             }, m => m.OneToMany());
 
-            Bag(c => c.WidgetInPages, m => {
+            Bag(c => c.LocatedWidgets, m => {
                 m.Key(k => k.Column("PageId"));
                 m.Inverse(true);
                 m.Cascade(Cascade.All | Cascade.DeleteOrphans);

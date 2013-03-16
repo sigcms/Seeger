@@ -40,7 +40,7 @@ namespace Seeger.Web.UI
                 };
                 if (item.WidgetInPageId > 0)
                 {
-                    e.WidgetInPage = CurrentPage.WidgetInPages.FirstOrDefault(it => it.Id == item.WidgetInPageId);
+                    e.WidgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == item.WidgetInPageId);
                 }
 
                 if (item.Widget.WidgetProcessEventListener != null)
@@ -59,24 +59,24 @@ namespace Seeger.Web.UI
             Database.GetCurrentSession().Commit();
         }
 
-        private WidgetInPage ProcessStateItem(WidgetStateItem stateItem, WidgetDefinition widget)
+        private LocatedWidget ProcessStateItem(WidgetStateItem stateItem, WidgetDefinition widget)
         {
             var block = CurrentPage.Layout.FindZone(stateItem.NewZoneName);
 
-            WidgetInPage widgetInPage = null;
+            LocatedWidget widgetInPage = null;
 
             if (stateItem.State == WidgetState.Added)
             {
-                widgetInPage = CurrentPage.AddWidget(block, widget, stateItem.NewOrder);
+                widgetInPage = CurrentPage.AddWidgetToZone(block, widget, stateItem.NewOrder);
             }
             else if (stateItem.State == WidgetState.Removed)
             {
-                widgetInPage = CurrentPage.WidgetInPages.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
-                CurrentPage.WidgetInPages.Remove(widgetInPage);
+                widgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
+                CurrentPage.LocatedWidgets.Remove(widgetInPage);
             }
             else if (stateItem.State == WidgetState.Changed)
             {
-                widgetInPage = CurrentPage.WidgetInPages.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
+                widgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
                 widgetInPage.ZoneName = block.Name;
                 widgetInPage.Order = stateItem.NewOrder;
             }

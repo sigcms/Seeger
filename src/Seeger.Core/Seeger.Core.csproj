@@ -90,7 +90,7 @@
     <Compile Include="Data\Mapping\Impl\SiteInfoMap.cs" />
     <Compile Include="Data\Mapping\Impl\TaskItemMap.cs" />
     <Compile Include="Data\Mapping\Impl\UserMap.cs" />
-    <Compile Include="Data\Mapping\Impl\WidgetInPageMap.cs" />
+    <Compile Include="Data\Mapping\Impl\LocatedWidgetMap.cs" />
     <Compile Include="Data\NhMappingProviders.cs" />
     <Compile Include="EntityKeyAttribute.cs" />
     <Compile Include="EntityKeyManager.cs" />
@@ -312,7 +312,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\HttpModule.cs" />
-    <Compile Include="WidgetInPage.cs" />
+    <Compile Include="LocatedWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

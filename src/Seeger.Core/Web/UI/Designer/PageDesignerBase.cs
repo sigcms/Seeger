@@ -55,7 +55,7 @@ namespace Seeger.Web.UI
                 var holder = block.LoadDesigner(this);
                 if (holder != null)
                 {
-                    foreach (var widgetSetting in PageItem.GetWidgets(block.Name).OrderBy(it => it.Order))
+                    foreach (var widgetSetting in PageItem.FindLocatedWidgetsByZone(block.Name).OrderBy(it => it.Order))
                     {
                         var plugin = PluginManager.FindEnabledPlugin(widgetSetting.PluginName);
                         if (plugin == null) continue;

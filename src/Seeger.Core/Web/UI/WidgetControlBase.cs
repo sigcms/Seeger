@@ -25,7 +25,7 @@ namespace Seeger.Web.UI
             }
         }
 
-        public WidgetInPage WidgetInPage { get; internal set; }
+        public LocatedWidget WidgetInPage { get; internal set; }
 
         public WidgetDefinition Widget
         {

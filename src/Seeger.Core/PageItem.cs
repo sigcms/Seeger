@@ -37,7 +37,7 @@ namespace Seeger
         public virtual string MetaDescription { get; set; }
 
         public virtual PageItem Parent { get; set; }
-        public virtual IList<WidgetInPage> WidgetInPages { get; protected set; }
+        public virtual IList<LocatedWidget> LocatedWidgets { get; protected set; }
         public virtual EntityAttributeCollection Attributes { get; protected set; }
         public virtual IList<PageItem> Pages { get; protected set; }
 
@@ -57,7 +57,7 @@ namespace Seeger
             MetaKeywords = String.Empty;
             MetaDescription = String.Empty;
 
-            WidgetInPages = new List<WidgetInPage>();
+            LocatedWidgets = new List<LocatedWidget>();
             Pages = new List<PageItem>();
 
             VisibleInMenu = true;
@@ -110,7 +110,7 @@ namespace Seeger
                     {
                         foreach (var zone in zonesToClear)
                         {
-                            RemoveWidgets(zone.Name);
+                            RemoveLocatedWidgetsByZone(zone.Name);
                         }
                     }
                 }
@@ -153,60 +153,59 @@ namespace Seeger
 
         #endregion
 
-        #region Widget Settings
+        public virtual IEnumerable<LocatedWidget> FindLocatedWidgetsByZone(string zoneName)
+        {
+            return LocatedWidgets.Where(it => it.ZoneName == zoneName);
+        }
 
-        public virtual void RemoveWidgets(string zoneName)
+        public virtual void RemoveLocatedWidgetsByZone(string zoneName)
         {
             Require.NotNullOrEmpty(zoneName, "zoneName");
 
-            foreach (var w in WidgetInPages.Where(w => w.ZoneName == zoneName).ToList())
+            foreach (var w in FindLocatedWidgetsByZone(zoneName).ToList())
             {
-                WidgetInPages.Remove(w);
+                LocatedWidgets.Remove(w);
             }
         }
 
-        public virtual WidgetInPage AddWidget(Zone zone, WidgetDefinition widget)
+        public virtual LocatedWidget AddWidgetToZone(Zone zone, WidgetDefinition widget)
         {
-            int order = 0;
-            if (this.WidgetInPages.Count > 0)
+            var order = 0;
+
+            if (LocatedWidgets.Count > 0)
             {
-                order = this.WidgetInPages.Max(it => it.Order) + 5;
+                order = LocatedWidgets.Max(it => it.Order) + 5;
             }
-            return AddWidget(zone, widget, order);
+
+            return AddWidgetToZone(zone, widget, order);
         }
 
-        public virtual WidgetInPage AddWidget(Zone zone, WidgetDefinition widget, int displayOrder)
+        public virtual LocatedWidget AddWidgetToZone(Zone zone, WidgetDefinition widget, int displayOrder)
         {
             Require.NotNull(zone, "zone");
             Require.NotNull(widget, "widget");
 
-            WidgetInPage setting = new WidgetInPage(this)
+            var locatedWidget = new LocatedWidget(this)
             {
                 PluginName = widget.Plugin.Name,
                 WidgetName = widget.Name,
                 ZoneName = zone.Name,
                 Order = displayOrder
             };
-            this.WidgetInPages.Add(setting);
 
-            return setting;
+            LocatedWidgets.Add(locatedWidget);
+
+            return locatedWidget;
         }
 
-        public virtual WidgetInPage GetWidget(int widgetInPageId)
+        public virtual LocatedWidget FindLocatedWidget(int locatedWidgetId)
         {
-            if (widgetInPageId < 0)
+            if (locatedWidgetId < 0)
             {
                 return null;
             }
-            return this.WidgetInPages.FirstOrDefault(it => it.Id == widgetInPageId);
+            return LocatedWidgets.FirstOrDefault(it => it.Id == locatedWidgetId);
         }
-
-        public virtual IEnumerable<WidgetInPage> GetWidgets(string zoneName)
-        {
-            return WidgetInPages.Where(it => it.ZoneName.IgnoreCaseEquals(zoneName));
-        }
-
-        #endregion
 
         public virtual bool IsSiblingOf(PageItem other)
         {

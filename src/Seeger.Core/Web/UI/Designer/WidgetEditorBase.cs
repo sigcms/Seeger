@@ -71,8 +71,8 @@ namespace Seeger.Web.UI
             }
         }
 
-        private WidgetInPage _widgetInPage;
-        protected WidgetInPage WidgetInPage
+        private LocatedWidget _widgetInPage;
+        protected LocatedWidget WidgetInPage
         {
             get
             {
@@ -80,11 +80,11 @@ namespace Seeger.Web.UI
                 {
                     if (CurrentWidgetPersisted)
                     {
-                        _widgetInPage = PageItem.GetWidget(WidgetInPageId);
+                        _widgetInPage = PageItem.FindLocatedWidget(WidgetInPageId);
                     }
                     else
                     {
-                        _widgetInPage = PageItem.AddWidget(ContainingZone, Widget);
+                        _widgetInPage = PageItem.AddWidgetToZone(ContainingZone, Widget);
                     }
                 }
                 return _widgetInPage;

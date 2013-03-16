@@ -81,7 +81,7 @@ namespace Seeger.Web.UI
             HttpContext.Current.Server.Execute(page, writer, true);
         }
 
-        public static void TryAddToPage(this WidgetDefinition widget, LayoutPageBase page, Zone block, WidgetInPage setting)
+        public static void TryAddToPage(this WidgetDefinition widget, LayoutPageBase page, Zone block, LocatedWidget setting)
         {
             Require.NotNull(widget, "widget");
             Require.NotNull(page, "page");

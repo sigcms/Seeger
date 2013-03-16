@@ -184,7 +184,7 @@ namespace Seeger.Web.UI
         {
             foreach (var zone in PageItem.Layout.Zones)
             {
-                var widgetInPages = PageItem.WidgetInPages.Where(x => x.ZoneName == zone.Name);
+                var widgetInPages = PageItem.LocatedWidgets.Where(x => x.ZoneName == zone.Name);
 
                 foreach (var setting in widgetInPages)
                 {
