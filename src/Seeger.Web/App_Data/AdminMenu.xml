@@ -17,6 +17,7 @@
   </menu>
   <menu>
     <menu title="{ Menu.CustomRedirectMgnt }" function="CustomRedirect" url="Urls/CustomRedirectList.aspx" />
+    <menu title="{ Menu.DbBackup }" function="System" operation="DbBackup" url="System/DbBackups.aspx" />
   </menu>
   <menu>
     <menu title="{ Menu.PluginMgnt }" function="PluginMgnt" url="Plugins/PluginList.aspx" />

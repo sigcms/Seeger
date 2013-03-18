@@ -1,4 +1,5 @@
-﻿using Seeger.Web.UI;
+﻿using Seeger.Security;
+using Seeger.Web.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,13 +42,13 @@ namespace Seeger.Web
             }
         }
 
-        public AdminSession AdministrationSession { get; private set; }
+        public AdminSession AdminSession { get; private set; }
 
         public void ProcessRequest(HttpContext context)
         {
-            AdministrationSession = Authenticate(context);
+            AdminSession = Authenticate(context);
 
-            if (AdministrationSession.IsAuthenticated && (AdministrationSession.User.IsSuperAdmin) || ValidateAccess(context, AdministrationSession))
+            if (AdminSession.IsAuthenticated && (AdminSession.User.IsSuperAdmin) || ValidateAccess(AdminSession.User))
             {
                 DoProcessRequest(context);
             }
@@ -83,9 +84,9 @@ namespace Seeger.Web
             return new AdminSession(user);
         }
 
-        protected virtual bool ValidateAccess(HttpContext context, AdminSession adminSession)
+        protected virtual bool ValidateAccess(User user)
         {
-            return adminSession.IsAuthenticated;
+            return true;
         }
 
         protected abstract void DoProcessRequest(HttpContext context);

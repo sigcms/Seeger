@@ -55,6 +55,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
@@ -146,18 +149,23 @@
     <Content Include="Admin\Settings\FrontendLangList.aspx" />
     <Content Include="Admin\Designer\SaveChanges.ashx" />
     <Content Include="Admin\Images\Web.config" />
+    <Content Include="Admin\System\DownloadBackup.ashx" />
     <None Include="App_Data\cms.config" />
     <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
     <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
     <Content Include="Admin\Settings\TaskQueueSettingsEdit.aspx" />
     <Content Include="Admin\Shared\Controls\PageDropDownList.ascx" />
     <Content Include="Admin\Shared\Uploader.aspx" />
+    <Content Include="Admin\System\DbBackups.aspx" />
+    <Content Include="Admin\System\DbBackups_Grid.ascx" />
     <Content Include="Admin\Urls\CustomRedirectEdit.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList_Grid.ascx" />
     <Content Include="App_Data\AdminMenu.xml" />
     <None Include="App_Data\nhibernate.config" />
     <Content Include="App_Data\Resources\en-US\Login.xml" />
+    <Content Include="App_Data\Resources\zh-CN\DbBackup.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Resources.xml" />
     <Content Include="App_Data\Resources\zh-CN\TaskQueue.xml" />
     <Content Include="App_Data\Resources\zh-CN\Email.xml" />
     <Content Include="App_Data\Resources\zh-CN\SiteInfo.xml" />
@@ -889,6 +897,23 @@
     <Compile Include="Admin\Shared\Uploader.aspx.designer.cs">
       <DependentUpon>Uploader.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\System\DbBackups.aspx.cs">
+      <DependentUpon>DbBackups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\System\DbBackups.aspx.designer.cs">
+      <DependentUpon>DbBackups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\System\DbBackups_Grid.ascx.cs">
+      <DependentUpon>DbBackups_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\System\DbBackups_Grid.ascx.designer.cs">
+      <DependentUpon>DbBackups_Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\System\DownloadBackup.ashx.cs">
+      <DependentUpon>DownloadBackup.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Urls\CustomRedirectEdit.aspx.cs">
       <DependentUpon>CustomRedirectEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1008,7 +1033,6 @@
     </Compile>
     <Compile Include="Admin\Shared\Popup.Master.cs">
       <DependentUpon>Popup.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Shared\Popup.Master.designer.cs">
       <DependentUpon>Popup.Master</DependentUpon>

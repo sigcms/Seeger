@@ -73,6 +73,9 @@
     <Compile Include="Collections\ITreeNode.cs" />
     <Compile Include="Collections\PageItemCollectionWrapper.cs" />
     <Compile Include="Collections\TreeNodeExtensions.cs" />
+    <Compile Include="Data\Backup\IDbBackuper.cs" />
+    <Compile Include="Data\Backup\MssqlBackuper.cs" />
+    <Compile Include="Data\Backup\SQLiteBackuper.cs" />
     <Compile Include="Data\Context\INhSessionContext.cs" />
     <Compile Include="Data\Context\WebNhSessionContext.cs" />
     <Compile Include="Data\Extensions\SessionExtensions.cs" />

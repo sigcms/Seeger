@@ -15,4 +15,5 @@
   <item key="RoleMgnt" value="角色管理" />
   <item key="UserMgnt" value="用户管理" />
   <item key="PluginMgnt" value="插件管理" />
+  <item key="DbBackup" value="数据库备份" />
 </localization>
