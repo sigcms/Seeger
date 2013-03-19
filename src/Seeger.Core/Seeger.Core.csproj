@@ -87,6 +87,9 @@
     <Compile Include="Data\Mapping\EntityPropertyLocalizationMap.cs" />
     <Compile Include="Data\Mapping\FrontendLanguageMap.cs" />
     <Compile Include="Data\Mapping\GlobalSettingMap.cs" />
+    <Compile Include="Data\Mapping\LogEntryMap.cs" />
+    <Compile Include="Logging\DefaultLogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Data\Mapping\PageItemMap.cs" />
     <Compile Include="Data\Mapping\RoleMap.cs" />
     <Compile Include="Data\Mapping\RoleGrantedPermissionMap.cs" />
@@ -130,6 +133,10 @@
     <Compile Include="Licensing\SeegerInfo.cs" />
     <Compile Include="Licensing\SeegerLicenseValidator.cs" />
     <Compile Include="Licensing\StandardEdition.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\LoggingDatabase.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\LogManager.cs" />
     <Compile Include="ObjectHelper.cs" />
     <Compile Include="PagedQueryable.cs" />
     <Compile Include="Plugins\AssemblyDeployer.cs" />
@@ -179,6 +186,8 @@
     <Compile Include="Templates\Loaders\DefaultTemplateLoader.cs" />
     <Compile Include="Templates\Loaders\ITemplateLoader.cs" />
     <Compile Include="Templates\TemplateManager.cs" />
+    <Compile Include="UserReference.cs" />
+    <Compile Include="Utils\ExceptionPrinter.cs" />
     <Compile Include="Utils\IOUtil.cs" />
     <Compile Include="Utils\JsonConvertUtil.cs" />
     <Compile Include="Utils\PropertyPathBuilder.cs" />

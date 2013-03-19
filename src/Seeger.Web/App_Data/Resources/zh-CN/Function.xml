@@ -5,6 +5,7 @@
   <item key="SEOSetting" value="SEO设置" />
   <item key="System" value="系统" />
   <item key="DbBackup" value="数据库备份" />
+  <item key="Logs" value="系统日志" />
 
   <item key="RoleMgnt" value="角色管理" />
   <item key="UserMgnt" value="用户管理" />

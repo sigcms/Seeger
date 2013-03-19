@@ -16,6 +16,8 @@ namespace Seeger.Data
 
         private static Configuration _config;
 
+        public static readonly string ConfigurationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\nhibernate.config");
+
         public static ISessionFactory SessionFactory { get; private set; }
 
         public static string Dialect
@@ -44,11 +46,10 @@ namespace Seeger.Data
 
         public static void Initialize()
         {
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\nhibernate.config");
-            Initialize(path);
+            Initialize(ConfigurationFilePath);
         }
 
-        public static void Initialize(string nhibernateConfigFilePath)
+        static void Initialize(string nhibernateConfigFilePath)
         {
             Require.NotNullOrEmpty(nhibernateConfigFilePath, "nhibernateConfigFilePath");
             Require.That(File.Exists(nhibernateConfigFilePath), "Cannot find NHibernate configuration file.");

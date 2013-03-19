@@ -158,6 +158,8 @@
     <Content Include="Admin\Shared\Uploader.aspx" />
     <Content Include="Admin\System\DbBackups.aspx" />
     <Content Include="Admin\System\DbBackups_Grid.ascx" />
+    <Content Include="Admin\System\Logs.aspx" />
+    <Content Include="Admin\System\Logs_Grid.ascx" />
     <Content Include="Admin\Urls\CustomRedirectEdit.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList_Grid.ascx" />
@@ -165,6 +167,7 @@
     <None Include="App_Data\nhibernate.config" />
     <Content Include="App_Data\Resources\en-US\Login.xml" />
     <Content Include="App_Data\Resources\zh-CN\DbBackup.xml" />
+    <Content Include="App_Data\Resources\zh-CN\Logs.xml" />
     <Content Include="App_Data\Resources\zh-CN\Resources.xml" />
     <Content Include="App_Data\Resources\zh-CN\TaskQueue.xml" />
     <Content Include="App_Data\Resources\zh-CN\Email.xml" />
@@ -914,6 +917,20 @@
     <Compile Include="Admin\System\DownloadBackup.ashx.cs">
       <DependentUpon>DownloadBackup.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\System\Logs.aspx.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\System\Logs.aspx.designer.cs">
+      <DependentUpon>Logs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\System\Logs_Grid.ascx.cs">
+      <DependentUpon>Logs_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\System\Logs_Grid.ascx.designer.cs">
+      <DependentUpon>Logs_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Urls\CustomRedirectEdit.aspx.cs">
       <DependentUpon>CustomRedirectEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1033,6 +1050,7 @@
     </Compile>
     <Compile Include="Admin\Shared\Popup.Master.cs">
       <DependentUpon>Popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Shared\Popup.Master.designer.cs">
       <DependentUpon>Popup.Master</DependentUpon>

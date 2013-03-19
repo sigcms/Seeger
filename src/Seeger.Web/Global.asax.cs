@@ -1,6 +1,6 @@
-﻿using NLog;
-using Seeger.Data;
+﻿using Seeger.Data;
 using Seeger.Licensing;
+using Seeger.Logging;
 using Seeger.Plugins;
 using Seeger.Tasks;
 using System;
@@ -14,7 +14,7 @@ namespace Seeger.Web.UI
 
         void Application_Start(object sender, EventArgs e)
         {
-            _logger.Debug("Application starting...");
+            _logger.Info(UserReference.System(), "Application starting...");
 
             CmsConfiguration.Initialize();
             LicensingService.ValidateCurrentLicense();
@@ -49,14 +49,14 @@ namespace Seeger.Web.UI
 
         void Application_End(object sender, EventArgs e)
         {
-            _logger.Debug("Application ended.");
+            _logger.Info(UserReference.System(), "Application ended");
         }
 
         void Application_Error(object sender, EventArgs e)
         {
             if (!VirtualPathUtility.GetFileName(Request.RawUrl).IgnoreCaseEquals("favicon.ico"))
             {
-                _logger.ErrorException(Request.RawUrl, Server.GetLastError());
+                _logger.ErrorException(UserReference.System(), Server.GetLastError(), Request.RawUrl);
             }
         }
 

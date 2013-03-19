@@ -1,6 +1,8 @@
 ﻿using Ionic.Zip;
 using Seeger.Data;
 using Seeger.Data.Backup;
+using Seeger.Globalization;
+using Seeger.Logging;
 using Seeger.Utils;
 using Seeger.Web.UI.Grid;
 using System;
@@ -19,6 +21,8 @@ namespace Seeger.Web.UI.Admin._System
 {
     public partial class DbBackups : AjaxGridPageBase
     {
+        static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         public override bool VerifyAccess(Seeger.Security.User user)
         {
             return user.HasPermission(null, "System", "DbBackup");
@@ -32,10 +36,14 @@ namespace Seeger.Web.UI.Admin._System
         [WebMethod, ScriptMethod]
         public static void NewBackup()
         {
+            var backupFileNameWithoutExtension = DateTime.Now.ToString("yyyy-MM-dd-HHmmss");
+
+            _log.Info(UserReference.From(AdminSession.Current.User), "Backup database");
+
             var folder = HostingEnvironment.MapPath("/App_Data/Backups");
             IOUtil.EnsureDirectoryCreated(folder);
 
-            var backupPath = Path.Combine(folder, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".bak");
+            var backupPath = Path.Combine(folder, backupFileNameWithoutExtension + ".bak");
 
             try
             {
@@ -48,7 +56,7 @@ namespace Seeger.Web.UI.Admin._System
                 // zip the backup file
                 var zip = new ZipFile();
                 zip.AddFile(backupPath);
-                zip.Save(Path.Combine(folder, Path.GetFileNameWithoutExtension(backupPath) + ".zip"));
+                zip.Save(Path.Combine(folder, backupFileNameWithoutExtension + ".zip"));
             }
             finally
             {
@@ -59,6 +67,8 @@ namespace Seeger.Web.UI.Admin._System
         [WebMethod, ScriptMethod]
         public static void Delete(string file)
         {
+            _log.Info(UserReference.From(AdminSession.Current.User), "Delete database backup");
+
             var filePath = HostingEnvironment.MapPath("/App_Data/Backups/" + file);
             IOUtil.EnsureFileDeleted(filePath);
         }

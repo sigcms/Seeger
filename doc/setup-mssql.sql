@@ -36,7 +36,7 @@ create table cms_PageItem
 	constraint FK_cms_PageItem_ParentPageId foreign key (ParentPageId) references cms_PageItem(Id)
 );
 
-create table cms_WidgetInPage
+create table cms_LocatedWidget
 (
 	Id int not null,
 	PageId int not null,
@@ -46,8 +46,8 @@ create table cms_WidgetInPage
 	"Order" int not null,
 	Attributes xml null,	-- this column is used by developers only
 	
-	constraint PK_cms_WidgetInPage primary key (Id),
-	constraint FK_cms_WidgetInPage_PageId foreign key (PageId) references cms_PageItem(Id) on delete cascade
+	constraint PK_cms_LocatedWidget primary key (Id),
+	constraint FK_cms_LocatedWidget_PageId foreign key (PageId) references cms_PageItem(Id) on delete cascade
 );
 
 create table cms_TextContent
@@ -186,6 +186,21 @@ create table cms_EntityPropertyLocalization
 
 create index IX_cms_EntityPropertyLocalization on cms_EntityPropertyLocalization(EntityType asc, EntityKey asc);
 
+create table cms_LogEntry
+(
+	Id int not null,
+	LoggerName nvarchar(100) not null,
+	[Level] nvarchar(50) null,
+	[Message] nvarchar(max) null,
+	[Exception] nvarchar(max) null,
+	UtcTimestamp datetime not null,
+	Operator_Id int not null,
+	Operator_UserName nvarchar(50) not null,
+	Operator_Nick nvarchar(50) null,
+
+	constraint PK_cms_LogEntry primary key (Id)
+);
+
 /* Required Data */
 
 insert into cms_HiValue values ('cms_PageItem', 0);
@@ -195,14 +210,13 @@ insert into cms_HiValue values ('cms_RoleGrantedPermission', 1);
 insert into cms_HiValue values ('cms_User', 1);
 insert into cms_HiValue values ('cms_UserInRole', 1);
 insert into cms_HiValue values ('cms_CustomRedirect', 0);
-insert into cms_HiValue values ('cms_WidgetInPage', 0);
+insert into cms_HiValue values ('cms_LocatedWidget', 0);
 insert into cms_HiValue values ('cms_TaskItem', 1);
 insert into cms_HiValue values ('cms_EntityPropertyLocalization', 0);
+insert into cms_HiValue values ('cms_LogEntry', 0);
 
 /* Password: abc123 */
 insert into cms_User values (1, 'sa', 'Admin', '6367C48DD193D56EA7B0BAAD25B19455E529F5EE', 'support@sigcms.com', null, null, 1, 0, null, null, null);
-
-insert into cms_RewriterIgnoredPath values (1, 'Asset Files', '^.+\.(jpg|gif|png|bmp|jpeg|txt|csv|xls|xlsx|ppt|pptx|doc|docx|zip|rar|7z|css|js|axd|xml|asax|ashx)$', 1, 0);
 
 insert into cms_FrontendLanguage values ('en-US', 'English', '');
 insert into cms_FrontendLanguage values ('zh-CN', '¼òÌåÖÐÎÄ', '');

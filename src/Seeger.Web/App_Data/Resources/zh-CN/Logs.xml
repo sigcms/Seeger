@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="Clear logs" value="清空日志" />
+  <item key="Are you sure to clear all logs?" value="确定要清空所有日志记录吗?" />
+</localization>

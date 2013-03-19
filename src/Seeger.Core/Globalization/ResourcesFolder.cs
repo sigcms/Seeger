@@ -61,6 +61,11 @@ namespace Seeger.Globalization
             }
         }
 
+        public string GetValue(string key)
+        {
+            return GetValue(key, CultureInfo.CurrentUICulture);
+        }
+
         public string GetValue(string key, CultureInfo culture)
         {
             Dictionary<string, string> items;
