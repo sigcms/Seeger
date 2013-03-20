@@ -19,35 +19,31 @@ namespace Seeger
 
         public virtual bool MatchByRegex { get; set; }
 
+        public virtual UrlMatchMode UrlMatchMode { get; set; }
+
         public virtual RedirectMode RedirectMode { get; set; }
+
+        public virtual bool IsEnabled { get; set; }
+
+        public virtual DateTime UtcCreatedTime { get; set; }
 
         public CustomRedirect()
         {
-            Description = String.Empty;
+            IsEnabled = true;
+            UtcCreatedTime = DateTime.UtcNow;
         }
 
-        public virtual bool IsMatch(System.Web.HttpRequestBase request)
+        public virtual bool IsMatch(Uri url)
         {
-            Require.NotNull(request, "request");
+            var stringToMatch = UrlMatchMode == UrlMatchMode.MatchFullUrl ? url.ToString() : url.AbsolutePath;
 
             if (MatchByRegex)
             {
-                return Regex.IsMatch(request.Url.AbsoluteUri, From);
+                return Regex.IsMatch(stringToMatch, From, RegexOptions.IgnoreCase);
             }
 
-            if (IsAbsoluteUrl(From))
-            {
-                return From.IgnoreCaseEquals(request.Url.AbsoluteUri);
-            }
-
-            return From.IgnoreCaseEquals(request.Path);
+            return stringToMatch.Equals(From, StringComparison.OrdinalIgnoreCase);
         }
-
-        private bool IsAbsoluteUrl(string url)
-        {
-            return url.IndexOf("://") > 0;
-        }
-
     }
 
 }

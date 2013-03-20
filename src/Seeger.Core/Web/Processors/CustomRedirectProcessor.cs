@@ -10,7 +10,7 @@ namespace Seeger.Web.Processors
     {
         public void Process(HttpProcessingContext context)
         {
-            var redirect = CustomRedirectCache.From(context.NhSession).Match(context.Request);
+            var redirect = CustomRedirectCache.From(context.NhSession).Match(context.Request.Url);
 
             if (redirect == null) return;
 

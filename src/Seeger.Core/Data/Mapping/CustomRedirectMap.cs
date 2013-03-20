@@ -30,7 +30,10 @@ namespace Seeger.Data.Mapping
             Property(c => c.To, m => m.Column("`To`"));
             Property(c => c.Description, m => m.Column("`Description`"));
             Property(c => c.MatchByRegex);
+            Property(c => c.UrlMatchMode);
             Property(c => c.RedirectMode);
+            Property(c => c.IsEnabled);
+            Property(c => c.UtcCreatedTime);
         }
     }
 }

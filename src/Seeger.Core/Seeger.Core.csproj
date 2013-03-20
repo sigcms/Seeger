@@ -139,6 +139,7 @@
     <Compile Include="Logging\LogManager.cs" />
     <Compile Include="ObjectHelper.cs" />
     <Compile Include="PagedQueryable.cs" />
+    <Compile Include="UrlMatchMode.cs" />
     <Compile Include="Plugins\AssemblyDeployer.cs" />
     <Compile Include="Plugins\DefaultInstalledPluginService.cs" />
     <Compile Include="Plugins\IInstalledPluginService.cs" />

@@ -3,10 +3,12 @@
 <table class="datatable">
     <thead>
         <tr>
-            <th><%= T("CustomRedirect.RedirectMode") %></th>
             <th><%= T("CustomRedirect.From") %></th>
-            <th><%= T("CustomRedirect.To") %></th>
+            <th><%= T("CustomRedirect.UrlMatchMode") %></th>
             <th><%= T("CustomRedirect.MatchByRegex") %></th>
+            <th><%= T("CustomRedirect.To") %></th>
+            <th><%= T("CustomRedirect.RedirectMode") %></th>
+            <th><%= T("CustomRedirect.IsEnabled") %></th>
             <% if (HasPermission("CustomRedirect", "Edit")) { %>
             <th><%= T("Common.Edit") %></th>
             <% } %>
@@ -19,17 +21,19 @@
         <asp:Repeater runat="server" ID="List">
             <ItemTemplate>
                 <tr class="data-item">
-                    <td><%# T("RedirectMode." + Eval("RedirectMode")) %></td>
                     <td><%# Eval("From") %></td>
+                    <td style="text-align:center"><%# T("UrlMatchMode." + Eval("UrlMatchMode")) %></td>
+                    <td style="text-align:center"><%# (bool)Eval("MatchByRegex") ? "✓" : "X" %></td>
                     <td><%# Eval("To") %></td>
-                    <td><%# Eval("MatchByRegex") %></td>
+                    <td style="text-align:center"><%# T("RedirectMode." + Eval("RedirectMode")) %></td>
+                    <td style="text-align:center"><%# (bool)Eval("IsEnabled") ? "✓" : "X" %></td>
                     <% if (HasPermission("CustomRedirect", "Edit")) { %>
-                    <td>
+                    <td style="text-align:center">
                         <a href="CustomRedirectEdit.aspx?id=<%# Eval("Id") %>"><%= T("Common.Edit") %></a>
                     </td>
                     <% } %>
                     <% if (HasPermission("CustomRedirect", "Delete")) { %>
-                    <td>
+                    <td style="text-align:center">
                         <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Common.Delete") %></a>
                     </td>
                     <% } %>

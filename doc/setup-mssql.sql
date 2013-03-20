@@ -137,9 +137,12 @@ create table cms_CustomRedirect
 	Id int not null,
 	"From" nvarchar(300) not null,
 	"To" nvarchar(300) not null,
-	"Description" nvarchar(500) not null,
+	"Description" nvarchar(500) null,
 	MatchByRegex bit not null,
+	UrlMatchMode int not null,
 	RedirectMode int not null,
+	IsEnabled bit not null,
+	UtcCreatedTime datetime not null,
 
 	constraint PK_cms_CustomRedirect primary key (Id)
 );

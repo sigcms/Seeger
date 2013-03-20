@@ -25,6 +25,16 @@
         </td>
     </tr>
     <tr>
+        <th><%= T("CustomRedirect.UrlMatchMode") %></th>
+        <td>
+            <asp:DropDownList runat="server" ID="UrlMatchMode">
+                <asp:ListItem Text="<%$ T: UrlMatchMode.MatchPath %>" Value="MatchPath" />
+                <asp:ListItem Text="<%$ T: UrlMatchMode.MatchFullUrl %>" Value="MatchFullUrl" />
+            </asp:DropDownList>
+            <asp:CheckBox runat="server" ID="MatchByRegex" Text="<%$ T: CustomRedirect.MatchByRegex %>" />
+        </td>
+    </tr>
+    <tr>
         <th><label class="required"><%= T("CustomRedirect.To") %></label></th>
         <td>
             <asp:TextBox runat="server" ID="To" MaxLength="300" />
@@ -34,7 +44,7 @@
     <tr>
         <th></th>
         <td>
-            <asp:CheckBox runat="server" ID="MatchByRegex" Checked="true" Text="<%$ T: CustomRedirect.MatchByRegex %>" />
+            <asp:CheckBox runat="server" ID="IsEnabled" Checked="true" Text="<%$ T: CustomRedirect.IsEnabled %>" />
         </td>
     </tr>
     <tr>
