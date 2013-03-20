@@ -49,6 +49,16 @@ namespace Seeger
             return String.Concat(beginQuote, str, endQuote);
         }
 
+        public static string WrapWithTag(this string str, string tag)
+        {
+            if (String.IsNullOrEmpty(tag))
+            {
+                return str;
+            }
+
+            return "<" + tag + ">" + str + "</" + tag + ">";
+        }
+
         public static bool IgnoreCaseEquals(this string str1, string str2)
         {
             Require.NotNull(str1, "str1");

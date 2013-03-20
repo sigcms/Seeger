@@ -2,7 +2,10 @@
 <localization>
   <item key="Are you sure to create a new backup?" value="确定要创建一个新的备份吗?" />
   <item key="Backup Time" value="备份时间" />
+  <item key="Backup database to" value="备份数据库为" />
   <item key="Create a new backup" value="创建一个新的备份" />
   <item key="Database Backup" value="数据库备份" />
   <item key="Database backup completed successfully!" value="数据库备份成功!" />
+  <item key="Delete database backup" value="删除数据库备份" />
+  <item key="Download database backup" value="下载数据库备份" />
 </localization>

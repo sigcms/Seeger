@@ -3,6 +3,7 @@ using Seeger.Data;
 using Seeger.Data.Backup;
 using Seeger.Globalization;
 using Seeger.Logging;
+using Seeger.Text.Markup;
 using Seeger.Utils;
 using Seeger.Web.UI.Grid;
 using System;
@@ -38,7 +39,7 @@ namespace Seeger.Web.UI.Admin._System
         {
             var backupFileNameWithoutExtension = DateTime.Now.ToString("yyyy-MM-dd-HHmmss");
 
-            _log.Info(UserReference.From(AdminSession.Current.User), "Backup database");
+            _log.Info(UserReference.From(AdminSession.Current.User), "Backup database to".WrapWithTag(Tags.T) + ": " + backupFileNameWithoutExtension + ".zip");
 
             var folder = HostingEnvironment.MapPath("/App_Data/Backups");
             IOUtil.EnsureDirectoryCreated(folder);
@@ -67,7 +68,7 @@ namespace Seeger.Web.UI.Admin._System
         [WebMethod, ScriptMethod]
         public static void Delete(string file)
         {
-            _log.Info(UserReference.From(AdminSession.Current.User), "Delete database backup");
+            _log.Info(UserReference.From(AdminSession.Current.User), "Delete database backup".WrapWithTag(Tags.T) + ": " + file);
 
             var filePath = HostingEnvironment.MapPath("/App_Data/Backups/" + file);
             IOUtil.EnsureFileDeleted(filePath);

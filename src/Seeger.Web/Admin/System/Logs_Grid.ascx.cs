@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using NHibernate.Linq;
 using Seeger.Logging;
+using Seeger.Text.Markup;
 
 namespace Seeger.Web.UI.Admin._System
 {
@@ -37,6 +38,11 @@ namespace Seeger.Web.UI.Admin._System
             }
 
             return entry.Operator.Nick + " (" + entry.Operator.UserName + ")";
+        }
+
+        protected string TransformMessage(string message)
+        {
+            return MarkupLanguage.Transform(message);
         }
     }
 }

@@ -186,6 +186,10 @@
     <Compile Include="Templates\Loaders\DefaultTemplateLoader.cs" />
     <Compile Include="Templates\Loaders\ITemplateLoader.cs" />
     <Compile Include="Templates\TemplateManager.cs" />
+    <Compile Include="Text\Markup\ITagProcessor.cs" />
+    <Compile Include="Text\Markup\LocalizationTagProcessor.cs" />
+    <Compile Include="Text\Markup\MarkupLanguage.cs" />
+    <Compile Include="Text\Markup\Tags.cs" />
     <Compile Include="UserReference.cs" />
     <Compile Include="Utils\ExceptionPrinter.cs" />
     <Compile Include="Utils\IOUtil.cs" />
