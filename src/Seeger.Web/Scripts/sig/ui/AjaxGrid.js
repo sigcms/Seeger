@@ -18,11 +18,23 @@
             return _$container.attr('id') || null;
         }
 
-        this.pageIndex = function () {
-            return _pageIndex;
+        this.pageIndex = function (value) {
+            if (arguments.length == 0) {
+                return _pageIndex;
+            }
+
+            if (typeof (value) === 'string') {
+                value = value.length > 0 ? parseInt(value, 10) : 0;
+            }
+
+            _pageIndex = value;
         }
 
         this.init = function () {
+            if (_this.find('.grid-panel').length == 0) {
+                _$container.append('<div class="grid-panel"></div>');
+            }
+
             _gridPanel = new GridPanel(_this);
             _searchPanel = new SearchPanel(_this);
             _searchPanel.init();
@@ -30,6 +42,10 @@
 
         this.find = function (selector) {
             return _$container.find(selector);
+        }
+
+        this.totalDataItems = function () {
+            return _this.find('.data-item').length;
         }
 
         this.prev = function () {
@@ -92,35 +108,48 @@
 
             var confirmMessage = $element.attr('data-action-confirm');
 
-            if (confirmMessage !== 'flase') {
-                // 'Delete' is special action
-                if (actionName === 'Delete' && (confirmMessage === undefined || confirmMessage === '')) {
-                    confirmMessage = sig.GlobalResources.get('Message.DeleteConfirm');
-                }
-
-                if (confirmMessage) {
-                    if (!window.confirm(confirmMessage)) return false;
-                }
+            if (actionName === 'Delete' && (confirmMessage === undefined || confirmMessage === '')) {
+                confirmMessage = sig.GlobalResources.get('Message.DeleteConfirm');
+            }
+            if (confirmMessage && confirmMessage !== 'flase') {
+                if (!window.confirm(confirmMessage)) return false;
             }
 
-            var params = [];
+            var willRemoveItem = (actionName === 'Delete') ? true : $element.attr('data-action-will-remove-item') === 'true';
 
-            $.each($element[0].attributes, function () {
-                if (this.name.indexOf('data-action-param-') >= 0) {
-                    params.push(this.value);
-                }
-            });
+            var params = extractActionParams(element);
 
-            params.push(function (result) {
-                _grid.refresh();
-            });
+            // success callback
+            if (willRemoveItem && _grid.totalDataItems() == 1 && _grid.pageIndex() > 0) {
+                params.push(function (result) {
+                    _grid.pageIndex(_grid.pageIndex() - 1);
+                    _grid.refresh();
+                });
+            } else {
+                params.push(function (result) {
+                    _grid.refresh();
+                });
+            }
 
+            // error callback
             params.push(function (e) {
                 sig.ui.Message.error(e.get_message());
             });
 
             // for now only support PageMethods
             PageMethods[actionName].apply(_grid, params);
+        }
+
+        function extractActionParams(element) {
+            var params = [];
+
+            $.each(element.attributes, function () {
+                if (this.name.indexOf('data-action-param-') >= 0) {
+                    params.push(this.value);
+                }
+            });
+
+            return params;
         }
 
         function tryAppendEmptyRow() {
@@ -143,7 +172,7 @@
         }
 
         function initGridActions() {
-            _$element.find('.grid-action').each(function () {
+            _$element.find('[data-action]').each(function () {
                 var $button = $(this);
                 if ($button.data('action')) {
                     $button.click(function () {
