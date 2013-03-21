@@ -90,9 +90,9 @@
             if (!actionName)
                 throw new Error('Action name is not defined.');
 
-            var confirmMessage = $element.data('confirm');
+            var confirmMessage = $element.attr('data-action-confirm');
 
-            if (confirmMessage != false) {
+            if (confirmMessage !== 'flase') {
                 // 'Delete' is special action
                 if (actionName === 'Delete' && (confirmMessage === undefined || confirmMessage === '')) {
                     confirmMessage = sig.GlobalResources.get('Message.DeleteConfirm');
