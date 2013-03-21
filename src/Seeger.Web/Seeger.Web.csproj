@@ -143,6 +143,7 @@
     <Content Include="Admin\Security\UserEdit.aspx" />
     <Content Include="Admin\Security\UserList.aspx" />
     <Content Include="Admin\Security\UserList_Grid.ascx" />
+    <Content Include="Admin\Services\FileManagerService.asmx" />
     <Content Include="Admin\Settings\FrontendLangList_Grid.ascx" />
     <Content Include="Admin\Settings\FrontendSettingsEdit.aspx" />
     <Content Include="Admin\Settings\FrontendLangEdit.aspx" />
@@ -205,6 +206,7 @@
     <Content Include="App_Themes\Classic\images\logo-cn.png" />
     <Content Include="App_Themes\Classic\images\logo-en.png" />
     <Content Include="App_Themes\Classic\images\icon-new.png" />
+    <Content Include="App_Themes\Classic\sig.ui.css" />
     <Content Include="App_Themes\Classic\zh-CN\style.css" />
     <Content Include="App_Themes\Classic\zh-CN\page-designer.css" />
     <Content Include="Default.aspx" />
@@ -329,7 +331,10 @@
     <Content Include="Scripts\sig.validator.js" />
     <Content Include="Scripts\sig\GlobalResources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
+    <Content Include="Scripts\sig\ui\FileManager.js" />
     <Content Include="Scripts\sig\ui\Message.js" />
+    <Content Include="Scripts\sig\UrlUtil.js" />
+    <Content Include="Scripts\sig\WebService.js" />
     <Content Include="Scripts\telerik\telerik.common.js" />
     <Content Include="Scripts\telerik\telerik.draganddrop.js" />
     <Content Include="Scripts\telerik\telerik.treeview.ext.js" />
@@ -837,6 +842,10 @@
     </Compile>
     <Compile Include="Admin\Security\UserList_Grid.ascx.designer.cs">
       <DependentUpon>UserList_Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Services\FileManagerService.asmx.cs">
+      <DependentUpon>FileManagerService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Admin\Settings\FrontendLangEdit.aspx.cs">
       <DependentUpon>FrontendLangEdit.aspx</DependentUpon>

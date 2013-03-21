@@ -9,9 +9,10 @@ namespace Seeger.Files
     public class FileSystemEntry
     {
         public string Name { get; private set; }
-        public string VirtualPath { get; internal set; }
+        public string VirtualPath { get; private set; }
         public string FullName { get; private set; }
         public string Extension { get; private set; }
+        public long Length { get; private set; }
         public bool IsDirectory { get; private set; }
         public bool IsHidden { get; private set; }
         public DateTime CreationTime { get; private set; }
@@ -19,26 +20,25 @@ namespace Seeger.Files
 
         private FileSystemEntry()
         {
-            Extension = String.Empty;
         }
 
-        public static FileSystemEntry FromFile(FileInfo file)
+        public static FileSystemEntry FromFile(FileInfo file, string virtualPath)
         {
             Require.NotNull(file, "file");
-
             return new FileSystemEntry
             {
                 Name = file.Name,
                 FullName = file.FullName,
                 IsDirectory = false,
                 IsHidden = file.IsHidden(),
+                Length = file.Length,
                 Extension = file.Extension,
                 CreationTime = file.CreationTime,
                 LastWriteTime = file.LastWriteTime
             };
         }
 
-        public static FileSystemEntry FromDirectory(DirectoryInfo directory)
+        public static FileSystemEntry FromDirectory(DirectoryInfo directory, string virtualPath)
         {
             Require.NotNull(directory, "directory");
 

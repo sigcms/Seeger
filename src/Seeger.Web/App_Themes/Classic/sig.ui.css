@@ -1,0 +1,16 @@
+﻿.fm-empty-item td {
+    text-align: center;
+    padding: 30px 0;
+}
+.fm-filesize-header {
+    width: 100px;
+}
+.fm-filesize {
+    text-align: center;
+    color: #999;
+}
+.fm-filegrid .btn-backto-parent {
+    display: block;
+    padding: 5px;
+    background: #eee;
+}

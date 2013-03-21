@@ -211,8 +211,7 @@ namespace Seeger.Files
             {
                 foreach (var dir in directory.GetDirectories())
                 {
-                    var entry = FileSystemEntry.FromDirectory(dir);
-                    entry.VirtualPath = UrlUtil.Combine(virtualPath, entry.Name);
+                    var entry = FileSystemEntry.FromDirectory(dir, UrlUtil.Combine(virtualPath, dir.Name));
 
                     if (predicate == null || predicate(entry))
                     {
@@ -224,8 +223,7 @@ namespace Seeger.Files
                 {
                     if (!_deniedExtensions.Contains(file.Extension))
                     {
-                        var entry = FileSystemEntry.FromFile(file);
-                        entry.VirtualPath = UrlUtil.Combine(virtualPath, entry.Name);
+                        var entry = FileSystemEntry.FromFile(file, UrlUtil.Combine(virtualPath, file.Name));
 
                         if (predicate == null || predicate(entry))
                         {
