@@ -1,6 +1,23 @@
-﻿.fm-empty-item td {
+﻿.fm-toolbar {
+    background: #eee;
+    padding: 5px;
+}
+    .fm-toolbar button {
+        margin-right: 2px;
+        min-width: 100px;
+    }
+.fm-empty-item td {
     text-align: center;
     padding: 30px 0;
+}
+.fm-filegrid .datatable tr:hover td {
+    background: none !important;
+}
+.fm-item.fm-hover {
+    background: #eee;
+}
+.fm-item.fm-selected {
+    background: #B5DEF3;
 }
 .fm-filesize-header {
     width: 100px;

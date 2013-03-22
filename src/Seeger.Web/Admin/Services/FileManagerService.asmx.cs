@@ -1,4 +1,6 @@
 ﻿using Seeger.Files;
+using Seeger.Globalization;
+using Seeger.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +22,18 @@ namespace Seeger.Web.UI.Admin.Services
                 throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
             return FileExplorer.List(path);
+        }
+
+        [WebMethod]
+        public void CreateFolder(string path, string folderName)
+        {
+            if (!FileExplorer.AllowUploadPath(path))
+                throw new InvalidOperationException("Path '" + path + "' is not allowed.");
+
+            if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
+                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Message.AccessDefined"));
+
+            IOUtil.EnsureDirectoryCreated(Server.MapPath(UrlUtil.Combine(path, folderName)));
         }
     }
 }

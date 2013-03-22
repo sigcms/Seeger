@@ -8,12 +8,21 @@
         var _rootPath = options.rootPath || '/Files';
         var _currentPath = options.currentPath || _rootPath;
         var _handler = options.handler || '/Admin/Services/FileManagerService.asmx';
+        var _enableMultiSelect = options.enableMultiSelect === undefined ? true : options.enableMultiSelect;
 
         var _toolbar = null;
         var _fileGrid = null;
 
         this.$container = function () {
             return _$container;
+        }
+
+        this.grid = function () {
+            return _fileGrid;
+        }
+
+        this.enableMultiSelect = function () {
+            return _enableMultiSelect;
         }
 
         this.find = function (selector) {
@@ -53,11 +62,12 @@
             }
 
             _toolbar = new Toolbar(_this);
+            _toolbar.init();
 
             _this.list(_currentPath);
         }
 
-        this.list = function (path) {
+        this.list = function (path, callback) {
             if (!path) throw new Error('"path" is required.');
 
             _currentPath = path;
@@ -70,7 +80,28 @@
 
             sig.WebService.invoke(serviceUrl('List'), { path: _currentPath }, function (files) {
                 _fileGrid.update(files);
+                if (callback) callback.apply(_this, []);
             });
+        }
+
+        this.refresh = function (callback) {
+            _this.list(_currentPath, callback);
+        }
+
+        this.createFolder = function (folderName) {
+            if (!folderName) throw new Error('"folderName" is required.');
+
+            sig.WebService.invoke(serviceUrl('CreateFolder'), { path: _currentPath, folderName: folderName }, function () {
+                _this.refresh();
+            });
+        }
+
+        this.selectFile = function (fileName) {
+            _fileGrid.select(fileName);
+        }
+
+        this.unselectFile = function (fileName) {
+            _fileGrid.unselect(fileName);
         }
 
         function createBaseHtml() {
@@ -116,6 +147,19 @@
                 _fileManager.enterSubfolder($(this).closest('.fm-folder').data('filename'));
                 return false;
             });
+            _$container.on('click', '.fm-item', function () {
+                if (_this.isSelected(this)) {
+                    _this.unselect(this);
+                } else {
+                    _this.select(this);
+                }
+            });
+            _$container.on('mouseenter', '.fm-item', function () {
+                $(this).addClass('fm-hover');
+            });
+            _$container.on('mouseleave', '.fm-item', function () {
+                $(this).removeClass('fm-hover');
+            });
         }
 
         this.showBacktoParentFolderButton = function () {
@@ -136,7 +180,48 @@
         this.add = function (file) {
             var $item = $(createItemHtml(file));
             _$body.append($item);
+            $item.data('file', file);
             hideEmptyItem();
+        }
+
+        this.isSelected = function (fileName) {
+            if (!fileName)
+                throw new Error('"fileName" is required.');
+
+            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            return $item.is('.fm-selected');
+        }
+
+        this.select = function (fileName) {
+            if (!fileName)
+                throw new Error('"fileName" is required.');
+
+            if (!_fileManager.enableMultiSelect()) {
+                _this.unselectAll();
+            }
+
+            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            $item.addClass('fm-selected');
+        }
+
+        this.selectAll = function () {
+            _$container.find('.fm-item:not(.fm-selected').each(function () {
+                _this.select(this);
+            });
+        }
+
+        this.unselect = function (fileName) {
+            if (!fileName)
+                throw new Error('"fileName" is required.');
+
+            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            $item.removeClass('fm-selected');
+        }
+
+        this.unselectAll = function () {
+            _$container.find('.fm-item.fm-selected').each(function () {
+                _this.unselect(this);
+            });
         }
 
         this.clear = function () {
@@ -146,7 +231,14 @@
         }
 
         this.delete = function (fileName) {
-            deleteItem(_$container.find('.fm-item[data-filename="' + fileName + '"]'));
+            if (!fileName)
+                throw new Error('"fileName" is required.');
+
+            deleteItem(findItem(fileName));
+        }
+
+        function findItem(fileName) {
+            return _$body.find('.fm-item[data-filename="' + fileName + '"]');
         }
 
         function deleteItem($item) {
@@ -230,15 +322,21 @@
             return _fileManager;
         }
 
+        this.init = function () {
+            _this.addButton(NewFolderButton);
+            _this.addButton(BatchUploadButton);
+        }
+
         this.addButton = function (button) {
             var $button = $('<button type="button"></button>');
-            $button.html(button.text);
+            $button.html(sig.GlobalResources.get(button.text));
             _$container.append($button);
 
             if (button.click) {
                 $button.click(function (event) {
                     button.click.apply(this, [event, {
-                        toolbar: _this
+                        toolbar: _this,
+                        fileManager: _fileManager
                     }]);
                 });
             }
@@ -247,5 +345,48 @@
         }
     }
 
+    var NewFolderButton = {
+        text: 'New folder',
+        click: function (event, context) {
+            var folderName = '';
+            do {
+                folderName = prompt(sig.GlobalResources.get('Please enter the folder name') + ':');
+            } while (folderName !== null && $.trim(folderName).length === 0);
+
+            if (folderName) {
+                var manager = context.fileManager;
+                manager.createFolder(folderName);
+            }
+        }
+    };
+
+    var BatchUploadButton = {
+        _dialog: null,
+        text: 'Upload',
+        click: function (event, context) {
+            var dialog = BatchUploadButton._dialog;
+
+            if (dialog == null) {
+                dialog = new sig.ui.BatchUploadDialog({
+                    onQueueComplete: function (result) {
+                        context.fileManager.refresh(function () {
+                            var manager = this;
+                            $.each(result.files, function () {
+                                if (this.success) {
+                                    manager.selectFile(this.fileName);
+                                }
+                            });
+                        });
+                    }
+                });
+
+                dialog.init();
+                BatchUploadButton._dialog = dialog;
+            }
+
+            dialog.folder(context.fileManager.currentPath());
+            dialog.open();
+        }
+    };
 
 })(jQuery);

@@ -5,3 +5,5 @@
 /// <reference path="/Scripts/sig/ui/Message.js" />
 /// <reference path="/Scripts/sig/ui/AjaxGrid.js" />
 /// <reference path="/Scripts/sig/ui/FileManager.js" />
+/// <reference path="/Scripts/sig/ui/Dialog.js" />
+/// <reference path="/Scripts/sig/ui/BatchUploadDialog.js" />

@@ -151,6 +151,7 @@
     <Content Include="Admin\Designer\SaveChanges.ashx" />
     <Content Include="Admin\Images\Web.config" />
     <Content Include="Admin\System\DownloadBackup.ashx" />
+    <Content Include="Admin\Handlers\FileUpload.ashx" />
     <None Include="App_Data\cms.config" />
     <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
     <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
@@ -331,6 +332,8 @@
     <Content Include="Scripts\sig.validator.js" />
     <Content Include="Scripts\sig\GlobalResources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
+    <Content Include="Scripts\sig\ui\BatchUploadDialog.js" />
+    <Content Include="Scripts\sig\ui\Dialog.js" />
     <Content Include="Scripts\sig\ui\FileManager.js" />
     <Content Include="Scripts\sig\ui\Message.js" />
     <Content Include="Scripts\sig\UrlUtil.js" />
@@ -721,6 +724,9 @@
     </Compile>
     <Compile Include="Admin\Files\Upload.aspx.designer.cs">
       <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Handlers\FileUpload.ashx.cs">
+      <DependentUpon>FileUpload.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Licensing\DomainBindingHint.ascx.cs">
       <DependentUpon>DomainBindingHint.ascx</DependentUpon>

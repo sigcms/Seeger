@@ -284,3 +284,7 @@ input[type=text], input[type=password], textarea
 {
     background-image: url(images/icon-code.png);
 }
+
+.batch-upload-dialog-body .uploadify-queue-item {
+    max-width: none;
+}

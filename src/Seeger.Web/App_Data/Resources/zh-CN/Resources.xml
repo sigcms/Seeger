@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization>
+  <item key="Back to parent folder" value="返回父文件夹" />
+  <item key="Cancel" value="取消" />
   <item key="DateTime" value="时间" />
   <item key="Download" value="下载" />
   <item key="Filename" value="文件名" />
+  <item key="Filesize" value="文件大小" />
   <item key="Message" value="信息" />
+  <item key="New folder" value="创建文件夹" />
+  <item key="No records to display" value="没有记录" />
   <item key="Operations" value="操作" />
   <item key="Operator" value="操作人" />
+  <item key="Please enter the folder name" value="请输入文件夹名" />
+  <item key="Select files" value="选择文件" />
+  <item key="Upload" value="上传" />
 </localization>
