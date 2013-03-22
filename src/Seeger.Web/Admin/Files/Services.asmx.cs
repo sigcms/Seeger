@@ -39,10 +39,10 @@ namespace Seeger.Web.UI.Admin.Files
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
-                    return OperationResult.CreateSuccessResult(ResourcesFolder.Global.GetValue("FileMgnt.CreateFolderSuccess", AdminCulture));
+                    return OperationResult.CreateSuccessResult(ResourceFolder.Global.GetValue("FileMgnt.CreateFolderSuccess", AdminCulture));
                 }
 
-                return OperationResult.CreateErrorResult(ResourcesFolder.Global.GetValue("FileMgnt.FolderAlreadyExists", AdminCulture));
+                return OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("FileMgnt.FolderAlreadyExists", AdminCulture));
             }
             catch (Exception ex)
             {
@@ -67,10 +67,10 @@ namespace Seeger.Web.UI.Admin.Files
                 if (Directory.Exists(srcPath))
                 {
                     Directory.Move(srcPath, destPath);
-                    return OperationResult.CreateSuccessResult(ResourcesFolder.Global.GetValue("Message.OperationSuccess", AdminCulture));
+                    return OperationResult.CreateSuccessResult(ResourceFolder.Global.GetValue("Message.OperationSuccess", AdminCulture));
                 }
 
-                return OperationResult.CreateErrorResult(ResourcesFolder.Global.GetValue("FileMgnt.DirectoryNotFound", AdminCulture));
+                return OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("FileMgnt.DirectoryNotFound", AdminCulture));
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Seeger.Web.UI.Admin.Files
                     try
                     {
                         File.Move(srcPath, destPath);
-                        return OperationResult.CreateSuccessResult(ResourcesFolder.Global.GetValue("Message.OperationSuccess", AdminCulture));
+                        return OperationResult.CreateSuccessResult(ResourceFolder.Global.GetValue("Message.OperationSuccess", AdminCulture));
                     }
                     catch (Exception ex)
                     {
@@ -87,13 +87,13 @@ namespace Seeger.Web.UI.Admin.Files
                     }
                 }
 
-                return OperationResult.CreateErrorResult(ResourcesFolder.Global.GetValue("FileMgnt.FileNotFound", AdminCulture));
+                return OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("FileMgnt.FileNotFound", AdminCulture));
             }
         }
 
         private OperationResult CreateAccessDeniedResult()
         {
-            return OperationResult.CreateErrorResult(ResourcesFolder.Global.GetValue("Message.AccessDenied", AdminCulture));
+            return OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("Message.AccessDenied", AdminCulture));
         }
     }
 }

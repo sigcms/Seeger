@@ -66,7 +66,7 @@ namespace Seeger.Plugins.Widgets
 
         public IWidgetProcessEventListener WidgetProcessEventListener { get; set; }
 
-        public ResourcesFolder ResourcesFolder { get; private set; }
+        public ResourceFolder ResourcesFolder { get; private set; }
 
         public WidgetDefinition(string name, PluginDefinition plugin)
         {
@@ -76,7 +76,7 @@ namespace Seeger.Plugins.Widgets
             Name = name;
             Plugin = plugin;
             EditorSettings = new WidgetEditorSettings();
-            ResourcesFolder = new ResourcesFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
+            ResourcesFolder = new ResourceFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
         }
 
         public string Localize(string key, CultureInfo culture, bool searchUp)

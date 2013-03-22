@@ -149,7 +149,7 @@ namespace Seeger.Web
                 return plugin.Localize(key, culture, true);
             }
 
-            var value = ResourcesFolder.Global.GetValue(key, culture);
+            var value = ResourceFolder.Global.GetValue(key, culture);
 
             return value ?? key;
         }

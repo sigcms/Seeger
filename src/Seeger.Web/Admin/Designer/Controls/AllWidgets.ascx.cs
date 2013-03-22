@@ -112,7 +112,7 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
 
         protected string Localize(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
+            return ResourceFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }
 
         public class WidgetCategory

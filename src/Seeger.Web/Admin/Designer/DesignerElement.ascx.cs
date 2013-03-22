@@ -59,7 +59,7 @@ namespace Seeger.Web.UI.Admin.Designer
 
         protected string T(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
+            return ResourceFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }
         
         protected void Page_Load(object sender, EventArgs e)

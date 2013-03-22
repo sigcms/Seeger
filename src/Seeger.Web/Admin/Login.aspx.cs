@@ -20,7 +20,7 @@ namespace Seeger.Web.UI
 
         protected string T(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
+            return ResourceFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)

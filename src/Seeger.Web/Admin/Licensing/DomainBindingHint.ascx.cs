@@ -24,7 +24,7 @@ namespace Seeger.Web.UI.Admin.Licensing
                     && LicensingService.CurrentLicense.IsDomainLicensed(it.BindedDomain) == false))
                 {
                     Hint.Visible = true;
-                    Hint.Text = ResourcesFolder.Global.GetValue("Licensing.DomainBindingNotSupportedHint", CultureInfo.CurrentUICulture)
+                    Hint.Text = ResourceFolder.Global.GetValue("Licensing.DomainBindingNotSupportedHint", CultureInfo.CurrentUICulture)
                                           .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
                                           .Replace("{FrontendLangListPath}", "/Admin/Settings/FrontendLangList.aspx");
                 }

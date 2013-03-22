@@ -195,7 +195,7 @@ namespace Seeger.Globalization
                 }
             }
 
-            var value = ResourcesFolder.Global.GetValue(ResourceKey, culture);
+            var value = ResourceFolder.Global.GetValue(ResourceKey, culture);
 
             return value ?? ResourceKey;
         }

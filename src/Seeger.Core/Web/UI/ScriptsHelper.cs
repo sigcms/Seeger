@@ -35,7 +35,7 @@ namespace Seeger.Web.UI
 
         public string GlobalResourcesInitialization(CultureInfo culture)
         {
-            return ResourcesInitialization(ResourcesFolder.Global.GetResourceDictionary(culture));
+            return ResourcesInitialization(ResourceFolder.Global.GetResourceDictionary(culture));
         }
 
         public string ResourcesInitialization(IDictionary<string, string> resourceKeyValueMap)

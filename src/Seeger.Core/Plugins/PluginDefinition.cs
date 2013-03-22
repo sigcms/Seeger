@@ -48,7 +48,7 @@ namespace Seeger.Plugins
 
         public PermissionGroupCollection PermissionGroups { get; set; }
 
-        public ResourcesFolder ResourcesFolder { get; private set; }
+        public ResourceFolder ResourcesFolder { get; private set; }
 
         public string Localize(string key, CultureInfo culture)
         {
@@ -60,7 +60,7 @@ namespace Seeger.Plugins
             var value = ResourcesFolder.GetValue(key, culture);
             if (value == null && searchUp)
             {
-                value = ResourcesFolder.Global.GetValue(key, culture);
+                value = ResourceFolder.Global.GetValue(key, culture);
             }
 
             return value ?? key;
@@ -76,7 +76,7 @@ namespace Seeger.Plugins
             Widgets = new List<WidgetDefinition>();
             Menu = new XmlMenu();
             PermissionGroups = new PermissionGroupCollection();
-            ResourcesFolder = new ResourcesFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
+            ResourcesFolder = new ResourceFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
         }
 
         public WidgetDefinition FindWidget(string name)

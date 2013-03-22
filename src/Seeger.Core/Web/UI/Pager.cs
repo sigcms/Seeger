@@ -104,7 +104,7 @@ namespace Seeger.Web.UI
                 var text = ViewState["PrevButtonText"] as string;
                 if (String.IsNullOrEmpty(text))
                 {
-                    text = ResourcesFolder.Global.GetValue("Common.PrevPage", CultureInfo.CurrentUICulture);
+                    text = ResourceFolder.Global.GetValue("Common.PrevPage", CultureInfo.CurrentUICulture);
                 }
                 return text;
             }
@@ -121,7 +121,7 @@ namespace Seeger.Web.UI
                 var text = ViewState["NextButtonText"] as string;
                 if (String.IsNullOrEmpty(text))
                 {
-                    text = ResourcesFolder.Global.GetValue("Common.NextPage", CultureInfo.CurrentUICulture);
+                    text = ResourceFolder.Global.GetValue("Common.NextPage", CultureInfo.CurrentUICulture);
                 }
                 return text;
             }

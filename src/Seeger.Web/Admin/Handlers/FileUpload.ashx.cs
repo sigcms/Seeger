@@ -31,7 +31,7 @@ namespace Seeger.Web.UI.Admin.Handlers
 
             if (!FileExplorer.AllowUploadPath(folder))
             {
-                WriteResult(context, OperationResult.CreateErrorResult(ResourcesFolder.Global.GetValue("Message.AccessDefined")));
+                WriteResult(context, OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("Message.AccessDefined")));
                 return;
             }
 

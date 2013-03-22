@@ -120,7 +120,7 @@
     <Compile Include="Globalization\EntityPropertyLocalization.cs" />
     <Compile Include="Globalization\IEntityPropertyLocalizer.cs" />
     <Compile Include="Globalization\ILocalizableEntity.cs" />
-    <Compile Include="Globalization\ResourcesFolder.cs" />
+    <Compile Include="Globalization\ResourceFolder.cs" />
     <Compile Include="Globalization\XmlResourceReader.cs" />
     <Compile Include="Licensing\Domain.cs" />
     <Compile Include="Licensing\Edition.cs" />

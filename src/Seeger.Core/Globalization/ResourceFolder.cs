@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Seeger.Globalization
 {
-    public class ResourcesFolder
+    public class ResourceFolder
     {
-        public static readonly ResourcesFolder Global = new ResourcesFolder(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\Resources"));
+        public static readonly ResourceFolder Global = new ResourceFolder(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\Resources"));
 
         public string Path { get; private set; }
 
@@ -23,7 +23,7 @@ namespace Seeger.Globalization
             }
         }
 
-        public ResourcesFolder(string path)
+        public ResourceFolder(string path)
         {
             Path = path;
             Reload();

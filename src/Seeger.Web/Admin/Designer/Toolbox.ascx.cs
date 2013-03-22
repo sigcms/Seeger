@@ -44,7 +44,7 @@ namespace Seeger.Web.UI.Admin.Designer
 
         protected override string T(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
+            return ResourceFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
     }
 }

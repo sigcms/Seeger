@@ -39,7 +39,7 @@ namespace Seeger.Templates
             var value = ResourcesFolder.GetValue(key, culture);
             if (value == null && searchUp)
             {
-                value = ResourcesFolder.Global.GetValue(key, culture);
+                value = ResourceFolder.Global.GetValue(key, culture);
             }
 
             return value ?? key;
@@ -73,7 +73,7 @@ namespace Seeger.Templates
             }
         }
 
-        public ResourcesFolder ResourcesFolder { get; private set; }
+        public ResourceFolder ResourcesFolder { get; private set; }
 
         public Template(string name)
         {
@@ -83,7 +83,7 @@ namespace Seeger.Templates
             DisplayName = new LocalizableText(String.Format("{{ Template={0}, Key={1} }}", name, name));
             Skins = new TemplateSkinCollection(this);
             Layouts = new LayoutCollection(this);
-            ResourcesFolder = new ResourcesFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
+            ResourcesFolder = new ResourceFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
         }
 
         public void SetDisplayName(LocalizableText displayName)

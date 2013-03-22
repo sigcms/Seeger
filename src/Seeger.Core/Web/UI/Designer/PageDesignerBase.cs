@@ -57,7 +57,7 @@ namespace Seeger.Web.UI
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
-            Title = ResourcesFolder.Global.GetValue("Common.Designer", CultureInfo.CurrentUICulture) + " (" + PageItem.DisplayName + ")";
+            Title = ResourceFolder.Global.GetValue("Common.Designer", CultureInfo.CurrentUICulture) + " (" + PageItem.DisplayName + ")";
 
             IncludeDesignerElements();
         }

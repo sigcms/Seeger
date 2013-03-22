@@ -27,7 +27,7 @@ namespace Seeger.Web.UI.Admin.My
                 SkinList.Items.Add(new ListItem(theme.DisplayName.Localize(), theme.Name));
             }
 
-            LanguageList.DataSource = ResourcesFolder.Global.Cultures;
+            LanguageList.DataSource = ResourceFolder.Global.Cultures;
             LanguageList.DataBind();
 
             UserName.Text = CurrentUser.UserName;

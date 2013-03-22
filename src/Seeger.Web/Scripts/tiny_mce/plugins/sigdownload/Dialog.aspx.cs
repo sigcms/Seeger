@@ -22,7 +22,7 @@ namespace Seeger.Web.UI.Scripts.tiny_mce.plugins.sigdownload
 
         protected string T(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, AdminSession.Current.UICulture);
+            return ResourceFolder.Global.GetValue(key, AdminSession.Current.UICulture);
         }
 
         protected void Page_Load(object sender, EventArgs e)

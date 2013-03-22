@@ -43,7 +43,7 @@ namespace Seeger.Plugins.RichText.Widgets.RichText
 
                         if (String.IsNullOrEmpty(content))
                         {
-                            ContentText.Text = "<div style='text-align:center;padding-top:10px;padding-bottom:10px'>[" + ResourcesFolder.Global.GetValue("Common.Empty", CultureInfo.CurrentUICulture) + "]</div>";
+                            ContentText.Text = "<div style='text-align:center;padding-top:10px;padding-bottom:10px'>[" + ResourceFolder.Global.GetValue("Common.Empty", CultureInfo.CurrentUICulture) + "]</div>";
                         }
                         else
                         {

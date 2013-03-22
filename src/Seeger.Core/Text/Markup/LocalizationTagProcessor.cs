@@ -10,7 +10,7 @@ namespace Seeger.Text.Markup
     {
         public string Process(string tagName, string content)
         {
-            return ResourcesFolder.Global.GetValue(content) ?? content;
+            return ResourceFolder.Global.GetValue(content) ?? content;
         }
     }
 }

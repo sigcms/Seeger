@@ -31,7 +31,7 @@ namespace Seeger.Web.UI.Admin.Services
                 throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
             if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
-                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Message.AccessDefined"));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDefined"));
 
             IOUtil.EnsureDirectoryCreated(Server.MapPath(UrlUtil.Combine(path, folderName)));
         }

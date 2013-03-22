@@ -18,7 +18,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             if (LicensingService.CurrentLicense.IsValid && !LicensingService.CurrentLicense.IsDomainLicensed(Request.Url.Host))
             {
                 Hint.Visible = true;
-                Hint.Text = ResourcesFolder.Global.GetValue("Licensing.CurrentDomainNotSupportedHint", CultureInfo.CurrentUICulture)
+                Hint.Text = ResourceFolder.Global.GetValue("Licensing.CurrentDomainNotSupportedHint", CultureInfo.CurrentUICulture)
                                       .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
                                       .Replace("{Domain}", Request.Url.Host);
             }

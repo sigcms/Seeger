@@ -36,14 +36,14 @@ namespace Seeger.Web
         public static User Authenticate(string userName, string password, string ip)
         {
             if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password))
-                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
 
             var session = Database.GetCurrentSession();
 
             var user = session.Query<User>().FirstOrDefault(u => u.UserName == userName);
 
             if (user == null)
-                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
 
             if (user.FailedPasswordAttemptCount >= MaxInvalidPasswordAttempts)
             {
@@ -51,7 +51,7 @@ namespace Seeger.Web
 
                 if (DateTime.Now < unlockTime)
                 {
-                    throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LockedForTooManyInvalidPasswordAttempts", CultureInfo.CurrentUICulture));
+                    throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LockedForTooManyInvalidPasswordAttempts", CultureInfo.CurrentUICulture));
                 }
             }
 
@@ -62,7 +62,7 @@ namespace Seeger.Web
 
                 session.Commit();
 
-                throw new InvalidOperationException(ResourcesFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
             }
             else
             {

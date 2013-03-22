@@ -142,7 +142,7 @@ namespace Seeger.Web.UI.Templates.Default.Layouts
         private void BindPoweredBy()
         {
             string format = "Powered by <a href=\"" + SeegerUrls.Homepage + "\" target=\"_blank\" title=\"{0}\">{0}</a>.";
-            string cmsName = ResourcesFolder.Global.GetValue("Seeger.ShortName", _pageCulture) ?? "西格CMS";
+            string cmsName = ResourceFolder.Global.GetValue("Seeger.ShortName", _pageCulture) ?? "西格CMS";
 
             PoweredBy.Text = String.Format(format, cmsName);
         }

@@ -27,7 +27,7 @@ namespace Seeger.Web.UI
 
         protected string Localize(string key, string defaultValue)
         {
-            return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture) ?? defaultValue;
+            return ResourceFolder.Global.GetValue(key, CultureInfo.CurrentUICulture) ?? defaultValue;
         }
     }
 }

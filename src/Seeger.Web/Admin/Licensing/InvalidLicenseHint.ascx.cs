@@ -20,7 +20,7 @@ namespace Seeger.Web.UI.Admin.Licensing
                 if (!LicensingService.CurrentLicense.IsValid)
                 {
                     Hint.Visible = true;
-                    Hint.Text = ResourcesFolder.Global
+                    Hint.Text = ResourceFolder.Global
                                           .GetValue("Licensing.InvalidLicenseHint", CultureInfo.CurrentCulture)
                                           .Replace("{ValidationPath}", "/Admin/Licensing/ValidateSystem.aspx")
                                           .Replace("{PurchaseUrl}", SeegerUrls.Purchase);

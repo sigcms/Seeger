@@ -49,7 +49,7 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
             {
                 model.Slider = new Slider
                 {
-                    Name = ResourcesFolder.Global.GetValue("Common.Unnamed", CultureInfo.CurrentUICulture)
+                    Name = ResourceFolder.Global.GetValue("Common.Unnamed", CultureInfo.CurrentUICulture)
                 };
             }
 

@@ -34,7 +34,7 @@ namespace Seeger.Web.UI.Admin.Controls
 
         protected string T(string key)
         {
-            return ResourcesFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
+            return ResourceFolder.Global.GetValue(key, CultureInfo.CurrentUICulture);
         }
     }
 }

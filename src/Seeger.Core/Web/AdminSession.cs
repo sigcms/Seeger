@@ -48,10 +48,10 @@ namespace Seeger.Web.UI
                     return CultureInfo.GetCultureInfo(User.Language);
                 }
 
-                var culture = ResourcesFolder.Global.Cultures.FirstOrDefault(c => c.Name == CultureInfo.CurrentUICulture.Name);
+                var culture = ResourceFolder.Global.Cultures.FirstOrDefault(c => c.Name == CultureInfo.CurrentUICulture.Name);
                 if (culture == null)
                 {
-                    culture = ResourcesFolder.Global.Cultures.First();
+                    culture = ResourceFolder.Global.Cultures.First();
                 }
 
                 return culture;
