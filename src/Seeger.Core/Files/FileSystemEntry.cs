@@ -30,6 +30,7 @@ namespace Seeger.Files
                 Name = file.Name,
                 FullName = file.FullName,
                 IsDirectory = false,
+                VirtualPath = virtualPath,
                 IsHidden = file.IsHidden(),
                 Length = file.Length,
                 Extension = file.Extension,
@@ -47,6 +48,7 @@ namespace Seeger.Files
                 Name = directory.Name,
                 FullName = directory.FullName,
                 IsDirectory = true,
+                VirtualPath = virtualPath,
                 IsHidden = directory.IsHidden(),
                 CreationTime = directory.CreationTime,
                 LastWriteTime = directory.LastWriteTime

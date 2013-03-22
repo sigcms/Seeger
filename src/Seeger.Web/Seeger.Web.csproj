@@ -336,6 +336,7 @@
     <Content Include="Scripts\sig\ui\Dialog.js" />
     <Content Include="Scripts\sig\ui\FileManager.js" />
     <Content Include="Scripts\sig\ui\Message.js" />
+    <Content Include="Scripts\sig\ui\SelectFileDialog.js" />
     <Content Include="Scripts\sig\UrlUtil.js" />
     <Content Include="Scripts\sig\WebService.js" />
     <Content Include="Scripts\telerik\telerik.common.js" />

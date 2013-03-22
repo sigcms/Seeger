@@ -167,7 +167,7 @@ namespace Seeger.Files
         {
             if (extensions != null && extensions.Length > 0)
             {
-                HashSet<string> extSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                var extSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (var ext in extensions)
                 {
                     string extension = ext.Trim();

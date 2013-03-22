@@ -16,12 +16,12 @@ namespace Seeger.Web.UI.Admin.Services
     public class FileManagerService : System.Web.Services.WebService
     {
         [WebMethod]
-        public IEnumerable<FileSystemEntry> List(string path)
+        public IEnumerable<FileSystemEntryInfo> List(string path)
         {
             if (!FileExplorer.AllowUploadPath(path))
                 throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
-            return FileExplorer.List(path);
+            return FileExplorer.List(path).Select(x => new FileSystemEntryInfo(x));
         }
 
         [WebMethod]
@@ -34,6 +34,29 @@ namespace Seeger.Web.UI.Admin.Services
                 throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDefined"));
 
             IOUtil.EnsureDirectoryCreated(Server.MapPath(UrlUtil.Combine(path, folderName)));
+        }
+    }
+
+    public class FileSystemEntryInfo
+    {
+        public string Name { get; set; }
+
+        public string VirtualPath { get; set; }
+
+        public bool IsDirectory { get; set; }
+
+        public long Length { get; set; }
+
+        public FileSystemEntryInfo()
+        {
+        }
+
+        public FileSystemEntryInfo(FileSystemEntry entry)
+        {
+            Name = entry.Name;
+            VirtualPath = entry.VirtualPath;
+            IsDirectory = entry.IsDirectory;
+            Length = entry.Length;
         }
     }
 }
