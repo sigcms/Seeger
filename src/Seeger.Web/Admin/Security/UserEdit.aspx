@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ User.Edit }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="UserEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Security.UserEdit" %>
+﻿<%@ Page Title="{ User.Edit }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="UserEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Security.UserEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">

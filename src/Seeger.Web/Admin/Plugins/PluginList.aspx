@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Menu.PluginMgnt }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="PluginList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Plugins.PluginList" %>
+﻿<%@ Page Title="{ Menu.PluginMgnt }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="PluginList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Plugins.PluginList" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
     <asp:Repeater runat="server" ID="List" OnItemDataBound="List_ItemDataBound">

@@ -1,8 +1,5 @@
-﻿using Newtonsoft.Json;
-using Seeger.Globalization;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Seeger.Web.UI.Admin
 {
-    public partial class Management : System.Web.UI.MasterPage, IMessageProvider
+    public partial class AdminMaster : System.Web.UI.MasterPage, IMessageProvider
     {
         public void ShowMessage(string message, MessageType type)
         {

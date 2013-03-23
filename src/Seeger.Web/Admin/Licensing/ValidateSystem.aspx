@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Licensing.ValidateSystem }" Language="C#" ValidateRequest="false" AutoEventWireup="true" MasterPageFile="~/Admin/Shared/Management.Master" CodeBehind="ValidateSystem.aspx.cs" Inherits="Seeger.Web.UI.Admin.Licensing.ValidateSystem" %>
+﻿<%@ Page Title="{ Licensing.ValidateSystem }" Language="C#" ValidateRequest="false" AutoEventWireup="true" MasterPageFile="~/Admin/Admin.master" CodeBehind="ValidateSystem.aspx.cs" Inherits="Seeger.Web.UI.Admin.Licensing.ValidateSystem" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="MainHolder">
     <div class="activate-cms-form">

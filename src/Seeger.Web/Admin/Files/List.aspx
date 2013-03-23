@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Menu.FileMgnt }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Seeger.Web.UI.Admin.Files.List" %>
+﻿<%@ Page Title="{ Menu.FileMgnt }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="List.aspx.cs" Inherits="Seeger.Web.UI.Admin.Files.List" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 

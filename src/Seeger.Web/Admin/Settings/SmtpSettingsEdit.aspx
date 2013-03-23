@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Function.EmailSetting }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="SmtpSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.SmtpSettingsEdit" %>
+﻿<%@ Page Title="{ Function.EmailSetting }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="SmtpSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.SmtpSettingsEdit" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 

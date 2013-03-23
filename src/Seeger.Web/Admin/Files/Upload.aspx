@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ FileMgnt.UploadFile }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="Seeger.Web.UI.Admin.Files.Upload" %>
+﻿<%@ Page Title="{ FileMgnt.UploadFile }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="Upload.aspx.cs" Inherits="Seeger.Web.UI.Admin.Files.Upload" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 

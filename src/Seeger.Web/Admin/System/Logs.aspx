@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Menu.Logs" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="Logs.aspx.cs" Inherits="Seeger.Web.UI.Admin._System.Logs" %>
+﻿<%@ Page Title="Menu.Logs" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="Logs.aspx.cs" Inherits="Seeger.Web.UI.Admin._System.Logs" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 

@@ -13,11 +13,11 @@ namespace Seeger.Web.UI.Admin.Licensing
 {
     public partial class ValidateSystem : AdminPageBase
     {
-        private new Management Master
+        protected IMessageProvider MessageProvider
         {
             get
             {
-                return (Management)base.Master;
+                return Master as IMessageProvider;
             }
         }
 
@@ -36,13 +36,13 @@ namespace Seeger.Web.UI.Admin.Licensing
 
             if (String.IsNullOrEmpty(licenseKey) && !LicenseUpload.HasFile)
             {
-                Master.ShowMessage(T("Licensing.PleaseEnterKeyOrUploadFile"), MessageType.Error);
+                MessageProvider.ShowMessage(T("Licensing.PleaseEnterKeyOrUploadFile"), MessageType.Error);
                 return;
             }
 
             if (!String.IsNullOrEmpty(licenseKey) && LicenseUpload.HasFile)
             {
-                Master.ShowMessage(T("Licensing.EnterKeyOrUploadFileButNotBoth"), MessageType.Error);
+                MessageProvider.ShowMessage(T("Licensing.EnterKeyOrUploadFileButNotBoth"), MessageType.Error);
                 return;
             }
 
@@ -61,7 +61,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             string ext = Path.GetExtension(LicenseUpload.FileName);
             if (!ext.IgnoreCaseEquals(".licx"))
             {
-                Master.ShowMessage(T("Licensing.LicenseFileTypeNotValid"), MessageType.Error);
+                MessageProvider.ShowMessage(T("Licensing.LicenseFileTypeNotValid"), MessageType.Error);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace Seeger.Web.UI.Admin.Licensing
                 }
                 else
                 {
-                    Master.ShowMessage(T("Licensing.LicenseFileNotValid"), MessageType.Error);
+                    MessageProvider.ShowMessage(T("Licensing.LicenseFileNotValid"), MessageType.Error);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Seeger.Web.UI.Admin.Licensing
             }
             else
             {
-                Master.ShowMessage(T("Licensing.LicenseKeyNotValid"), MessageType.Error);
+                MessageProvider.ShowMessage(T("Licensing.LicenseKeyNotValid"), MessageType.Error);
             }
         }
 

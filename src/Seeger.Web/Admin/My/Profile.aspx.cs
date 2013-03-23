@@ -62,7 +62,7 @@ namespace Seeger.Web.UI.Admin.My
 
             NhSession.Commit();
 
-            ((Management)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
+            ((IMessageProvider)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
     }
 }

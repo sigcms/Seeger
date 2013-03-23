@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Menu.TaskQueueSettings }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="TaskQueueSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.TaskQueueSettingsEdit" %>
+﻿<%@ Page Title="{ Menu.TaskQueueSettings }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="TaskQueueSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.TaskQueueSettingsEdit" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 

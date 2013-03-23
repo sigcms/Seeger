@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Database Backup" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="DbBackups.aspx.cs" Inherits="Seeger.Web.UI.Admin._System.DbBackups" %>
+﻿<%@ Page Title="Database Backup" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="DbBackups.aspx.cs" Inherits="Seeger.Web.UI.Admin._System.DbBackups" %>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 

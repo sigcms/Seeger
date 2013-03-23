@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Role.Edit }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="RoleEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Security.RoleEdit" %>
+﻿<%@ Page Title="{ Role.Edit }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="RoleEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Security.RoleEdit" %>
 <%@ Register TagName="PrivilegeView" TagPrefix="uc" Src="PrivilegeView.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">

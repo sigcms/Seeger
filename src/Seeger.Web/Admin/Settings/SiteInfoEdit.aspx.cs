@@ -94,7 +94,7 @@ namespace Seeger.Web.UI.Admin.Settings
 
         private void ClearForm()
         {
-            ((Management)Master).HideMessage();
+            ((IMessageProvider)Master).HideMessage();
 
             SiteTitle.Text = String.Empty;
             SiteSubtitle.Text = String.Empty;
@@ -181,7 +181,7 @@ namespace Seeger.Web.UI.Admin.Settings
                 BindLogo(info.LogoFilePath);
             }
 
-            ((Management)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
+            ((IMessageProvider)Master).ShowMessage(T("Message.SaveSuccess"), MessageType.Success);
         }
 
         private void DeleteOldLogo(string oldLogoPath)

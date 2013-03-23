@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ CustomRedirect.Edit }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="CustomRedirectEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Urls.CustomRedirectEdit" %>
+﻿<%@ Page Title="{ CustomRedirect.Edit }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="CustomRedirectEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Urls.CustomRedirectEdit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">

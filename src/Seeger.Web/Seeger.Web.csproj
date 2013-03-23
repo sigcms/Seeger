@@ -152,6 +152,7 @@
     <Content Include="Admin\Images\Web.config" />
     <Content Include="Admin\System\DownloadBackup.ashx" />
     <Content Include="Admin\Handlers\FileUpload.ashx" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="App_Data\cms.config" />
     <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
     <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
@@ -662,6 +663,13 @@
     <Compile Include="Admin\403.aspx.designer.cs">
       <DependentUpon>403.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Controls\SeegerNews.ascx.cs">
       <DependentUpon>SeegerNews.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1008,13 +1016,6 @@
     <Compile Include="Admin\Files\ListFiles.ashx.cs">
       <DependentUpon>ListFiles.ashx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Shared\Management.Master.cs">
-      <DependentUpon>Management.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Shared\Management.Master.designer.cs">
-      <DependentUpon>Management.Master</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Pages\Services.asmx.cs">
       <DependentUpon>Services.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -1136,9 +1137,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Admin\Shared\Management.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Seeger.Core\Seeger.Core.csproj">

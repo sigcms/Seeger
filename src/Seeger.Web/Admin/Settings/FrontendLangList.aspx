@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Globalization.FrontendLanguageList }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="FrontendLangList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendLangList" %>
+﻿<%@ Page Title="{ Globalization.FrontendLanguageList }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="FrontendLangList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendLangList" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 

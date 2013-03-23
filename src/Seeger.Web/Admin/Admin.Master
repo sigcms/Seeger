@@ -1,9 +1,9 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Management.Master.cs" Inherits="Seeger.Web.UI.Admin.Management" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Seeger.Web.UI.Admin.AdminMaster" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
     <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-ui.min.js" />
     <sig:ScriptReference runat="server" Path="/Scripts/sig.common.js" />
@@ -16,9 +16,9 @@
     <asp:ContentPlaceHolder id="HeadHolder" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>    
+<body>
     <form id="form1" runat="server">
-    <asp:ScriptManager runat="server" EnablePageMethods="true" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
     <asp:ContentPlaceHolder ID="TopHolder" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -43,6 +43,5 @@
 
     </form>
     <script type="text/javascript" src="/Scripts/sig.core.js"></script>
-    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
-</body>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script></body>
 </html>

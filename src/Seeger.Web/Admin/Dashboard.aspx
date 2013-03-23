@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" EnableViewState="false" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" EnableViewState="false" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true"
     CodeBehind="Dashboard.aspx.cs" Inherits="Seeger.Web.UI.Admin.Dashboard" %>
     
 <%@ Register TagPrefix="uc" TagName="InvalidLicenseHint" Src="Licensing/InvalidLicenseHint.ascx" %>

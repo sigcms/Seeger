@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Menu.PageMgnt }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master"
+﻿<%@ Page Title="{ Menu.PageMgnt }" Language="C#" MasterPageFile="~/Admin/Admin.master"
     AutoEventWireup="true" CodeBehind="PageList.aspx.cs" Inherits="Seeger.Web.UI.Admin.Pages.PageList" %>
 
 <%@ Register TagPrefix="uc" TagName="PropertyPanel" Src="Controls/PropertyPanel.ascx" %>

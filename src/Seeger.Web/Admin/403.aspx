@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="403.aspx.cs" Inherits="Seeger.Web.UI.Admin._403" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="403.aspx.cs" Inherits="Seeger.Web.UI.Admin._403" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">
     <style type="text/css">
     .message.access-denied

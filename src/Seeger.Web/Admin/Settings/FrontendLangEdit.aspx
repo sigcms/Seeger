@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Globalization.EditFrontendLanguage }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master"
+﻿<%@ Page Title="{ Globalization.EditFrontendLanguage }" Language="C#" MasterPageFile="~/Admin/Admin.master"
     AutoEventWireup="true" CodeBehind="FrontendLangEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendLangEdit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">

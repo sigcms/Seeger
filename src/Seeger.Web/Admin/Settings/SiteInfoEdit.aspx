@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Menu.SiteInfo }" ValidateRequest="false" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="SiteInfoEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.SiteInfoEdit" %>
+﻿<%@ Page Title="{ Menu.SiteInfo }" ValidateRequest="false" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="SiteInfoEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.SiteInfoEdit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 

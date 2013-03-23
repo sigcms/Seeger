@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Setting.FrontendSetting }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="FrontendSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendSettingsEdit" %>
+﻿<%@ Page Title="{ Setting.FrontendSetting }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="FrontendSettingsEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendSettingsEdit" %>
 
 <%@ Register src="../Shared/Controls/PageDropDownList.ascx" tagname="PageDropDownList" tagprefix="uc" %>
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ User.MyProfile }" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Seeger.Web.UI.Admin.My.Profile" %>
+﻿<%@ Page Title="{ User.MyProfile }" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="Seeger.Web.UI.Admin.My.Profile" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 

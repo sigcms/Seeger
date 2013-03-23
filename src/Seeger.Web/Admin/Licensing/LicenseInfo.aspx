@@ -1,4 +1,4 @@
-﻿<%@ Page Title="{ Licensing.LicenseInfo }" ValidateRequest="false" Language="C#" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true"
+﻿<%@ Page Title="{ Licensing.LicenseInfo }" ValidateRequest="false" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true"
     CodeBehind="LicenseInfo.aspx.cs" Inherits="Seeger.Web.UI.Admin.Licensing.LicenseInfo" %>
 
 <%@ Register TagPrefix="uc" TagName="InvalidLicenseHint" Src="InvalidLicenseHint.ascx" %>
