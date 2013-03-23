@@ -59,7 +59,7 @@
                 aspNetAuth: _options.aspNetAuth,
                 folder: _options.folder,
                 filter: _options.filter,
-                allowMultiSelect: _options.multi,
+                allowMultiSelect: _options.allowMultiSelect,
                 allowSelectFolder: false
             });
             _fileManager.init();

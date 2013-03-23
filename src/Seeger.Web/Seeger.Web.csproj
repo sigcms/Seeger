@@ -494,8 +494,6 @@
     <Content Include="Scripts\tiny_mce\plugins\sigdownload\editor_plugin.js" />
     <Content Include="Scripts\tiny_mce\plugins\sigdownload\script.js" />
     <Content Include="Scripts\tiny_mce\plugins\sigimage\editor_plugin.js" />
-    <Content Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx" />
-    <Content Include="Scripts\tiny_mce\plugins\sigimage\script.js" />
     <Content Include="Scripts\tiny_mce\plugins\spellchecker\css\content.css" />
     <Content Include="Scripts\tiny_mce\plugins\spellchecker\editor_plugin.js" />
     <Content Include="Scripts\tiny_mce\plugins\spellchecker\editor_plugin_src.js" />
@@ -1001,13 +999,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Scripts\tiny_mce\plugins\sigdownload\Dialog.aspx.designer.cs">
-      <DependentUpon>Dialog.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx.cs">
-      <DependentUpon>Dialog.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Scripts\tiny_mce\plugins\sigimage\Dialog.aspx.designer.cs">
       <DependentUpon>Dialog.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Files\ListFiles.ashx.cs">

@@ -204,13 +204,17 @@
                 _fileManager.enterSubfolder($(this).closest('.fm-folder').data('filename'));
                 return false;
             });
-            _$element.on('click', '.fm-item', function () {
+            _$element.on('click', '.fm-item', function (e) {
                 if (_this.isFile(this) && !_fileManager.allowSelectFile()) return;
                 if (_this.isDirectory(this) && !_fileManager.allowSelectFolder()) return;
 
                 if (_this.isSelected(this)) {
                     _this.unselect(this);
                 } else {
+                    if (!e.ctrlKey) {
+                        _this.unselectAll();
+                    }
+
                     _this.select(this);
                 }
             });
