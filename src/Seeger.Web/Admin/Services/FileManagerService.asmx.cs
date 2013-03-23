@@ -16,12 +16,14 @@ namespace Seeger.Web.UI.Admin.Services
     public class FileManagerService : System.Web.Services.WebService
     {
         [WebMethod]
-        public IEnumerable<FileSystemEntryInfo> List(string path)
+        public IEnumerable<FileSystemEntryInfo> List(string path, string filter)
         {
             if (!FileExplorer.AllowUploadPath(path))
                 throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
-            return FileExplorer.List(path).Select(x => new FileSystemEntryInfo(x));
+            var extensions = String.IsNullOrEmpty(filter) ? null : filter.SplitWithoutEmptyEntries(';');
+
+            return FileExplorer.List(path, true, extensions).Select(x => new FileSystemEntryInfo(x));
         }
 
         [WebMethod]

@@ -43,6 +43,10 @@
             return _fileGrid;
         }
 
+        this.filter = function () {
+            return _options.filter;
+        }
+
         this.allowMultiSelect = function () {
             return _this.option('allowMultiSelect');
         }
@@ -453,6 +457,7 @@
             if (dialog == null) {
                 dialog = new sig.ui.BatchUploadDialog({
                     aspNetAuth: context.fileManager.option('aspNetAuth'),
+                    fileTypeExts: context.fileManager.filter(),
                     onQueueComplete: function (result) {
                         context.fileManager.refresh(function () {
                             var manager = this;
