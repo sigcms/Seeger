@@ -1,6 +1,5 @@
-﻿<%@ Page Title="{ Menu.Analytics }" Language="C#" ValidateRequest="false" MasterPageFile="~/Admin/Shared/Management.Master" AutoEventWireup="true" CodeBehind="Analytics.aspx.cs" Inherits="Seeger.Plugins.Analytics.Admin.Analytics" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">
-</asp:Content>
+﻿<%@ Page Title="{ Menu.Analytics }" Language="C#" ValidateRequest="false" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Analytics.aspx.cs" Inherits="Seeger.Plugins.Analytics.Admin.Analytics" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
 <table class="formtable">
@@ -24,6 +23,4 @@
     </tr>
 </table>
 
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="FooterHolder" runat="server">
 </asp:Content>

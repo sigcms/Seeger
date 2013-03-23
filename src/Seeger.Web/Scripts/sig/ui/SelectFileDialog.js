@@ -22,7 +22,6 @@
         }
 
         this.init = function () {
-            console.log(_isInited);
             if (_isInited) return;
 
             _dialog.init({

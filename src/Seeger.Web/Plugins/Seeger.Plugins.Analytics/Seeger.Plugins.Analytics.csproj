@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="config.config" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -9,4 +9,15 @@
   <item key="Description" value="描述" />
   <item key="NavigateUrl" value="链接地址" />
   <item key="UploadImage" value="上传图片" />
+  <item key="Sliders" value="滚动图片集" />
+  <item key="Slider name" value="图片集名称" />
+  <item key="Total items" value="图片数量" />
+  <item key="Manage items" value="图片管理" />
+  <item key="Add/Edit slider item" value="添加/修改图片" />
+  <item key="Please enter the image url or select an image" value="请输入图片地址或选择一张图片" />
+  <item key="View sliders" value="查看图片集" />
+  <item key="Delete slider" value="删除图片集" />
+  <item key="Add slider item" value="添加图片" />
+  <item key="Edit slider item" value="编辑图片" />
+  <item key="Delete slider item" value="删除图片" />
 </localization>

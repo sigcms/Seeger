@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization>
+  <item key="Add" value="添加" />
+  <item key="Back" value="返回" />
   <item key="Back to parent folder" value="返回父文件夹" />
   <item key="Cancel" value="取消" />
+  <item key="Created at" value="创建时间" />
   <item key="DateTime" value="时间" />
+  <item key="Delete" value="删除" />
+  <item key="DisplayOrder" value="显示顺序" />
   <item key="Download" value="下载" />
+  <item key="Edit" value="编辑" />
   <item key="Filename" value="文件名" />
   <item key="Filesize" value="文件大小" />
   <item key="Login failed" value="登录失败" />
@@ -16,7 +22,9 @@
   <item key="Operator" value="操作人" />
   <item key="Please enter the folder name" value="请输入文件夹名" />
   <item key="Please select a file" value="请选择文件" />
+  <item key="Save" value="保存" />
   <item key="Select files" value="选择文件" />
+  <item key="Select image" value="选择图片" />
   <item key="Upload" value="上传" />
   <item key="User" value="用户" />
 </localization>

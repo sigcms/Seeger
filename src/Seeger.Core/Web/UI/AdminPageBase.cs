@@ -97,7 +97,8 @@ namespace Seeger.Web.UI
 
         protected virtual string T(string key, CultureInfo culture)
         {
-            return SmartLocalizer.GetForCurrentRequest().Localize(key, culture);
+            var value = SmartLocalizer.GetForCurrentRequest().Localize(key, culture);
+            return String.IsNullOrEmpty(value) ? key : value;
         }
 
         public virtual bool VerifyAccess(User user)

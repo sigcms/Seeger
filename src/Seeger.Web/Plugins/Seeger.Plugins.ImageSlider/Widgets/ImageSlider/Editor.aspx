@@ -104,7 +104,7 @@
     </form>
     <script type="text/javascript" src="/Scripts/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/sig.core.js"></script>
-    <%= Scripts.GlobalResourcesInitialization() %>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
     <script type="text/javascript">
         $(function () {
 

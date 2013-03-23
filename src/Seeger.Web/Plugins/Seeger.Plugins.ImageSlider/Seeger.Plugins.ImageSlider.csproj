@@ -64,6 +64,11 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\SliderItemEdit.aspx" />
+    <Content Include="Admin\SliderItems.aspx" />
+    <Content Include="Admin\SliderItems_Grid.ascx" />
+    <Content Include="Admin\Sliders.aspx" />
+    <Content Include="Admin\Sliders_Grid.ascx" />
     <Content Include="db\install.sql" />
     <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Scripts\jquery.slides.css" />
@@ -75,6 +80,41 @@
     <Content Include="Widgets\ImageSlider\icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\SliderItemEdit.aspx.cs">
+      <DependentUpon>SliderItemEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SliderItemEdit.aspx.designer.cs">
+      <DependentUpon>SliderItemEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SliderItems.aspx.cs">
+      <DependentUpon>SliderItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SliderItems.aspx.designer.cs">
+      <DependentUpon>SliderItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SliderItems_Grid.ascx.cs">
+      <DependentUpon>SliderItems_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SliderItems_Grid.ascx.designer.cs">
+      <DependentUpon>SliderItems_Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sliders.aspx.cs">
+      <DependentUpon>Sliders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Sliders.aspx.designer.cs">
+      <DependentUpon>Sliders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Sliders_Grid.ascx.cs">
+      <DependentUpon>Sliders_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Sliders_Grid.ascx.designer.cs">
+      <DependentUpon>Sliders_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Mapping\SliderItemMap.cs" />
     <Compile Include="Domain\Mapping\SliderMap.cs" />
     <Compile Include="Domain\Slider.cs" />
@@ -110,6 +150,8 @@
     <Content Include="packages.config" />
     <Content Include="config.config" />
     <Content Include="Handlers\UploadImage.ashx" />
+    <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Web.config" />
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

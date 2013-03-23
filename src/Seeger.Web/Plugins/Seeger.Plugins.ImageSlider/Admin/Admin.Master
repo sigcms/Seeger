@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Seeger.Web.UI.Admin.AdminMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Seeger.Web.UI.Admin.AdminMaster" %>
 
 <!DOCTYPE html>
 
@@ -19,11 +19,6 @@
 <body>
     <form id="form1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-
-    <script type="text/javascript">
-        window.aspNetAuth = '<%= Request.GetAuthCookieValue() %>';
-    </script>
-
     <asp:ContentPlaceHolder ID="TopHolder" runat="server">
     </asp:ContentPlaceHolder>
 
@@ -40,12 +35,13 @@
             <asp:ContentPlaceHolder id="MainHolder" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
     </div>
 
-    <script type="text/javascript" src="/Scripts/sig.core.js"></script>
-    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
     <asp:ContentPlaceHolder ID="FooterHolder" runat="server">
     </asp:ContentPlaceHolder>
+
     </form>
-</body>
+    <script type="text/javascript" src="/Scripts/sig.core.js"></script>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script></body>
 </html>
