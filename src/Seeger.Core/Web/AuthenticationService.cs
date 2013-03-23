@@ -1,4 +1,5 @@
 ﻿using NHibernate.Linq;
+using Seeger.Config;
 using Seeger.Data;
 using Seeger.Globalization;
 using Seeger.Logging;
@@ -48,14 +49,24 @@ namespace Seeger.Web
         public static User Authenticate(string userName, string password, string ip)
         {
             if (String.IsNullOrEmpty(userName) || String.IsNullOrEmpty(password))
-                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed"));
 
             var session = Database.GetCurrentSession();
 
             var user = session.Query<User>().FirstOrDefault(u => u.UserName == userName);
 
+            if (user != null && user.IsSuperAdmin)
+            {
+                var config = CmsConfiguration.Instance;
+                if (config.Security.SaLoginMode == LoginMode.Disallowed)
+                    throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginDisallowed"));
+
+                if (config.Security.SaLoginMode == LoginMode.LocalOnly && !HttpContext.Current.Request.IsLocal)
+                    throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginDisallowed"));
+            }
+
             if (user == null)
-                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed", CultureInfo.CurrentUICulture));
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Login.LoginFailed"));
 
             if (user.FailedPasswordAttemptCount >= MaxInvalidPasswordAttempts)
             {

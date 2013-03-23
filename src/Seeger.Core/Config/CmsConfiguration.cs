@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using System.Configuration;
-
+﻿using Seeger.Files;
 using Seeger.Web;
-using Seeger.Globalization;
-using Seeger.Security;
-using Seeger.Files;
-using Seeger.Data;
+using System.Xml.Linq;
 
-namespace Seeger
+namespace Seeger.Config
 {
     public class CmsConfiguration
     {
@@ -24,20 +15,19 @@ namespace Seeger
 
         private CmsConfiguration()
         {
-            PermissionGroups = new PermissionGroupCollection();
         }
 
         public string ConfigFilePath
         {
             get
             {
-                return UrlUtil.Combine("/App_Data/Cms.config");
+                return UrlUtil.Combine("/App_Data/cms.config");
             }
         }
 
-        public PermissionGroupCollection PermissionGroups { get; private set; }
+        public SecurityConfig Security { get; private set; }
 
-        public TinyMceFontSettingCollection TinyMceFonts { get; private set; }
+        public TinyMceFontConfigCollection TinyMceFonts { get; private set; }
 
         public DevConfig DevConfig { get; private set; }
 
@@ -50,14 +40,10 @@ namespace Seeger
             var path = Server.MapPath(config.ConfigFilePath);
             var root = XDocument.Load(path).Root;
 
-            var permissionsElement = root.Element("permissions");
-            if (permissionsElement != null)
+            var securityElement = root.Element("security");
+            if (securityElement != null)
             {
-                foreach (var each in permissionsElement.Elements())
-                {
-                    var group = PermissionGroup.From(each, null);
-                    config.PermissionGroups.Add(group);
-                }
+                config.Security = SecurityConfig.From(securityElement);
             }
 
             var fileElement = root.Element("file");
@@ -72,7 +58,7 @@ namespace Seeger
                 var fontsElement = tinyMceElement.Element("fonts");
                 if (fontsElement != null)
                 {
-                    config.TinyMceFonts = TinyMceFontSettingCollection.From(fontsElement);
+                    config.TinyMceFonts = TinyMceFontConfigCollection.From(fontsElement);
                 }
             }
 

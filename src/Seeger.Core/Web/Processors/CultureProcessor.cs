@@ -1,4 +1,5 @@
 ﻿using Seeger.Caching;
+using Seeger.Config;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

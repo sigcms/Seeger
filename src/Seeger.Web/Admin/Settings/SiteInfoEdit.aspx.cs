@@ -8,6 +8,7 @@ using Seeger.Files;
 using System.IO;
 using Seeger.Security;
 using Seeger.Caching;
+using Seeger.Config;
 
 namespace Seeger.Web.UI.Admin.Settings
 {

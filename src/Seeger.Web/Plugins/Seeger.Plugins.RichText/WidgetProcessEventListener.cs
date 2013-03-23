@@ -7,6 +7,7 @@ using Seeger.Data;
 using Seeger.Web.UI;
 using Seeger.Globalization;
 using Seeger.Plugins.RichText.Domain;
+using Seeger.Config;
 
 namespace Seeger.Plugins.RichText
 {

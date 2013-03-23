@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Seeger.Security;
+using Seeger.Config;
 
 namespace Seeger.Web.UI.Admin.Settings
 {

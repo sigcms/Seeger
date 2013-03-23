@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.Net.Mail;
+using Seeger.Config;
 
 namespace Seeger.Tasks.Emails
 {

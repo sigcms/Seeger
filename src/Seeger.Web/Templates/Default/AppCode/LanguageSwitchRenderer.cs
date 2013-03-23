@@ -6,6 +6,7 @@ using System.Text;
 using System.Globalization;
 using Seeger.Caching;
 using Seeger.Data;
+using Seeger.Config;
 
 namespace Seeger.Web.UI.Templates.Default
 {

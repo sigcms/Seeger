@@ -7,19 +7,19 @@ using System.Globalization;
 using Seeger.Globalization;
 using System.Xml.Linq;
 
-namespace Seeger
+namespace Seeger.Config
 {
-    public class TinyMceFontSettingCollection : IEnumerable<TinyMceFontSetting>
+    public class TinyMceFontConfigCollection : IEnumerable<TinyMceFontConfig>
     {
-        private Dictionary<string, TinyMceFontSetting> _items = new Dictionary<string,TinyMceFontSetting>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, TinyMceFontConfig> _items = new Dictionary<string,TinyMceFontConfig>(StringComparer.OrdinalIgnoreCase);
         
-        public static TinyMceFontSettingCollection From(XElement xml)
+        public static TinyMceFontConfigCollection From(XElement xml)
         {
-            var collection = new TinyMceFontSettingCollection();
+            var collection = new TinyMceFontConfigCollection();
 
             foreach (var element in xml.Elements())
             {
-                var item = TinyMceFontSetting.From(element);
+                var item = TinyMceFontConfig.From(element);
                 collection._items.Add(item.Culture, item);
             }
 
@@ -31,18 +31,18 @@ namespace Seeger
             get { return _items.Count; }
         }
 
-        public TinyMceFontSetting Find(CultureInfo culture)
+        public TinyMceFontConfig Find(CultureInfo culture)
         {
             Require.NotNull(culture, "culture");
 
             return Find(culture.Name);
         }
 
-        public TinyMceFontSetting Find(string culture)
+        public TinyMceFontConfig Find(string culture)
         {
             Require.NotNullOrEmpty(culture, "culture");
 
-            TinyMceFontSetting item = null;
+            TinyMceFontConfig item = null;
             if (_items.TryGetValue(culture, out item))
             {
                 return item;
@@ -51,7 +51,7 @@ namespace Seeger
             return null;
         }
 
-        public IEnumerator<TinyMceFontSetting> GetEnumerator()
+        public IEnumerator<TinyMceFontConfig> GetEnumerator()
         {
             return _items.Values.GetEnumerator();
         }

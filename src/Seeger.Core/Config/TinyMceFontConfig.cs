@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Seeger
+namespace Seeger.Config
 {
-    public class TinyMceFontSetting
+    public class TinyMceFontConfig
     {
         public string Culture { get; private set; }
         public string Fonts { get; private set; }
 
-        public TinyMceFontSetting(string culture, string fonts)
+        public TinyMceFontConfig(string culture, string fonts)
         {
             Require.NotNullOrEmpty(culture, "culture");
             Require.NotNullOrEmpty(fonts, "fonts");
@@ -20,9 +20,9 @@ namespace Seeger
             this.Fonts = fonts;
         }
 
-        public static TinyMceFontSetting From(XElement xml)
+        public static TinyMceFontConfig From(XElement xml)
         {
-            return new TinyMceFontSetting(
+            return new TinyMceFontConfig(
                 xml.AttributeValue("culture"),
                 xml.AttributeValue("fonts")
             );

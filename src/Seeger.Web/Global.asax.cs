@@ -1,4 +1,5 @@
-﻿using Seeger.Data;
+﻿using Seeger.Config;
+using Seeger.Data;
 using Seeger.Licensing;
 using Seeger.Logging;
 using Seeger.Plugins;

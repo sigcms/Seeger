@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections.Specialized;
 using System.Globalization;
+using Seeger.Config;
 
 namespace Seeger.Web.UI
 {

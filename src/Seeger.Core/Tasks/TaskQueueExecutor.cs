@@ -8,6 +8,7 @@ using System.IO;
 using NLog;
 using NHibernate.Linq;
 using Seeger.Data;
+using Seeger.Config;
 
 namespace Seeger.Tasks
 {

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Iesi.Collections.Generic;
 using Seeger.Plugins;
+using Seeger.Config;
 
 namespace Seeger.Security
 {
@@ -32,7 +33,7 @@ namespace Seeger.Security
 
             if (String.IsNullOrEmpty(pluginName))
             {
-                group = CmsConfiguration.Instance.PermissionGroups.FirstOrDefault(it => it.Name == groupName);
+                group = CmsConfiguration.Instance.Security.PermissionGroups.FirstOrDefault(it => it.Name == groupName);
             }
             else
             {

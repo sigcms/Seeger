@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Seeger.Security;
 using Seeger.Plugins;
+using Seeger.Config;
 
 namespace Seeger.Web.UI.Admin.Security
 {
@@ -26,7 +27,7 @@ namespace Seeger.Web.UI.Admin.Security
         {
             _role = role;
 
-            IEnumerable<PermissionGroup> functions = CmsConfiguration.Instance.PermissionGroups;
+            IEnumerable<PermissionGroup> functions = CmsConfiguration.Instance.Security.PermissionGroups;
             var plugins = PluginManager.EnabledPlugins;
 
             foreach (var plugin in plugins)
@@ -89,7 +90,7 @@ namespace Seeger.Web.UI.Admin.Security
                     }
                     else
                     {
-                        group = CmsConfiguration.Instance.PermissionGroups.Find(groupName);
+                        group = CmsConfiguration.Instance.Security.PermissionGroups.Find(groupName);
                     }
 
                     if (group == null) continue;

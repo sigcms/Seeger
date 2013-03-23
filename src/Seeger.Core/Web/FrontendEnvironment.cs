@@ -7,6 +7,7 @@ using Seeger.Caching;
 using System.Web;
 using NHibernate.Linq;
 using Seeger.Data;
+using Seeger.Config;
 
 namespace Seeger.Web
 {

@@ -10,6 +10,7 @@ using Seeger.Caching;
 using System.IO;
 using System.Web.UI;
 using Seeger.Plugins;
+using Seeger.Config;
 
 namespace Seeger.Web.UI
 {
