@@ -61,7 +61,7 @@
         this.load = function (pageIndex) {
             _pageIndex = pageIndex;
 
-            sig.ui.Message.show(sig.GlobalResources.get('Message.Loading') + '...');
+            sig.ui.Message.show(sig.Resources.get('Message.Loading') + '...');
 
             if (window.PageMethods === undefined || window.PageMethods.LoadGridHtml === undefined)
                 throw new Error('ScriptManager must be added with EnablePageMethods set to true, and also the page must be subclass of AjaxGridPageBase.');
@@ -90,7 +90,7 @@
         var _this = this;
         var _grid = grid;
         var _$element = grid.find('.grid-panel');
-        var _norecordMessage = sig.GlobalResources.get('Message.NoRecordToDisplay');
+        var _norecordMessage = sig.Resources.get('Message.NoRecordToDisplay');
 
         this.html = function (html) {
             _$element.html(html);
@@ -109,7 +109,7 @@
             var confirmMessage = $element.attr('data-action-confirm');
 
             if (actionName === 'Delete' && (confirmMessage === undefined || confirmMessage === '')) {
-                confirmMessage = sig.GlobalResources.get('Message.DeleteConfirm');
+                confirmMessage = sig.Resources.get('Message.DeleteConfirm');
             }
             if (confirmMessage && confirmMessage !== 'flase') {
                 if (!window.confirm(confirmMessage)) return false;

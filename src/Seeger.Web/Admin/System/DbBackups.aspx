@@ -12,16 +12,16 @@
     <script type="text/javascript">
         $(function () {
             $('.btn-new-backup').click(function () {
-                if (!confirm(sig.GlobalResources.get('Are you sure to create a new backup?'))) return false;
+                if (!confirm(sig.Resources.get('Are you sure to create a new backup?'))) return false;
 
                 var $button = $(this);
 
-                sig.ui.Message.show(sig.GlobalResources.get('Message.Processing'));
+                sig.ui.Message.show(sig.Resources.get('Message.Processing'));
 
                 $button.attr('disabled', 'disabled');
 
                 PageMethods.NewBackup(function () {
-                    sig.ui.Message.show(sig.GlobalResources.get('Database backup completed successfully!'));
+                    sig.ui.Message.show(sig.Resources.get('Database backup completed successfully!'));
                     $button.removeAttr('disabled');
                     setTimeout(function () {
                         $('.ajax-grid').data('AjaxGrid').refresh();

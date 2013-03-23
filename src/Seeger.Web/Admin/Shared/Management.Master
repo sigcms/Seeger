@@ -43,6 +43,6 @@
 
     </form>
     <script type="text/javascript" src="/Scripts/sig.core.js"></script>
-    <%= GetClientGlobalResourcesInitializationScript() %>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
 </body>
 </html>

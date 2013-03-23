@@ -22,6 +22,7 @@
         }
 
         this.init = function () {
+            console.log(_isInited);
             if (_isInited) return;
 
             _dialog.init({
@@ -30,17 +31,17 @@
                 modal: _options.modal,
                 buttons: [
                     {
-                        text: sig.GlobalResources.get('Cancel'),
+                        text: sig.Resources.get('Cancel'),
                         click: function () {
                             _this.close();
                         }
                     },
                     {
-                        text: sig.GlobalResources.get('OK'),
+                        text: sig.Resources.get('OK'),
                         click: function () {
                             var files = _fileManager.selectedFiles();
                             if (files.length === 0) {
-                                alert(sig.GlobalResources.get('Please select a file'));
+                                alert(sig.Resources.get('Please select a file'));
                             } else {
                                 if (_options.onOK) {
                                     _options.onOK.apply(_this, [files]);

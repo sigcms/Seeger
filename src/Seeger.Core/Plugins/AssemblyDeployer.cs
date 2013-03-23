@@ -1,5 +1,4 @@
-﻿using NLog;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Web.Compilation;
 using System.Web.Hosting;
+using Seeger.Logging;
 
 namespace Seeger.Plugins
 {
@@ -29,7 +29,7 @@ namespace Seeger.Plugins
 
         public static IEnumerable<Assembly> DeployAssemblies(string sourceDirectoryPath, string targetDirectoryPath)
         {
-            _log.Debug("Deploying assemblies. From: " + sourceDirectoryPath + " to " + targetDirectoryPath);
+            _log.Debug(UserReference.System(), "Deploying assemblies. From: " + sourceDirectoryPath + " to " + targetDirectoryPath);
 
             var sourceDirectory = new DirectoryInfo(sourceDirectoryPath);
 
@@ -53,7 +53,7 @@ namespace Seeger.Plugins
 
                 if (!targetDll.Exists | targetDll.LastWriteTimeUtc != sourceDll.LastWriteTimeUtc)
                 {
-                    _log.Debug("Copying assembly file to probing folder. Assembly file name: " + sourceDll.Name);
+                    _log.Debug(UserReference.System(), "Copying assembly file to probing folder. Assembly file name: " + sourceDll.Name);
 
                     try
                     {
@@ -61,7 +61,7 @@ namespace Seeger.Plugins
                     }
                     catch (IOException ex)
                     {
-                        _log.DebugException("Directly copy assembly file failed. Tring rename the existing assembly file to xxx.dll.old.", ex);
+                        _log.DebugException(UserReference.System(), ex, "Directly copy assembly file failed. Tring rename the existing assembly file to xxx.dll.old.");
 
                         var oldFile = targetDll.FullName + ".old";
                         File.Move(targetDll.FullName, oldFile);

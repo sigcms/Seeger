@@ -52,12 +52,12 @@ namespace Seeger.Logging
             Log(@operator, LogLevel.Debug, message, args);
         }
 
-        public void DebugException(Exception exception, UserReference @operator, string message)
+        public void DebugException(UserReference @operator, Exception exception, string message)
         {
             LogException(@operator, LogLevel.Debug, exception, message);
         }
 
-        public void DebugException(Exception exception, UserReference @operator, string message, params object[] args)
+        public void DebugException(UserReference @operator, Exception exception, string message, params object[] args)
         {
             LogException(@operator, LogLevel.Debug, exception, message, args);
         }
@@ -72,12 +72,12 @@ namespace Seeger.Logging
             Log(@operator, LogLevel.Info, message, args);
         }
 
-        public void InfoException(Exception exception, UserReference @operator, string message)
+        public void InfoException(UserReference @operator, Exception exception, string message)
         {
             LogException(@operator, LogLevel.Info, exception, message);
         }
 
-        public void InfoException(Exception exception, UserReference @operator, string message, params object[] args)
+        public void InfoException(UserReference @operator, Exception exception, string message, params object[] args)
         {
             LogException(@operator, LogLevel.Info, exception, message, args);
         }

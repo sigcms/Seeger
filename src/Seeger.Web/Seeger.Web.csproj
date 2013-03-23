@@ -330,7 +330,7 @@
     <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\knockout.mapping.js" />
     <Content Include="Scripts\sig.validator.js" />
-    <Content Include="Scripts\sig\GlobalResources.js" />
+    <Content Include="Scripts\sig\Resources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
     <Content Include="Scripts\sig\ui\BatchUploadDialog.js" />
     <Content Include="Scripts\sig\ui\Dialog.js" />
@@ -649,6 +649,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
+    <Content Include="Scripts\Resources.ashx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs">
@@ -985,6 +986,9 @@
     <Compile Include="AppCode\ResourceBundler.cs" />
     <Compile Include="AppCode\SeegerUrls.cs" />
     <Compile Include="AppCode\PreApplicationStart.cs" />
+    <Compile Include="Scripts\Resources.ashx.cs">
+      <DependentUpon>Resources.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Default\AppCode\LanguageSwitchRenderer.cs" />
     <Compile Include="Templates\Default\AppCode\MenuRenderer.cs" />
     <Compile Include="Offline.aspx.cs">

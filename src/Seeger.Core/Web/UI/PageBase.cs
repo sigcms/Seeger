@@ -23,20 +23,6 @@ namespace Seeger.Web.UI
         {
             get { return GlobalSettingManager.Instance.FrontendSettings; }
         }
-
-        private ScriptsHelper _scripts;
-
-        public ScriptsHelper Scripts
-        {
-            get
-            {
-                if (_scripts == null)
-                {
-                    _scripts = new ScriptsHelper(Context);
-                }
-                return _scripts;
-            }
-        }
     }
 
 }

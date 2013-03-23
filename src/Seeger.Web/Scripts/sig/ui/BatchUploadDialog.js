@@ -39,13 +39,13 @@
                 minHeight: 300,
                 buttons: [
                     {
-                        text: sig.GlobalResources.get('Cancel'),
+                        text: sig.Resources.get('Cancel'),
                         click: function () {
                             _this.close();
                         }
                     },
                     {
-                        text: sig.GlobalResources.get('Upload'),
+                        text: sig.Resources.get('Upload'),
                         click: function () {
                             _this.startUpload();
                         }
@@ -69,7 +69,7 @@
             _dialog.open();
 
             var options = $.extend(true, {}, _options.uploadifyOptions);
-            options.buttonText = sig.GlobalResources.get(_options.buttonText);
+            options.buttonText = sig.Resources.get(_options.buttonText);
             options.fileTypeExts = _options.fileTypeExts;
             options.formData = options.formData || {};
             options.formData.aspNetAuth = _options.aspNetAuth;

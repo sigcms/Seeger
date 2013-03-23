@@ -37,10 +37,5 @@ namespace Seeger.Web.UI.Admin
                 PageTitlePanel.Visible = false;
             }
         }
-
-        protected string GetClientGlobalResourcesInitializationScript()
-        {
-            return new ScriptsHelper(Context).GlobalResourcesInitialization();
-        }
     }
 }

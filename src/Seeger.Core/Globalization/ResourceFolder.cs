@@ -41,7 +41,7 @@ namespace Seeger.Globalization
                     {
                         if (subdir.IsHidden()) continue;
 
-                        var items = new Dictionary<string, string>();
+                        var items = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                         foreach (var file in subdir.GetFiles("*.xml"))
                         {
                             if (file.IsHidden()) continue;

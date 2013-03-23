@@ -30,7 +30,11 @@
     <script type="text/javascript">
         var contentId = '<%= ContentId %>';
         var domId_Content = '<%= Content.ClientID %>';
+
+        window.aspNetAuth = '<%= Request.GetAuthCookieValue() %>';
     </script>
+    <script type="text/javascript" src="/Scripts/sig.core.js"></script>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
     <script type="text/javascript" src="Scripts/editor.js"></script>
 
     </form>

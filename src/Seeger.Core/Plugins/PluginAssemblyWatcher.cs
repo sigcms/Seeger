@@ -1,10 +1,10 @@
-﻿using NLog;
-using Seeger.Web;
+﻿using Seeger.Web;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Seeger.Logging;
 
 namespace Seeger.Plugins
 {
@@ -45,7 +45,7 @@ namespace Seeger.Plugins
 
         static void OnPluginAssemblyChanged(string pluginName, FileSystemEventArgs e)
         {
-            _log.Debug("Plugin assembly changed. Plugin: " + pluginName + ", file: " + e.Name + ", type: " + e.ChangeType);
+            _log.Debug(UserReference.System(), "Plugin assembly changed. Plugin: " + pluginName + ", file: " + e.Name + ", type: " + e.ChangeType);
             Server.TouchRootWebConfig();
         }
     }

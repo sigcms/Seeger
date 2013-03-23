@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NHibernate.Linq;
+using Seeger.Data;
+using Seeger.Globalization;
+using Seeger.Logging;
+using Seeger.Security;
+using System;
+using System.Globalization;
 using System.Linq;
-using System.Text;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
-
-using Seeger.Data;
-using Seeger.Security;
-using NHibernate.Linq;
-using Seeger.Globalization;
-using System.Globalization;
-using System.Security.Principal;
 
 namespace Seeger.Web
 {
     public class AuthenticationService
     {
+        static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         public static readonly int MaxInvalidPasswordAttempts = 5;
 
         public static readonly int PasswordAttemptWindowInMinutes = 30;
@@ -24,10 +24,22 @@ namespace Seeger.Web
 
         public static User Login(string userName, string password, string ip, bool persistCredential)
         {
-            var user = Authenticate(userName, password, ip);
+            User user = null;
+
+            try
+            {
+                user = Authenticate(userName, password, ip);
+            }
+            catch (Exception ex)
+            {
+                _log.Warn(UserReference.System(), String.Format("<t>User</t> {0} <t>login failed</t>. " + ex.Message, userName));
+                throw;
+            }
+
             if (user != null)
             {
                 SetAuthCookie(user, persistCredential);
+                _log.Info(UserReference.System(), String.Format("<t>User</t> {0} <t>login succeeded</t>", user.Nick + " (" + user.UserName + ")"));
             }
 
             return user;

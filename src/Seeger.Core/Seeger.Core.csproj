@@ -242,7 +242,6 @@
     <Compile Include="Web\UI\IPageLifecycleInterceptor.cs" />
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
-    <Compile Include="Web\UI\ScriptsHelper.cs" />
     <Compile Include="Web\UI\WidgetControlLoader.cs" />
     <Compile Include="Web\UI\WidgetDesignerRenderer.cs" />
     <Compile Include="Web\UrlUtil.cs" />

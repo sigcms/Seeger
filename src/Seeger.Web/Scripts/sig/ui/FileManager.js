@@ -151,12 +151,12 @@
             return '<div class="fm-toolbar"></div>'
                  + '<div class="fm-breadcrumb"></div>'
                  + '<div class="fm-filegrid">'
-                        + '<a href="#" class="btn-backto-parent" style="display:none">' + sig.GlobalResources.get('Back to parent folder') + '</a>'
+                        + '<a href="#" class="btn-backto-parent" style="display:none">' + sig.Resources.get('Back to parent folder') + '</a>'
                         + '<table class="datatable">' 
                             + '<thead>'
                                 + '<tr>'
-                                    + '<th>' + sig.GlobalResources.get('Filename') + '</th>'
-                                    + '<th class="fm-filesize-header">' + sig.GlobalResources.get('Filesize') + '</th>'
+                                    + '<th>' + sig.Resources.get('Filename') + '</th>'
+                                    + '<th class="fm-filesize-header">' + sig.Resources.get('Filesize') + '</th>'
                                 + '</tr>'
                             + '</thead>'
                             + '<tbody>'
@@ -349,7 +349,7 @@
         }
 
         function createEmptyItemHtml() {
-            return '<tr class="fm-empty-item" style="display:none"><td colspan="' + _$element.find('thead th').length + '">' + sig.GlobalResources.get('No records to display') + '</td></tr>';
+            return '<tr class="fm-empty-item" style="display:none"><td colspan="' + _$element.find('thead th').length + '">' + sig.Resources.get('No records to display') + '</td></tr>';
         }
 
         function createItemHtml(file) {
@@ -421,7 +421,7 @@
 
         this.addButton = function (button) {
             var $button = $('<button type="button"></button>');
-            $button.html(sig.GlobalResources.get(button.text));
+            $button.html(sig.Resources.get(button.text));
             _$element.append($button);
 
             if (button.click) {
@@ -442,7 +442,7 @@
         click: function (event, context) {
             var folderName = '';
             do {
-                folderName = prompt(sig.GlobalResources.get('Please enter the folder name') + ':');
+                folderName = prompt(sig.Resources.get('Please enter the folder name') + ':');
             } while (folderName !== null && $.trim(folderName).length === 0);
 
             if (folderName) {

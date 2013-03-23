@@ -12,9 +12,9 @@
     <script type="text/javascript">
         $(function () {
             $('.btn-clear-logs').click(function () {
-                if (!confirm(sig.GlobalResources.get('Are you sure to clear all logs?'))) return;
+                if (!confirm(sig.Resources.get('Are you sure to clear all logs?'))) return;
 
-                sig.ui.Message.show(sig.GlobalResources.get('Message.Processing'));
+                sig.ui.Message.show(sig.Resources.get('Message.Processing'));
 
                 PageMethods.ClearLogs(function () {
                     $('.ajax-grid').data('AjaxGrid').refresh();

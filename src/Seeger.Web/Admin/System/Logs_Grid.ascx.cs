@@ -44,5 +44,19 @@ namespace Seeger.Web.UI.Admin._System
         {
             return MarkupLanguage.Transform(message);
         }
+
+        protected string GetLogLevelColor(LogLevel level)
+        {
+            if (level >= LogLevel.Error)
+            {
+                return "red";
+            }
+            if (level == LogLevel.Warn)
+            {
+                return "orange";
+            }
+
+            return null;
+        }
     }
 }

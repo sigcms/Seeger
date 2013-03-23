@@ -6,10 +6,10 @@ using System.Web;
 using System.IO;
 using System.Reflection;
 using System.Web.Hosting;
-using NLog;
 using Seeger.Plugins.Widgets;
 using Seeger.Plugins.Loaders;
 using Seeger.Data;
+using Seeger.Logging;
 
 namespace Seeger.Plugins
 {
@@ -197,7 +197,7 @@ namespace Seeger.Plugins
             if (plugin == null)
                 throw new InvalidOperationException("Plugin \"" + pluginName + "\" is not loaded.");
 
-            _log.Debug("Installing plugin \"" + pluginName + "\"");
+            _log.Debug(UserReference.System(), "Installing plugin \"" + pluginName + "\"");
 
             if (plugin.PluginType != null)
             {
@@ -285,7 +285,7 @@ namespace Seeger.Plugins
             }
             catch (Exception ex)
             {
-                _log.ErrorException("Clear existing assemblies in probing folder failed.", ex);
+                _log.ErrorException(UserReference.System(), ex, "Clear existing assemblies in probing folder failed.");
             }
 
             var allPlugins = new List<LoadedPlugin>();
@@ -306,13 +306,13 @@ namespace Seeger.Plugins
                     }
                     catch (Exception ex)
                     {
-                        _log.ErrorException("Fail loading plugin: " + pluginName, ex);
+                        _log.ErrorException(UserReference.System(), ex, "Fail loading plugin: " + pluginName);
                     }
                 }
             }
             catch (Exception ex2)
             {
-                _log.ErrorException("Deploy plugin assembly fails.", ex2);
+                _log.ErrorException(UserReference.System(), ex2, "Deploy plugin assembly fails.");
             }
 
             var service = InstalledPluginServices.Current();
@@ -343,7 +343,7 @@ namespace Seeger.Plugins
 
         static IEnumerable<Assembly> DeployPluginAssemblies(string pluginName)
         {
-            _log.Debug("Deploying assemblies for plugin " + pluginName);
+            _log.Debug(UserReference.System(), "Deploying assemblies for plugin " + pluginName);
 
             var pluginFolderPath = HostingEnvironment.MapPath(PluginPaths.PluginDirectoryVirtualPath(pluginName));
             var pluginBinFolderPath = Path.Combine(pluginFolderPath, "bin");

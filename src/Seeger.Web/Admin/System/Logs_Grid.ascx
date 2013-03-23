@@ -14,7 +14,7 @@
             <ItemTemplate>
                 <tr class="data-item">
                     <td style="text-align:center"><%# ((DateTime)Eval("UtcTimestamp")).ToLocalTime() %></td>
-                    <td><div style="color:<%# (LogLevel)Eval("Level") >= LogLevel.Error ? "red" : "" %>"><%# TransformMessage(Eval("Message") as string) %></div></td>
+                    <td><div style="color:<%# GetLogLevelColor((LogLevel)Eval("Level")) %>"><%# TransformMessage(Eval("Message") as string) %></div></td>
                     <td style="text-align:center">
                         <%# GetOperatorHtml(Container.DataItem) %>
                     </td>
