@@ -191,7 +191,7 @@
                 }
 
                 this.deleteItem = function (item) {
-                    if (!confirm(sig.GlobalResources.get('Message.DeleteConfirm'))) return;
+                    if (!confirm(sig.Resources.get('Message.DeleteConfirm'))) return;
                     _this.slider.items.remove(item);
                 }
 

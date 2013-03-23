@@ -12,7 +12,7 @@ namespace Seeger.Plugins.Analytics.Admin
     {
         public override bool VerifyAccess(Security.User user)
         {
-            return user.HasPermission("Default", "DefaultModule", "EditAnalytics");
+            return user.HasPermission(Strings.PluginName, "Analytics", "EditAnalytics");
         }
 
         protected void Page_Load(object sender, EventArgs e)
