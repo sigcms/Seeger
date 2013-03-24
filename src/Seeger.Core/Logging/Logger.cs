@@ -124,7 +124,8 @@ namespace Seeger.Logging
 
         public void Log(UserReference @operator, LogLevel level, string message)
         {
-            if (!IsEnabled(level)) return;
+            // TODO: Make it configurable
+            if (level < LogLevel.Info) return;
 
             try
             {
