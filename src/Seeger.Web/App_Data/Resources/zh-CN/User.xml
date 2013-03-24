@@ -6,6 +6,8 @@
   <item key="Email" value="邮件" />
   <item key="Password" value="密码" />
   <item key="PasswordConfirm" value="密码确认" />
+  <item key="LastLoginTime" value="最近登录时间" />
+  <item key="LastLoginIP" value="最近登录IP" />
   <item key="Skin" value="后台皮肤" />
   <item key="Language" value="显示语言" />
   <item key="Role" value="角色" />

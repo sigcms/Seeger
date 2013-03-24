@@ -27,7 +27,7 @@ namespace Seeger.Web.UI
         {
             try
             {
-                AuthenticationService.Login(Name.Text.Trim(), Password.Text, Request.UserHostAddress, false);
+                AuthenticationService.Login(Name.Text.Trim(), Password.Text, Request.GetIPAddress(), false);
                 Response.Redirect("~/Admin/Default.aspx");
             }
             catch (Exception ex)

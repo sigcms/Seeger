@@ -7,7 +7,7 @@
     <tr>
         <th><label class="required"><%= T("User.UserName") %></label></th>
         <td>
-            <asp:TextBox runat="server" MaxLength="50" ID="UserName" />
+            <asp:TextBox runat="server" MaxLength="50" ID="UserName" autocomplelte="off" />
             <asp:RequiredFieldValidator runat="server" ID="UserNameRequired" ControlToValidate="UserName" ErrorMessage="*" Display="Dynamic" />
             <asp:CustomValidator runat="server" ID="UserNameDuplicateValidator" ControlToValidate="UserName"
                  ErrorMessage="<%$ T: User.UserNameIsUsed %>"

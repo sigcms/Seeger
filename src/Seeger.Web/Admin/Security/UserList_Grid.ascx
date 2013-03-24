@@ -6,6 +6,8 @@
             <th><%= T("User.UserName") %></th>
             <th><%= T("User.Nick") %></th>
             <th><%= T("User.Email") %></th>
+            <th><%= T("User.LastLoginTime") %></th>
+            <th><%= T("User.LastLoginIP") %></th>
             <% if (HasPermission("UserMgnt", "Edit")) { %>
             <th><%= T("Common.Edit") %></th>
             <% } %>
@@ -21,6 +23,8 @@
                     <td><%# Eval("UserName") %></td>
                     <td><%# Eval("Nick") %></td>
                     <td><%# Eval("Email") %></td>
+                    <td style="text-align:center"><%# Eval("LastLoginTime") %></td>
+                    <td style="text-align:center"><%# Eval("LastLoginIP") %></td>
                     <% if (HasPermission("UserMgnt", "Edit")) { %>
                     <td style="text-align:center">
                         <a href="UserEdit.aspx?id=<%# Eval("Id") %>"><%= T("Common.Edit") %></a>
