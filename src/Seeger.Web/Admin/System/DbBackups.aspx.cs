@@ -37,31 +37,31 @@ namespace Seeger.Web.UI.Admin._System
         [WebMethod, ScriptMethod]
         public static void NewBackup()
         {
-            var backupFileNameWithoutExtension = DateTime.Now.ToString("yyyy-MM-dd-HHmmss");
-
-            _log.Info(UserReference.From(AdminSession.Current.User), "Backup database to".WrapWithTag(Tags.T) + ": " + backupFileNameWithoutExtension + ".zip");
-
             var folder = HostingEnvironment.MapPath("/App_Data/Backups");
             IOUtil.EnsureDirectoryCreated(folder);
 
-            var backupPath = Path.Combine(folder, backupFileNameWithoutExtension + ".bak");
+            var tempBackupPath = String.Empty;
+            var backupPath = Path.Combine(folder, DateTime.Now.ToString("yyyy-MM-dd-HHmmss") + ".zip");
 
             try
             {
                 var backuper = DbBackupers.Get(Database.Driver);
+
                 using (var session = Database.OpenSession())
                 {
-                    backuper.Backup((DbConnection)session.Connection, backupPath);
+                    tempBackupPath = backuper.Backup((DbConnection)session.Connection, folder, "Seeger");
                 }
 
                 // zip the backup file
                 var zip = new ZipFile();
-                zip.AddFile(backupPath);
-                zip.Save(Path.Combine(folder, backupFileNameWithoutExtension + ".zip"));
+                zip.AddFile(tempBackupPath, String.Empty);
+                zip.Save(backupPath);
+
+                _log.Info(UserReference.From(AdminSession.Current.User), "Backup database to".WrapWithTag(Tags.T) + ": " + Path.GetFileName(backupPath));
             }
             finally
             {
-                IOUtil.EnsureFileDeleted(backupPath);
+                IOUtil.EnsureFileDeleted(tempBackupPath);
             }
         }
 

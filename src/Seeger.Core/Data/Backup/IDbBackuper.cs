@@ -11,14 +11,16 @@ namespace Seeger.Data.Backup
 {
     public interface IDbBackuper
     {
-        void Backup(DbConnection connection, string backupSavePath);
+        string BackupFileExtension { get; }
+
+        string Backup(DbConnection connection, string backupDirectory, string backupFileNameWithoutExtension);
     }
 
     public static class DbBackupers
     {
         public static IDbBackuper Get(string driverName)
         {
-            if (driverName.StartsWith("SQLite"))
+            if (driverName.IndexOf("SQLite", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 return new SQLiteBackuper();
             }
