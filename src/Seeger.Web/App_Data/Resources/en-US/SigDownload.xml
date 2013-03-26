@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="SigDownload">
+  <item key="SelectFile" value="选择文件" />
+  <item key="Properties" value="属性" />
+  <item key="Upload" value="上传" />
+  <item key="UploadSuccess" value="上传成功" />
+  <item key="PleaseSelectFile" value="请选择文件" />
+  <item key="DialogTitle" value="插入下载文件" />
+  <item key="CurrentPath" value="当前路径" />
+  <item key="LinkText" value="链接文字" />
+  <item key="LinkTitle" value="链接描述" />
+  <item key="OpenType" value="打开方式" />
+  <item key="OpenType.Default" value="默认" />
+  <item key="OpenType.CurrentWindow" value="当前窗口中打开" />
+  <item key="OpenType.NewWindow" value="新窗口中打开" />
+</localization>

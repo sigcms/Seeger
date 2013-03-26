@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Licensing">
+  <item key="LicenseInfo" value="License" />
+  <item key="Id" value="许可证ID" />
+  <item key="UserName" value="用户名" />
+  <item key="FittingCmsVersion" value="适用版本" />
+  <item key="ExpirationDate" value="过期时间" />
+  <item key="SupportedDomains" value="可用域名" />
+  <item key="IsTrial" value="是否试用" />
+  <item key="DomainNotIncludedInLicense" value="未包含在当前许可证中" />
+  <item key="Multilingual" value="多语言(前台)" />
+  <item key="NeverExpire" value="永不过期" />
+
+  <item key="Edition_Standard" value="标准版" />
+  <item key="Edition_International" value="国际版" />
+  
+  <item key="ChangeLicense" value="更换许可证" />
+  <item key="PurchaseLicense" value="购买许可证" />
+  <item key="ValidateSystem" value="激活系统" />
+  <item key="PleaseEnterLicenseKey" value="请输入激活码" />
+  <item key="OrUploadLicenseFile" value="或上传许可证(.licx)" />
+  <item key="ActivateNow" value="立即激活" />
+  <item key="PleaseEnterKeyOrUploadFile" value="请输入激活码或上传许可证(.licx)" />
+  <item key="EnterKeyOrUploadFileButNotBoth" value="请输入激活码或上传许可证，但不要既输入激活码也上传许可证，这样我不知道该选择哪个:)" />
+  <item key="LicenseKeyNotValid" value="激活码无效" />
+  <item key="LicenseFileNotValid" value="许可证无效" />
+  <item key="LicenseFileTypeNotValid" value="* 许可证文件类型无效，必须是.licx文件" />
+
+  <item>
+    <key>InvalidLicenseHint</key>
+    <value>
+      <![CDATA[
+      系统尚未激活或已过期，在成功激活前，网站前台将处于关闭状态。<a href="{ValidationPath}">立即激活</a>，<a href="{PurchaseUrl}" target="_blank">购买许可证</a>。
+      ]]>
+    </value>
+  </item>
+  <item>
+    <key>CurrentDomainNotSupportedHint</key>
+    <value>
+      <![CDATA[
+      您购买的许可证未包括当前域名{Domain}，请<a href="{ValidationPath}">更换许可证</a>。
+      ]]>
+    </value>
+  </item>
+  <item>
+    <key>DomainBindingNotSupportedHint</key>
+    <value>
+      <![CDATA[
+      有部分前台语言所绑定的域名未包括在您购买的许可证中，请<a href="{ValidationPath}">更换许可证</a>。
+      详情请查看<a href="{FrontendLangListPath}">前台语言</a>。
+      ]]>
+    </value>
+  </item>
+</localization>

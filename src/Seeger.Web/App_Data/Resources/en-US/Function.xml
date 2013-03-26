@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Function">
+  <item key="PageMgnt" value="页面管理" />
+  <item key="Design" value="设计" />
+  <item key="SEOSetting" value="SEO设置" />
+  <item key="System" value="系统" />
+  <item key="DbBackup" value="数据库备份" />
+  <item key="Logs" value="系统日志" />
+
+  <item key="RoleMgnt" value="角色管理" />
+  <item key="UserMgnt" value="用户管理" />
+  
+  <item key="FileMgnt" value="文件管理" />
+  <item key="UploadFile" value="上传文件" />
+  <item key="RenameFile" value="重命名文件" />
+  <item key="DeleteFile" value="删除文件" />
+  <item key="AddFolder" value="创建文件夹" />
+  <item key="RenameFolder" value="重命名文件夹" />
+  <item key="DeleteFolder" value="删除文件夹" />
+
+  <item key="SiteSetting" value="网站设置" />
+  <item key="SiteInfo" value="网站信息设置" />
+  <item key="FrontendSetting" value="前台设置" />
+  <item key="FrontendLanguage" value="前台语言管理" />
+  <item key="EmailSetting" value="邮件设置" />
+  <item key="TaskQueueSetting" value="任务队列设置" />
+  
+  <item key="CustomRedirect" value="自定义跳转管理" />
+  <item key="RewriterIgnoredPath" value="免重写路径管理" />
+  <item key="PluginMgnt" value="插件管理" />
+
+  <item key="InstallPlugin" value="安装插件" />
+  <item key="UninstallPlugin" value="卸载插件" />
+
+  <item key="View" value="查看" />
+  <item key="Add" value="添加" />
+  <item key="Edit" value="编辑" />
+  <item key="Delete" value="删除" />
+</localization>

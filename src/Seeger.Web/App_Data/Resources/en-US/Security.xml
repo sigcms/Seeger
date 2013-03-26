@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Security.">
+  <item key="AddRole" value="Add Role" />
+  <item key="AddUser" value="Add User" />
+  <item key="Login" value="Login" />
+  <item key="Logout" value="Logout" />
+</localization>

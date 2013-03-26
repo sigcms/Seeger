@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Page">
+  <item key="PageManagement" value="Page Management" />
+  <item key="AddRootPage" value="Add root page" />
+  <item key="CurrentPage" value="Current page" />
+  <item key="Add" value="Add" />
+  <item key="Edit" value="Edit" />
+  <item key="Localize" value="Localize" />
+  <item key="View" value="View" />
+  <item key="Design" value="Design" />
+  <item key="AddChild" value="Add child page" />
+  <item key="SelectPageHint" value="Please select a page" />
+
+  <item key="UniqueName" value="Unique Name" />
+  <item key="DisplayName" value="Display Name" />
+  <item key="Path" value="Path" />
+  <item key="Template" value="Template" />
+  <item key="Layout" value="Layout" />
+  <item key="Skin" value="Skin" />
+  <item key="CreatedTime" value="Creation time" />
+  <item key="ModifiedTime" value="Updated time" />
+  <item key="ParentPage" value="Parent page" />
+  <item key="Extension" value="Extension" />
+  <item key="VisibleInMenu" value="Visible in menu" />
+  <item key="Publish" value="Publish" />
+  <item key="Published" value="Published" />
+  <item key="Url" value="URL" />
+  <item key="UrlSegment" value="URL" />
+  <item key="BindedDomains" value="Binded domains" />
+  <item key="IsDeletable" value="Deletable" />
+
+  <item key="MenuText" value="Menu text" />
+  <item key="Title" value="Title" />
+  <item key="MetaKeywords" value="Meta Keywords" />
+  <item key="MetaDescription" value="Meta Description" />
+
+  <item key="NoPageNow" value="No page" />
+  <item key="AddPageRightNow" value="Add Page" />
+  <item key="ClickHereToAddPageRightNow" value="Click here to add a new page" />
+  
+  <item key="ErrMsg.DuplicateUrlSegment" value="* URL重复，同一层级中各页面的URL不能重复" />
+</localization>

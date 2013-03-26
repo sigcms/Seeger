@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizaion>
+  <item key="Analytics.PluginDisplayName">Analytics</item>
+  <item key="Analytics.PluginDescription">
+    <![CDATA[
+    Add analytics code to page
+    ]]>
+  </item>
+  <item key="Menu.Analytics">Analytics</item>
+  <item key="Function.EditAnalytics">Edit</item>
+
+  <item key="Mgnt.AnalyticsCode">Analytics code</item>
+  <item key="Mgnt.EnableAnalyticsCode">Enable</item>
+</localizaion>

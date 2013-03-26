@@ -44,5 +44,4 @@
   <item key="None" value="无" />
   <item key="NotSupport" value="不支持" />
   <item key="Support" value="支持" />
-  <item key="WidgetTemplate" value="页面模块模板" />
 </localization>

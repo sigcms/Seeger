@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Message">
+  <item key="DeleteConfirm" value="Are you sure to delete this record?" />
+  <item key="LogoutConfirm" value="Are you sure to logout?" />
+  <item key="OperationSuccess" value="Operation succeeded" />
+  <item key="SaveSuccess" value="Save succeeded" />
+  <item key="UpdateSuccess" value="Update succeeded" />
+  <item key="DeleteSuccess" value="Delete succeeded" />
+  <item key="Loading" value="Loading" />
+  <item key="Processing" value="Processing" />
+  <item key="Saving" value="Saving" />
+  <item key="DeletePageConfirm" value="Are you sure to delete this page?" />
+  <item key="NoRecordToDisplay" value="No record to display" />
+  <item key="AccessDenied" value="Access denied. Please contact system manager" />
+  <item key="OnlyAllowUploadImage" value="Only image files are allowed" />
+  <item>
+    <key>OfflineHintFormat</key>
+    <value>
+      <![CDATA[
+      当前网站处于关闭状态，<a href="/Admin/Settings/FrontendSettingsEdit.aspx">立即开启</a>
+      ]]>
+    </value>
+  </item>
+</localization>

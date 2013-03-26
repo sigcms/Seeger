@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="FileMgnt">
+  <item key="CreateFolder" value="New folder" />
+  <item key="CreateFolderSuccess" value="Create folder succeeded" />
+  <item key="CreationTime" value="Creation time" />
+  <item key="CurrentPath" value="Current path" />
+  <item key="Path" value="Path" />
+  <item key="Extension" value="Extension" />
+  <item key="EmptyFolder" value="Empty folder" />
+  <item key="FileName" value="Filename" />
+  <item key="FileNotFound" value="File was not found" />
+  <item key="FolderNameIsRequired" value="Folder name is required" />
+  <item key="DirectoryNotFound" value="Folder was not found" />
+  <item key="FolderName" value="Folder name" />
+  <item key="NewName" value="New name" />
+  <item key="NewNameIsRequired" value="Please entery the new file/folder name" />
+  <item key="FolderAlreadyExists" value="Folder already exists" />
+  <item key="File" value="File" />
+  <item key="FileTypeNotSupported" value="File type not supported" />
+  <item key="LastWriteTime" value="Last write time" />
+  <item key="NotSupportFileType{0}" value="Not support file type: {0}" />
+  <item key="GoUpperLevel" value="Upper" />
+  <item key="UploadFile" value="Upload" />
+</localization>

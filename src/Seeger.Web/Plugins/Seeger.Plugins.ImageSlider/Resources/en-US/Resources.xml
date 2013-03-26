@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="ImageSlider.PluginDisplayName" value="Image Slider" />
+  <item key="ImageSlider.PluginDescription" value="Upload some images and play them in frontend as slider" />
+  <item key="ImageSlider" value="Image Slider" />
+  <item key="Name" value="Name" />
+  <item key="Image" value="Image" />
+  <item key="Caption" value="Caption" />
+  <item key="Description" value="Description" />
+  <item key="NavigateUrl" value="Navigate URL" />
+  <item key="UploadImage" value="Upload Image" />
+</localization>

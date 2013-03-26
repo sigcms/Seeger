@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Designer">
+  <item key="ShowToolbox" value="Show toolbox" />
+  <item key="HideToolbox" value="Hide toolbox" />
+  <item key="HighlightZones" value="Highlight zones" />
+  <item key="CancelHighlightZones" value="Cancel highlight zones" />
+  <item key="CloseDesigner" value="Close Designer" />
+  <item key="Widgets" value="Widgets" />
+  <item key="NoChange" value="No change was made" />
+  <item key="ReloadConfirm_HasUnsavedChanges" value="There're unsaved changes, are you sure to refresh the page?" />
+  <item key="ChangePageCultureConfirm_HasUnsavedChanges" value="There're unsaved changes, are you sure to change language?" />
+  <item key="CloseConfirm_HasUnsavedChanges" value="There're unsaved changes, are you sure to close?" />
+  <item key="SavedAndReloading" value="Save succeeded! Reloading designer..." />
+</localization>

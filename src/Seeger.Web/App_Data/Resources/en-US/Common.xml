@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Common">
+  <item key="AccordingToGlobalSetting" value="According to global settings" />
+  <item key="Add" value="Add" />
+  <item key="AddRightNow" value="Add Now" />
+  <item key="AutoDetect" value="Auto detect" />
+  <item key="All" value="All" />
+  <item key="Back" value="Back" />
+  <item key="Cancel" value="Cancel" />
+  <item key="Configure" value="Configure" />
+  <item key="Close" value="Close" />
+  <item key="Create" value="Create" />
+  <item key="Customize" value="Customize" />
+  <item key="ContentManagement" value="Content Management" />
+  <item key="Dashboard" value="Dashboard" />
+  <item key="Default" value="Default" />
+  <item key="Delete" value="Delete" />
+  <item key="Designer" value="Designer" />
+  <item key="Disable" value="Disable" />
+  <item key="Edit" value="Edit" />
+  <item key="Empty" value="Empty" />
+  <item key="Enable" value="Enable" />
+  <item key="Homepage" value="Home" />
+  <item key="Insert" value="Insert" />
+  <item key="Install" value="Install" />
+  <item key="NoExtension" value="No extension" />
+  <item key="Operations" value="Operations" />
+  <item key="OK" value="OK" />
+  <item key="Page" value="Page" />
+  <item key="PrevPage" value="Prev" />
+  <item key="Remove" value="Remove" />
+  <item key="Reload" value="Refresh" />
+  <item key="Rename" value="Rename" />
+  <item key="Save" value="Save" />
+  <item key="Uncategorized" value="Uncategorized" />
+  <item key="Unnamed" value="Unnamed" />
+  <item key="Uninstall" value="Uninstall" />
+  <item key="Upload" value="Upload" />
+  <item key="Uploading" value="Uploading" />
+  <item key="YouMayNeedTo" value="You might need to" />
+  <item key="Yes" value="Yes" />
+  <item key="NextPage" value="Next" />
+  <item key="No" value="No" />
+  <item key="None" value="None" />
+  <item key="NotSupport" value="Not support" />
+  <item key="Support" value="Support" />
+</localization>

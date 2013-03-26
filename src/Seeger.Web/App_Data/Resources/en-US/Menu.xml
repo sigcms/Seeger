@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Menu.">
+  <item key="PageMgnt" value="Pages" />
+  <item key="CustomRedirectMgnt" value="Custom Redirect" />
+  <item key="Settings" value="Settings" />
+  <item key="FrontendSettings" value="Frontend Settings" />
+  <item key="FrontendLanguages" value="Frontend Languages" />
+  <item key="EmailSettings" value="Email Settings" />
+  <item key="TaskQueueSettings" value="Task Queue Settings" />
+  <item key="SiteInfo" value="Site Info" />
+  <item key="FileMgnt" value="Files" />
+  <item key="Security" value="Security" />
+  <item key="RoleMgnt" value="Roles" />
+  <item key="UserMgnt" value="Users" />
+  <item key="PluginMgnt" value="Plugins" />
+  <item key="DbBackup" value="Database Backup" />
+  <item key="Logs" value="System Logs" />
+</localization>

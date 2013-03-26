@@ -1,15 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization prefix="Login.">
-  <item key="PageTitle" value="Login - Seeger CMS" />
-  <item key="UserName" value="User Name" />
+  <item key="PageTitle" value="Login - Seeger Content Management System" />
+  <item key="UserName" value="Username" />
   <item key="Password" value="Password" />
   <item key="Login" value="Login" />
-  <item key="LoginFailed" value="Failed! Wrong user name or password." />
-  <item key="BackToHomepage" value="Back to Homepage" />
-
-  <item key="SeegerHomepage" value="Seeger CMS" />
-  <item key="AboutSeeger" value="About" />
-  <item key="ProductPrices" value="Price" />
-  <item key="ContactUs" value="Contact" />
-  <item key="SeegerCms" value="Seeger CMS" />
+  <item key="LoginFailed" value="Login failed. Please check your username and password" />
+  <item key="LoginDisallowed" value="Login failed. This account is not allowed to login" />
+  <item key="BackToHomepage" value="Back to homepage" />
+  <item key="LockedForTooManyInvalidPasswordAttempts" value="Too many invalid login attempts. Account is locked" />
 </localization>

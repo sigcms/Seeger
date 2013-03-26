@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="User">
+  <item key="MyProfile" value="Profile" />
+  <item key="UserName" value="Username" />
+  <item key="Nick" value="Nick" />
+  <item key="Email" value="Email" />
+  <item key="Password" value="Password" />
+  <item key="PasswordConfirm" value="Passowrd Confirm" />
+  <item key="LastLoginTime" value="Last login time" />
+  <item key="LastLoginIP" value="Last login IP" />
+  <item key="Skin" value="Skin" />
+  <item key="Language" value="Language" />
+  <item key="Role" value="Role" />
+
+  <item key="List" value="Users" />
+  <item key="Add" value="Add User" />
+  <item key="Edit" value="Edit" />
+
+  <item key="UserNameIsUsed" value="* This username is not available" />
+  <item key="TwoPasswordNotSame" value="* Confirm password should be same as password" />
+</localization>

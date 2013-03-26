@@ -70,6 +70,7 @@
     <Content Include="Admin\Sliders.aspx" />
     <Content Include="Admin\Sliders_Grid.ascx" />
     <Content Include="db\install.sql" />
+    <Content Include="Resources\en-US\Resources.xml" />
     <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Scripts\jquery.slides.css" />
     <Content Include="Scripts\jquery.slides.min.js" />

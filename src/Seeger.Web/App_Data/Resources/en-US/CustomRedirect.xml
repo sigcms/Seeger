@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="CustomRedirect.">
+  <item key="List" value="Custom Redirects" />
+  <item key="Edit" value="Edit" />
+  <item key="RedirectMode" value="Redirect mode" />
+  <item key="UrlMatchMode" value="Url Match Mode" />
+  <item key="MatchByRegex" value="Using Regular Expression" />
+  <item key="From" value="From" />
+  <item key="To" value="To" />
+  <item key="IsEnabled" value="Enabled" />
+  <item key="HelpHint"></item>
+</localization>

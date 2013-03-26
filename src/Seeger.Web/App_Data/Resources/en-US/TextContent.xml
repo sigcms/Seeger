@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="TextContent.">
+  <item key="Name" value="名称" />
+  <item key="Content" value="内容" />
+</localization>

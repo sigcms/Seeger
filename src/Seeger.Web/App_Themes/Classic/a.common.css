@@ -69,6 +69,7 @@ input[type=text], input[type=password], textarea
 
 .sig-tooltip-message
 {
+    font-size: 13px;
     background: #4B981D;
     color: white;
     padding: 8px 15px;

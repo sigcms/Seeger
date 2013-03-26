@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Setting.">
+  <item key="Settings" value="设置" />
+  <item key="FrontendSetting" value="前台设置" />
+  <item key="Multilingual" value="多语言" />
+  <item key="ManageFrontendLanguages" value="管理前台语言" />
+  <item key="DefaultLanguage" value="默认语言" />
+  <item key="PageExtension" value="页面扩展名" />
+
+  <item key="GlobalSeo" value="全局SEO设置" />
+
+  <item key="CloseWebsite" value="关闭网站" />
+  <item key="SelectOfflinePage" value="请选择网站关闭后，用户访问网站时显示的页面" />
+</localization>

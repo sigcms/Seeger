@@ -3,23 +3,6 @@
     left: -10px;
     background-image: url(../images/logo-cn.png);
 }
-.frame-menubar li > a
-{
-    font-size: 13px;
-}
-.frame-menubar ul.shortcut-menu li > a
-{
-    font-size: 14px;
-}
-
-.mgnt
-{
-    font-size: 13px;
-}
-.sig-tooltip-message
-{
-    font-size: 13px;
-}
 
 /* jQuery UI Overrides
 -----------------------------*/

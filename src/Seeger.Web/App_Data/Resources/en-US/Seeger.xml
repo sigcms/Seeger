@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Seeger">
+  <item key="Name" value="Seeger Content Management System" />
+  <item key="ShortName" value="Seeger CMS" />
+  <item key="Homepage" value="Homepage" />
+  <item key="ProductIntroduction" value="Introduction" />
+  <item key="Help" value="Help" />
+  <item key="Suggest" value="Suggest" />
+  <item key="Purchase" value="Purchase" />
+  <item key="TechSupport" value="Support" />
+  <item key="FAQ" value="FAQ" />
+  <item key="Contact" value="Contact" />
+  <item key="ReportBug" value="Bug Report" />
+  <item key="About" value="About" />
+</localization>

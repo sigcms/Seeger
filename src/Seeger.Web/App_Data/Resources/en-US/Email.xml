@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization prefix="Email">
+  <item key="Server" value="Server" />
+  <item key="Port" value="Port" />
+  <item key="EnableSsl" value="Enable SSL" />
+  <item key="SenderName" value="Sender Name" />
+  <item key="SenderEmail" value="Sender Email" />
+  <item key="AccountName" value="SMTP Account Name" />
+  <item key="AccountPassword" value="SMTP Account Password" />
+  <item key="PortShouldBeNumber" value="Port should be number" />
+  <item key="KeepBlankIfNoNeedToChange" value="Keep it empty if you don't want to change password" />
+</localization>
