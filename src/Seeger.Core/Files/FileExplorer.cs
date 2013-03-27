@@ -170,9 +170,9 @@ namespace Seeger.Files
                 var extSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
                 foreach (var ext in extensions)
                 {
-                    string extension = ext.Trim();
+                    string extension = ext.Trim().TrimStart('*');
 
-                    if (extension.Length > 0)
+                    if (extension.Length > 0 && extension != ".")
                     {
                         if (!extension.StartsWith("."))
                         {

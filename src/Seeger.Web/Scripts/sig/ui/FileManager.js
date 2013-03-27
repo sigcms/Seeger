@@ -459,9 +459,23 @@
             var dialog = BatchUploadButton._dialog;
 
             if (dialog == null) {
+                var filter = context.fileManager.filter();
+                var fileTypeExts = '';
+                if (filter) {
+                    var exts = filter.split(';');
+                    $.each(exts, function () {
+                        if (this.indexOf('.') === 0) {
+                            fileTypeExts += '*' + this;
+                        } else {
+                            fileTypeExts += this;
+                        }
+                        fileTypeExts += ';';
+                    });
+                }
+
                 dialog = new sig.ui.BatchUploadDialog({
                     aspNetAuth: context.fileManager.option('aspNetAuth'),
-                    fileTypeExts: context.fileManager.filter(),
+                    fileTypeExts: fileTypeExts,
                     onQueueComplete: function (result) {
                         context.fileManager.refresh(function () {
                             var manager = this;

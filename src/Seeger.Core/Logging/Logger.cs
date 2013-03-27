@@ -39,7 +39,9 @@ namespace Seeger.Logging
 
         public virtual bool IsEnabled(LogLevel level)
         {
-            return FallbackLogger.IsEnabled(GetNLogLevel(level));
+            // TODO: Make it configurable
+            return level > LogLevel.Debug;
+            //return FallbackLogger.IsEnabled(GetNLogLevel(level));
         }
 
         public void Debug(UserReference @operator, string message)
@@ -124,8 +126,7 @@ namespace Seeger.Logging
 
         public void Log(UserReference @operator, LogLevel level, string message)
         {
-            // TODO: Make it configurable
-            if (level < LogLevel.Info) return;
+            if (!IsEnabled(level)) return;
 
             try
             {

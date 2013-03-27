@@ -21,7 +21,7 @@ namespace Seeger.Web.UI.Admin.Services
             if (!FileExplorer.AllowUploadPath(path))
                 throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
-            var extensions = String.IsNullOrEmpty(filter) ? null : filter.SplitWithoutEmptyEntries(';');
+            var extensions = String.IsNullOrEmpty(filter) || filter == "*.*" ? null : filter.SplitWithoutEmptyEntries(';');
 
             return FileExplorer.List(path, true, extensions).Select(x => new FileSystemEntryInfo(x));
         }
