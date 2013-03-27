@@ -135,16 +135,16 @@
             });
         }
 
-        this.selectFile = function (fileName) {
-            _fileGrid.select(fileName);
+        this.selectEntry = function (entryName) {
+            _fileGrid.selectEntry(entryName);
         }
 
-        this.unselectFile = function (fileName) {
-            _fileGrid.unselect(fileName);
+        this.unselectEntry = function (entryName) {
+            _fileGrid.unselectEntry(entryName);
         }
 
-        this.selectedFiles = function () {
-            return _fileGrid.selectedFiles();
+        this.selectedEntries = function () {
+            return _fileGrid.selectedEntries();
         }
 
         function createBaseHtml() {
@@ -201,7 +201,7 @@
                 return false;
             });
             _$element.on('click', '.fm-folder .icon-folder', function () {
-                _fileManager.enterSubfolder($(this).closest('.fm-folder').data('filename'));
+                _fileManager.enterSubfolder($(this).closest('.fm-folder').data('entryname'));
                 return false;
             });
             _$element.on('click', '.fm-item', function (e) {
@@ -209,13 +209,13 @@
                 if (_this.isDirectory(this) && !_fileManager.allowSelectFolder()) return;
 
                 if (_this.isSelected(this)) {
-                    _this.unselect(this);
+                    _this.unselectEntry(this);
                 } else {
                     if (!e.ctrlKey) {
                         _this.unselectAll();
                     }
 
-                    _this.select(this);
+                    _this.selectEntry(this);
                 }
             });
             _$element.on('mouseenter', '.fm-item', function () {
@@ -241,96 +241,96 @@
             _$element.find('.btn-backto-parent').hide();
         }
 
-        this.update = function (files) {
-            _this.clear();
-            $.each(files, function () {
-                _this.add(this);
+        this.update = function (entries) {
+            _this.deleteAll();
+            $.each(entries, function () {
+                _this.addEntry(this);
             });
         }
 
-        this.add = function (file) {
-            var $item = $(createItemHtml(file));
+        this.isFile = function (entryName) {
+            if (!entryName)
+                throw new Error('"entryName" is required.');
+
+            var $item = typeof (entryName) === 'string' ? findItem(entryName) : $(entryName);
+            return !$item.data('FileSystemEntry').isDirectory;
+        }
+
+        this.isDirectory = function (entryName) {
+            return !_this.isFile(entryName);
+        }
+
+        this.addEntry = function (entry) {
+            var $item = $(createItemHtml(entry));
             _$body.append($item);
-            $item.data('file', file);
+            $item.data('FileSystemEntry', entry);
             hideEmptyItem();
         }
 
-        this.isFile = function (fileName) {
-            if (!fileName)
-                throw new Error('"fileName" is required.');
+        this.isSelected = function (entryName) {
+            if (!entryName)
+                throw new Error('"entryName" is required.');
 
-            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
-            return !$item.data('file').isDirectory;
-        }
-
-        this.isDirectory = function (fileName) {
-            return !_this.isFile(fileName);
-        }
-
-        this.isSelected = function (fileName) {
-            if (!fileName)
-                throw new Error('"fileName" is required.');
-
-            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            var $item = typeof (entryName) === 'string' ? findItem(entryName) : $(entryName);
             return $item.is('.fm-selected');
         }
 
-        this.select = function (fileName) {
-            if (!fileName)
-                throw new Error('"fileName" is required.');
+        this.selectEntry = function (entryName) {
+            if (!entryName)
+                throw new Error('"entryName" is required.');
 
             if (!_fileManager.allowMultiSelect()) {
                 _this.unselectAll();
             }
 
-            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            var $item = typeof (entryName) === 'string' ? findItem(entryName) : $(entryName);
             $item.addClass('fm-selected');
         }
 
         this.selectAll = function () {
             _$element.find('.fm-item:not(.fm-selected').each(function () {
-                _this.select(this);
+                _this.selectEntry(this);
             });
         }
 
-        this.selectedFiles = function () {
+        this.selectedEntries = function () {
             var files = [];
             _$element.find('.fm-item.fm-selected').each(function () {
-                files.push($(this).data('file'));
+                files.push($(this).data('FileSystemEntry'));
             });
 
             return files;
         }
 
-        this.unselect = function (fileName) {
-            if (!fileName)
-                throw new Error('"fileName" is required.');
+        this.unselectEntry = function (entryName) {
+            if (!entryName)
+                throw new Error('"entryName" is required.');
 
-            var $item = typeof (fileName) === 'string' ? findItem(fileName) : $(fileName);
+            var $item = typeof (entryName) === 'string' ? findItem(entryName) : $(entryName);
             $item.removeClass('fm-selected');
         }
 
         this.unselectAll = function () {
             _$element.find('.fm-item.fm-selected').each(function () {
-                _this.unselect(this);
+                _this.unselectEntry(this);
             });
         }
 
-        this.clear = function () {
+        this.deleteAll = function () {
             _$element.find('.fm-item').each(function () {
                 deleteItem($(this));
             });
         }
 
-        this.delete = function (fileName) {
-            if (!fileName)
-                throw new Error('"fileName" is required.');
+        this.deleteEntry = function (entryName) {
+            if (!entryName)
+                throw new Error('"entryName" is required.');
 
-            deleteItem(findItem(fileName));
+            deleteItem(findItem(entryName));
         }
 
-        function findItem(fileName) {
-            return _$body.find('.fm-item[data-filename="' + fileName + '"]');
+        function findItem(entryName) {
+            return _$body.find('.fm-item[data-entryname="' + entryName + '"]');
         }
 
         function deleteItem($item) {
@@ -371,7 +371,7 @@
                 }
             }
 
-            var html = '<tr class="' + css + '" data-filename="' + file.name + '">'
+            var html = '<tr class="' + css + '" data-entryname="' + file.name + '">'
                             + '<td>'
                                 + '<a href="#" class="' + fileNameCss + '">' + file.name + '</a>'
                             + '</td>'
@@ -481,7 +481,7 @@
                             var manager = this;
                             $.each(result.files, function () {
                                 if (this.success) {
-                                    manager.selectFile(this.fileName);
+                                    manager.selectEntry(this.fileName);
                                 }
                             });
                         });

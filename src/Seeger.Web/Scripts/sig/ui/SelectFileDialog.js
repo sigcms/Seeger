@@ -38,7 +38,7 @@
                     {
                         text: sig.Resources.get('OK'),
                         click: function () {
-                            var files = _fileManager.selectedFiles();
+                            var files = _fileManager.selectedEntries();
                             if (files.length === 0) {
                                 alert(sig.Resources.get('Please select a file'));
                             } else {
