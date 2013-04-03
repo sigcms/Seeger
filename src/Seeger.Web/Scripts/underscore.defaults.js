@@ -1,0 +1,3 @@
+﻿_.templateSettings = {
+    interpolate: /\{(.+?)\}/g
+};

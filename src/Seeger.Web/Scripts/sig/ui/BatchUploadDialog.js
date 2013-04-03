@@ -21,8 +21,9 @@
                 uploader: '/Admin/Handlers/FileUpload.ashx',
                 multi: true,
                 auto: false,
-                onUploadSuccess: onUploadSuccess,
-                onQueueComplete: onQueueComplete
+                onUploadSuccess: onUploadifyUploadSuccess,
+                onUploadError: onUploadifyUploadError,
+                onQueueComplete: onUploadifyQueueComplete
             }
         };
 
@@ -80,7 +81,8 @@
 
         this.startUpload = function () {
             _uploadContext = {
-                files: []
+                files: [],
+                errors: []
             };
             _$uploadify.uploadify('upload', '*');
         }
@@ -89,28 +91,55 @@
             _dialog.close();
         }
 
-        function onUploadSuccess(file, result, response) {
+        function onUploadifyUploadSuccess(file, result, response) {
             result = JSON.parse(result);
-
             if (result.success) {
                 _uploadContext.files.push({
-                    success: true,
                     fileName: result.data.fileName,
                     virtualPath: result.data.virtualPath
                 });
             } else {
-                _uploadContext.files.push({
-                    success: false,
-                    fileName: result.data.fileName,
-                    virtualPath: result.data.virtualPath,
+                _uploadContext.errors.push({
+                    fileName: file.name,
                     error: result.message
                 });
             }
         }
 
-        function onQueueComplete() {
+        function onUploadifyUploadError(file, errorCode, errorMsg, errorString) {
+            console.log(arguments);
+            _uploadContext.errors.push({
+                fileName: file.name,
+                error: errorString
+            });
+        }
+
+        function onUploadifyQueueComplete() {
             if (_options.onQueueComplete) {
-                _options.onQueueComplete.apply(_this, [{ files: _uploadContext.files }]);
+                var files = _uploadContext.files.slice(0);
+                var errors = _uploadContext.errors.slice(0);
+
+                if (errors.length > 0) {
+                    var msg = '';
+                    if (files.length > 0) {
+                        msg += _.template(sig.Resources.get('{Count} succeeded'), { Count: files.length });
+                    }
+                    if (msg.length > 0) {
+                        msg += ', ';
+                    }
+                    msg += _.template(sig.Resources.get('{Count} failed'), { Count: errors.length }) + '<br/>';
+                    msg += _.map(errors, function (e) {
+                        return e.fileName + ': ' + e.error;
+                    })
+                    .join('<br/>');
+
+                    sig.ui.Message.error(msg);
+                }
+
+                _options.onQueueComplete.apply(_this, [{
+                    files: files,
+                    errors: errors
+                }]);
             }
             _uploadContext = null;
             _this.close();

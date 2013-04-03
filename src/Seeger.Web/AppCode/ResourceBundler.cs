@@ -12,7 +12,8 @@ namespace Seeger.Web
         {
             var coreScriptBundle = new Bundle("~/Scripts/sig.core.js")
                                         .Include("~/Scripts/knockout.js", "~/Scripts/knockout.mapping.js")
-                                        .Include("~/Scripts/underscore.js")
+                                        .Include("~/Scripts/underscore.js", "~/Scripts/underscore.defaults.js")
+                                        .Include("~/Scripts/string.format.js")
                                         .Include("~/Scripts/uploadify/jquery.uploadify.js")
                                         .IncludeDirectory("~/Scripts/sig", "*.js", true);
 

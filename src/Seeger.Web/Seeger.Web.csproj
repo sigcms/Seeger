@@ -631,6 +631,7 @@
     <Content Include="Scripts\sig.common.js" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\underscore.js" />
+    <Content Include="Scripts\underscore.defaults.js" />
     <Content Include="Scripts\uploadify\jquery.uploadify.js" />
     <Content Include="App_Themes\Classic\images\uploadify-cancel.png" />
     <Content Include="App_Themes\Classic\uploadify.css" />
@@ -679,6 +680,7 @@
     </None>
     <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <Content Include="Scripts\Resources.ashx" />
+    <Content Include="Scripts\string.format.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\AssemblyInfo.cs">

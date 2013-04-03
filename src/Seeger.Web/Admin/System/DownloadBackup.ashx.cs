@@ -12,7 +12,7 @@ namespace Seeger.Web.UI.Admin._System
     {
         static readonly Logger _log = LogManager.GetCurrentClassLogger();
 
-        protected override bool ValidateAccess(Seeger.Security.User user)
+        protected override bool Authorize(Seeger.Security.User user)
         {
             return user.HasPermission(null, "System", "DbBackup");
         }

@@ -22,6 +22,18 @@ namespace Seeger.Web.UI.Admin.Handlers
 
         protected override void DoProcessRequest(HttpContext context)
         {
+            try
+            {
+                DoUpload(context);
+            }
+            catch (Exception ex)
+            {
+                WriteResult(context, OperationResult.CreateErrorResult(ex));
+            }
+        }
+
+        private void DoUpload(HttpContext context)
+        {
             var folder = context.Request["folder"];
 
             if (String.IsNullOrEmpty(folder))
@@ -30,58 +42,41 @@ namespace Seeger.Web.UI.Admin.Handlers
             }
 
             if (!FileExplorer.AllowUploadPath(folder))
-            {
-                WriteResult(context, OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("Message.AccessDefined")));
-                return;
-            }
+                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDenied"));
 
             var file = context.Request.Files[0];
             var extension = Path.GetExtension(file.FileName);
 
             if (!FileExplorer.SupportFileExtension(extension))
-            {
-                WriteResult(context, OperationResult.CreateErrorResult("File extension is not supported: " + extension));
-                return;
-            }
+                throw new InvalidOperationException("File extension is not supported: " + extension);
 
             var originalFileName = Path.GetFileName(file.FileName);
             var fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(file.FileName);
             var virtualPath = UrlUtil.Combine(folder, fileName);
 
-            try
-            {
-                file.SaveAs(context.Server.MapPath(virtualPath));
+            file.SaveAs(context.Server.MapPath(virtualPath));
 
-                var result = new OperationResult
-                {
-                    Success = true,
-                    Data = new FileUploadResult
-                    {
-                        FileName = fileName,
-                        VirtualPath = virtualPath
-                    }
-                };
-
-                WriteResult(context, result);
-            }
-            catch (Exception ex)
+            var result = new OperationResult
             {
-                WriteResult(context, new OperationResult
+                Success = true,
+                Data = new FileUploadResult
                 {
-                    Success = false,
-                    Message = ex.Message,
-                    Data = new FileUploadResult
-                    {
-                        FileName = originalFileName,
-                        VirtualPath = UrlUtil.Combine(folder, originalFileName)
-                    }
-                });
-            }
+                    FileName = fileName,
+                    VirtualPath = virtualPath
+                }
+            };
+
+            WriteResult(context, result);
         }
 
         private void WriteResult(HttpContext context, OperationResult result)
         {
             context.Response.Write(JsonConvertUtil.CamelCaseSerializeObject(result));
+        }
+
+        protected override void OnAccessDenied(HttpContext context)
+        {
+            WriteResult(context, OperationResult.CreateErrorResult(ResourceFolder.Global.GetValue("Message.AccessDenied")));
         }
 
         public class FileUploadResult

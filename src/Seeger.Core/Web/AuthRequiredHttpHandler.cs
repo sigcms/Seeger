@@ -48,7 +48,7 @@ namespace Seeger.Web
         {
             AdminSession = Authenticate(context);
 
-            if (AdminSession.IsAuthenticated && (AdminSession.User.IsSuperAdmin) || ValidateAccess(AdminSession.User))
+            if (AdminSession.IsAuthenticated && (AdminSession.User.IsSuperAdmin) || Authorize(AdminSession.User))
             {
                 DoProcessRequest(context);
             }
@@ -58,7 +58,7 @@ namespace Seeger.Web
             }
         }
 
-        private AdminSession Authenticate(HttpContext context)
+        protected virtual AdminSession Authenticate(HttpContext context)
         {
             if (AuthMode == HandlerAuthMode.AuthByCookie)
             {
@@ -84,7 +84,7 @@ namespace Seeger.Web
             return new AdminSession(user);
         }
 
-        protected virtual bool ValidateAccess(User user)
+        protected virtual bool Authorize(User user)
         {
             return true;
         }

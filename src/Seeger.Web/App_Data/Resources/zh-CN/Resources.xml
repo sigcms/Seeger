@@ -5,6 +5,8 @@
   <item key="Back to parent folder" value="返回父文件夹" />
   <item key="Cancel" value="取消" />
   <item key="Created at" value="创建时间" />
+  <item key="{Count} succeeded" value="{Count}成功" />
+  <item key="{Count} failed" value="{Count}失败" />
   <item key="DateTime" value="时间" />
   <item key="Delete" value="删除" />
   <item key="DisplayOrder" value="显示顺序" />

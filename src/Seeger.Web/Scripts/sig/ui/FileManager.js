@@ -152,7 +152,7 @@
                  + '<div class="fm-breadcrumb"></div>'
                  + '<div class="fm-filegrid">'
                         + '<a href="#" class="btn-backto-parent" style="display:none">' + sig.Resources.get('Back to parent folder') + '</a>'
-                        + '<table class="datatable">' 
+                        + '<table class="datatable">'
                             + '<thead>'
                                 + '<tr>'
                                     + '<th>' + sig.Resources.get('Filename') + '</th>'
@@ -480,9 +480,7 @@
                         context.fileManager.refresh(function () {
                             var manager = this;
                             $.each(result.files, function () {
-                                if (this.success) {
-                                    manager.selectEntry(this.fileName);
-                                }
+                                manager.selectEntry(this.fileName);
                             });
                         });
                     }
