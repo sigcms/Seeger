@@ -48,7 +48,10 @@ namespace Seeger.Web.Processors
             if (matchedPage != null)
             {
                 context.MatchedPage = matchedPage;
+            }
 
+            if (context.MatchedPage != null)
+            {
                 // if RemainingSegments.Count > 0, it means this is not an exact match,
                 // then we need to check if this is a directly file request.
                 // Example: Cms page /home/products is binded to xxx.com using page domain binding.
