@@ -38,14 +38,6 @@ namespace Seeger.Templates
             }
         }
 
-        public string DesignerPath
-        {
-            get
-            {
-                return UrlUtil.Combine(VirtualPath, "Designer.aspx");
-            }
-        }
-
         public string PreviewImageVirtualPath
         {
             get

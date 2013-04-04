@@ -13,16 +13,11 @@ namespace Seeger.Web.UI.Admin.Designer
 {
     public partial class DesignerElement : System.Web.UI.UserControl
     {
-        private PageDesignerBase DesignerPage
+        private LayoutPageBase LayoutPage
         {
             get
             {
-                PageDesignerBase page = base.Page as PageDesignerBase;
-                if (page == null)
-                    throw new InvalidOperationException(
-                        String.Format("Designer.master can only be used by pages which inherit from type '{0}'.", typeof(PageDesignerBase).FullName));
-
-                return page;
+                return (LayoutPageBase)Page;
             }
         }
 
@@ -30,7 +25,7 @@ namespace Seeger.Web.UI.Admin.Designer
         {
             get
             {
-                return DesignerPage.PageItem;
+                return LayoutPage.PageItem;
             }
         }
 
@@ -43,7 +38,7 @@ namespace Seeger.Web.UI.Admin.Designer
         {
             get
             {
-                return FrontendEnvironment.GetPageUrl(Request.QueryString["page-culture"], PageItem);
+                return FrontendEnvironment.GetPageUrl(Request.QueryString["culture"], PageItem);
             }
         }
 

@@ -87,7 +87,7 @@ namespace Seeger.Web.UI
 
         protected virtual IEnumerable<string> GetCssFilePaths()
         {
-            return AdminSession.Theme.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
+            return AdminSession.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
         }
 
         protected virtual string T(string key)

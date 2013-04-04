@@ -9,25 +9,23 @@ namespace Seeger.Web.UI
 {
     public static class PageExtensions
     {
-        public static void IncludeCss(this Page page, string cssFilePath)
+        public static void IncludeCssFile(this Page page, string cssFilePath)
         {
             var control = new LiteralControl
             {
-                Text = "<link type=\"text/css\" rel=\"stylesheet\" href=\"" + cssFilePath + "\" />"
+                Text = HtmlHelper.IncludeCssFile(cssFilePath)
             };
+
+            if (page.Header == null)
+                throw new InvalidOperationException("Cannot include css file when html head does not exist.");
+
             page.Header.Controls.Add(control);
         }
 
         public static Control GetControl(this Page page, string id)
         {
-            if (page == null)
-            {
-                throw new ArgumentNullException("page");
-            }
-            if (String.IsNullOrEmpty(id))
-            {
-                throw new ArgumentException("'id' is required.");
-            }
+            Require.NotNull(page, "page");
+            Require.NotNullOrEmpty(id, "id");
 
             // In web form, the controls created in markup will be compiled into protected fields of the page's base page
             FieldInfo controlField = page.GetType().GetField(id, BindingFlags.Instance | BindingFlags.NonPublic);

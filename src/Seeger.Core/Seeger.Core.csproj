@@ -227,6 +227,7 @@
     <Compile Include="Web\UI\Controls\DenyMethod.cs" />
     <Compile Include="Web\UI\Controls\DevPlaceHolder.cs" />
     <Compile Include="Web\UI\Controls\IAdminControl.cs" />
+    <Compile Include="Web\UI\Controls\LayoutPlaceHolder.cs" />
     <Compile Include="Web\UI\Controls\ScriptReference.cs" />
     <Compile Include="Web\UI\Controls\TinyMCE.cs" />
     <Compile Include="Web\UI\Extensions\ListItemCollectionExtensions.cs" />
@@ -294,9 +295,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Web\UI\Designer\DesignerLayoutService.cs" />
-    <Compile Include="Web\UI\Designer\PageDesignerBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Web\UI\Designer\WidgetState.cs" />
     <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
     <Compile Include="Web\UI\IPrivateResource.cs" />

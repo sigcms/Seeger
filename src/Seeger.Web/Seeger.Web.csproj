@@ -304,7 +304,6 @@
     <Content Include="App_Themes\Classic\d.jqueryui.css" />
     <Content Include="Admin\Designer\Controls\AllWidgets.ascx" />
     <Content Include="Admin\Designer\Controls\WidgetList.ascx" />
-    <Content Include="Offline.aspx" />
     <Content Include="Scripts\designer\designer.editorcontext.js" />
     <Content Include="Scripts\filebrowser\images\application.png" />
     <Content Include="Scripts\filebrowser\images\code.png" />
@@ -638,16 +637,12 @@
     <Content Include="Scripts\uploadify\uploadify.swf" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx" />
-    <Content Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Preview.gif" />
     <Content Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx" />
-    <Content Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn2\Preview.gif" />
     <Content Include="Templates\Default\Layouts\TwoColumn1\Default.aspx" />
-    <Content Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\TwoColumn1\Preview.gif" />
     <Content Include="Templates\Default\Layouts\TwoColumn2\Default.aspx" />
-    <Content Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx" />
     <Content Include="Templates\Default\Layouts\TwoColumn2\Preview.gif" />
     <Content Include="Templates\Default\Resources\zh-CN\Resources.xml" />
     <Content Include="Templates\Default\Skins\ClassicBlue\a.main.css" />
@@ -1029,13 +1024,6 @@
     </Compile>
     <Compile Include="Templates\Default\AppCode\LanguageSwitchRenderer.cs" />
     <Compile Include="Templates\Default\AppCode\MenuRenderer.cs" />
-    <Compile Include="Offline.aspx.cs">
-      <DependentUpon>Offline.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Offline.aspx.designer.cs">
-      <DependentUpon>Offline.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Scripts\tiny_mce\plugins\sigdownload\Dialog.aspx.cs">
       <DependentUpon>Dialog.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1112,26 +1100,12 @@
     <Compile Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\ThreeColumn1\Designer.aspx.designer.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\ThreeColumn2\Designer.aspx.designer.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Templates\Default\Layouts\TwoColumn1\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1140,26 +1114,12 @@
     <Compile Include="Templates\Default\Layouts\TwoColumn1\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\TwoColumn1\Designer.aspx.designer.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Templates\Default\Layouts\TwoColumn2\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Templates\Default\Layouts\TwoColumn2\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Templates\Default\Layouts\TwoColumn2\Designer.aspx.designer.cs">
-      <DependentUpon>Designer.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1189,13 +1149,13 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6973</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:6973/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>True</UseCustomServer>
+          <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://sub.sigcms.com</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>

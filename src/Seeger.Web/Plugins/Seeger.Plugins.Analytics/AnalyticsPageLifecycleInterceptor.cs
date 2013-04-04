@@ -11,7 +11,9 @@ namespace Seeger.Plugins.Analytics
     {
         public override void OnPreRender(Page page)
         {
-            if (page is PageDesignerBase) return;
+            var layoutPage = page as LayoutPageBase;
+
+            if (layoutPage == null || layoutPage.IsInDesignMode) return;
 
             var analyticsCode = GetAnalyticsCode();
 

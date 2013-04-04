@@ -207,9 +207,9 @@ function getFinalPagePath(pageInfo, culture) {
 }
 
 function designPage(pageInfo, pageCulture) {
-    var url = pageInfo.DesignerPath + "?pageid=" + pageInfo.Id;
+    var url = pageInfo.AspxVirtualPath + '?pageid=' + pageInfo.Id + '&design=true';
     if (pageCulture != undefined && pageCulture != null && pageCulture.length > 0) {
-        url += "&page-culture=" + pageCulture;
+        url += '&culture=' + pageCulture;
     }
     window.open(url);
 }

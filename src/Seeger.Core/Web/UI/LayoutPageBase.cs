@@ -11,6 +11,8 @@ using System.IO;
 using System.Web.UI;
 using Seeger.Plugins;
 using Seeger.Config;
+using Seeger.Globalization;
+using Seeger.Security;
 
 namespace Seeger.Web.UI
 {
@@ -31,6 +33,14 @@ namespace Seeger.Web.UI
             get
             {
                 return Request.QueryString["suffix"] ?? String.Empty;
+            }
+        }
+
+        public bool IsInDesignMode
+        {
+            get
+            {
+                return Request.QueryString.TryGetValue<bool>("design", false);
             }
         }
 
@@ -84,6 +94,31 @@ namespace Seeger.Web.UI
             }
         }
 
+        protected AdminSession AdminSession
+        {
+            get
+            {
+                return AdminSession.Current;
+            }
+        }
+
+        protected override void OnPreInit(EventArgs e)
+        {
+            base.OnPreInit(e);
+
+            if (IsInDesignMode)
+            {
+                if (!AdminSession.IsAuthenticated)
+                {
+                    AuthenticationService.RedirectToLoginPage();
+                }
+                else if (!AdminSession.User.IsSuperAdmin && !Authorize(AdminSession.User))
+                {
+                    AuthenticationService.RedirectToUnauthorizedPage();
+                }
+            }
+        }
+
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -112,10 +147,36 @@ namespace Seeger.Web.UI
             SetupSeo();
             IncludeSkinCssFiles();
 
+            if (IsInDesignMode)
+            {
+                Title = ResourceFolder.Global.GetValue("Common.Designer", CultureInfo.CurrentUICulture) + " (" + PageItem.DisplayName + ")";
+                IncludeDesignerElements();
+            }
+
             foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
                 interceptor.OnPreRender(this);
             }
+        }
+
+        private void IncludeDesignerElements()
+        {
+            this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css"));
+
+            if (AdminSession.Skin.ContainsFile("page-designer.css", CultureInfo.CurrentUICulture))
+            {
+                this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css", CultureInfo.CurrentUICulture));
+            }
+
+            Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery.min.js" });
+            Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery-ui.min.js" });
+
+            Form.Controls.Add(LoadControl("/Admin/Designer/DesignerElement.ascx"));
+        }
+
+        private bool Authorize(User user)
+        {
+            return user.HasPermission(null, "PageMgnt", "Design");
         }
 
         protected override void OnUnload(EventArgs e)
@@ -134,18 +195,9 @@ namespace Seeger.Web.UI
             {
                 foreach (var path in PageItem.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture))
                 {
-                    IncludeCssFile(path);
+                    this.IncludeCssFile(path);
                 }
             }
-        }
-
-        protected void IncludeCssFile(string path, string media = null)
-        {
-            var ctrl = new Literal
-            {
-                Text = HtmlHelper.IncludeCssFile(path, media)
-            };
-            Header.Controls.Add(ctrl);
         }
 
         protected virtual void FixFromActionUrl()
@@ -155,11 +207,12 @@ namespace Seeger.Web.UI
 
         protected virtual void SetupSeo()
         {
+            if (IsInDesignMode) return;
+
             if (!String.IsNullOrEmpty(SEOInfo.PageTitle))
             {
                 Title = SEOInfo.PageTitle;
             }
-
             if (!String.IsNullOrEmpty(SEOInfo.MetaKeywords))
             {
                 MetaKeywords = SEOInfo.MetaKeywords;

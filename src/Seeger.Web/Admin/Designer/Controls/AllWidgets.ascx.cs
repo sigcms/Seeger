@@ -22,11 +22,11 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
             }
         }
 
-        private PageDesignerBase DesignerPage
+        private LayoutPageBase LayoutPage
         {
             get
             {
-                return (PageDesignerBase)Page;
+                return (LayoutPageBase)Page;
             }
         }
 
@@ -34,7 +34,7 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
         {
             get
             {
-                return DesignerPage.PageItem.Layout.Template.Name;
+                return LayoutPage.PageItem.Layout.Template.Name;
             }
         }
 

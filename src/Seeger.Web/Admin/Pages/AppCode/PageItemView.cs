@@ -19,7 +19,7 @@ namespace Seeger.Web.UI.Admin
         public string LayoutPreviewImage { get; set; }
         public string Skin { get; set; }
         public string SkinPreviewImage { get; set; }
-        public string DesignerPath { get; set; }
+        public string AspxVirtualPath { get; set; }
         public string PagePath { get; set; }
         public bool IsDeletable { get; set; }
 
@@ -39,7 +39,7 @@ namespace Seeger.Web.UI.Admin
             UrlSegment = page.UrlSegment;
             Layout = page.Layout.DisplayName.Localize();
             LayoutPreviewImage = page.Layout.PreviewImageVirtualPath;
-            DesignerPath = page.Layout.DesignerPath;
+            AspxVirtualPath = page.Layout.AspxVirtualPath;
             PagePath = page.GetPagePath();
             IsDeletable = page.IsDeletable;
             Skin = String.Empty;

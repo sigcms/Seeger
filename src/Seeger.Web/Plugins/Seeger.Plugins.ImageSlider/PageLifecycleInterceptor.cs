@@ -19,7 +19,7 @@ namespace Seeger.Plugins.ImageSlider
 
             if (pageItem.LocatedWidgets.Any(x => x.PluginName == Strings.PluginName && x.WidgetName == "ImageSlider"))
             {
-                page.IncludeCss("/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.css");
+                page.IncludeCssFile("/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.css");
                 page.Form.Controls.Add(new LiteralControl
                 {
                     Text = "<script type=\"text/javascript\" src=\"/Plugins/" + Strings.PluginName + "/Scripts/jquery.slides.min.js\"></script>"

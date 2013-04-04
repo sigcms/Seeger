@@ -19,7 +19,15 @@ namespace Seeger.Web.UI
         {
             get
             {
-                return Page is PageDesignerBase;
+                return LayoutPage != null && LayoutPage.IsInDesignMode;
+            }
+        }
+
+        public LayoutPageBase LayoutPage
+        {
+            get
+            {
+                return Page as LayoutPageBase;
             }
         }
 

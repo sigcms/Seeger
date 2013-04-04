@@ -16,7 +16,7 @@ namespace Seeger.Web.UI
     {
         public User User { get; private set; }
 
-        public Skin Theme
+        public Skin Skin
         {
             get
             {
