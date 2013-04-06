@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="Seeger.Web.UI.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-ui.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/sig.common.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.sigvalidate.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/sig.validator.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.tmpl.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.looklesstab.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery.dropdown.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/json2.js" />
+    <asp:ContentPlaceHolder id="HeadHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
+
+    <script type="text/javascript">
+        window.aspNetAuth = '<%= Request.GetAuthCookieValue() %>';
+    </script>
+
+    <asp:ContentPlaceHolder ID="TopHolder" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <div class="mgnt">
+        <asp:PlaceHolder runat="server" ID="PageTitlePanel">
+            <h1 class="mgnt-page-title">
+                <asp:Literal runat="server" ID="PageTitle"></asp:Literal>
+            </h1>
+        </asp:PlaceHolder>
+
+        <sig:MessagePanel runat="server" ID="Message" Visible="false" />
+
+        <div>
+            <asp:ContentPlaceHolder id="MainHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/Scripts/sig.core.js"></script>
+    <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
+    <asp:ContentPlaceHolder ID="FooterHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
