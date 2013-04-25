@@ -51,16 +51,10 @@ namespace Seeger.Web.UI
             {
                 if (_seoInfo == null)
                 {
-                    _seoInfo = new SEOInfo();
-
                     // Try merge page seo settings
                     if (FrontendSettings.Multilingual)
                     {
-                        var title = PageItem.GetLocalized(p => p.PageTitle);
-                        var keywords = PageItem.GetLocalized(p => p.MetaKeywords);
-                        var description = PageItem.GetLocalized(p => p.MetaDescription);
-
-                        _seoInfo.Merge(title, keywords, description);
+                        _seoInfo = PageItem.GetSeoInfo(CultureInfo.CurrentCulture, true);
 
                         var siteInfo = SiteInfoCache.From(NhSession).GetSiteInfo(CultureInfo.CurrentCulture);
                         if (siteInfo != null)
@@ -70,7 +64,7 @@ namespace Seeger.Web.UI
                     }
                     else
                     {
-                        _seoInfo.Merge(PageItem.PageTitle, PageItem.MetaKeywords, PageItem.MetaDescription);
+                        _seoInfo = PageItem.GetSeoInfo(true);
 
                         var defaultSiteInfo = GlobalSettingManager.Instance.DefaultSiteInfo;
                         _seoInfo.Merge(defaultSiteInfo.PageTitle, defaultSiteInfo.MetaKeywords, defaultSiteInfo.MetaDescription);
