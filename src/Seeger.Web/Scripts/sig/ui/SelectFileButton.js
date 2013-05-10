@@ -10,9 +10,16 @@
 
                 var filter = $button.data('filter');
                 var aspNetAuth = $button.data('aspNetAuth');
+                var closeDialogOnOk = $button.data('close-dialog-on-ok');
+                var multi = $button.data('multi');
+
+                if (closeDialogOnOk === undefined) {
+                    closeDialogOnOk = true;
+                }
 
                 var dialogOptions = {
                     filter: filter,
+                    multi: multi,
                     aspNetAuth: aspNetAuth,
                     allowMultiSelect: false,
                     onOK: function (files) {
@@ -20,6 +27,10 @@
                         if (updateTarget) {
                             var updateTargetAttr = $button.data('update-target-attr') || 'value';
                             $(updateTarget).attr(updateTargetAttr, files[0].virtualPath);
+                        }
+
+                        if (closeDialogOnOk) {
+                            $button.data('SelectFileDialog').close();
                         }
                     }
                 };
