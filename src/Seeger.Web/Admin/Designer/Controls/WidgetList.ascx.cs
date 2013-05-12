@@ -36,5 +36,10 @@ namespace Seeger.Web.UI.Admin.Designer.Controls
         {
             return ((WidgetDefinition)widgetDataItem).EditorSettings.AutoOpen;
         }
+
+        protected string GetWidgetDisplayName(object dataItem)
+        {
+            return ((WidgetDefinition)dataItem).DisplayName.Localize(AdminSession.Current.UICulture);
+        }
     }
 }

@@ -11,7 +11,7 @@
             class="sig-widget-item">
             <img class="sig-widget-icon" src='<%# GetIconUrl(Container.DataItem) %>' alt='<%# Eval("Name") %>' />
             <div class="sig-widget-desc">
-                <%# Eval("DisplayName") %>
+                <%# GetWidgetDisplayName(Container.DataItem) %>
             </div>
         </div>
     </ItemTemplate>
