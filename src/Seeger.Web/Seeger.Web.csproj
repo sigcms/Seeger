@@ -153,6 +153,7 @@
     <Content Include="Admin\System\DownloadBackup.ashx" />
     <Content Include="Admin\Handlers\FileUpload.ashx" />
     <Content Include="Admin\Admin.Master" />
+    <Content Include="Admin\Handlers\Web.config" />
     <None Include="App_Data\cms.config" />
     <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
     <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
