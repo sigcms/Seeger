@@ -80,6 +80,11 @@ namespace Seeger.Web.UI
             WidgetAttributes = new EntityAttributeCollection();
         }
 
+        protected override string T(string key, CultureInfo culture)
+        {
+            return Widget.Localize(key, culture, true);
+        }
+
         public override void RenderControl(System.Web.UI.HtmlTextWriter writer)
         {
             if (IsInDesignMode)
