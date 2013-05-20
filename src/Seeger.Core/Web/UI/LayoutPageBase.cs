@@ -44,6 +44,31 @@ namespace Seeger.Web.UI
             }
         }
 
+        public CultureInfo PageCulture
+        {
+            get
+            {
+                CultureInfo culture = null;
+
+                if (IsInDesignMode)
+                {
+                    var cultureName = (Request.QueryString["culture"] ?? String.Empty).Trim();
+
+                    if (!String.IsNullOrEmpty(cultureName))
+                    {
+                        culture = CultureInfo.GetCultureInfo(cultureName);
+                    }
+                }
+
+                if (culture == null)
+                {
+                    culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+                }
+
+                return culture;
+            }
+        }
+
         private SEOInfo _seoInfo;
         public SEOInfo SEOInfo
         {
