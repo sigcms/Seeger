@@ -62,6 +62,11 @@ namespace Seeger.Web
 
             foreach (var key in queryStrings.AllKeys)
             {
+                if (String.IsNullOrEmpty(key))
+                {
+                    continue;
+                }
+
                 if (key.Equals("suffix", StringComparison.OrdinalIgnoreCase)
                     || key.Equals(LayoutPageBase.QueryStringParam_PageId, StringComparison.OrdinalIgnoreCase))
                 {
