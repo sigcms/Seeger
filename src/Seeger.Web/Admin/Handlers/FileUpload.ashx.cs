@@ -50,8 +50,20 @@ namespace Seeger.Web.UI.Admin.Handlers
             if (!FileExplorer.SupportFileExtension(extension))
                 throw new InvalidOperationException("File extension is not supported: " + extension);
 
-            var originalFileName = Path.GetFileName(file.FileName);
-            var fileName = FileExplorer.CalculateFinalName(folder, FileExplorer.ApplySecurityFilterToFileName(originalFileName));
+            var autoRename = context.Request["autoRename"] == "true";
+
+            string fileName = null;
+
+            if (autoRename)
+            {
+                fileName = DateTime.Now.ToString("yyyyMMddHHmmssfff") + Path.GetExtension(file.FileName);
+            }
+            else
+            {
+                var originalFileName = Path.GetFileName(file.FileName);
+                fileName = FileExplorer.CalculateFinalName(folder, FileExplorer.ApplySecurityFilterToFileName(originalFileName));
+            }
+            
             var virtualPath = UrlUtil.Combine(folder, fileName);
 
             file.SaveAs(context.Server.MapPath(virtualPath));

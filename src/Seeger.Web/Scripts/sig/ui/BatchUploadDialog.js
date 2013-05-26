@@ -66,7 +66,13 @@
         }
 
         this.open = function () {
-            _dialog.html('<div class="batch-upload-dialog-body"><input type="file" id="' + _uploaderId + '" /></div>');
+            _dialog.html('<div class="batch-upload-dialog-body" style="position:relative">'
+                            + '<input type="file" id="' + _uploaderId + '" />'
+                            + '<div style="position:absolute;right:0;top:10px">'
+                                + '<input class="auto-rename-checkbox" checked="checked" style="vertical-align:middle;display:inline-block" type="checkbox" id="' + _uploaderId + '-' + 'auto-rename" /> '
+                                + '<label style="vertical-align:middle;display:inline-block" for="' + _uploaderId + '-' + 'auto-rename">' + sig.Resources.get('Auto rename file') + '</label>'
+                            + '</div>'
+                       + '</div>');
             _dialog.open();
 
             var options = $.extend(true, {}, _options.uploadifyOptions);
@@ -79,11 +85,25 @@
             _$uploadify = _dialog.find('#' + _uploaderId).uploadify(options);
         }
 
+        this.autoRename = function (value) {
+            if (arguments.length === 0) {
+                return _dialog.find('.auto-rename-checkbox').is(':checked');
+            }
+
+            if (value) {
+                _dialog.find('.auto-rename-checkbox').attr('checked', 'checked');
+            } else {
+                _dialog.find('.auto-rename-checkbox').removeAttr('checked');
+            }
+        }
+
         this.startUpload = function () {
             _uploadContext = {
                 files: [],
                 errors: []
             };
+
+            _$uploadify.uploadify('settings', 'formData', { autoRename: _this.autoRename() });
             _$uploadify.uploadify('upload', '*');
         }
 

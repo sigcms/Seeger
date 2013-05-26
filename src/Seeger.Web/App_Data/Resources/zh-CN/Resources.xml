@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization>
   <item key="Add" value="添加" />
+  <item key="Auto rename file" value="自动重命名" />
   <item key="Back" value="返回" />
   <item key="Back to parent folder" value="返回父文件夹" />
   <item key="Cancel" value="取消" />
