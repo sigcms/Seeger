@@ -31,6 +31,7 @@
                     <asp:Literal runat="server" ID="PoweredBy" />
                     &nbsp;
                     <asp:Literal runat="server" ID="MiiBeiAnNumber" />
+                    <asp:PlaceHolder runat="server" ID="AnalyticsCodeHolder" />
                 </div>
             </div>
         </div>

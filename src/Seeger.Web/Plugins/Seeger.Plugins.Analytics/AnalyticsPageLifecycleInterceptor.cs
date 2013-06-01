@@ -21,7 +21,15 @@ namespace Seeger.Plugins.Analytics
 
             if (page.Form != null)
             {
-                page.Form.Controls.Add(new LiteralControl
+                // find possible holder
+                var holder = page.Form.FindControl("AnalyticsCodeHolder");
+
+                if (holder == null)
+                {
+                    holder = page.Form;
+                }
+
+                holder.Controls.Add(new LiteralControl
                 {
                     Text = analyticsCode
                 });
