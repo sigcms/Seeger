@@ -9,7 +9,14 @@ namespace Seeger.Web.UI
     {
         protected override void RenderChildren(System.Web.UI.HtmlTextWriter writer)
         {
-            writer.Write("<div class=\"sig-default-widget\"><span class='sig-widget-name'>" + Widget.DisplayName.Localize() + "</span></div>");
+            var culture = PageCulture;
+
+            if (IsInDesignMode)
+            {
+                culture = AdminSession.Current.UICulture;
+            }
+
+            writer.Write("<div class=\"sig-default-widget\"><span class='sig-widget-name'>" + Widget.DisplayName.Localize(culture) + "</span></div>");
         }
     }
 }

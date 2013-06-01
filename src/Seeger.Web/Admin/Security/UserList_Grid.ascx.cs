@@ -31,5 +31,17 @@ namespace Seeger.Web.UI.Admin.Security
         {
             return AdminSession.Current.User.HasPermission(null, group, permission);
         }
+
+        protected void List_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.IsDataItem())
+            {
+                var user = (User)e.Item.DataItem;
+                if (user.Id == AdminSession.Current.User.Id)
+                {
+                    e.Item.FindControl("DeleteHolder").Visible = false;
+                }
+            }
+        }
     }
 }

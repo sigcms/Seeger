@@ -29,6 +29,15 @@ namespace Seeger.Web.UI
             get { return AdminSession.Current; }
         }
 
+        protected override void InitializeCulture()
+        {
+            base.InitializeCulture();
+
+            var cutlure = AdminSession.UICulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = cutlure;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cutlure;
+        }
+
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
@@ -82,17 +91,17 @@ namespace Seeger.Web.UI
                 descriptor.WidgetName = localizer.WidgetName;
             }
 
-            Title = descriptor.Localize(CultureInfo.CurrentUICulture);
+            Title = descriptor.Localize(AdminSession.UICulture);
         }
 
         protected virtual IEnumerable<string> GetCssFilePaths()
         {
-            return AdminSession.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture);
+            return AdminSession.Skin.GetCssFileVirtualPaths(AdminSession.UICulture);
         }
 
         protected virtual string T(string key)
         {
-            return T(key, CultureInfo.CurrentUICulture);
+            return T(key, AdminSession.UICulture);
         }
 
         protected virtual string T(string key, CultureInfo culture)

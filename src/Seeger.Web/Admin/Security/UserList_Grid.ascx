@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <asp:Repeater runat="server" ID="List">
+        <asp:Repeater runat="server" ID="List" OnItemDataBound="List_ItemDataBound">
             <ItemTemplate>
                 <tr class="data-item">
                     <td><%# Eval("UserName") %></td>
@@ -30,11 +30,11 @@
                         <a href="UserEdit.aspx?id=<%# Eval("Id") %>"><%= T("Common.Edit") %></a>
                     </td>
                     <% } %>
-                    <% if (HasPermission("UserMgnt", "Delete")) { %>
                     <td style="text-align:center">
-                        <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Common.Delete") %></a>
+                        <asp:PlaceHolder runat="server" ID="DeleteHolder">
+                            <a href="#" class="grid-action" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Common.Delete") %></a>
+                        </asp:PlaceHolder>
                     </td>
-                    <% } %>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>

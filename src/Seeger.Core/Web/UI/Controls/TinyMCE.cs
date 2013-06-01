@@ -21,12 +21,9 @@ namespace Seeger.Web.UI
 
         private void AddDefaultSettings()
         {
-            string culture = CultureInfo.CurrentUICulture.Name;
-
             _settings = new NameValueCollection();
             _settings["script_url"] = "/Scripts/tiny_mce/tiny_mce.js";
             _settings["theme"] = "advanced";
-            _settings["language"] = culture;
             _settings["plugins"] = "pagebreak,sigimage,sigdownload,contextmenu,paste,fullscreen,xhtmlxtras";
             _settings["theme_advanced_buttons1"] = "code,fullscreen,|,bold,italic,underline,strikethrough,sub,sup,forecolor,backcolor,|,link,unlink,sigimage,sigdownload,|,justifyleft,justifycenter,justifyright,justifyfull,fontselect,fontsizeselect,formatselect";
             _settings["theme_advanced_buttons2"] = String.Empty;
@@ -38,14 +35,30 @@ namespace Seeger.Web.UI
             _settings["theme_advanced_statusbar_location"] = "bottom";
             _settings["theme_advanced_resizing"] = "true";
 
+            _settings["relative_urls"] = "false";
+            _settings["convert_urls"] = "true";
+
+            var adminSession = AdminSession.Current;
+            if (adminSession != null)
+            {
+                AddCultureSensitiveDefaultSettings(adminSession.UICulture.Name);
+            }
+            else
+            {
+                AddCultureSensitiveDefaultSettings(CultureInfo.CurrentUICulture.Name);
+            }
+        }
+
+        private void AddCultureSensitiveDefaultSettings(string culture)
+        {
+            _settings["language"] = culture;
+            
             var fontSetting = CmsConfiguration.Instance.TinyMceFonts.Find(culture);
             if (fontSetting != null)
             {
                 _settings["theme_advanced_fonts"] = fontSetting.Fonts;
             }
-
-            _settings["relative_urls"] = "false";
-            _settings["convert_urls"] = "true";
+            
             _settings["content_css"] = "/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "content.css" : "content." + culture + ".css");
             _settings["popup_css"] = "/Scripts/tiny_mce/themes/advanced/skins/default/" + (culture == "en-US" ? "dialog.css" : "dialog." + culture + ".css");
         }

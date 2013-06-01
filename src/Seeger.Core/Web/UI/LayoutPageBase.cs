@@ -182,9 +182,9 @@ namespace Seeger.Web.UI
         {
             this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css"));
 
-            if (AdminSession.Skin.ContainsFile("page-designer.css", CultureInfo.CurrentUICulture))
+            if (AdminSession.Skin.ContainsFile("page-designer.css", AdminSession.UICulture))
             {
-                this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css", CultureInfo.CurrentUICulture));
+                this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css", AdminSession.UICulture));
             }
 
             Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery.min.js" });
@@ -212,7 +212,7 @@ namespace Seeger.Web.UI
         {
             if (PageItem.Skin != null)
             {
-                foreach (var path in PageItem.Skin.GetCssFileVirtualPaths(CultureInfo.CurrentUICulture))
+                foreach (var path in PageItem.Skin.GetCssFileVirtualPaths(PageCulture))
                 {
                     this.IncludeCssFile(path);
                 }
