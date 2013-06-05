@@ -61,7 +61,10 @@ namespace Seeger.Web.UI.Admin._System
             }
             finally
             {
-                IOUtil.EnsureFileDeleted(tempBackupPath);
+                if (!String.IsNullOrEmpty(tempBackupPath))
+                {
+                    IOUtil.EnsureFileDeleted(tempBackupPath);
+                }
             }
         }
 

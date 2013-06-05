@@ -28,13 +28,13 @@ namespace Seeger.Utils
             }
         }
 
-        public static void EnsureFileDeleted(string filename)
+        public static void EnsureFileDeleted(string path)
         {
-            Require.NotNullOrEmpty(filename, "path");
+            Require.NotNullOrEmpty(path, "path");
 
-            if (File.Exists(filename))
+            if (File.Exists(path))
             {
-                File.Delete(filename);
+                File.Delete(path);
             }
         }
     }
