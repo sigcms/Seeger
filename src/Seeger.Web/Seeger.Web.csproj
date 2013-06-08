@@ -212,6 +212,7 @@
     <Content Include="App_Data\Resources\zh-CN\SigImage.xml" />
     <Content Include="App_Data\Resources\zh-CN\FileMgnt.xml" />
     <Content Include="App_Data\Resources\zh-CN\UrlMatchMode.xml" />
+    <Content Include="App_Themes\Classic\images\icon-addhtml.png" />
     <Content Include="App_Themes\Classic\images\icon-excel.png" />
     <Content Include="App_Themes\Classic\images\icon-flash.png" />
     <Content Include="App_Themes\Classic\images\icon-image.png" />
@@ -385,6 +386,7 @@
     <Content Include="Scripts\tiny_mce\langs\zh-CN.js" />
     <Content Include="Scripts\tiny_mce\langs\en.js" />
     <Content Include="Scripts\tiny_mce\license.txt" />
+    <Content Include="Scripts\tiny_mce\plugins\inserthtml\editor_plugin.js" />
     <Content Include="Scripts\tiny_mce\plugins\advhr\css\advhr.css" />
     <Content Include="Scripts\tiny_mce\plugins\advhr\editor_plugin.js" />
     <Content Include="Scripts\tiny_mce\plugins\advhr\editor_plugin_src.js" />

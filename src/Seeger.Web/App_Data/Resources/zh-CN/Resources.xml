@@ -15,6 +15,8 @@
   <item key="Edit" value="编辑" />
   <item key="Filename" value="文件名" />
   <item key="Filesize" value="文件大小" />
+  <item key="Insert" value="插入" />
+  <item key="Insert HTML" value="插入HTML" />
   <item key="Login failed" value="登录失败" />
   <item key="Login succeeded" value="登录成功" />
   <item key="Message" value="信息" />

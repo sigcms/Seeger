@@ -440,3 +440,8 @@ label.required
     background-image: url(images/icon-download.png);
     background-position: center center;
 }
+.defaultSkin .mceIcon.mce_inserthtml 
+{
+    background-image: url(images/icon-addhtml.png);
+    background-position: center center;
+}

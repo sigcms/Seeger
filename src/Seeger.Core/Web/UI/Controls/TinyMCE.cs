@@ -24,8 +24,8 @@ namespace Seeger.Web.UI
             _settings = new NameValueCollection();
             _settings["script_url"] = "/Scripts/tiny_mce/tiny_mce.js";
             _settings["theme"] = "advanced";
-            _settings["plugins"] = "pagebreak,sigimage,sigdownload,contextmenu,paste,fullscreen,xhtmlxtras";
-            _settings["theme_advanced_buttons1"] = "code,fullscreen,|,bold,italic,underline,strikethrough,sub,sup,forecolor,backcolor,|,link,unlink,sigimage,sigdownload,|,justifyleft,justifycenter,justifyright,justifyfull,fontselect,fontsizeselect,formatselect";
+            _settings["plugins"] = "pagebreak,sigimage,sigdownload,inserthtml,contextmenu,paste,fullscreen,xhtmlxtras";
+            _settings["theme_advanced_buttons1"] = "code,fullscreen,|,bold,italic,underline,strikethrough,sub,sup,forecolor,backcolor,|,link,unlink,inserthtml,sigimage,sigdownload,|,justifyleft,justifycenter,justifyright,justifyfull,fontselect,fontsizeselect,formatselect";
             _settings["theme_advanced_buttons2"] = String.Empty;
             _settings["theme_advanced_buttons3"] = String.Empty;
             _settings["theme_advanced_buttons4"] = String.Empty;
