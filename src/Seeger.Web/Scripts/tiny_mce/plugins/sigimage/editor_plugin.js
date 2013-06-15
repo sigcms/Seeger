@@ -1,11 +1,13 @@
 
 (function () {
-    var editor = null;
-
     var dialog = new sig.ui.SelectFileDialog({
         filter: '.jpg;.jpeg;.png;.gif',
         allowMultiSelect: true,
         onOK: function (files) {
+            var editor = dialog.tinyMCEEditor;
+            if (!editor)
+                throw new Error('TinyMCE Editor must be set first.');
+
             var dom = editor.dom;
 
             for (var i = 0, len = files.length; i < len; i++) {
@@ -21,14 +23,13 @@
     });
 
     tinymce.create('tinymce.plugins.SigImagePlugin', {
-        init: function (ed, url) {
-            editor = ed;
-
+        init: function (ed, url) {           
             // Register commands
             ed.addCommand('mceSigImage', function () {
                 // Internal image object like a flash placeholder
                 if (ed.dom.getAttrib(ed.selection.getNode(), 'class').indexOf('mceItem') != -1) return;
 
+                dialog.tinyMCEEditor = ed;
                 dialog.open();
             });
 
