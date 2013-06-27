@@ -54,11 +54,7 @@ namespace Seeger.Web.UI
         {
             get
             {
-                var page = Page as LayoutPageBase;
-                if (page == null)
-                    throw new InvalidOperationException("Widget control cannot be hosted in " + typeof(LayoutPageBase).FullName + ".");
-
-                return page;
+                return Page as LayoutPageBase;
             }
         }
 
@@ -66,6 +62,13 @@ namespace Seeger.Web.UI
         {
             get
             {
+                // TODO: Pass page culture to preview.ashx and load it here
+                // Layout page can be null when it's previewed via ajax
+                if (LayoutPage == null)
+                {
+                    return CultureInfo.CurrentUICulture;
+                }
+
                 return LayoutPage.PageCulture;
             }
         }
