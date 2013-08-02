@@ -16,7 +16,7 @@ namespace Seeger.Data
 
         private static Configuration _config;
 
-        public static readonly string ConfigurationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\nhibernate.config");
+        public static readonly string ConfigurationFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data", "nhibernate.config");
 
         public static ISessionFactory SessionFactory { get; private set; }
 
