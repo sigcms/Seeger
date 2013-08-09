@@ -168,6 +168,8 @@
     <Content Include="Admin\Urls\CustomRedirectList.aspx" />
     <Content Include="Admin\Urls\CustomRedirectList_Grid.ascx" />
     <Content Include="App_Data\AdminMenu.xml" />
+    <Content Include="App_Data\nhibernate.mssql.config" />
+    <Content Include="App_Data\nhibernate.mysql.config" />
     <None Include="App_Data\nhibernate.config" />
     <Content Include="App_Data\Resources\en-US\Common.xml" />
     <Content Include="App_Data\Resources\en-US\CustomRedirect.xml" />
@@ -673,6 +675,7 @@
     <Content Include="Templates\Default\Layouts\Front.Master" />
     <Content Include="packages.config" />
     <Content Include="NLog.config" />
+    <Content Include="App_Data\nhibernate.sqlite.config" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
