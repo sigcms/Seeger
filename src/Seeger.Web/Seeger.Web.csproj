@@ -154,6 +154,7 @@
     <Content Include="Admin\Handlers\FileUpload.ashx" />
     <Content Include="Admin\Admin.Master" />
     <Content Include="Admin\Handlers\Web.config" />
+    <Content Include="Admin\Heartbeat.ashx" />
     <None Include="App_Data\cms.config" />
     <Content Include="Admin\Settings\SiteInfoEdit.aspx" />
     <Content Include="Admin\Settings\SmtpSettingsEdit.aspx" />
@@ -361,6 +362,7 @@
     <Content Include="Scripts\knockout.js" />
     <Content Include="Scripts\knockout.mapping.js" />
     <Content Include="Scripts\sig.validator.js" />
+    <Content Include="Scripts\sig\HeartbeatService.js" />
     <Content Include="Scripts\sig\Resources.js" />
     <Content Include="Scripts\sig\ui\AjaxGrid.js" />
     <Content Include="Scripts\sig\ui\BatchUploadDialog.js" />
@@ -766,6 +768,9 @@
     </Compile>
     <Compile Include="Admin\Handlers\FileUpload.ashx.cs">
       <DependentUpon>FileUpload.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Heartbeat.ashx.cs">
+      <DependentUpon>Heartbeat.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Licensing\DomainBindingHint.ascx.cs">
       <DependentUpon>DomainBindingHint.ascx</DependentUpon>

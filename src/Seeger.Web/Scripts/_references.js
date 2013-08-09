@@ -2,6 +2,7 @@
 /// <reference path="/Scripts/underscore.js" />
 /// <reference path="/Scripts/string.format.js" />
 /// <reference path="/Scripts/sig/Resources.js" />
+/// <reference path="/Scripts/sig/Heartbeat.js" />
 /// <reference path="/Scripts/sig/WebService.js" />
 /// <reference path="/Scripts/sig/UrlUtil.js" />
 /// <reference path="/Scripts/sig/ui/Message.js" />
