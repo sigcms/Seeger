@@ -42,37 +42,39 @@ namespace Seeger.Plugins
 
             var assemblies = new List<Assembly>();
 
-            foreach (var sourceDll in sourceDirectory.GetFiles("*.dll", SearchOption.TopDirectoryOnly))
+            foreach (var sourceFile in sourceDirectory.GetFiles("*.*", SearchOption.TopDirectoryOnly))
             {
-                var targetDll = new FileInfo(Path.Combine(targetDirectoryPath, sourceDll.Name));
+                if (sourceFile.Extension != ".dll" && sourceFile.Extension != ".pdb") continue;
 
-                if (File.Exists(Path.Combine(RootBinDirectoryPath, targetDll.Name)))
-                {
-                    continue;
-                }
+                var targetFile = new FileInfo(Path.Combine(targetDirectoryPath, sourceFile.Name));
 
-                if (!targetDll.Exists | targetDll.LastWriteTimeUtc != sourceDll.LastWriteTimeUtc)
+                if (File.Exists(Path.Combine(RootBinDirectoryPath, targetFile.Name))) continue;
+
+                if (!targetFile.Exists | targetFile.LastWriteTimeUtc != sourceFile.LastWriteTimeUtc)
                 {
-                    _log.Debug(UserReference.System(), "Copying assembly file to probing folder. Assembly file name: " + sourceDll.Name);
+                    _log.Debug(UserReference.System(), "Copying file to probing folder. Assembly file name: " + sourceFile.Name);
 
                     try
                     {
-                        File.Copy(sourceDll.FullName, targetDll.FullName, true);
+                        File.Copy(sourceFile.FullName, targetFile.FullName, true);
                     }
                     catch (IOException ex)
                     {
-                        _log.DebugException(UserReference.System(), ex, "Directly copy assembly file failed. Tring rename the existing assembly file to xxx.dll.old.");
+                        _log.DebugException(UserReference.System(), ex, "Directly copy file failed. Tring rename the existing file to " + sourceFile.Name + ".old.");
 
-                        var oldFile = targetDll.FullName + ".old";
-                        File.Move(targetDll.FullName, oldFile);
-                        File.Copy(sourceDll.FullName, targetDll.FullName, true);
+                        var oldFile = targetFile.FullName + ".old";
+                        File.Move(targetFile.FullName, oldFile);
+                        File.Copy(sourceFile.FullName, targetFile.FullName, true);
                     }
                 }
 
-                var asm = Assembly.Load(AssemblyName.GetAssemblyName(targetDll.FullName));
-                BuildManager.AddReferencedAssembly(asm);
+                if (sourceFile.Extension == ".dll")
+                {
+                    var asm = Assembly.Load(AssemblyName.GetAssemblyName(targetFile.FullName));
+                    BuildManager.AddReferencedAssembly(asm);
 
-                assemblies.Add(asm);
+                    assemblies.Add(asm);
+                }
             }
 
             return assemblies;
