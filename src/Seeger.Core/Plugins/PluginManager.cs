@@ -116,15 +116,15 @@ namespace Seeger.Plugins
             {
                 var pluginImpl = (IPlugin)Activator.CreateInstance(plugin.PluginType);
                 pluginImpl.OnStartup(new PluginLifecycleContext(plugin));
-
-                if (reinitNhSessionManager && NhMappingProviders.HasMappingProvider(plugin.Name))
-                {
-                    Database.Initialize();
-                }
-
-                if (PluginStartedup != null)
-                    PluginStartedup(null, EventArgs.Empty);
             }
+
+            if (reinitNhSessionManager && NhMappingProviders.HasMappingProvider(plugin.Name))
+            {
+                Database.Initialize();
+            }
+
+            if (PluginStartedup != null)
+                PluginStartedup(null, EventArgs.Empty);
         }
 
         public static void Enable(string pluginName)

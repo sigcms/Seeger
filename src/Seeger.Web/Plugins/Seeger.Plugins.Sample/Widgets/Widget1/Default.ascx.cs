@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NHibernate.Linq;
+using Seeger.Plugins.Sample.Domain;
 
 namespace Seeger.Plugins.Sample.Widgets.Widget1
 {

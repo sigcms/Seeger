@@ -59,6 +59,9 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Mapping\BlogPostMap.cs" />
+    <Compile Include="Data\NhMappingProvider.cs" />
+    <Compile Include="Domain\BlogPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widgets\Widget1\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
@@ -69,6 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="database\setup.sql" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
