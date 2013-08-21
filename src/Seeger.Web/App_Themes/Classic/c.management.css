@@ -121,6 +121,10 @@
         text-align: center;
     }
 
+.field-validation-error {
+    color: red;
+}
+
 label.required
 {
     color: Red;

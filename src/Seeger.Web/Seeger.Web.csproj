@@ -355,6 +355,9 @@
     <Content Include="Scripts\collections\LinkedList.js" />
     <Content Include="Scripts\collections\Stack.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.ext.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.min.js" />
     <Content Include="Scripts\jquery\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.querystring.js" />
