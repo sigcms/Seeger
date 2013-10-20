@@ -82,9 +82,10 @@
     <Compile Include="Data\INhMappingProvider.cs" />
     <Compile Include="Data\IQueryFilter.cs" />
     <Compile Include="Data\Mapping\ByCodeMappingLoader.cs" />
-    <Compile Include="Data\Mapping\Extensions\IClassAttributesMapperExtensions.cs" />
+    <Compile Include="Data\Mapping\Extensions\IdMapperExtensions.cs" />
     <Compile Include="Data\Mapping\CustomRedirectMap.cs" />
     <Compile Include="Data\Mapping\EntityPropertyLocalizationMap.cs" />
+    <Compile Include="Data\Mapping\Extensions\IdMappings.cs" />
     <Compile Include="Data\Mapping\FrontendLanguageMap.cs" />
     <Compile Include="Data\Mapping\GlobalSettingMap.cs" />
     <Compile Include="Data\Mapping\LogEntryMap.cs" />

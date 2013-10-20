@@ -7,7 +7,7 @@ using NHibernate.Mapping.ByCode;
 
 namespace Seeger.Data.Mapping
 {
-    public static class IClassAttributesMapperExtensions
+    public static class IdMapperExtensions
     {
         public static void HighLowId<TEntity, TProperty>(this IClassAttributesMapper<TEntity> mapper,
             Expression<Func<TEntity, TProperty>> idProperty,
@@ -33,10 +33,7 @@ namespace Seeger.Data.Mapping
             int maxLowValue)
             where TEntity : class
         {
-            mapper.Id(idProperty, m =>
-            {
-                MapHiLoId(m, entityTableName, hiValueTableName, nextValueColumnName, maxLowValue);
-            });
+            mapper.Id(idProperty, IdMappings.HighLowId(entityTableName, hiValueTableName, nextValueColumnName, maxLowValue));
         }
 
         public static void HighLowId<TEntity>(this IClassAttributesMapper<TEntity> mapper,
@@ -47,29 +44,20 @@ namespace Seeger.Data.Mapping
             int maxLowValue)
             where TEntity : class
         {
-            mapper.Id(idProperty, m =>
-            {
-                MapHiLoId(m, entityTableName, hiValueTableName, nextValueColumnName, maxLowValue);
-            });
+            mapper.Id(idProperty, IdMappings.HighLowId(entityTableName, hiValueTableName, nextValueColumnName, maxLowValue));
         }
 
-        private static void MapHiLoId(
-            IIdMapper mapper,
-            string entityTableName,
-            string hiValueTableName,
-            string nextValueColumnName,
-            int maxLowValue)
+        public static void HighLowId<TEntity, TElement>(this IIdBagPropertiesMapper<TEntity, TElement> mapper, string table)
+            where TEntity : class
         {
-            mapper.Generator(Generators.HighLow, g =>
-            {
-                g.Params(new
-                {
-                    table = hiValueTableName,
-                    column = nextValueColumnName,
-                    max_lo = maxLowValue,
-                    where = "TableName = '" + entityTableName + "'"
-                });
-            });
+            mapper.HighLowId(table, "cms_HiValue", "NextValue", 10);
+        }
+
+        public static void HighLowId<TEntity, TElement>(this IIdBagPropertiesMapper<TEntity, TElement> mapper, string table, string hiValueTable, string nextValueColumn, int maxLow)
+            where TEntity : class
+        {
+            mapper.Table(table);
+            mapper.Id(IdMappings.CollectionHighLowId(table, hiValueTable, nextValueColumn, maxLow));
         }
     }
 }
