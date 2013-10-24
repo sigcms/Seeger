@@ -21,39 +21,47 @@ namespace Seeger.Plugins.RichText
         {
             var session = Database.GetCurrentSession();
 
-            if (e.StateItem.State == WidgetState.Removed)
+            if (e.LocatedWidgetViewModel.State == WidgetState.Removed)
             {
-                session.Delete(session.Get<TextContent>(e.WidgetInPage.Attributes.GetValue<int>("contentId")));
+                session.Delete(session.Get<TextContent>(e.LocatedWidget.Attributes.GetValue<int>("contentId")));
             }
             else
             {
-                var data = e.StateItem.CustomData as IDictionary<string, object>;
+                var data = e.LocatedWidgetViewModel.CustomData;
 
-                if (data != null && data.Count > 0)
+                if (data != null)
                 {
                     TextContent content = null;
 
-                    if (e.StateItem.State == WidgetState.Changed)
+                    var name = data.Value<string>("name") ?? String.Empty;
+                    var body = data.Value<string>("content") ?? String.Empty;
+                    var isContentChanged = data.Value<bool>("isContentChanged");
+
+                    if (e.LocatedWidgetViewModel.State == WidgetState.Changed)
                     {
-                        content = session.Get<TextContent>(Convert.ToInt32(data["contentId"]));
-                        content.Name = data["name"].AsString();
+                        var contentId = e.LocatedWidget.Attributes.GetValue<int>("ContentId");
+                        content = session.Get<TextContent>(contentId);
+                        content.Name = name;
                     }
                     else
                     {
                         content = new TextContent();
-                        content.Name = data["name"].AsString();
+                        content.Name = name;
                         session.Save(content);
 
-                        e.WidgetInPage.Attributes.Add("ContentId", content.Id);
+                        e.LocatedWidget.Attributes.Add("ContentId", content.Id);
                     }
 
-                    if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
+                    if (isContentChanged)
                     {
-                        content.SetLocalized(c => c.Content, data["content"].AsString(), e.DesignerCulture);
-                    }
-                    else
-                    {
-                        content.Content = data["content"].AsString();
+                        if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
+                        {
+                            content.SetLocalized(c => c.Content, body, e.DesignerCulture);
+                        }
+                        else
+                        {
+                            content.Content = body;
+                        }
                     }
                 }
             }

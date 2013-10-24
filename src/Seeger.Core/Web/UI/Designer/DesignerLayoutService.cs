@@ -6,6 +6,7 @@ using System.Globalization;
 
 using Seeger.Data;
 using Seeger.Plugins.Widgets;
+using Seeger.Plugins;
 
 namespace Seeger.Web.UI
 {
@@ -13,83 +14,86 @@ namespace Seeger.Web.UI
     {
         public PageItem CurrentPage { get; private set; }
         public CultureInfo DesignerCulture { get; private set; }
-        public IEnumerable<WidgetStateItem> StateItems { get; private set; }
+        public IEnumerable<LocatedWidgetViewModel> Widgets { get; private set; }
 
-        public DesignerLayoutService(PageItem currentPage, CultureInfo designerCulture, IEnumerable<WidgetStateItem> stateItems)
+        public DesignerLayoutService(PageItem currentPage, CultureInfo designerCulture, IEnumerable<LocatedWidgetViewModel> widgets)
         {
             Require.NotNull(currentPage, "currentPage");
             Require.NotNull(designerCulture, "designerCulture");
-            Require.NotNull(stateItems, "stateItems");
+            Require.NotNull(widgets, "widgets");
 
             this.CurrentPage = currentPage;
             this.DesignerCulture = designerCulture;
-            this.StateItems = new List<WidgetStateItem>(stateItems);
+            this.Widgets = new List<LocatedWidgetViewModel>(widgets);
         }
 
         public void SaveLayoutChanges()
         {
             CurrentPage.ModifiedTime = DateTime.Now;
 
-            foreach (var item in this.StateItems)
+            foreach (var item in Widgets)
             {
                 WidgetProcessEventArgs e = new WidgetProcessEventArgs
                 {
                     CurrentPage = CurrentPage,
                     DesignerCulture = DesignerCulture,
-                    StateItem = item
+                    LocatedWidgetViewModel = item
                 };
-                if (item.WidgetInPageId > 0)
+                if (item.Id > 0)
                 {
-                    e.WidgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == item.WidgetInPageId);
+                    e.LocatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == item.Id);
                 }
 
-                if (item.Widget.WidgetProcessEventListener != null)
+                var widget = PluginManager.FindEnabledPlugin(item.PluginName)
+                                          .FindWidget(item.WidgetName);
+
+                if (widget.WidgetProcessEventListener != null)
                 {
-                    item.Widget.WidgetProcessEventListener.OnProcessing(e);
+                    widget.WidgetProcessEventListener.OnProcessing(e);
                 }
 
-                e.WidgetInPage = ProcessStateItem(item, item.Widget);
+                e.LocatedWidget = ProcessStateItem(item, widget);
 
-                if (item.Widget.WidgetProcessEventListener != null)
+                if (widget.WidgetProcessEventListener != null)
                 {
-                    item.Widget.WidgetProcessEventListener.OnProcessed(e);
+                    widget.WidgetProcessEventListener.OnProcessed(e);
                 }
             }
 
             Database.GetCurrentSession().Commit();
         }
 
-        private LocatedWidget ProcessStateItem(WidgetStateItem stateItem, WidgetDefinition widget)
+        private LocatedWidget ProcessStateItem(LocatedWidgetViewModel locatedWidgetModel, WidgetDefinition widget)
         {
-            var block = CurrentPage.Layout.FindZone(stateItem.NewZoneName);
+            var block = CurrentPage.Layout.FindZone(locatedWidgetModel.ZoneName);
 
-            LocatedWidget widgetInPage = null;
+            LocatedWidget locatedWidget = null;
 
-            if (stateItem.State == WidgetState.Added)
+            if (locatedWidgetModel.State == WidgetState.Added)
             {
-                widgetInPage = CurrentPage.AddWidgetToZone(block, widget, stateItem.NewOrder);
+                locatedWidget = CurrentPage.AddWidgetToZone(block, widget, locatedWidgetModel.Order);
             }
-            else if (stateItem.State == WidgetState.Removed)
+            else if (locatedWidgetModel.State == WidgetState.Removed)
             {
-                widgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
-                CurrentPage.LocatedWidgets.Remove(widgetInPage);
+                locatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == locatedWidgetModel.Id);
+                CurrentPage.LocatedWidgets.Remove(locatedWidget);
             }
-            else if (stateItem.State == WidgetState.Changed)
+            else if (locatedWidgetModel.State == WidgetState.Changed)
             {
-                widgetInPage = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == stateItem.WidgetInPageId);
-                widgetInPage.ZoneName = block.Name;
-                widgetInPage.Order = stateItem.NewOrder;
+                locatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == locatedWidgetModel.Id);
+                locatedWidget.ZoneName = block.Name;
+                locatedWidget.Order = locatedWidgetModel.Order;
             }
 
-            if (stateItem.State != WidgetState.Removed)
+            if (locatedWidgetModel.State != WidgetState.Removed)
             {
-                foreach (var attr in stateItem.Attributes)
+                foreach (var attr in locatedWidgetModel.Attributes)
                 {
-                    widgetInPage.Attributes.AddOrSet(attr.Key, attr.Value);
+                    locatedWidget.Attributes.AddOrSet(attr.Key, attr.Value);
                 }
             }
 
-            return widgetInPage;
+            return locatedWidget;
         }
     }
 }

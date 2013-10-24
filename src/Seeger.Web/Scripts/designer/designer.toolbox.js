@@ -146,6 +146,7 @@
                     widget.openEditor(zone, false);
                 } else {
                     zone.addWidget(widget);
+                    widget.markAdded();
                     widget.resizeOverlay();
                 }
             });

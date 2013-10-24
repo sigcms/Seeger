@@ -258,7 +258,6 @@
     <Compile Include="Security\PermissionGroup.cs" />
     <Compile Include="Security\PermissionGroupCollection.cs" />
     <Compile Include="Data\Database.cs" />
-    <Compile Include="EntityAttribute.cs" />
     <Compile Include="EntityAttributeCollection.cs" />
     <Compile Include="Data\EntityAttributeCollectionUserType.cs" />
     <Compile Include="FrontendLanguage.cs" />
@@ -298,7 +297,7 @@
     </Compile>
     <Compile Include="Web\UI\Designer\DesignerLayoutService.cs" />
     <Compile Include="Web\UI\Designer\WidgetState.cs" />
-    <Compile Include="Web\UI\Designer\WidgetStateItem.cs" />
+    <Compile Include="Web\UI\Designer\LocatedWidgetViewModel.cs" />
     <Compile Include="Web\UI\IPrivateResource.cs" />
     <Compile Include="Web\UI\IWidgetProcessEventListener.cs" />
     <Compile Include="Web\UI\LayoutPageBase.cs">

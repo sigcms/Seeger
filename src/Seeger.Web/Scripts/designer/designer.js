@@ -6,7 +6,6 @@
         var _toolbox = null;
         var _context = null;
         var _commandManager = new Sig.CommandManager();
-        var _stateManager = new Sig.WidgetStateManager();
 
         this.init = function ($container) {
             //Sig.Logger.debug("Initializing Sig.Designer...");
@@ -45,20 +44,24 @@
         this.get_toolbox = function () { return _toolbox; }
         this.get_context = function () { return _context; }
 
-        // Widget State Manager
-        this.get_stateManager = function () { return _stateManager; }
+        this.get_hasChanged = function () {
+            var dirty = false;
 
-        this.get_hasChanged = function () { return _stateManager.get_isDirty(); }
+            _zones.traverse(function (n, zone) {
+                if (zone.isDirty()) {
+                    dirty = true;
+                }
+            });
+
+            return dirty;
+        }
 
         // Commands
         this.saveChanges = function (options) {
 
             if (!_this.get_hasChanged()) return;
 
-            // alert(_stateManager.serialize());
-            // return;
-
-            Sig.DesignerService.saveLayout(_context.get_pageId(), _context.get_culture(), _stateManager, function (result) {
+            Sig.DesignerService.saveLayout(_context.get_pageId(), _context.get_culture(), function (result) {
                 result = eval("(" + result + ")");
                 if (!result.Success) {
                     if (options.error) {

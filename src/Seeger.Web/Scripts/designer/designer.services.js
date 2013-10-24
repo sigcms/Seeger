@@ -23,11 +23,20 @@
                 }
             });
         },
-        saveLayout: function (pageId, culture, stateManager, completeCallback) {
-            var states = stateManager.serialize();
-            Sig.Logger.debug(states);
+        saveLayout: function (pageId, culture, completeCallback) {
+            var designer = Sig.Designer.get_current();
+            var widgets = [];
 
-            var context = Sig.Designer.get_current().get_context();
+            designer.get_zones().traverse(function (n, zone) {
+                zone.get_widgets().each(function (w) {
+                    if (w.isDirty()) {
+                        widgets.push(w.model());
+                    }
+                });
+                $.each(zone.removedWidgets(), function () {
+                    widgets.push(this.model());
+                });
+            });
 
             $.ajax({
                 url: '/Admin/Designer/SaveChanges.ashx',
@@ -36,7 +45,7 @@
                 data: {
                     pageId: pageId,
                     culture: culture,
-                    states: states
+                    widgets: JSON.stringify(widgets)
                 },
                 success: function (data, textStatus, XMLHttpRequest) {
                     completeCallback(data);

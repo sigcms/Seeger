@@ -5,6 +5,7 @@ using System.Web;
 using System.Globalization;
 
 using Seeger.Data;
+using Newtonsoft.Json;
 
 namespace Seeger.Web.UI.Admin.Designer
 {
@@ -16,7 +17,6 @@ namespace Seeger.Web.UI.Admin.Designer
 
             int pageId = Convert.ToInt32(context.Request.Form["pageId"]);
             string culture = context.Request.Form["culture"];
-            string states = context.Request.Form["states"];
 
             try
             {
@@ -25,9 +25,9 @@ namespace Seeger.Web.UI.Admin.Designer
                 if (page == null)
                     throw new ArgumentException(String.Format("Page was not found. Page ID: {0}.", pageId));
 
-                var stateItems = WidgetStateItem.Parse(states);
+                var widgets = JsonConvert.DeserializeObject<IList<LocatedWidgetViewModel>>(context.Request.Form["widgets"]);
 
-                var service = new DesignerLayoutService(page, CultureInfo.GetCultureInfo(culture), stateItems);
+                var service = new DesignerLayoutService(page, CultureInfo.GetCultureInfo(culture), widgets);
                 service.SaveLayoutChanges();
 
                 context.Response.Write(OperationResult.CreateSuccessResult().ToJson());

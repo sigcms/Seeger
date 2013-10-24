@@ -12,8 +12,9 @@
 <sig:ScriptReference runat="server" Path="/Scripts/collections/Base.js" />
 <sig:ScriptReference runat="server" Path="/Scripts/collections/LinkedList.js" />
 
+<sig:ScriptReference runat="server" Path="/Scripts/sig.core.js" />
+
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.common.js" />
-<sig:ScriptReference runat="server" Path="/Scripts/designer/designer.states.js" />
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.logger.js" />
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.toolbox.js" />
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.commands.js" />

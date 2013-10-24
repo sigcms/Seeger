@@ -1,21 +1,30 @@
 ﻿var Editor = {
     init: function () {
-        if (!editorContext.get_isEditing()) return;
+        var widget = editorContext.widget();
 
-        var customData = editorContext.get_stateItem().get_customData();
+        if (widget.customData.content !== null && widget.customData.content !== undefined) {
+            $('#' + tinyEditorId).val(widget.customData.content);
+        } else {
+            var contentId = widget.attribute('ContentId');
 
-        if (customData == undefined || customData.notFirstLoad == undefined) return;
-
-        contentId = customData.contentId;
-        $("#" + domId_Content).val(customData.content);
+            if (contentId) {
+                PageMethods.LoadContent(contentId, editorContext.culture(), function (html) {
+                    $('#' + tinyEditorId).val(html);
+                    widget.customData.content = html;
+                    widget.customData.isContentChanged = false;
+                });
+            }
+        }
     },
 
     submit: function () {
-        var content = tinyMCE.get(domId_Content).getContent();
+        var content = tinyMCE.get(tinyEditorId).getContent();
+        var widget = editorContext.widget();
+        widget.customData.isContentChanged = true;
+        widget.customData.content = content;
+        widget.markDirty();
 
-        editorContext.get_stateItem().set_customData({ notFirstLoad: true, contentId: contentId, name: '', content: content });
-
-        Editor.updateDesigner(editorContext.get_widget().get_$element(), content);
+        Editor.updateDesigner(widget.$element(), content);
         editorContext.accept();
     },
 

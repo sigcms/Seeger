@@ -6,9 +6,9 @@ using System.Xml.Linq;
 
 namespace Seeger
 {
-    public class EntityAttributeCollection : IEnumerable<EntityAttribute>
+    public class EntityAttributeCollection : IEnumerable<KeyValuePair<string, string>>
     {
-        private Dictionary<string, EntityAttribute> _innerDic = new Dictionary<string, EntityAttribute>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _innerDic = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         private XElement _xml;
 
         public XElement XmlData
@@ -100,7 +100,7 @@ namespace Seeger
             {
                 return null;
             }
-            return _innerDic[key].Value;
+            return _innerDic[key];
         }
 
         public virtual void Add(string key, object value)
@@ -109,12 +109,13 @@ namespace Seeger
             Require.NotNull(value, "value");
             Require.That(!ContainsKey(key), "Key '" + key + "' already exists.");
 
-            var attr = new EntityAttribute(key, value.AsString());
-            _innerDic.Add(key, attr);
-            _xml.Add(CreateAttributeElement(attr.Key, attr.Value));
+            var strValue = value.AsString();
+
+            _innerDic.Add(key, strValue);
+            _xml.Add(CreateAttributeElement(key, strValue));
         }
 
-        public virtual void AddRange(IEnumerable<EntityAttribute> attributes)
+        public virtual void AddRange(IEnumerable<KeyValuePair<string, string>> attributes)
         {
             Require.NotNull(attributes, "attributes");
 
@@ -130,8 +131,10 @@ namespace Seeger
             Require.NotNull(newValue, "newValue");
             Require.That(ContainsKey(key), "Key '" + key + "' was not found.");
 
-            _innerDic[key].Value = newValue.AsString();
-            FindAttributeElement(key).Attribute("value").Value = newValue.AsString();
+            var strNewValue = newValue.AsString();
+
+            _innerDic[key] = strNewValue;
+            FindAttributeElement(key).Attribute("value").Value = strNewValue;
         }
 
         public void AddOrSet(string key, object value)
@@ -158,20 +161,25 @@ namespace Seeger
             return false;
         }
 
+        public Dictionary<string, string> ToDictionary()
+        {
+            return new Dictionary<string, string>(_innerDic);
+        }
+
         private void UpdateFrom(XElement xml)
         {
             foreach (var element in xml.Elements())
             {
-                var entityAttr = Parse(element);
-                _innerDic.Add(entityAttr.Key, entityAttr);
+                var kv = Parse(element);
+                _innerDic.Add(kv.Key, kv.Value);
                 _xml.Add(new XElement(element));
             }
         }
 
-        private EntityAttribute Parse(XElement xml)
+        private KeyValuePair<string, string> Parse(XElement xml)
         {
             var value = xml.Attribute("value").Value;
-            return new EntityAttribute(xml.Attribute("key").Value, value);
+            return new KeyValuePair<string, string>(xml.Attribute("key").Value, value);
         }
 
         private void Verify(XElement xml)
@@ -210,9 +218,9 @@ namespace Seeger
             return _xml.Elements().FirstOrDefault(it => it.Attribute("key").Value == key);
         }
 
-        public IEnumerator<EntityAttribute> GetEnumerator()
+        public IEnumerator<KeyValuePair<string, string>> GetEnumerator()
         {
-            return _innerDic.Values.GetEnumerator();
+            return _innerDic.GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

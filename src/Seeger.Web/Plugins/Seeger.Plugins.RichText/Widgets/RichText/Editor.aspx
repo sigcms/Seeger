@@ -11,6 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <asp:ScriptManager runat="server" EnablePageMethods="true" />
     <div class="mgnt" style="padding:0">
         <table class="formtable">
         <tr>
@@ -28,8 +29,7 @@
     </div>
     
     <script type="text/javascript">
-        var contentId = '<%= ContentId %>';
-        var domId_Content = '<%= Content.ClientID %>';
+        var tinyEditorId = '<%= Content.ClientID %>';
 
         window.aspNetAuth = '<%= Request.GetAuthCookieValue() %>';
     </script>

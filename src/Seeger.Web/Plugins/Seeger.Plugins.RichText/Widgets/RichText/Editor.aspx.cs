@@ -1,9 +1,13 @@
-﻿using Seeger.Plugins.RichText.Domain;
+﻿using Seeger.Data;
+using Seeger.Plugins.RichText.Domain;
 using Seeger.Web.UI;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -11,49 +15,23 @@ namespace Seeger.Plugins.RichText.Widgets.RichText
 {
     public partial class Editor : WidgetEditorBase
     {
-        private TextContent _htmlContent;
-        protected TextContent HtmlContent
-        {
-            get
-            {
-                if (_htmlContent == null)
-                {
-                    if (CurrentWidgetPersisted)
-                    {
-                        _htmlContent = NhSession.Get<TextContent>(WidgetInPage.Attributes.GetValue<int>("ContentId"));
-                    }
-                    else
-                    {
-                        _htmlContent = new TextContent();
-                    }
-                }
-                return _htmlContent;
-            }
-        }
-
-        protected int ContentId
-        {
-            get { return HtmlContent.Id; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BindForm();
-            }
         }
 
-        private void BindForm()
+        [WebMethod, ScriptMethod]
+        public static string LoadContent(int id, string culture)
         {
-            if (FrontendSettings.Multilingual)
+            var db = Database.GetCurrentSession();
+            var content = db.Get<TextContent>(id);
+            var contentBody = content.Content;
+
+            if (!String.IsNullOrEmpty(culture))
             {
-                Content.Text = HtmlContent.GetLocalized(x => x.Content, PageCulture);
+                contentBody = content.GetLocalized(x => x.Content, CultureInfo.GetCultureInfo(culture));
             }
-            else
-            {
-                Content.Text = HtmlContent.Content;
-            }
+
+            return contentBody;
         }
     }
 }

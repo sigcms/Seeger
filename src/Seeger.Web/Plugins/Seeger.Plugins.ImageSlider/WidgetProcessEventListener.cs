@@ -24,9 +24,9 @@ namespace Seeger.Plugins.ImageSlider
         {
             var session = Database.GetCurrentSession();
 
-            if (e.StateItem.State == WidgetState.Removed)
+            if (e.LocatedWidgetViewModel.State == WidgetState.Removed)
             {
-                var sliderId = e.WidgetInPage.Attributes.GetValue<int>("SliderId");
+                var sliderId = e.LocatedWidget.Attributes.GetValue<int>("SliderId");
                 if (sliderId > 0)
                 {
                     session.Delete(session.Get<Slider>(sliderId));
@@ -34,7 +34,7 @@ namespace Seeger.Plugins.ImageSlider
             }
             else
             {
-                var data = e.StateItem.CustomData as IDictionary<string, object>;
+                var data = e.LocatedWidgetViewModel.CustomData as IDictionary<string, object>;
 
                 if (data == null || data.Count == 0) return;
 
@@ -100,7 +100,7 @@ namespace Seeger.Plugins.ImageSlider
                     }
                 }
 
-                e.WidgetInPage.Attributes.AddOrSet("SliderId", slider.Id);
+                e.LocatedWidget.Attributes.AddOrSet("SliderId", slider.Id);
             }
         }
     }

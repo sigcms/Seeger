@@ -1,12 +1,19 @@
 ﻿(function ($) {
+    var WidgetState = {
+        Unchanged: 'Unchanged',
+        Added: 'Added',
+        Removed: 'Removed',
+        Changed: 'Changed'
+    };
 
     function Widget($element) {
         /// <summary>Represents a widget in the designer.</summary>
         /// <param name='$element'>The jQuery object that represents the widget DOM.</param>
 
         // Private Fields
+        var _this = this;
         var _$element = $element;
-        var _id = 0;
+        var _id = 'new' + new Date().getTime() + Math.round(Math.random() * 1000);
         var _name = null;
         var _order = 0;
         var _pluginName = null;
@@ -17,10 +24,46 @@
         var _overlay = null;
         var _zone = null;
         var _inited = false;
-        var _this = this;
+        var _state = WidgetState.Unchanged;
+        var _attributes = {};
+
+        this.customData = {};
+
+        this.state = function () {
+            return _state;
+        }
+
+        this.markUnchanged = function () {
+            _state = WidgetState.Unchanged;
+        }
+
+        this.markAdded = function () {
+            _state = WidgetState.Added;
+        }
+
+        this.markChanged = function () {
+            _state = WidgetState.Changed;
+        }
+
+        this.markRemoved = function () {
+            _state = WidgetState.Removed;
+        }
+
+        this.isDirty = function () {
+            return _state !== WidgetState.Unchanged;
+        }
+
+        this.markDirty = function () {
+            if (_state === WidgetState.Unchanged) {
+                _this.markChanged();
+            }
+        }
 
         // Public APIs
-        this.get_$element = function () { return _$element; }
+        this.$element = function () {
+            return _$element;
+        }
+
         this.get_zone = function () { return _zone; }
         this.get_zoneName = function () {
             if (_zone == null) {
@@ -32,6 +75,7 @@
             if (value == UNDEFINED_VALUE) throw new Error("'value' cannot be undefined.");
             if (!(value instanceof Sig.Zone)) throw new Error("'value' should be of type Sig.Zone.");
             _zone = value;
+            _this.markDirty();
         }
         this.get_inited = function () { return _inited; }
         this.get_attachedToZone = function () { return _zone != null; }
@@ -51,33 +95,37 @@
             }
             _order = value;
             _$element.attr("order", value);
+            _this.markDirty();
         }
         this.get_pluginName = function () { return _pluginName; }
         this.get_templateName = function () { return _templateName; }
         this.get_editable = function () { return _editable; }
         this.get_width = function () { return _$element.outerWidth(); }
         this.get_height = function () { return _$element.outerHeight(); }
-        this.get_attributes = function () {
-            var attrs = _$element.data("attributes");
-            if (attrs == UNDEFINED_VALUE) {
-                return {};
+
+        this.attributes = function (value) {
+            if (arguments.length === 0) {
+                return _attributes;
             }
-            return attrs;
+
+            _attributes = value || {};
+            _this.markDirty();
         }
-        this.set_attributes = function (attrs) {
-            _$element.data("attributes", attrs);
-        }
-        this.getAttribute = function (key) {
-            var val = _this.get_attributes[key];
-            if (val == UNDEFINED_VALUE) return null;
-            return val;
-        }
-        this.setAttribute = function (key, value) {
-            var attrs = _this.get_attributes();
+
+        this.attribute = function (key, value) {
+            var attrs = _this.attributes();
+
+            if (arguments.length === 1) {
+                return attrs[key] || null;
+            }
+
             attrs[key] = value;
-            _this.set_attributes(attrs);
+
+            _this.markDirty();
         }
+
         this.get_isNew = function () { return _id == null || _id.indexOf("new") >= 0; }
+
         this.init = function () {
             _initOverlay();
             _initHoverEffects();
@@ -98,7 +146,8 @@
             _this.ensureInited();
             _overlay.ajustSize();
         }
-        this.getEditorUrl = function (pageId, culture, containingZone) {
+
+        this.editorUrl = function (pageId, culture, containingZone) {
             var designerContext = Sig.Designer.get_current().get_context();
 
             var cul = culture;
@@ -131,6 +180,7 @@
 
             return path + query;
         }
+
         this.openEditor = function (containingZone, editing, width, height) {
             if (editing === UNDEFINED_VALUE) {
                 editing = true;
@@ -148,7 +198,7 @@
 
             Sig.Window.open("WidgetEditorDialog", {
                 title: Sig.Messages.Edit,
-                url: _this.getEditorUrl(pageId, culture, containingZone),
+                url: _this.editorUrl(pageId, culture, containingZone),
                 width: width ? width : _editorWidth,
                 height: height ? height : _editorHeight,
                 zIndex: 30000,
@@ -156,6 +206,19 @@
                     // TODO: Do something. But note that 'close' will be call in EditorContext.accept()
                 }
             });
+        }
+
+        this.model = function () {
+            return {
+                id: _this.get_isNew() ? 0 : _this.get_id(),
+                state: _state,
+                widgetName: _this.get_name(),
+                pluginName: _this.get_pluginName(),
+                zoneName: _this.get_zoneName(),
+                order: _this.get_order(),
+                attributes: _this.attributes(),
+                customData: _this.customData
+            };
         }
 
         // Private Methods
@@ -229,7 +292,7 @@
         this.get_widget = function () { return _widget; }
         this.set_widget = function (widget) {
             _widget = widget;
-            _$element.appendTo(_widget.get_$element());
+            _$element.appendTo(_widget.$element());
             _this.ajustSize();
             _this.rebindCommands();
         }

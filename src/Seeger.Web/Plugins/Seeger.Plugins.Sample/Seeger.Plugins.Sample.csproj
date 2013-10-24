@@ -70,10 +70,18 @@
     <Compile Include="Widgets\Widget1\Default.ascx.designer.cs">
       <DependentUpon>Default.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\Widget1\Editor.aspx.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\Widget1\Editor.aspx.designer.cs">
+      <DependentUpon>Editor.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="database\setup.sql" />
     <Content Include="packages.config" />
+    <Content Include="Widgets\Widget1\Editor.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

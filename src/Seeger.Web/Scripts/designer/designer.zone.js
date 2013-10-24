@@ -4,6 +4,7 @@
         var _$element = $element;
         var _name = null;
         var _widgets = null;
+        var _removedWidgets = [];
         var _this = this;
         var _sortContext = null;
 
@@ -11,6 +12,20 @@
         this.init = function () {
             // Init widgets
             _widgets.initAllWidgets();
+
+            var widgetIds = [];
+
+            _widgets.each(function (w) {
+                widgetIds.push(parseInt(w.get_id(), 10));
+            });
+
+            sig.WebService.invoke('/Admin/Services/DesignerService.asmx/LoadWidgetAttributes', { locatedWidgetIds: widgetIds }, function (result) {
+                _widgets.each(function (w) {
+                    var attrs = result[w.get_id()];
+                    w.attributes(attrs);
+                    w.markUnchanged();
+                });
+            });
 
             // Make droppable
             _$element.droppable({
@@ -75,6 +90,28 @@
         this.get_widgets = function () {
             return _widgets;
         }
+
+        this.isDirty = function () {
+            if (_removedWidgets.length > 0) {
+                return true;
+            }
+
+            var dirty = false;
+
+            _widgets.each(function (w) {
+                if (w.isDirty()) {
+                    dirty = true;
+                    return false;
+                }
+            });
+
+            return dirty;
+        }
+
+        this.removedWidgets = function () {
+            return _removedWidgets;
+        }
+
         this.findWidgetByName = function (name) {
             return _widgets.getWidgetByName(name);
         }
@@ -86,10 +123,6 @@
         }
         this.removeWidgetById = function (widgetId, updateStateItem) {
             _widgets.removeWidgetById(widgetId, updateStateItem);
-        }
-
-        function _getStateManager() {
-            return Sig.Designer.get_current().get_stateManager();
         }
 
         // Private Methods
@@ -156,6 +189,11 @@
                 v.init();
             });
         }
+        this.each = function (action) {
+            _innerList.traverse(function (n, v) {
+                action.apply(v, [v]);
+            });
+        }
         this.addWidgetAfter = function (refWidget, widget) {
             var refWidgetNode = null;
             if (refWidget != null) {
@@ -197,24 +235,12 @@
             }
         }
         this.rectifyWidgetOrders = function () {
-            var stateManager = Sig.Designer.get_current().get_stateManager();
             var current = _innerList.get_head();
             var lastOrder = 0;
             while (current != null) {
                 var widget = current.get_value();
                 if (widget.get_order() <= lastOrder) {
                     var newOrder = lastOrder + 5;
-
-                    var stateItem = stateManager.getItemById(widget.get_id());
-                    if (stateItem == null) {
-                        stateItem = stateManager.createItem(widget.get_name(), _zone.get_name(), widget.get_templateName(), widget.get_pluginName());
-                        stateItem.set_id(widget.get_id());
-                        if (!widget.get_isNew()) {
-                            stateItem.markChanged();
-                        }
-                        stateManager.addItem(stateItem);
-                    }
-                    stateItem.set_order(newOrder);
                     widget.set_order(newOrder);
                 }
                 lastOrder = widget.get_order();
@@ -230,10 +256,6 @@
         this.removeWidgetById = function (widgetId, updateStateItem) {
             var node = _innerList.findNodeByPredicate(function (n, v) { return v.get_id() == widgetId });
             _removeWidgetNode(node, updateStateItem);
-        }
-
-        function _getStateManager() {
-            return Sig.Designer.get_current().get_stateManager();
         }
 
         function _reCalculateNextValidOrder() {
@@ -254,45 +276,19 @@
 
             if (refWidgetNode == null) {
                 _innerList.addFirst(widget);
-                _zone.get_$element().prepend(widget.get_$element());
+                _zone.get_$element().prepend(widget.$element());
             } else {
                 if (refWidgetNode.get_next() == null) {
                     needRectifyOrder = false;
                 }
                 order = refWidgetNode.get_value().get_order() + 5;
                 _innerList.addAfter(refWidgetNode, widget);
-                widget.get_$element().insertAfter(refWidgetNode.get_value().get_$element());
+                widget.$element().insertAfter(refWidgetNode.get_value().$element());
             }
 
             widget.set_zone(_zone);
             widget.set_order(order);
             widget.reinitOverlay();
-
-            var stateManager = _getStateManager();
-            var stateItem = null;
-
-            if (widget.get_id() != null) {
-                stateItem = stateManager.getItemById(widget.get_id());
-            }
-
-            if (stateItem == null) {
-                stateItem = stateManager.createItem(widget.get_name(), _zone.get_name(), widget.get_templateName(), widget.get_pluginName());
-
-                if (widget.get_id() != null) {
-                    stateItem.set_id(widget.get_id());
-                } else {
-                    widget.set_id(stateItem.get_id());
-                }
-                stateManager.addItem(stateItem);
-            }
-
-            stateItem.set_zoneName(_zone.get_name());
-
-            if (!widget.get_isNew()) {
-                stateItem.markChanged();
-            }
-
-            stateItem.set_order(order);
 
             if (needRectifyOrder) {
                 _this.rectifyWidgetOrders();
@@ -306,22 +302,14 @@
             }
 
             if (updateStateItem) {
-                var stateManager = _getStateManager();
-                if (widget.get_isNew()) {
-                    stateManager.removeItemById(widget.get_id());
-                } else {
-                    var stateItem = stateManager.getItemById(widget.get_id());
-                    if (stateItem == null) {
-                        stateItem = stateManager.createItem(widget.get_name(), _zone.get_name(), widget.get_templateName(), widget.get_pluginName());
-                        stateItem.set_id(widget.get_id());
-                        stateManager.addItem(stateItem);
-                    }
-                    stateItem.markRemoved();
+                if (!widget.get_isNew()) {
+                    widget.markRemoved();
+                    _zone.removedWidgets().push(widget);
                 }
             }
 
             _innerList.removeNode(widgetNode);
-            widget.get_$element().remove();
+            widget.$element().remove();
 
             _reCalculateNextValidOrder();
         }

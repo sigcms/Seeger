@@ -7,8 +7,9 @@ namespace Seeger.Web.UI
 {
     public enum WidgetState
     {
+        Unchanged,
         Added,
-        Removed,
-        Changed
+        Changed,
+        Removed
     }
 }
