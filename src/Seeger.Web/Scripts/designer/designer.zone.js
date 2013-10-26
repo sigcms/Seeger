@@ -286,6 +286,10 @@
                 widget.$element().insertAfter(refWidgetNode.get_value().$element());
             }
 
+            if (!widget.get_zone()) {
+                widget.markAdded();
+            }
+
             widget.set_zone(_zone);
             widget.set_order(order);
             widget.reinitOverlay();
