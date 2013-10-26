@@ -69,7 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\en-US\Resources.xml" />
-    <Content Include="Resources\zh-CN\Function.xml" />
     <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Web.config" />
     <Content Include="Widgets\RichText\Default.ascx" />

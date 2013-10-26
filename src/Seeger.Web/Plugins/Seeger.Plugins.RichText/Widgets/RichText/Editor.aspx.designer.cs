@@ -22,12 +22,12 @@ namespace Seeger.Plugins.RichText.Widgets.RichText {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Content control.
+        /// ContentBody control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Seeger.Web.UI.TinyMCE Content;
+        protected global::Seeger.Web.UI.TinyMCE ContentBody;
     }
 }

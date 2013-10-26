@@ -33,35 +33,32 @@ namespace Seeger.Plugins.RichText
                 {
                     TextContent content = null;
 
-                    var name = data.Value<string>("name") ?? String.Empty;
+                    var title = data.Value<string>("title") ?? String.Empty;
                     var body = data.Value<string>("content") ?? String.Empty;
-                    var isContentChanged = data.Value<bool>("isContentChanged");
 
                     if (e.LocatedWidgetViewModel.State == WidgetState.Changed)
                     {
                         var contentId = e.LocatedWidget.Attributes.GetValue<int>("ContentId");
                         content = session.Get<TextContent>(contentId);
-                        content.Name = name;
                     }
                     else
                     {
                         content = new TextContent();
-                        content.Name = name;
+                        content.Name = title;
                         session.Save(content);
 
                         e.LocatedWidget.Attributes.Add("ContentId", content.Id);
                     }
 
-                    if (isContentChanged)
+                    if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
                     {
-                        if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
-                        {
-                            content.SetLocalized(c => c.Content, body, e.DesignerCulture);
-                        }
-                        else
-                        {
-                            content.Content = body;
-                        }
+                        content.SetLocalized(c => c.Name, title, e.DesignerCulture);
+                        content.SetLocalized(c => c.Content, body, e.DesignerCulture);
+                    }
+                    else
+                    {
+                        content.Name = title;
+                        content.Content = body;
                     }
                 }
             }

@@ -10,6 +10,7 @@ using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NHibernate.Linq;
 
 namespace Seeger.Plugins.RichText.Widgets.RichText
 {
@@ -20,18 +21,54 @@ namespace Seeger.Plugins.RichText.Widgets.RichText
         }
 
         [WebMethod, ScriptMethod]
-        public static string LoadContent(int id, string culture)
+        public static object LoadContent(int id, string culture)
         {
             var db = Database.GetCurrentSession();
             var content = db.Get<TextContent>(id);
+            var contentTitle = content.Name;
             var contentBody = content.Content;
 
             if (!String.IsNullOrEmpty(culture))
             {
+                contentTitle = content.GetLocalized(x => x.Name, CultureInfo.GetCultureInfo(culture));
                 contentBody = content.GetLocalized(x => x.Content, CultureInfo.GetCultureInfo(culture));
             }
 
-            return contentBody;
+            return new
+            {
+                Title = contentTitle,
+                Body = contentBody
+            };
+        }
+
+        [WebMethod, ScriptMethod]
+        public static object LoadExistingContents(string culture)
+        {
+            var db = Database.GetCurrentSession();
+            var contents = db.Query<TextContent>()
+                             .OrderByDescending(x => x.Id)
+                             .ToList();
+
+            var result = new List<object>();
+            var cultureInfo = String.IsNullOrEmpty(culture) ? null : CultureInfo.GetCultureInfo(culture);
+
+            foreach (var content in contents)
+            {
+                var title = content.Name;
+
+                if (cultureInfo != null)
+                {
+                    title = content.GetLocalized(x => x.Name, cultureInfo);
+                }
+
+                result.Add(new
+                {
+                    content.Id,
+                    Title = title
+                });
+            }
+
+            return result;
         }
     }
 }

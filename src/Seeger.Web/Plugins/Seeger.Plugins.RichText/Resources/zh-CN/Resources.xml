@@ -7,4 +7,8 @@
     允许向页面中添加“富文本”模块，富文本的内容可以自由编辑(可直接编辑HTML)
     ]]>
   </item>
+  <item key="Enter title" value="输入标题，用于后台显示" />
+  <item key="Select from existing contents" value="从已添加的文本内容中选择" />
+  <item key="Copy this content" value="复制此文本内容" />
+  <item key="Use this content" value="共用此文本内容" />
 </localization>

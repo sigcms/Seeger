@@ -30,24 +30,30 @@ namespace Seeger.Plugins.RichText.Widgets.RichText
                     var textContent = NhSession.Get<TextContent>(contentId);
                     if (textContent != null)
                     {
-                        string content = null;
+                        var text = textContent.Name;
 
                         if (FrontendSettings.Multilingual)
                         {
-                            content = textContent.GetLocalized(x => x.Content, PageCulture);
-                        }
-                        else
-                        {
-                            content = textContent.Content;
+                            text = textContent.GetLocalized(x => x.Name, PageCulture);
                         }
 
-                        if (String.IsNullOrEmpty(content))
+                        if (String.IsNullOrEmpty(text))
+                        {
+                            text = textContent.Content;
+
+                            if (FrontendSettings.Multilingual)
+                            {
+                                text = textContent.GetLocalized(x => x.Content, PageCulture);
+                            }
+                        }
+
+                        if (String.IsNullOrEmpty(text))
                         {
                             ContentText.Text = "<div style='text-align:center;padding-top:10px;padding-bottom:10px'>[" + ResourceFolder.Global.GetValue("Common.Empty", CultureInfo.CurrentUICulture) + "]</div>";
                         }
                         else
                         {
-                            ContentText.Text = content;
+                            ContentText.Text = text;
                         }
                     }
                 }
