@@ -44,8 +44,15 @@ namespace Seeger.Web.UI
                     e.LocatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == item.Id);
                 }
 
-                var widget = PluginManager.FindEnabledPlugin(item.PluginName)
-                                          .FindWidget(item.WidgetName);
+                var plugin = PluginManager.FindEnabledPlugin(item.PluginName);
+
+                if (plugin == null)
+                    throw new InvalidOperationException("Cannot find plugin \"" + item.PluginName + "\" or it's not enabled.");
+                
+                var widget = plugin.FindWidget(item.WidgetName);
+
+                if (widget == null)
+                    throw new InvalidOperationException("Cannot find widget \"" + item.WidgetName + "\".");
 
                 if (widget.WidgetProcessEventListener != null)
                 {
@@ -65,23 +72,34 @@ namespace Seeger.Web.UI
 
         private LocatedWidget ProcessStateItem(LocatedWidgetViewModel locatedWidgetModel, WidgetDefinition widget)
         {
-            var block = CurrentPage.Layout.FindZone(locatedWidgetModel.ZoneName);
+            var zone = CurrentPage.Layout.FindZone(locatedWidgetModel.ZoneName);
+
+            if (zone == null)
+                throw new InvalidOperationException("Zone \"" + locatedWidgetModel.ZoneName + "\" was not found.");
 
             LocatedWidget locatedWidget = null;
 
             if (locatedWidgetModel.State == WidgetState.Added)
             {
-                locatedWidget = CurrentPage.AddWidgetToZone(block, widget, locatedWidgetModel.Order);
+                locatedWidget = CurrentPage.AddWidgetToZone(zone, widget, locatedWidgetModel.Order);
             }
             else if (locatedWidgetModel.State == WidgetState.Removed)
             {
                 locatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == locatedWidgetModel.Id);
+
+                if (locatedWidget == null)
+                    throw new InvalidOperationException("Cannot find located widget with id: " + locatedWidgetModel.Id + ".");
+
                 CurrentPage.LocatedWidgets.Remove(locatedWidget);
             }
             else if (locatedWidgetModel.State == WidgetState.Changed)
             {
                 locatedWidget = CurrentPage.LocatedWidgets.FirstOrDefault(it => it.Id == locatedWidgetModel.Id);
-                locatedWidget.ZoneName = block.Name;
+
+                if (locatedWidget == null)
+                    throw new InvalidOperationException("Cannot find located widget with id: " + locatedWidgetModel.Id + ".");
+
+                locatedWidget.ZoneName = zone.Name;
                 locatedWidget.Order = locatedWidgetModel.Order;
             }
 

@@ -34,7 +34,7 @@ namespace Seeger.Web.UI.Admin.Designer
             }
             catch (Exception ex)
             {
-                context.Response.Write(OperationResult.CreateErrorResult(ex).ToJson());
+                context.Response.Write(OperationResult.CreateErrorResult(ex, true).ToJson());
             }
         }
 
