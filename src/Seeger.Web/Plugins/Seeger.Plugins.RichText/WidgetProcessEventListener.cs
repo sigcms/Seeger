@@ -35,10 +35,10 @@ namespace Seeger.Plugins.RichText
 
                     var title = data.Value<string>("title") ?? String.Empty;
                     var body = data.Value<string>("content") ?? String.Empty;
+                    var contentId = e.LocatedWidget.Attributes.GetValue<int>("ContentId");
 
-                    if (e.LocatedWidgetViewModel.State == WidgetState.Changed)
+                    if (contentId > 0)
                     {
-                        var contentId = e.LocatedWidget.Attributes.GetValue<int>("ContentId");
                         content = session.Get<TextContent>(contentId);
                     }
                     else
@@ -46,7 +46,6 @@ namespace Seeger.Plugins.RichText
                         content = new TextContent();
                         content.Name = title;
                         session.Save(content);
-
                         e.LocatedWidget.Attributes.Add("ContentId", content.Id);
                     }
 
