@@ -11,18 +11,18 @@ namespace Seeger.Web.UI
 {
     static class WidgetControlLoader
     {
-        public static WidgetControlBase Load(WidgetDefinition widget, Page hostingPage, bool loadInDesignMode)
+        public static Control Load(WidgetDefinition widget, Page hostingPage, bool loadInDesignMode)
         {
             Require.NotNull(widget, "widget");
             Require.NotNull(hostingPage, "hostingPage");
 
-            WidgetControlBase control = null;
+            Control control = null;
 
             if (loadInDesignMode)
             {
                 if (File.Exists(HostingEnvironment.MapPath(widget.DesignerVirtualPath)))
                 {
-                    control = hostingPage.LoadControl(widget.DesignerVirtualPath) as WidgetControlBase;
+                    control = hostingPage.LoadControl(widget.DesignerVirtualPath);
                 }
                 else
                 {
@@ -31,15 +31,16 @@ namespace Seeger.Web.UI
             }
             else
             {
-                control = hostingPage.LoadControl(widget.WidgetControlVirtualPath) as WidgetControlBase;
+                control = hostingPage.LoadControl(widget.WidgetControlVirtualPath);
             }
 
-            if (control == null)
-                throw new InvalidOperationException(
-                    String.Format("Cannot not load widget control for widget \"{0}\". Ensure that your widget control inherits from {1}.", typeof(WidgetControlBase).FullName, widget.Name));
+            var widgetControl = control as WidgetControlBase;
 
-            control.Widget = widget;
-            control.IsInDesignMode = loadInDesignMode;
+            if (widgetControl != null)
+            {
+                widgetControl.Widget = widget;
+                widgetControl.IsInDesignMode = loadInDesignMode;
+            }
 
             return control;
         }

@@ -93,9 +93,13 @@ namespace Seeger.Web.UI
 
             var control = WidgetControlLoader.Load(widget, Page, IsInDesignMode);
 
-            control.LocatedWidget = locatedWidget;
-            control.Widget = widget;
-            control.WidgetAttributes.AddRange(locatedWidget.Attributes);
+            var widgetControl = control as WidgetControlBase;
+            if (widgetControl != null)
+            {
+                widgetControl.LocatedWidget = locatedWidget;
+                widgetControl.Widget = widget;
+                widgetControl.WidgetAttributes.AddRange(locatedWidget.Attributes);
+            }
 
             Controls.Add(control);
         }
