@@ -26,10 +26,13 @@ namespace Seeger.Web.UI
             TaskQueueExecutor.Start();
 
             ResourceBundler.Initialize();
+
+            Event.Raise(new ApplicationStarted(this));
         }
 
         void Application_BeginRequest(object sender, EventArgs e)
         {
+            Event.Raise(new HttpRequestBegun(this));
         }
 
         void Application_PostAuthorizeRequest(object sender, EventArgs e)
@@ -48,10 +51,12 @@ namespace Seeger.Web.UI
         void Application_EndRequest(object sender, EventArgs e)
         {
             Database.CloseCurrentSession();
+            Event.Raise(new HttpRequestEnded(this));
         }
 
         void Application_End(object sender, EventArgs e)
         {
+            Event.Raise(new ApplicationEnded(this));
             _logger.Info(UserReference.System(), "Application ended");
         }
 
@@ -61,19 +66,23 @@ namespace Seeger.Web.UI
             {
                 _logger.ErrorException(UserReference.System(), Server.GetLastError(), Request.RawUrl);
             }
+
+            Event.Raise(new ApplicationErrorOccurred(this));
         }
 
         void Session_Start(object sender, EventArgs e)
         {
+            Event.Raise(new HttpSessionStarted(this));
         }
 
         void Session_End(object sender, EventArgs e)
         {
+            Event.Raise(new HttpSessionEnded(this));
         }
 
         public override string GetVaryByCustomString(HttpContext context, string custom)
         {
-            var evnt = new VaryByCustomStringRequested(custom, new HttpContextWrapper(context));
+            var evnt = new VaryByCustomStringRequested(custom, this);
 
             Event.Raise(evnt);
 

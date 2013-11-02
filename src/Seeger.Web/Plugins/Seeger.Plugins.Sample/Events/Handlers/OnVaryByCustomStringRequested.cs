@@ -11,7 +11,7 @@ namespace Seeger.Plugins.Sample.Events.Handlers
     {
         public void Handle(Web.Events.VaryByCustomStringRequested evnt)
         {
-            var page = evnt.HttpContext.CurrentHandler as LayoutPageBase;
+            var page = evnt.Context.CurrentHandler as LayoutPageBase;
 
             if (page != null)
             {

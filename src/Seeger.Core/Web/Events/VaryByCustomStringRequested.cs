@@ -6,14 +6,14 @@ using System.Web;
 
 namespace Seeger.Web.Events
 {
-    public class VaryByCustomStringRequested : HttpEvent
+    public class VaryByCustomStringRequested : HttpApplicationEvent
     {
         public string CustomParamName { get; private set; }
 
         public string Result { get; set; }
 
-        public VaryByCustomStringRequested(string customParamName, HttpContextBase httpContext)
-            : base(httpContext)
+        public VaryByCustomStringRequested(string customParamName, HttpApplication application)
+            : base(application)
         {
             CustomParamName = customParamName;
         }

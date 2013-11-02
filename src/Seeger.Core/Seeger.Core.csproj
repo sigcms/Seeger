@@ -228,7 +228,14 @@
     <Compile Include="Web\Compilation\CodeExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\SettingExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\TExpressionBuilder.cs" />
-    <Compile Include="Web\Events\HttpEvent.cs" />
+    <Compile Include="Web\Events\ApplicationEnded.cs" />
+    <Compile Include="Web\Events\ApplicationErrorOccurred.cs" />
+    <Compile Include="Web\Events\ApplicationStarted.cs" />
+    <Compile Include="Web\Events\HttpApplicationEvent.cs" />
+    <Compile Include="Web\Events\HttpRequestBegun.cs" />
+    <Compile Include="Web\Events\HttpRequestEnded.cs" />
+    <Compile Include="Web\Events\HttpSessionEnded.cs" />
+    <Compile Include="Web\Events\HttpSessionStarted.cs" />
     <Compile Include="Web\Events\VaryByCustomStringRequested.cs" />
     <Compile Include="Web\Extensions\HttpContextExtensions.cs" />
     <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
