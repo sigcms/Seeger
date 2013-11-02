@@ -34,14 +34,6 @@ namespace Seeger.Web.UI
                 control = hostingPage.LoadControl(widget.WidgetControlVirtualPath);
             }
 
-            var widgetControl = control as WidgetControlBase;
-
-            if (widgetControl != null)
-            {
-                widgetControl.Widget = widget;
-                widgetControl.IsInDesignMode = loadInDesignMode;
-            }
-
             return control;
         }
     }

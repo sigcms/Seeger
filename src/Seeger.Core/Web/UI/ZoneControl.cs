@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
 
 namespace Seeger.Web.UI
 {
@@ -93,15 +94,27 @@ namespace Seeger.Web.UI
 
             var control = WidgetControlLoader.Load(widget, Page, IsInDesignMode);
 
+            Controls.Add(control);
+
             var widgetControl = control as WidgetControlBase;
+
+            if (widgetControl == null)
+            {
+                // Check if the widget control is using output cache
+                var cachingControl = control as PartialCachingControl;
+                if (cachingControl != null)
+                {
+                    widgetControl = cachingControl.CachedControl as WidgetControlBase;
+                }
+            }
+
             if (widgetControl != null)
             {
                 widgetControl.LocatedWidget = locatedWidget;
                 widgetControl.Widget = widget;
+                widgetControl.IsInDesignMode = IsInDesignMode;
                 widgetControl.WidgetAttributes.AddRange(locatedWidget.Attributes);
             }
-
-            Controls.Add(control);
         }
     }
 }
