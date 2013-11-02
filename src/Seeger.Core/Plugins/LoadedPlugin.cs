@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Seeger.Plugins
@@ -13,9 +14,14 @@ namespace Seeger.Plugins
 
         public PluginDefinition PluginDefinition { get; private set; }
 
-        public LoadedPlugin(PluginDefinition pluginDefinition)
+        public IEnumerable<Assembly> Assemblies { get; private set; }
+
+        public LoadedPlugin(PluginDefinition pluginDefinition, IEnumerable<Assembly> assemblies)
         {
             Require.NotNull(pluginDefinition, "pluginDefinition");
+            Require.NotNull(assemblies, "assemblies");
+
+            Assemblies = assemblies;
             PluginDefinition = pluginDefinition;
         }
 

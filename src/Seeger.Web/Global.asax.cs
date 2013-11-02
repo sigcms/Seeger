@@ -1,9 +1,11 @@
 ﻿using Seeger.Config;
 using Seeger.Data;
+using Seeger.Events;
 using Seeger.Licensing;
 using Seeger.Logging;
 using Seeger.Plugins;
 using Seeger.Tasks;
+using Seeger.Web.Events;
 using System;
 using System.Web;
 
@@ -67,6 +69,20 @@ namespace Seeger.Web.UI
 
         void Session_End(object sender, EventArgs e)
         {
+        }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            var evnt = new VaryByCustomStringRequested(custom, new HttpContextWrapper(context));
+
+            Event.Raise(evnt);
+
+            if (evnt.Result != null)
+            {
+                return evnt.Result;
+            }
+
+            return base.GetVaryByCustomString(context, custom);
         }
     }
 }

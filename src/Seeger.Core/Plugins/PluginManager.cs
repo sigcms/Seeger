@@ -10,6 +10,7 @@ using Seeger.Plugins.Widgets;
 using Seeger.Plugins.Loaders;
 using Seeger.Data;
 using Seeger.Logging;
+using Seeger.Events;
 
 namespace Seeger.Plugins
 {
@@ -112,6 +113,10 @@ namespace Seeger.Plugins
         {
             Require.NotNull(plugin, "plugin");
 
+            var loadedPlugin = _loadedPlugins.Find(plugin.Name);
+
+            EventEnvironment.HandlerRegistry.RegisterHandlers(plugin.Name, loadedPlugin.Assemblies);
+
             if (plugin.PluginType != null)
             {
                 var pluginImpl = (IPlugin)Activator.CreateInstance(plugin.PluginType);
@@ -149,10 +154,10 @@ namespace Seeger.Plugins
 
                 plugin.MarkEnabled();
 
-                Startup(plugin.PluginDefinition);
-
                 if (PluginEnabled != null)
                     PluginEnabled(null, EventArgs.Empty);
+
+                Startup(plugin.PluginDefinition);
             }
         }
 
@@ -175,6 +180,8 @@ namespace Seeger.Plugins
                 var service = InstalledPluginServices.Current();
                 service.MarkDisabled(pluginName);
                 service.SaveChanges();
+
+                EventEnvironment.HandlerRegistry.RemoveHandlers(plugin.PluginDefinition.Name);
 
                 plugin.MarkDisabled();
 
@@ -302,7 +309,7 @@ namespace Seeger.Plugins
                     {
                         var assemblies = DeployPluginAssemblies(pluginName);
                         var plugin = loader.Load(pluginName, assemblies);
-                        allPlugins.Add(new LoadedPlugin(plugin));
+                        allPlugins.Add(new LoadedPlugin(plugin, assemblies));
                     }
                     catch (Exception ex)
                     {
@@ -349,10 +356,7 @@ namespace Seeger.Plugins
             var pluginBinFolderPath = Path.Combine(pluginFolderPath, "bin");
             var targetBinFolderPath = Path.Combine(PluginAssemblyDeployPath, pluginName);
 
-            foreach (var assembly in AssemblyDeployer.DeployAssemblies(pluginBinFolderPath, targetBinFolderPath))
-            {
-                yield return assembly;
-            }
+            return AssemblyDeployer.DeployAssemblies(pluginBinFolderPath, targetBinFolderPath);
         }
 
     }

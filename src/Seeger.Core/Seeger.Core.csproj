@@ -79,8 +79,10 @@
     <Compile Include="Data\Context\INhSessionContext.cs" />
     <Compile Include="Data\Context\WebNhSessionContext.cs" />
     <Compile Include="Data\Extensions\SessionExtensions.cs" />
+    <Compile Include="Data\IEventAwaredUnitOfWork.cs" />
     <Compile Include="Data\INhMappingProvider.cs" />
     <Compile Include="Data\IQueryFilter.cs" />
+    <Compile Include="Data\IUnitOfWork.cs" />
     <Compile Include="Data\Mapping\ByCodeMappingLoader.cs" />
     <Compile Include="Data\Mapping\Extensions\IdMapperExtensions.cs" />
     <Compile Include="Data\Mapping\CustomRedirectMap.cs" />
@@ -89,6 +91,26 @@
     <Compile Include="Data\Mapping\FrontendLanguageMap.cs" />
     <Compile Include="Data\Mapping\GlobalSettingMap.cs" />
     <Compile Include="Data\Mapping\LogEntryMap.cs" />
+    <Compile Include="Data\UnitOfWorkAmbient.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\UnitOfWorkScope.cs" />
+    <Compile Include="Events\AwaitCommittedAttribute.cs" />
+    <Compile Include="Events\Dispatching\DefaultEventDispatcher.cs" />
+    <Compile Include="Events\Dispatching\DefaultHandlerRegistry.cs" />
+    <Compile Include="Events\Dispatching\DefaultHandlerInvoker.cs" />
+    <Compile Include="Events\Dispatching\EventConstants.cs" />
+    <Compile Include="Events\Dispatching\EventDispatchingContext.cs" />
+    <Compile Include="Events\Dispatching\EventHandlerException.cs" />
+    <Compile Include="Events\Dispatching\IEventDispatcher.cs" />
+    <Compile Include="Events\Dispatching\IHandlerInvoker.cs" />
+    <Compile Include="Events\Dispatching\IHandlerRegistry.cs" />
+    <Compile Include="Events\Dispatching\TypeUtil.cs" />
+    <Compile Include="Events\Event.cs" />
+    <Compile Include="Events\EventEnvironment.cs" />
+    <Compile Include="Events\HandleAsyncAttribute.cs" />
+    <Compile Include="Events\IEvent.cs" />
+    <Compile Include="Events\IHandle.cs" />
+    <Compile Include="Events\IUnitOfWorkAware.cs" />
     <Compile Include="Extensions\PageItemExtensions.cs" />
     <Compile Include="Logging\DefaultLogger.cs" />
     <Compile Include="Logging\Logger.cs" />
@@ -206,6 +228,8 @@
     <Compile Include="Web\Compilation\CodeExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\SettingExpressionBuilder.cs" />
     <Compile Include="Web\Compilation\TExpressionBuilder.cs" />
+    <Compile Include="Web\Events\HttpEvent.cs" />
+    <Compile Include="Web\Events\VaryByCustomStringRequested.cs" />
     <Compile Include="Web\Extensions\HttpContextExtensions.cs" />
     <Compile Include="Web\Extensions\HttpRequestExtensions.cs" />
     <Compile Include="Web\FrontendEnvironment.cs" />
@@ -330,6 +354,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Licensing\PublicKey.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
