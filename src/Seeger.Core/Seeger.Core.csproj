@@ -112,6 +112,15 @@
     <Compile Include="Events\IHandle.cs" />
     <Compile Include="Events\IUnitOfWorkAware.cs" />
     <Compile Include="Extensions\PageItemExtensions.cs" />
+    <Compile Include="IO\FileSystems.cs" />
+    <Compile Include="IO\IDirectory.cs" />
+    <Compile Include="IO\IFile.cs" />
+    <Compile Include="IO\IFileSystem.cs" />
+    <Compile Include="IO\IFileSystemEntry.cs" />
+    <Compile Include="IO\Local\LocalDirectory.cs" />
+    <Compile Include="IO\Local\LocalFile.cs" />
+    <Compile Include="IO\Local\LocalFileSystem.cs" />
+    <Compile Include="IO\Local\LocalFileSystemEntry.cs" />
     <Compile Include="Logging\DefaultLogger.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="Data\Mapping\PageItemMap.cs" />
