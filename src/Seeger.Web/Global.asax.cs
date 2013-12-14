@@ -1,12 +1,14 @@
 ﻿using Seeger.Config;
 using Seeger.Data;
 using Seeger.Events;
+using Seeger.Files;
 using Seeger.Licensing;
 using Seeger.Logging;
 using Seeger.Plugins;
 using Seeger.Tasks;
 using Seeger.Web.Events;
 using System;
+using System.Collections.Generic;
 using System.Web;
 
 namespace Seeger.Web.UI
@@ -26,6 +28,18 @@ namespace Seeger.Web.UI
             TaskQueueExecutor.Start();
 
             ResourceBundler.Initialize();
+
+            // TODO: Better to provide some IStartupTask interface
+            if (FileBucketMetaStores.Current.GetBucketCount() == 0)
+            {
+                var service = new FileBucketService(FileBucketMetaStores.Current);
+                var meta = service.CreateBucket("Local", "Local", new Dictionary<string, string>
+                {
+                    { "BaseVirtualPath", "/Files/" }
+                });
+
+                service.SetDefault(meta.BucketId);
+            }
 
             Event.Raise(new ApplicationStarted(this));
         }

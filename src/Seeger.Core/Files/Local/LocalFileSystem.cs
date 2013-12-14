@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.Hosting;
 
-namespace Seeger.IO.Local
+namespace Seeger.Files.Local
 {
     public class LocalFileSystem : IFileSystem
     {
@@ -14,14 +15,9 @@ namespace Seeger.IO.Local
         public string BaseVirtualPath { get; private set; }
 
         public LocalFileSystem(string baseVirtualPath)
-            : this(baseVirtualPath, new DirectoryInfo(HostingEnvironment.MapPath(baseVirtualPath)))
-        {
-        }
-
-        public LocalFileSystem(string baseVirtualPath, DirectoryInfo rootDirectory)
         {
             BaseVirtualPath = baseVirtualPath;
-            RootDirectory = new LocalDirectory(rootDirectory, this);
+            RootDirectory = new LocalDirectory(new DirectoryInfo(HostingEnvironment.MapPath(BaseVirtualPath)), this);
         }
 
         public IDirectory GetDirectory(string virtualPath)
@@ -33,7 +29,7 @@ namespace Seeger.IO.Local
 
             if (virtualPath != "/")
             {
-                path = Path.Combine(path, virtualPath.Replace('/', Path.DirectorySeparatorChar));
+                path = Path.Combine(path, virtualPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
             }
 
             return new LocalDirectory(new DirectoryInfo(path), this);

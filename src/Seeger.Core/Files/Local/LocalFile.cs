@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.IO.Local
+namespace Seeger.Files.Local
 {
     public class LocalFile : LocalFileSystemEntry, IFile
     {

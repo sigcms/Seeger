@@ -14,8 +14,8 @@
         var _fileGrid = null;
 
         var _options = {
-            rootPath: '/Files',
-            currentPath: '/Files',
+            rootPath: '/',
+            currentPath: '/',
             handler: '/Admin/Services/FileManagerService.asmx',
             allowMultiSelect: true,
             allowSelectFolder: true,
@@ -177,6 +177,7 @@
             return {
                 name: file.Name,
                 virtualPath: file.VirtualPath,
+                publicUri: file.PublicUri,
                 length: file.Length,
                 isDirectory: file.IsDirectory
             };

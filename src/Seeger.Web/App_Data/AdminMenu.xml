@@ -3,6 +3,7 @@
   <menu>
     <menu title="{ Menu.PageMgnt }" function="PageMgnt" url="Pages/PageList.aspx" />
     <menu title="{ Menu.FileMgnt }" function="FileMgnt" url="Files/List.aspx" />
+    <menu title="File Buckets" function="FileMgnt" url="Files/Buckets.aspx" />
   </menu>
   <menu>
     <menu title="{ Menu.SiteInfo }" function="SiteSetting" operation="SiteInfo" url="Settings/SiteInfoEdit.aspx" />

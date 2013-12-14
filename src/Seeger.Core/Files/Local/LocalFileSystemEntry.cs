@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.IO.Local
+namespace Seeger.Files.Local
 {
     public abstract class LocalFileSystemEntry : IFileSystemEntry
     {
@@ -18,13 +18,15 @@ namespace Seeger.IO.Local
             get
             {
                 var rootDirectory = (LocalDirectory)FileSystem.RootDirectory;
+                var rootPath = rootDirectory.FileSystemInfo.FullName.TrimEnd('\\');
+                var entryPath = FileSystemInfo.FullName.TrimEnd('\\');
 
-                if (FileSystemInfo.FullName.Length == rootDirectory.FileSystemInfo.FullName.Length)
+                if (rootPath.Length == entryPath.Length)
                 {
                     return "/";
                 }
 
-                return FileSystemInfo.FullName.Substring(rootDirectory.FileSystemInfo.FullName.Length).Replace(Path.PathSeparator, '/');
+                return entryPath.Substring(rootPath.Length).Replace(Path.DirectorySeparatorChar, '/');
             }
         }
 

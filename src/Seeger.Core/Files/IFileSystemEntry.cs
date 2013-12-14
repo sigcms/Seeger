@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.IO
+namespace Seeger.Files
 {
     public interface IFileSystemEntry
     {

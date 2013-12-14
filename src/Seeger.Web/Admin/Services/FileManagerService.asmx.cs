@@ -18,24 +18,42 @@ namespace Seeger.Web.UI.Admin.Services
         [WebMethod]
         public IEnumerable<FileSystemEntryInfo> List(string path, string filter)
         {
-            if (!FileExplorer.AllowUploadPath(path))
-                throw new InvalidOperationException("Path '" + path + "' is not allowed.");
+            //if (!FileExplorer.AllowUploadPath(path))
+            //    throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
-            var extensions = String.IsNullOrEmpty(filter) || filter == "*.*" ? null : filter.SplitWithoutEmptyEntries(';');
+            var extensions = String.IsNullOrEmpty(filter) || filter == "*.*" ? null : new HashSet<string>(filter.SplitWithoutEmptyEntries(';'), StringComparer.OrdinalIgnoreCase);
 
-            return FileExplorer.List(path, true, extensions).Select(x => new FileSystemEntryInfo(x));
+            throw new NotImplementedException();
+            //var fileSystem = FileSystems.Current;
+            //var directory = fileSystem.GetDirectory(path);
+            //var entries = new List<FileSystemEntryInfo>();
+
+            //entries.AddRange(directory.GetDirectories().Select(x => new FileSystemEntryInfo(x)));
+
+            //var files = directory.GetFiles();
+
+            //if (extensions != null)
+            //{
+            //    files = files.Where(x => extensions.Contains(x.Extension));
+            //}
+
+            //entries.AddRange(files.Select(x => new FileSystemEntryInfo(x)));
+
+            //return entries;
         }
 
         [WebMethod]
         public void CreateFolder(string path, string folderName)
         {
-            if (!FileExplorer.AllowUploadPath(path))
-                throw new InvalidOperationException("Path '" + path + "' is not allowed.");
+            //if (!FileExplorer.AllowUploadPath(path))
+            //    throw new InvalidOperationException("Path '" + path + "' is not allowed.");
 
             if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
                 throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDefined"));
 
-            IOUtil.EnsureDirectoryCreated(Server.MapPath(UrlUtil.Combine(path, folderName)));
+            throw new NotImplementedException();
+            //var directory = FileSystems.Current.GetDirectory(path);
+            //directory.CreateFolder(folderName);
         }
     }
 
@@ -45,6 +63,8 @@ namespace Seeger.Web.UI.Admin.Services
 
         public string VirtualPath { get; set; }
 
+        public string PublicUri { get; set; }
+
         public bool IsDirectory { get; set; }
 
         public long Length { get; set; }
@@ -53,12 +73,17 @@ namespace Seeger.Web.UI.Admin.Services
         {
         }
 
-        public FileSystemEntryInfo(FileSystemEntry entry)
+        public FileSystemEntryInfo(IFileSystemEntry entry)
         {
             Name = entry.Name;
             VirtualPath = entry.VirtualPath;
-            IsDirectory = entry.IsDirectory;
-            Length = entry.Length;
+            PublicUri = entry.PublicUri;
+            IsDirectory = entry is IDirectory;
+
+            if (!IsDirectory)
+            {
+                Length = ((IFile)entry).Length;
+            }
         }
     }
 }

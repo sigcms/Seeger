@@ -13,7 +13,7 @@
 
         var _options = {
             onQueueComplete: null,
-            folder: '/Files',
+            folder: '/',
             aspNetAuth: window.aspNetAuth || null,
             buttonText: 'Select files',
             uploadifyOptions: {

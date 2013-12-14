@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.IO
+namespace Seeger.Files
 {
     public interface IFile : IFileSystemEntry
     {

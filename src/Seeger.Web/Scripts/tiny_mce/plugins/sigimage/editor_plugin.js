@@ -14,7 +14,7 @@
                 var file = files[i];
                 editor.execCommand('mceInsertContent', false,
                     dom.createHTML('img', {
-                        src: file.virtualPath
+                        src: file.publicUri
                     }));
             }
 

@@ -107,7 +107,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\403.aspx" />
+    <Content Include="Admin\Files\BucketEdit.aspx" />
+    <Content Include="Admin\Files\Buckets.aspx" />
+    <Content Include="Admin\Files\Buckets_Grid.ascx" />
     <Content Include="Admin\Files\List_Grid.ascx" />
+    <Content Include="Admin\Files\LocalFileSystemConfig.aspx" />
     <Content Include="Admin\Images\chrome.png" />
     <Content Include="Admin\Images\firefox.png" />
     <Content Include="Admin\Images\login-panel-bg.jpg" />
@@ -744,12 +748,40 @@
     <Compile Include="Admin\Designer\SaveChanges.ashx.cs">
       <DependentUpon>SaveChanges.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Files\BucketEdit.aspx.cs">
+      <DependentUpon>BucketEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\BucketEdit.aspx.designer.cs">
+      <DependentUpon>BucketEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\Buckets.aspx.cs">
+      <DependentUpon>Buckets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\Buckets.aspx.designer.cs">
+      <DependentUpon>Buckets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\Buckets_Grid.ascx.cs">
+      <DependentUpon>Buckets_Grid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\Buckets_Grid.ascx.designer.cs">
+      <DependentUpon>Buckets_Grid.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Files\List_Grid.ascx.cs">
       <DependentUpon>List_Grid.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Files\List_Grid.ascx.designer.cs">
       <DependentUpon>List_Grid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Files\LocalFileSystemConfig.aspx.cs">
+      <DependentUpon>LocalFileSystemConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Files\LocalFileSystemConfig.aspx.designer.cs">
+      <DependentUpon>LocalFileSystemConfig.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Files\Services.asmx.cs">
       <DependentUpon>Services.asmx</DependentUpon>

@@ -10,7 +10,7 @@
         var _isInited = false;
         var _options = {
             multi: false,
-            folder: '/Files',
+            folder: '/',
             filter: null,
             width: 700,
             height: 500,

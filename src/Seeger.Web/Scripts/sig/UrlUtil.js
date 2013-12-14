@@ -11,7 +11,7 @@
             for (var i = 0, len = arguments.length; i < len; i++) {
                 var segment = arguments[i];
 
-                if (segment === null || segment === undefined || segment === '' || segment === '/') continue;
+                if (segment === null || segment === undefined || segment === '') continue;
 
                 if (url.length == 0) {
                     url = segment;
