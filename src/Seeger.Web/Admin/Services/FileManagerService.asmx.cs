@@ -23,23 +23,23 @@ namespace Seeger.Web.UI.Admin.Services
 
             var extensions = String.IsNullOrEmpty(filter) || filter == "*.*" ? null : new HashSet<string>(filter.SplitWithoutEmptyEntries(';'), StringComparer.OrdinalIgnoreCase);
 
-            throw new NotImplementedException();
-            //var fileSystem = FileSystems.Current;
-            //var directory = fileSystem.GetDirectory(path);
-            //var entries = new List<FileSystemEntryInfo>();
+            var fileSystem = LoadFileSystem();
 
-            //entries.AddRange(directory.GetDirectories().Select(x => new FileSystemEntryInfo(x)));
+            var directory = fileSystem.GetDirectory(path);
+            var entries = new List<FileSystemEntryInfo>();
 
-            //var files = directory.GetFiles();
+            entries.AddRange(directory.GetDirectories().Select(x => new FileSystemEntryInfo(x)));
 
-            //if (extensions != null)
-            //{
-            //    files = files.Where(x => extensions.Contains(x.Extension));
-            //}
+            var files = directory.GetFiles();
 
-            //entries.AddRange(files.Select(x => new FileSystemEntryInfo(x)));
+            if (extensions != null)
+            {
+                files = files.Where(x => extensions.Contains(x.Extension));
+            }
 
-            //return entries;
+            entries.AddRange(files.Select(x => new FileSystemEntryInfo(x)));
+
+            return entries;
         }
 
         [WebMethod]
@@ -51,9 +51,16 @@ namespace Seeger.Web.UI.Admin.Services
             if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
                 throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDefined"));
 
-            throw new NotImplementedException();
-            //var directory = FileSystems.Current.GetDirectory(path);
-            //directory.CreateFolder(folderName);
+            var fileSystem = LoadFileSystem();
+            var directory = fileSystem.GetDirectory(path);
+            directory.CreateFolder(folderName);
+        }
+
+        private IFileSystem LoadFileSystem()
+        {
+            var meta = FileBucketMetaStores.Current.LoadDefault();
+            var provider = FileSystemProviders.Get(meta.FileSystemProviderName);
+            return provider.LoadFileSystem(meta);
         }
     }
 

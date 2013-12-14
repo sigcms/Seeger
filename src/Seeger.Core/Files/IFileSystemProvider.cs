@@ -12,6 +12,6 @@ namespace Seeger.Files
 
         string GetConfigurationUrl(string bucketId);
 
-        IFileSystem CreateFileSystem(NameValueCollection config);
+        IFileSystem LoadFileSystem(FileBucketMeta meta);
     }
 }

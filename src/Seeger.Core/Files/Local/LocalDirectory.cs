@@ -41,17 +41,23 @@ namespace Seeger.Files.Local
 
         public IEnumerable<IDirectory> GetDirectories()
         {
-            foreach (var directory in Directory.GetDirectories())
+            if (Directory.Exists)
             {
-                yield return new LocalDirectory(directory, FileSystem);
+                foreach (var directory in Directory.GetDirectories())
+                {
+                    yield return new LocalDirectory(directory, FileSystem);
+                }
             }
         }
 
         public IEnumerable<IFile> GetFiles()
         {
-            foreach (var file in Directory.GetFiles())
+            if (Directory.Exists)
             {
-                yield return new LocalFile(file, FileSystem);
+                foreach (var file in Directory.GetFiles())
+                {
+                    yield return new LocalFile(file, FileSystem);
+                }
             }
         }
     }
