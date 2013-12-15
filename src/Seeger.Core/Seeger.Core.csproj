@@ -113,6 +113,8 @@
     <Compile Include="Events\IHandle.cs" />
     <Compile Include="Events\IUnitOfWorkAware.cs" />
     <Compile Include="Extensions\PageItemExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Files\DirectoryExtensions.cs" />
     <Compile Include="Files\FileBucketMeta.cs" />
     <Compile Include="Files\FileBucketService.cs" />
     <Compile Include="Files\FileSystemProviders.cs" />

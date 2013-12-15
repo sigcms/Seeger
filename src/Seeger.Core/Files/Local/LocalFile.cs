@@ -45,14 +45,17 @@ namespace Seeger.Files.Local
         {
         }
 
-        public System.IO.Stream OpenRead()
+        public Stream Read()
         {
             return File.OpenRead();
         }
 
-        public System.IO.Stream OpenWrite()
+        public void Write(Stream stream)
         {
-            return File.OpenWrite();
+            using (var fs = File.OpenWrite())
+            {
+                stream.WriteTo(fs);
+            }
         }
     }
 }

@@ -38,19 +38,17 @@ namespace Seeger.Web.UI.Admin.Handlers
 
             if (String.IsNullOrEmpty(folder))
             {
-                folder = "/Files";
+                folder = "/";
             }
-
-            if (!FileExplorer.AllowUploadPath(folder))
-                throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDenied"));
 
             var file = context.Request.Files[0];
             var extension = Path.GetExtension(file.FileName);
 
-            if (!FileExplorer.SupportFileExtension(extension))
-                throw new InvalidOperationException("File extension is not supported: " + extension);
-
             var autoRename = context.Request["autoRename"] == "true";
+
+            var meta = FileBucketMetaStores.Current.LoadDefault();
+            var fileSystem = FileSystemProviders.Get(meta.FileSystemProviderName).LoadFileSystem(meta);
+            var directory = fileSystem.GetDirectory(folder);
 
             string fileName = null;
 
@@ -60,21 +58,19 @@ namespace Seeger.Web.UI.Admin.Handlers
             }
             else
             {
-                var originalFileName = Path.GetFileName(file.FileName);
-                fileName = FileExplorer.CalculateFinalName(folder, FileExplorer.ApplySecurityFilterToFileName(originalFileName));
+                fileName = directory.ComputeUniqueFileName(file.FileName);
             }
+
+            var virtualFile = directory.CreateFile(fileName);
+            virtualFile.Write(file.InputStream);
             
-            var virtualPath = UrlUtil.Combine(folder, fileName);
-
-            file.SaveAs(context.Server.MapPath(virtualPath));
-
             var result = new OperationResult
             {
                 Success = true,
                 Data = new FileUploadResult
                 {
                     FileName = fileName,
-                    VirtualPath = virtualPath
+                    VirtualPath = virtualFile.PublicUri
                 }
             };
 

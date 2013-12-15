@@ -14,8 +14,8 @@ namespace Seeger.Files
 
         DateTime LastWriteTimeUtc { get; }
 
-        Stream OpenRead();
+        Stream Read();
 
-        Stream OpenWrite();
+        void Write(Stream stream);
     }
 }

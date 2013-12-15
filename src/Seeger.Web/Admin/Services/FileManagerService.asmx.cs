@@ -53,7 +53,7 @@ namespace Seeger.Web.UI.Admin.Services
 
             var fileSystem = LoadFileSystem();
             var directory = fileSystem.GetDirectory(path);
-            directory.CreateFolder(folderName);
+            directory.CreateSubdirectory(folderName);
         }
 
         private IFileSystem LoadFileSystem()
