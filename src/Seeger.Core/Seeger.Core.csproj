@@ -125,6 +125,12 @@
     <Compile Include="Files\IFileSystem.cs" />
     <Compile Include="Files\IFileSystemEntry.cs" />
     <Compile Include="Files\IFileSystemProvider.cs" />
+    <Compile Include="Files\Indexing\DirectoryIndexEntry.cs" />
+    <Compile Include="Files\Indexing\DirectoryMetaFile.cs" />
+    <Compile Include="Files\Indexing\FileIndexEntry.cs" />
+    <Compile Include="Files\Indexing\FileSystemIndexEntry.cs" />
+    <Compile Include="Files\Indexing\IFileSystemIndex.cs" />
+    <Compile Include="Files\Indexing\LocalFileSystemIndex.cs" />
     <Compile Include="Files\Local\LocalDirectory.cs" />
     <Compile Include="Files\Local\LocalFile.cs" />
     <Compile Include="Files\Local\LocalFileSystem.cs" />

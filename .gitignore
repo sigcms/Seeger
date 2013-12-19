@@ -22,3 +22,4 @@ src/Seeger.Web/App_Data/InstalledPlugins.txt
 src/Seeger.Web/App_Data/Assemblies/
 
 src/Seeger.Web/Files
+src/Seeger.Web/App_Data/Buckets/
