@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5445BBC-C11A-411F-B353-33928B2B45F4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Seeger.Plugins.QiniuCloud</RootNamespace>
+    <AssemblyName>Seeger.Plugins.QiniuCloud</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QiniuBucketSettings.cs" />
+    <Compile Include="QiniuCloudPlugin.cs" />
+    <Compile Include="QiniuDirectory.cs" />
+    <Compile Include="QiniuException.cs" />
+    <Compile Include="QiniuFile.cs" />
+    <Compile Include="QiniuFileSystem.cs" />
+    <Compile Include="QiniuFileSystemProvider.cs" />
+    <Compile Include="Qiniu\Auth\digest\Mac.cs" />
+    <Compile Include="Qiniu\Auth\PutAuthClient.cs" />
+    <Compile Include="Qiniu\Auth\QiniuAuthClient.cs" />
+    <Compile Include="Qiniu\Conf\Config.cs" />
+    <Compile Include="Qiniu\FileOp\Exif.cs" />
+    <Compile Include="Qiniu\FileOp\ExifRet.cs" />
+    <Compile Include="Qiniu\FileOp\FileOpClient.cs" />
+    <Compile Include="Qiniu\FileOp\ImageInfo.cs" />
+    <Compile Include="Qiniu\FileOp\ImageInfoRet.cs" />
+    <Compile Include="Qiniu\FileOp\ImageMogrify.cs" />
+    <Compile Include="Qiniu\FileOp\ImageView.cs" />
+    <Compile Include="Qiniu\FileOp\ImageWaterMarker.cs" />
+    <Compile Include="Qiniu\FileOp\TextWaterMarker.cs" />
+    <Compile Include="Qiniu\FileOp\WaterMarker.cs" />
+    <Compile Include="Qiniu\IO\FileParameter.cs" />
+    <Compile Include="Qiniu\IO\IOClient.cs" />
+    <Compile Include="Qiniu\IO\MultiPart.cs" />
+    <Compile Include="Qiniu\IO\PutExtra.cs" />
+    <Compile Include="Qiniu\IO\PutRet.cs" />
+    <Compile Include="Qiniu\IO\Resumable\ResumablePut.cs" />
+    <Compile Include="Qiniu\IO\Resumable\ResumablePutExtra.cs" />
+    <Compile Include="Qiniu\IO\Resumable\ResumablePutRet.cs" />
+    <Compile Include="Qiniu\IO\Resumable\Settings.cs" />
+    <Compile Include="Qiniu\RPC\CallRet.cs" />
+    <Compile Include="Qiniu\RPC\Client.cs" />
+    <Compile Include="Qiniu\RSF\DumpItem.cs" />
+    <Compile Include="Qiniu\RSF\RSFClient.cs" />
+    <Compile Include="Qiniu\RS\BatchRet.cs" />
+    <Compile Include="Qiniu\RS\Entry.cs" />
+    <Compile Include="Qiniu\RS\GetPolicy.cs" />
+    <Compile Include="Qiniu\RS\PutPolicy.cs" />
+    <Compile Include="Qiniu\RS\RSClient.cs" />
+    <Compile Include="Qiniu\RS\RSPath.cs" />
+    <Compile Include="Qiniu\Util\Base64UrlSafe.cs" />
+    <Compile Include="Qiniu\Util\CRC32.cs" />
+    <Compile Include="Qiniu\Util\IO.cs" />
+    <Compile Include="Qiniu\Util\QiniuJsonHelper.cs" />
+    <Compile Include="Qiniu\Util\StreamEx.cs" />
+    <Compile Include="Qiniu\Util\StringEx.cs" />
+    <Compile Include="Strings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Settings.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Seeger.Core\Seeger.Core.csproj">
+      <Project>{673dd4e1-fced-476d-8ddb-d474fb4c6578}</Project>
+      <Name>Seeger.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Admin.Master" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62021/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

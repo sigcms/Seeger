@@ -37,6 +37,17 @@ namespace Seeger.Files.Indexing
             metaFile.AddEntry(file);
         }
 
+        public void UpdateFile(string directoryVirtualPath, FileIndexEntry file)
+        {
+            var directoryPath = GetPhysicalPath(directoryVirtualPath);
+            if (!Directory.Exists(directoryPath))
+                throw new FileNotFoundException("File not exists.");
+
+            var metaPath = System.IO.Path.Combine(directoryPath, "meta.config");
+            var metaFile = new DirectoryMetaFile(metaPath);
+            metaFile.UpdateEntry(file);
+        }
+
         public void DeleteFile(string virtualPath)
         {
             Require.NotNullOrEmpty(virtualPath, "virtualPath");
@@ -65,8 +76,7 @@ namespace Seeger.Files.Indexing
                 {
                     yield return new DirectoryIndexEntry
                     {
-                        Name = dir.Name,
-                        Extension = String.Empty
+                        Name = dir.Name
                     };
                 }
             }
@@ -101,7 +111,7 @@ namespace Seeger.Files.Indexing
                 return Path;
             }
 
-            return System.IO.Path.Combine(Path, virtualPath.Replace('/', '\\'));
+            return System.IO.Path.Combine(Path, virtualPath.Trim('/').Replace('/', '\\'));
         }
     }
 }

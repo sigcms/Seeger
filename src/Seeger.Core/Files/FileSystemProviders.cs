@@ -33,5 +33,11 @@ namespace Seeger.Files
         {
             _providers.TryAdd(provider.Name, provider);
         }
+
+        public static void Unregister(string name)
+        {
+            IFileSystemProvider provider;
+            _providers.TryRemove(name, out provider);
+        }
     }
 }

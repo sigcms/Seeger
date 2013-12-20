@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Plugins.AppKeepAlive
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Plugins.Sample", "Seeger.Web\Plugins\Seeger.Plugins.Sample\Seeger.Plugins.Sample.csproj", "{62B4CB24-2944-466D-8FA0-5DDD8AF72934}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Plugins.QiniuCloud", "Seeger.Web\Plugins\Seeger.Plugins.QiniuCloud\Seeger.Plugins.QiniuCloud.csproj", "{F5445BBC-C11A-411F-B353-33928B2B45F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,16 @@ Global
 		{62B4CB24-2944-466D-8FA0-5DDD8AF72934}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{62B4CB24-2944-466D-8FA0-5DDD8AF72934}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{62B4CB24-2944-466D-8FA0-5DDD8AF72934}.Release|x86.ActiveCfg = Release|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F5445BBC-C11A-411F-B353-33928B2B45F4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,5 +131,6 @@ Global
 		{2A01C860-B363-46E8-A757-4F3FB2BDDD6C} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 		{A3D9C95C-05C8-4E79-A62F-CABE3ECCF6E9} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 		{62B4CB24-2944-466D-8FA0-5DDD8AF72934} = {C0C80F45-8370-4644-9F69-631256CA0B22}
+		{F5445BBC-C11A-411F-B353-33928B2B45F4} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 	EndGlobalSection
 EndGlobal

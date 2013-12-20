@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Seeger.Plugins
 {
+    // TODO: Needs OnShutdown
     public interface IPlugin
     {
         void OnInstall(PluginLifecycleContext context);

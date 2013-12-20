@@ -11,6 +11,8 @@ namespace Seeger.Files.Indexing
 
         void AddFile(string directoryVirtualPath, FileIndexEntry file);
 
+        void UpdateFile(string directoryVirtualPath, FileIndexEntry file);
+
         void DeleteFile(string virtualPath);
 
         IEnumerable<DirectoryIndexEntry> GetDirectories(string virtualPath);

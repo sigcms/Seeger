@@ -41,6 +41,27 @@ namespace Seeger.Files.Indexing
             }
         }
 
+        public void UpdateEntry(FileIndexEntry entry)
+        {
+            Require.NotNull(entry, "entry");
+
+            lock (_lock)
+            {
+                var entries = ReadEntries();
+
+                for (var i = 0; i < entries.Count; i++)
+                {
+                    if (entries[i].Name.Equals(entry.Name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        entries[i] = entry;
+                        break;
+                    }
+                }
+
+                File.WriteAllText(Path, JsonConvert.SerializeObject(entries));
+            }
+        }
+
         public void RemoveEntry(string fileName)
         {
             Require.NotNullOrEmpty(fileName, "fileName");
