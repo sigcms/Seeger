@@ -13,6 +13,18 @@
 .fm-toolbar-secondary {
     float: right;
 }
+.fm-breadcrumb {
+    display: block;
+    padding: 5px 0;
+}
+    .fm-breadcrumb .fm-path-segment {
+        display: inline-block;
+    }
+    .fm-breadcrumb .divider {
+        display: inline-block;
+        margin: auto 2px;
+        color: #999;
+    }
 .fm-empty-item td {
     text-align: center;
     padding: 30px 0;
@@ -36,9 +48,4 @@
 .fm-filesize {
     text-align: center;
     color: #999;
-}
-.fm-filegrid .btn-backto-parent {
-    display: block;
-    padding: 5px;
-    background: #eee;
 }

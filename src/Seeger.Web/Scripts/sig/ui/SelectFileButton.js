@@ -12,12 +12,16 @@
                 var aspNetAuth = $button.data('aspNetAuth');
                 var closeDialogOnOk = $button.data('close-dialog-on-ok');
                 var multi = $button.data('multi');
+                var folder = $button.data('folder');
+                var bucketId = $button.data('bucket-id');
 
                 if (closeDialogOnOk === undefined) {
                     closeDialogOnOk = true;
                 }
 
                 var dialogOptions = {
+                    bucketId: bucketId,
+                    folder: folder,
                     filter: filter,
                     multi: multi,
                     aspNetAuth: aspNetAuth,

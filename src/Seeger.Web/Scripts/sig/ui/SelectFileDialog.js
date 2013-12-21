@@ -10,6 +10,7 @@
         var _isInited = false;
         var _options = {
             multi: false,
+            bucketId: null,
             folder: '/',
             filter: null,
             width: 700,
@@ -57,6 +58,7 @@
             _fileManager = new sig.ui.FileManager({
                 element: $('#' + fileManagerId),
                 aspNetAuth: _options.aspNetAuth,
+                bucketId: _options.bucketId,
                 folder: _options.folder,
                 filter: _options.filter,
                 allowMultiSelect: _options.allowMultiSelect,

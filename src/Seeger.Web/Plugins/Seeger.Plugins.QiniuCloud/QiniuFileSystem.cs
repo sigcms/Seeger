@@ -38,6 +38,8 @@ namespace Seeger.Plugins.QiniuCloud
                 return RootDirectory;
             }
 
+            virtualPath = virtualPath.TrimEnd('/');
+
             var root = (QiniuDirectory)RootDirectory;
             var folderName = Path.GetFileName(virtualPath);
             var indexEntry = Index.GetDirectories(UrlUtil.GetParentPath(virtualPath))

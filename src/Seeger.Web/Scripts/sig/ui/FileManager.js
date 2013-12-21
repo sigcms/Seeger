@@ -11,12 +11,12 @@
         var _this = this;
         var _$element = $(options.element);
         var _toolbar = null;
+        var _breadcrumb = null;
         var _fileGrid = null;
 
         var _options = {
             bucketId: null,
-            rootPath: '/',
-            currentPath: '/',
+            folder: '/',
             handler: '/Admin/Services/FileManagerService.asmx',
             allowMultiSelect: true,
             allowSelectFolder: true,
@@ -27,6 +27,8 @@
         if (options) {
             _options = $.extend(true, _options, options);
         }
+
+        var _currentPath = _options.folder;
 
         this.$element = function () {
             return _$element;
@@ -68,21 +70,8 @@
             return _$element.find(selector);
         }
 
-        this.rootPath = function () {
-            return _this.option('rootPath');
-        }
-
         this.currentPath = function () {
-            return _this.option('currentPath');
-        }
-
-        this.isInRootFolder = function () {
-            return _this.currentPath().toUpperCase() === _this.rootPath().toUpperCase();
-        }
-
-        this.enterParentFolder = function () {
-            if (_this.isInRootFolder()) return;
-            _this.list(sig.UrlUtil.getDirectory(_this.currentPath()));
+            return _currentPath;
         }
 
         this.enterSubfolder = function (folderName) {
@@ -98,14 +87,11 @@
             _fileGrid = new FileGrid(_this);
             _fileGrid.init();
 
-            if (_this.isInRootFolder()) {
-                _fileGrid.hideBacktoParentFolderButton();
-            } else {
-                _fileGrid.showBacktoParentFolderButton();
-            }
-
             _toolbar = new Toolbar(_this);
             _toolbar.init();
+
+            _breadcrumb = new Breadcrumb(_this);
+            _breadcrumb.init();
 
             _this.list(_this.currentPath());
         }
@@ -129,13 +115,8 @@
         this.list = function (path, callback) {
             if (!path) throw new Error('"path" is required.');
 
-            _this.option('currentPath', path);
-
-            if (_this.isInRootFolder()) {
-                _fileGrid.hideBacktoParentFolderButton();
-            } else {
-                _fileGrid.showBacktoParentFolderButton();
-            }
+            _currentPath = path;
+            _breadcrumb.setPath(_currentPath);
 
             sig.WebService.invoke(serviceUrl('List'), { bucketId: _options.bucketId, path: _this.currentPath(), filter: _options.filter }, function (files) {
                 files = _.map(files, function (f) { return toClientFileObject(f); });
@@ -172,7 +153,6 @@
             return '<div class="fm-toolbar"><div class="fm-toolbar-primary"></div><div class="fm-toolbar-secondary"></div></div>'
                  + '<div class="fm-breadcrumb"></div>'
                  + '<div class="fm-filegrid">'
-                        + '<a href="#" class="btn-backto-parent" style="display:none">' + sig.Resources.get('Back to parent folder') + '</a>'
                         + '<table class="datatable">'
                             + '<thead>'
                                 + '<tr>'
@@ -218,10 +198,6 @@
         this.init = function () {
             _$body.append(createEmptyItemHtml());
 
-            _$element.on('click', '.btn-backto-parent', function () {
-                _fileManager.enterParentFolder();
-                return false;
-            });
             _$element.on('click', '.fm-folder .icon-folder', function () {
                 _fileManager.enterSubfolder($(this).closest('.fm-folder').data('entryname'));
                 return false;
@@ -253,14 +229,6 @@
                 return _$element.css('max-height');
             }
             _$element.css('max-height', value);
-        }
-
-        this.showBacktoParentFolderButton = function () {
-            _$element.find('.btn-backto-parent').show();
-        }
-
-        this.hideBacktoParentFolderButton = function () {
-            _$element.find('.btn-backto-parent').hide();
         }
 
         this.update = function (entries) {
@@ -419,6 +387,49 @@
             }
 
             return Math.round(mb / 1024 * 100) / 100 + 'G';
+        }
+    }
+
+    function Breadcrumb(fileManager) {
+        var _this = this;
+        var _fileManager = fileManager;
+        var _$element = fileManager.find('.fm-breadcrumb');
+
+        this.$container = function () {
+            return _$element;
+        }
+
+        this.init = function () {
+            _this.setPath(fileManager.currentPath());
+
+            _$element.on('click', '.fm-path-segment', function () {
+                var path = $(this).data('path');
+                fileManager.list(path);
+                return false;
+            });
+        }
+
+        this.setPath = function (path) {
+            var html = createHtml(path);
+            _$element.html(html);
+        }
+
+        function createHtml(path) {
+            var html = '<a href="#" data-path="/" class="fm-path-segment fm-path-root">' + sig.Resources.get('Root') + '</a>';
+            html += '<span class="divider">/</span>';
+
+            var folders = path.split('/');
+            var currentPath = '/';
+
+            $.each(folders, function () {
+                if (this && (this != '') && (this != '/')) {
+                    currentPath = currentPath + this + '/';
+                    html += '<a href="#" data-path="' + currentPath + '" class="fm-path-segment">' + this + '</a>';
+                    html += '<span class="divider">/</span>';
+                }
+            });
+
+            return html;
         }
     }
 
