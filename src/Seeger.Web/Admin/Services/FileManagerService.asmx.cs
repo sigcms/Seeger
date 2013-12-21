@@ -16,14 +16,23 @@ namespace Seeger.Web.UI.Admin.Services
     public class FileManagerService : System.Web.Services.WebService
     {
         [WebMethod]
-        public IEnumerable<FileSystemEntryInfo> List(string path, string filter)
+        public object Buckets()
         {
-            //if (!FileExplorer.AllowUploadPath(path))
-            //    throw new InvalidOperationException("Path '" + path + "' is not allowed.");
+            return FileBucketMetaStores.Current.LoadAll()
+                                       .Select(x => new
+                                       {
+                                           BucketId = x.BucketId,
+                                           DisplayName = x.DisplayName,
+                                           IsDefault = x.IsDefault
+                                       });
+        }
 
+        [WebMethod]
+        public IEnumerable<FileSystemEntryInfo> List(string bucketId, string path, string filter)
+        {
             var extensions = String.IsNullOrEmpty(filter) || filter == "*.*" ? null : new HashSet<string>(filter.SplitWithoutEmptyEntries(';'), StringComparer.OrdinalIgnoreCase);
 
-            var fileSystem = LoadFileSystem();
+            var fileSystem = LoadFileSystem(bucketId);
 
             var directory = fileSystem.GetDirectory(path);
             var entries = new List<FileSystemEntryInfo>();
@@ -43,22 +52,29 @@ namespace Seeger.Web.UI.Admin.Services
         }
 
         [WebMethod]
-        public void CreateFolder(string path, string folderName)
+        public void CreateFolder(string bucketId, string path, string folderName)
         {
-            //if (!FileExplorer.AllowUploadPath(path))
-            //    throw new InvalidOperationException("Path '" + path + "' is not allowed.");
-
             if (!AdminSession.Current.User.HasPermission(null, "FileMgnt", "AddFolder"))
                 throw new InvalidOperationException(ResourceFolder.Global.GetValue("Message.AccessDefined"));
 
-            var fileSystem = LoadFileSystem();
+            var fileSystem = LoadFileSystem(bucketId);
             var directory = fileSystem.GetDirectory(path);
             directory.CreateSubdirectory(folderName);
         }
 
-        private IFileSystem LoadFileSystem()
+        private IFileSystem LoadFileSystem(string bucketId)
         {
-            var meta = FileBucketMetaStores.Current.LoadDefault();
+            FileBucketMeta meta = null;
+
+            if (!String.IsNullOrWhiteSpace(bucketId))
+            {
+                meta = FileBucketMetaStores.Current.Load(bucketId);
+            }
+            else
+            {
+                meta = FileBucketMetaStores.Current.LoadDefault();
+            }
+
             var provider = FileSystemProviders.Get(meta.FileSystemProviderName);
             return provider.LoadFileSystem(meta);
         }

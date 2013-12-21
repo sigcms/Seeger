@@ -14,6 +14,7 @@
         var _fileGrid = null;
 
         var _options = {
+            bucketId: null,
             rootPath: '/',
             currentPath: '/',
             handler: '/Admin/Services/FileManagerService.asmx',
@@ -37,6 +38,10 @@
             } else {
                 return _options[key];
             }
+        }
+
+        this.bucketId = function () {
+            return _options.bucketId;
         }
 
         this.grid = function () {
@@ -105,6 +110,22 @@
             _this.list(_this.currentPath());
         }
 
+        this.loadBuckets = function (callback) {
+            sig.WebService.invoke(serviceUrl('Buckets'), null, function (buckets) {
+                callback(buckets);
+            });
+        }
+
+        this.switchBucket = function (bucketId) {
+            if (_this.bucketId() == bucketId) {
+                return;
+            }
+
+            _options.bucketId = bucketId;
+
+            _this.list('/');
+        }
+
         this.list = function (path, callback) {
             if (!path) throw new Error('"path" is required.');
 
@@ -116,7 +137,7 @@
                 _fileGrid.showBacktoParentFolderButton();
             }
 
-            sig.WebService.invoke(serviceUrl('List'), { path: _this.currentPath(), filter: _options.filter }, function (files) {
+            sig.WebService.invoke(serviceUrl('List'), { bucketId: _options.bucketId, path: _this.currentPath(), filter: _options.filter }, function (files) {
                 files = _.map(files, function (f) { return toClientFileObject(f); });
                 _fileGrid.update(files);
                 if (callback) callback.apply(_this, []);
@@ -130,7 +151,7 @@
         this.createFolder = function (folderName) {
             if (!folderName) throw new Error('"folderName" is required.');
 
-            sig.WebService.invoke(serviceUrl('CreateFolder'), { path: _this.currentPath(), folderName: folderName }, function () {
+            sig.WebService.invoke(serviceUrl('CreateFolder'), { bucketId: _options.bucketId, path: _this.currentPath(), folderName: folderName }, function () {
                 _this.refresh();
             });
         }
@@ -148,7 +169,7 @@
         }
 
         function createBaseHtml() {
-            return '<div class="fm-toolbar"></div>'
+            return '<div class="fm-toolbar"><div class="fm-toolbar-primary"></div><div class="fm-toolbar-secondary"></div></div>'
                  + '<div class="fm-breadcrumb"></div>'
                  + '<div class="fm-filegrid">'
                         + '<a href="#" class="btn-backto-parent" style="display:none">' + sig.Resources.get('Back to parent folder') + '</a>'
@@ -405,7 +426,7 @@
         var _this = this;
         var _fileManager = fileManager;
         var _$element = fileManager.find('.fm-toolbar');
-        var _buttons = [];
+        var _controls = [];
 
         this.$container = function () {
             return _$element;
@@ -416,83 +437,130 @@
         }
 
         this.init = function () {
-            _this.addButton(NewFolderButton);
-            _this.addButton(BatchUploadButton);
+            _this.addControl(NewFolderControl);
+            _this.addControl(BatchUploadControl);
+            _this.addControl(SwitchBucketControl, false);
         }
 
-        this.addButton = function (button) {
-            var $button = $('<button type="button"></button>');
-            $button.html(sig.Resources.get(button.text));
-            _$element.append($button);
-
-            if (button.click) {
-                $button.click(function (event) {
-                    button.click.apply(this, [event, {
-                        toolbar: _this,
-                        fileManager: _fileManager
-                    }]);
-                });
+        this.addControl = function (control, primary) {
+            if (primary === undefined) {
+                primary = true;
             }
 
-            _buttons.push(button);
+            var $control = $(control.create.apply(_this, [{
+                toolbar: _this,
+                fileManager: _fileManager
+            }]));
+
+            var containerClass = primary ? '.fm-toolbar-primary' : '.fm-toolbar-secondary';
+
+            _$element.find(containerClass).append($control);
+
+            if (control.init) {
+                control.init.apply(_this, [$control, {
+                    toolbar: _this,
+                    fileManager: _fileManager
+                }]);
+            }
+
+            control.$element = $control;
+            _controls.push(control);
         }
     }
 
-    var NewFolderButton = {
-        text: 'New folder',
-        click: function (event, context) {
-            var folderName = '';
-            do {
-                folderName = prompt(sig.Resources.get('Please enter the folder name') + ':');
-            } while (folderName !== null && $.trim(folderName).length === 0);
+    var NewFolderControl = {
+        create: function (context) {
+            return '<button type="button">' + sig.Resources.get('New folder') + '</button>';
+        },
+        init: function (element, context) {
+            $(element).click(function () {
+                var folderName = '';
+                do {
+                    folderName = prompt(sig.Resources.get('Please enter the folder name') + ':');
+                } while (folderName !== null && $.trim(folderName).length === 0);
 
-            if (folderName) {
-                var manager = context.fileManager;
-                manager.createFolder(folderName);
-            }
+                if (folderName) {
+                    var manager = context.fileManager;
+                    manager.createFolder(folderName);
+                }
+            });
         }
     };
 
-    var BatchUploadButton = {
+    var BatchUploadControl = {
         _dialog: null,
-        text: 'Upload',
-        click: function (event, context) {
-            var dialog = BatchUploadButton._dialog;
+        create: function (context) {
+            return '<button type="button">' + sig.Resources.get('Upload') + '</button>';
+        },
+        init: function (element, context) {
+            $(element).click(function () {
+                var dialog = BatchUploadControl._dialog;
 
-            if (dialog == null) {
-                var filter = context.fileManager.filter();
-                var fileTypeExts = '';
-                if (filter) {
-                    var exts = filter.split(';');
-                    $.each(exts, function () {
-                        if (this.indexOf('.') === 0) {
-                            fileTypeExts += '*' + this;
-                        } else {
-                            fileTypeExts += this;
-                        }
-                        fileTypeExts += ';';
-                    });
-                }
-
-                dialog = new sig.ui.BatchUploadDialog({
-                    aspNetAuth: context.fileManager.option('aspNetAuth'),
-                    fileTypeExts: fileTypeExts,
-                    onQueueComplete: function (result) {
-                        context.fileManager.refresh(function () {
-                            var manager = this;
-                            $.each(result.files, function () {
-                                manager.selectEntry(this.fileName);
-                            });
+                if (dialog == null) {
+                    var filter = context.fileManager.filter();
+                    var fileTypeExts = '';
+                    if (filter) {
+                        var exts = filter.split(';');
+                        $.each(exts, function () {
+                            if (this.indexOf('.') === 0) {
+                                fileTypeExts += '*' + this;
+                            } else {
+                                fileTypeExts += this;
+                            }
+                            fileTypeExts += ';';
                         });
                     }
+
+                    dialog = new sig.ui.BatchUploadDialog({
+                        aspNetAuth: context.fileManager.option('aspNetAuth'),
+                        bucketId: context.fileManager.bucketId(),
+                        fileTypeExts: fileTypeExts,
+                        onQueueComplete: function (result) {
+                            context.fileManager.refresh(function () {
+                                var manager = this;
+                                $.each(result.files, function () {
+                                    manager.selectEntry(this.fileName);
+                                });
+                            });
+                        }
+                    });
+
+                    dialog.init();
+                    BatchUploadControl._dialog = dialog;
+                }
+
+                dialog.bucketId(context.fileManager.bucketId());
+                dialog.folder(context.fileManager.currentPath());
+
+                dialog.open();
+            });
+        }
+    };
+
+    var SwitchBucketControl = {
+        create: function (context) {
+            return '<select class="fm-buckets-dropdown"></select>';
+        },
+        init: function (element, context) {
+            context.fileManager.loadBuckets(function (buckets) {
+                var html = '';
+
+                $.each(buckets, function () {
+                    var selected = false;
+                    if (!context.fileManager.bucketId()) {
+                        selected = this.IsDefault;
+                    } else if (context.fileManager.bucketId() === this.BucketId) {
+                        selected = true;
+                    }
+
+                    html += '<option value="' + this.BucketId + '"' + (selected ? ' selected' : '') + '>' + this.DisplayName + '</option>';
                 });
 
-                dialog.init();
-                BatchUploadButton._dialog = dialog;
-            }
-
-            dialog.folder(context.fileManager.currentPath());
-            dialog.open();
+                $(element).html(html);
+                $(element).change(function () {
+                    context.fileManager.switchBucket($(this).val());
+                });
+            });
         }
     };
 

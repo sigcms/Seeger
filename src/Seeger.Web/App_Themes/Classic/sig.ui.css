@@ -1,17 +1,25 @@
 ﻿.fm-toolbar {
     background: #eee;
     padding: 5px;
+    height: 22px;
 }
     .fm-toolbar button {
         margin-right: 2px;
         min-width: 100px;
     }
+.fm-toolbar-primary {
+    float: left;
+}
+.fm-toolbar-secondary {
+    float: right;
+}
 .fm-empty-item td {
     text-align: center;
     padding: 30px 0;
 }
 .fm-filegrid {
     overflow: auto;
+    clear: both;
 }
 .fm-filegrid .datatable tr:hover td {
     background: none !important;

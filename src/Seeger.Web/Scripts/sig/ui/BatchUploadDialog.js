@@ -14,6 +14,7 @@
         var _options = {
             onQueueComplete: null,
             folder: '/',
+            bucketId: null,
             aspNetAuth: window.aspNetAuth || null,
             buttonText: 'Select files',
             uploadifyOptions: {
@@ -65,6 +66,13 @@
             _options.folder = path;
         }
 
+        this.bucketId = function (bucketId) {
+            if (arguments.length === 0) {
+                return _options.bucketId;
+            }
+            _options.bucketId = bucketId;
+        }
+
         this.open = function () {
             _dialog.html('<div class="batch-upload-dialog-body" style="position:relative">'
                             + '<input type="file" id="' + _uploaderId + '" />'
@@ -80,6 +88,7 @@
             options.fileTypeExts = _options.fileTypeExts;
             options.formData = options.formData || {};
             options.formData.aspNetAuth = _options.aspNetAuth;
+            options.formData.bucketId = _options.bucketId;
             options.formData.folder = _options.folder;
 
             _$uploadify = _dialog.find('#' + _uploaderId).uploadify(options);
@@ -127,7 +136,6 @@
         }
 
         function onUploadifyUploadError(file, errorCode, errorMsg, errorString) {
-            console.log(arguments);
             _uploadContext.errors.push({
                 fileName: file.name,
                 error: errorString

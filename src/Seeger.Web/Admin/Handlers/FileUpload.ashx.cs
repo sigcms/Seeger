@@ -46,7 +46,19 @@ namespace Seeger.Web.UI.Admin.Handlers
 
             var autoRename = context.Request["autoRename"] == "true";
 
-            var meta = FileBucketMetaStores.Current.LoadDefault();
+            FileBucketMeta meta = null;
+
+            var bucketId = context.Request["bucketId"];
+
+            if (!String.IsNullOrWhiteSpace(bucketId))
+            {
+                meta = FileBucketMetaStores.Current.Load(bucketId);
+            }
+            else
+            {
+                meta = FileBucketMetaStores.Current.LoadDefault();
+            }
+
             var fileSystem = FileSystemProviders.Get(meta.FileSystemProviderName).LoadFileSystem(meta);
             var directory = fileSystem.GetDirectory(folder);
 
