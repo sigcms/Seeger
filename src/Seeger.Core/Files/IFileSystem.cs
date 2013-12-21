@@ -11,5 +11,7 @@ namespace Seeger.Files
         IDirectory RootDirectory { get; }
 
         IDirectory GetDirectory(string virtualPath);
+
+        IDirectory CreateDirectory(string virtualPath);
     }
 }

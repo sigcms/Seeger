@@ -24,6 +24,23 @@ namespace Seeger.Files.Local
         {
             Require.NotNullOrEmpty(virtualPath, "virtualPath");
 
+            var path = GetPhysicalPath(virtualPath);
+            return new LocalDirectory(new DirectoryInfo(path), this);
+        }
+
+        public IDirectory CreateDirectory(string virtualPath)
+        {
+            Require.NotNullOrEmpty(virtualPath, "virtualPath");
+
+            var path = GetPhysicalPath(virtualPath);
+            var directory = new LocalDirectory(new DirectoryInfo(path), this);
+            directory.Create();
+
+            return directory;
+        }
+
+        private string GetPhysicalPath(string virtualPath)
+        {
             var root = (LocalDirectory)RootDirectory;
             var path = root.FileSystemInfo.FullName;
 
@@ -31,8 +48,7 @@ namespace Seeger.Files.Local
             {
                 path = Path.Combine(path, virtualPath.TrimStart('/').Replace('/', Path.DirectorySeparatorChar));
             }
-
-            return new LocalDirectory(new DirectoryInfo(path), this);
+            return path;
         }
     }
 }

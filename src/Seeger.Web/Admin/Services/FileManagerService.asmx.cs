@@ -37,16 +37,19 @@ namespace Seeger.Web.UI.Admin.Services
             var directory = fileSystem.GetDirectory(path);
             var entries = new List<FileSystemEntryInfo>();
 
-            entries.AddRange(directory.GetDirectories().Select(x => new FileSystemEntryInfo(x)));
-
-            var files = directory.GetFiles();
-
-            if (extensions != null)
+            if (directory != null)
             {
-                files = files.Where(x => extensions.Contains(x.Extension));
-            }
+                entries.AddRange(directory.GetDirectories().Select(x => new FileSystemEntryInfo(x)));
 
-            entries.AddRange(files.Select(x => new FileSystemEntryInfo(x)));
+                var files = directory.GetFiles();
+
+                if (extensions != null)
+                {
+                    files = files.Where(x => extensions.Contains(x.Extension));
+                }
+
+                entries.AddRange(files.Select(x => new FileSystemEntryInfo(x)));
+            }
 
             return entries;
         }

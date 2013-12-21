@@ -30,7 +30,7 @@
                         var updateTarget = $button.data('update-target');
                         if (updateTarget) {
                             var updateTargetAttr = $button.data('update-target-attr') || 'value';
-                            $(updateTarget).attr(updateTargetAttr, files[0].virtualPath);
+                            $(updateTarget).attr(updateTargetAttr, files[0].publicUri);
                         }
 
                         if (closeDialogOnOk) {

@@ -53,6 +53,28 @@ namespace Seeger.Plugins.QiniuCloud
             return null;
         }
 
+        public IDirectory CreateDirectory(string virtualPath)
+        {
+            Require.NotNullOrEmpty(virtualPath, "virtualPath");
+
+            RootDirectory.Create();
+
+            if (virtualPath == "/")
+            {
+                return RootDirectory;
+            }
+
+            var directory = RootDirectory;
+            var segments = virtualPath.SplitWithoutEmptyEntries('/');
+
+            foreach (var segment in segments)
+            {
+                directory = directory.CreateSubdirectory(segment);
+            }
+
+            return directory;
+        }
+
         public string GetPublicUri(string virtualPath)
         {
             return UrlUtil.Combine("http://" + Settings.Domain, virtualPath);

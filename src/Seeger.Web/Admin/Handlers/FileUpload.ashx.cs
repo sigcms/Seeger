@@ -62,6 +62,11 @@ namespace Seeger.Web.UI.Admin.Handlers
             var fileSystem = FileSystemProviders.Get(meta.FileSystemProviderName).LoadFileSystem(meta);
             var directory = fileSystem.GetDirectory(folder);
 
+            if (directory == null)
+            {
+                directory = fileSystem.CreateDirectory(folder);
+            }
+
             string fileName = null;
 
             if (autoRename)

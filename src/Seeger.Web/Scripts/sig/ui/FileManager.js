@@ -236,6 +236,10 @@
             $.each(entries, function () {
                 _this.addEntry(this);
             });
+
+            if (!_this.hasEntries()) {
+                showEmptyItem();
+            }
         }
 
         this.isFile = function (entryName) {
@@ -319,13 +323,17 @@
             deleteItem(findItem(entryName));
         }
 
+        this.hasEntries = function () {
+            return _$body.find('.fm-item:first').length > 0;
+        }
+
         function findItem(entryName) {
             return _$body.find('.fm-item[data-entryname="' + entryName + '"]');
         }
 
         function deleteItem($item) {
             $item.remove();
-            if (_$body.find('.fm-item:first').length === 0) {
+            if (!_this.hasEntries()) {
                 showEmptyItem();
             }
         }

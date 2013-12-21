@@ -49,3 +49,8 @@
     text-align: center;
     color: #999;
 }
+
+/* Without this, uploadify's select file dialog might be hidden under jquery dialogs */
+.swfupload {
+    z-index: 100000 !important;
+}

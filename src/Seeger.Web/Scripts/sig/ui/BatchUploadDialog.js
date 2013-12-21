@@ -88,8 +88,8 @@
             options.fileTypeExts = _options.fileTypeExts;
             options.formData = options.formData || {};
             options.formData.aspNetAuth = _options.aspNetAuth;
-            options.formData.bucketId = _options.bucketId;
-            options.formData.folder = _options.folder;
+            options.formData.bucketId = _options.bucketId || '';
+            options.formData.folder = _options.folder || '/';
 
             _$uploadify = _dialog.find('#' + _uploaderId).uploadify(options);
         }
