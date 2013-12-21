@@ -28,6 +28,12 @@
             _options = $.extend(true, _options, options);
         }
 
+        _options.folder = _options.folder || '/';
+
+        if (_options.folder[0] != '/') {
+            _options.folder = '/' + _options.folder;
+        };
+
         var _currentPath = _options.folder;
 
         this.$element = function () {
