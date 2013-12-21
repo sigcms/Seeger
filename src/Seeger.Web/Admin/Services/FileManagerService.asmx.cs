@@ -19,6 +19,7 @@ namespace Seeger.Web.UI.Admin.Services
         public object Buckets()
         {
             return FileBucketMetaStores.Current.LoadAll()
+                                       .OrderBy(x => x.CreatedAt)
                                        .Select(x => new
                                        {
                                            BucketId = x.BucketId,

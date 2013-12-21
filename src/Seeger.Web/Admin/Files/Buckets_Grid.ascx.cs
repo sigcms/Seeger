@@ -16,7 +16,9 @@ namespace Seeger.Web.UI.Admin.Files
         public override void Bind(AjaxGridContext context)
         {
             var store = FileBucketMetaStores.Current;
-            Metas = store.LoadAll();
+            Metas = store.LoadAll()
+                         .OrderBy(x => x.CreatedAt)
+                         .ToList();
         }
 
         protected string GetConfigurationUrl(string bucketId)
