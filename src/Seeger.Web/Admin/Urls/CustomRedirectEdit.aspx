@@ -3,10 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="message info">
-<%= T("CustomRedirect.HelpHint") %>
-</div>
-
 <table class="formtable">
     <tr>
         <th><%= T("CustomRedirect.RedirectMode")%></th>
@@ -25,20 +21,16 @@
         </td>
     </tr>
     <tr>
-        <th><%= T("CustomRedirect.UrlMatchMode") %></th>
-        <td>
-            <asp:DropDownList runat="server" ID="UrlMatchMode">
-                <asp:ListItem Text="<%$ T: UrlMatchMode.MatchPath %>" Value="MatchPath" />
-                <asp:ListItem Text="<%$ T: UrlMatchMode.MatchFullUrl %>" Value="MatchFullUrl" />
-            </asp:DropDownList>
-            <asp:CheckBox runat="server" ID="MatchByRegex" Text="<%$ T: CustomRedirect.MatchByRegex %>" />
-        </td>
-    </tr>
-    <tr>
         <th><label class="required"><%= T("CustomRedirect.To") %></label></th>
         <td>
             <asp:TextBox runat="server" ID="To" MaxLength="300" />
             <asp:RequiredFieldValidator runat="server" ID="ToRequiredValidator" ControlToValidate="To" ErrorMessage="*" />
+        </td>
+    </tr>
+    <tr>
+        <th></th>
+        <td>
+            <asp:CheckBox runat="server" ID="MatchByRegex" Text="<%$ T: CustomRedirect.MatchByRegex %>" />
         </td>
     </tr>
     <tr>

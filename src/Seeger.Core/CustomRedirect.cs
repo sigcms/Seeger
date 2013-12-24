@@ -19,8 +19,6 @@ namespace Seeger
 
         public virtual bool MatchByRegex { get; set; }
 
-        public virtual UrlMatchMode UrlMatchMode { get; set; }
-
         public virtual RedirectMode RedirectMode { get; set; }
 
         public virtual bool IsEnabled { get; set; }
@@ -31,18 +29,6 @@ namespace Seeger
         {
             IsEnabled = true;
             UtcCreatedTime = DateTime.UtcNow;
-        }
-
-        public virtual bool IsMatch(Uri url)
-        {
-            var stringToMatch = UrlMatchMode == UrlMatchMode.MatchFullUrl ? url.ToString() : url.AbsolutePath;
-
-            if (MatchByRegex)
-            {
-                return Regex.IsMatch(stringToMatch, From, RegexOptions.IgnoreCase);
-            }
-
-            return stringToMatch.Equals(From, StringComparison.OrdinalIgnoreCase);
         }
     }
 

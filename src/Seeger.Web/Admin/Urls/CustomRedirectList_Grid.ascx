@@ -4,9 +4,8 @@
     <thead>
         <tr>
             <th><%= T("CustomRedirect.From") %></th>
-            <th><%= T("CustomRedirect.UrlMatchMode") %></th>
-            <th><%= T("CustomRedirect.MatchByRegex") %></th>
             <th><%= T("CustomRedirect.To") %></th>
+            <th><%= T("CustomRedirect.MatchByRegex") %></th>
             <th><%= T("CustomRedirect.RedirectMode") %></th>
             <th><%= T("CustomRedirect.IsEnabled") %></th>
             <% if (HasPermission("CustomRedirect", "Edit")) { %>
@@ -22,9 +21,8 @@
             <ItemTemplate>
                 <tr class="data-item">
                     <td><%# Eval("From") %></td>
-                    <td style="text-align:center"><%# T("UrlMatchMode." + Eval("UrlMatchMode")) %></td>
-                    <td style="text-align:center"><%# (bool)Eval("MatchByRegex") ? "✓" : "X" %></td>
                     <td><%# Eval("To") %></td>
+                    <td style="text-align:center"><%# (bool)Eval("MatchByRegex") ? "✓" : "X" %></td>
                     <td style="text-align:center"><%# T("RedirectMode." + Eval("RedirectMode")) %></td>
                     <td style="text-align:center"><%# (bool)Eval("IsEnabled") ? "✓" : "X" %></td>
                     <% if (HasPermission("CustomRedirect", "Edit")) { %>

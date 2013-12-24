@@ -139,7 +139,6 @@ create table cms_CustomRedirect
 	"To" nvarchar(300) not null,
 	"Description" nvarchar(500) null,
 	MatchByRegex bit not null,
-	UrlMatchMode int not null,
 	RedirectMode int not null,
 	IsEnabled bit not null,
 	UtcCreatedTime datetime not null,

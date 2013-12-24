@@ -190,7 +190,6 @@
     <Compile Include="PagedQueryable.cs" />
     <Compile Include="Security\LoginMode.cs" />
     <Compile Include="Config\SecurityConfig.cs" />
-    <Compile Include="UrlMatchMode.cs" />
     <Compile Include="Plugins\AssemblyDeployer.cs" />
     <Compile Include="Plugins\DefaultInstalledPluginService.cs" />
     <Compile Include="Plugins\IInstalledPluginService.cs" />

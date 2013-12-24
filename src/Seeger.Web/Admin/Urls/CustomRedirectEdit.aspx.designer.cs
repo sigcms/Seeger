@@ -40,24 +40,6 @@ namespace Seeger.Web.UI.Admin.Urls {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator FromRequiredValidator;
         
         /// <summary>
-        /// UrlMatchMode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList UrlMatchMode;
-        
-        /// <summary>
-        /// MatchByRegex control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox MatchByRegex;
-        
-        /// <summary>
         /// To control.
         /// </summary>
         /// <remarks>
@@ -74,6 +56,15 @@ namespace Seeger.Web.UI.Admin.Urls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ToRequiredValidator;
+        
+        /// <summary>
+        /// MatchByRegex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox MatchByRegex;
         
         /// <summary>
         /// IsEnabled control.

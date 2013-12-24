@@ -203,7 +203,6 @@
     <Content Include="App_Data\Resources\en-US\SkinName.xml" />
     <Content Include="App_Data\Resources\en-US\TaskQueue.xml" />
     <Content Include="App_Data\Resources\en-US\TextContent.xml" />
-    <Content Include="App_Data\Resources\en-US\UrlMatchMode.xml" />
     <Content Include="App_Data\Resources\en-US\User.xml" />
     <Content Include="App_Data\Resources\zh-CN\DbBackup.xml" />
     <Content Include="App_Data\Resources\zh-CN\Logs.xml" />
@@ -219,7 +218,6 @@
     <Content Include="App_Data\Resources\zh-CN\SigDownload.xml" />
     <Content Include="App_Data\Resources\zh-CN\SigImage.xml" />
     <Content Include="App_Data\Resources\zh-CN\FileMgnt.xml" />
-    <Content Include="App_Data\Resources\zh-CN\UrlMatchMode.xml" />
     <Content Include="App_Themes\Classic\images\icon-addhtml.png" />
     <Content Include="App_Themes\Classic\images\icon-excel.png" />
     <Content Include="App_Themes\Classic\images\icon-flash.png" />

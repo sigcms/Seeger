@@ -38,7 +38,6 @@ namespace Seeger.Web.UI.Admin.Urls
         public void InitView(CustomRedirect entity)
         {
             RedirectMode.SelectedValue = entity.RedirectMode.ToString();
-            UrlMatchMode.SelectedValue = entity.UrlMatchMode.ToString();
             From.Text = entity.From;
             To.Text = entity.To;
             MatchByRegex.Checked = entity.MatchByRegex;
@@ -50,7 +49,6 @@ namespace Seeger.Web.UI.Admin.Urls
             entity.RedirectMode = (RedirectMode)Enum.Parse(typeof(RedirectMode), RedirectMode.SelectedValue);
             entity.From = From.Text.Trim();
             entity.To = To.Text.Trim();
-            entity.UrlMatchMode = (UrlMatchMode)Enum.Parse(typeof(UrlMatchMode), UrlMatchMode.SelectedValue);
             entity.MatchByRegex = MatchByRegex.Checked;
             entity.IsEnabled = IsEnabled.Checked;
         }

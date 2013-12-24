@@ -34,8 +34,12 @@ namespace Seeger.Web.UI
             base.InitializeCulture();
 
             var cutlure = AdminSession.UICulture;
-            System.Threading.Thread.CurrentThread.CurrentCulture = cutlure;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cutlure;
+
+            if (cutlure != null)
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture = cutlure;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = cutlure;
+            }
         }
 
         protected override void OnPreInit(EventArgs e)

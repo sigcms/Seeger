@@ -8,14 +8,4 @@
   <item key="From" value="源地址" />
   <item key="To" value="目标地址" />
   <item key="IsEnabled" value="是否启用" />
-  <item key="HelpHint">
-    <![CDATA[
-    自定义跳转可以将匹配成功的URL地址跳转到指定的目标地址。<br/>
-    - 当URL匹配模式为“匹配路径”时，系统将忽略URL中的域名部分，这常用于站内跳转，例如要将 http://xxx.com/abc 页面跳转到 http://xxx.com/def，
-    则需在源地址中输入/abc，目标地址处输入/def，并设置匹配模式为匹配路径。<br/>
-    - 若域名有变更，想把旧域名的访问跳转到新域名，则应该选择“匹配完整URL”，例如要将 http://aaa.com/abc 页面跳转到 http://bbb.com/abc，
-    则需在源地址中输入 http://aaa.com/abc，目标地址输入 http://bbb.com/abc，并指定为“匹配完整URL”。<br/>
-    - 若想告知搜索引擎删除某些已收录的地址，可使用301永久跳转将旧页面跳转到新页面，这样搜索引擎便会在一段时间后删除旧页面并收录新页面。
-    ]]>
-  </item>
 </localization>
