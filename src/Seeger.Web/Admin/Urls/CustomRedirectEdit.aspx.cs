@@ -41,6 +41,7 @@ namespace Seeger.Web.UI.Admin.Urls
             From.Text = entity.From;
             To.Text = entity.To;
             MatchByRegex.Checked = entity.MatchByRegex;
+            Priority.Text = entity.Priority.ToString();
             IsEnabled.Checked = entity.IsEnabled;
         }
 
@@ -50,6 +51,7 @@ namespace Seeger.Web.UI.Admin.Urls
             entity.From = From.Text.Trim();
             entity.To = To.Text.Trim();
             entity.MatchByRegex = MatchByRegex.Checked;
+            entity.Priority = Convert.ToInt32(Priority.Text.Trim());
             entity.IsEnabled = IsEnabled.Checked;
         }
 

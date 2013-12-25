@@ -29,6 +29,7 @@ namespace Seeger.Data.Mapping
             Property(c => c.From, m => m.Column("`From`"));
             Property(c => c.To, m => m.Column("`To`"));
             Property(c => c.Description, m => m.Column("`Description`"));
+            Property(c => c.Priority);
             Property(c => c.MatchByRegex);
             Property(c => c.RedirectMode);
             Property(c => c.IsEnabled);

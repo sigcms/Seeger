@@ -17,6 +17,8 @@ namespace Seeger
 
         public virtual string Description { get; set; }
 
+        public virtual int Priority { get; set; }
+
         public virtual bool MatchByRegex { get; set; }
 
         public virtual RedirectMode RedirectMode { get; set; }

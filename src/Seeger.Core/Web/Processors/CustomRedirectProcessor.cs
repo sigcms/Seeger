@@ -13,7 +13,9 @@ namespace Seeger.Web.Processors
         {
             var customRedirects = CustomRedirectCache.From(context.NhSession)
                                                      .CustomRedirects
-                                                     .Where(x => x.IsEnabled);
+                                                     .Where(x => x.IsEnabled)
+                                                     .OrderByDescending(x => x.Priority)
+                                                     .ThenBy(x => x.Id);
 
             foreach (var customRedirect in customRedirects)
             {

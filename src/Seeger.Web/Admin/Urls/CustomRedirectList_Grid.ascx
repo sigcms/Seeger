@@ -7,6 +7,7 @@
             <th><%= T("CustomRedirect.To") %></th>
             <th><%= T("CustomRedirect.MatchByRegex") %></th>
             <th><%= T("CustomRedirect.RedirectMode") %></th>
+            <th><%= T("CustomRedirect.Priority") %></th>
             <th><%= T("CustomRedirect.IsEnabled") %></th>
             <% if (HasPermission("CustomRedirect", "Edit")) { %>
             <th><%= T("Common.Edit") %></th>
@@ -24,6 +25,7 @@
                     <td><%# Eval("To") %></td>
                     <td style="text-align:center"><%# (bool)Eval("MatchByRegex") ? "✓" : "X" %></td>
                     <td style="text-align:center"><%# T("RedirectMode." + Eval("RedirectMode")) %></td>
+                    <td style="text-align:center"><%# Eval("Priority") %></td>
                     <td style="text-align:center"><%# (bool)Eval("IsEnabled") ? "✓" : "X" %></td>
                     <% if (HasPermission("CustomRedirect", "Edit")) { %>
                     <td style="text-align:center">

@@ -34,6 +34,12 @@
         </td>
     </tr>
     <tr>
+        <th><%= T("CustomRedirect.Priority") %></th>
+        <td>
+            <asp:TextBox runat="server" ID="Priority" MaxLength="8" />
+        </td>
+    </tr>
+    <tr>
         <th></th>
         <td>
             <asp:CheckBox runat="server" ID="IsEnabled" Checked="true" Text="<%$ T: CustomRedirect.IsEnabled %>" />

@@ -14,7 +14,8 @@ namespace Seeger.Web.UI.Admin.Urls
         public override void Bind(AjaxGridContext context)
         {
             var redirects = NhSession.Query<CustomRedirect>()
-                                     .OrderByDescending(x => x.Id)
+                                     .OrderByDescending(x => x.Priority)
+                                     .ThenBy(x => x.Id)
                                      .Paging(Pager.PageSize);
 
             List.DataSource = redirects.Page(context.PageIndex);

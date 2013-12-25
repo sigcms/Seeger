@@ -67,6 +67,15 @@ namespace Seeger.Web.UI.Admin.Urls {
         protected global::System.Web.UI.WebControls.CheckBox MatchByRegex;
         
         /// <summary>
+        /// Priority control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Priority;
+        
+        /// <summary>
         /// IsEnabled control.
         /// </summary>
         /// <remarks>

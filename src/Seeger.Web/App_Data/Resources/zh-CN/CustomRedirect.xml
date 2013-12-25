@@ -5,6 +5,7 @@
   <item key="RedirectMode" value="跳转模式" />
   <item key="UrlMatchMode" value="URL匹配模式" />
   <item key="MatchByRegex" value="使用正则匹配" />
+  <item key="Priority" value="优先级" />
   <item key="From" value="源地址" />
   <item key="To" value="目标地址" />
   <item key="IsEnabled" value="是否启用" />

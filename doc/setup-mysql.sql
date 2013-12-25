@@ -140,6 +140,7 @@ create table cms_CustomRedirect
 	Description nvarchar(500) null,
 	MatchByRegex bit not null,
 	RedirectMode int not null,
+	`Priority` int not null,
 	IsEnabled bit not null,
 	UtcCreatedTime datetime not null,
 
