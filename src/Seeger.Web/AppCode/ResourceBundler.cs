@@ -11,6 +11,7 @@ namespace Seeger.Web
         public static void Initialize()
         {
             var coreScriptBundle = new Bundle("~/Scripts/sig.core.js")
+                                        .Include("~/Scripts/url.js")
                                         .Include("~/Scripts/knockout.js", "~/Scripts/knockout.mapping.js")
                                         .Include("~/Scripts/underscore.js", "~/Scripts/underscore.defaults.js")
                                         .Include("~/Scripts/jquery.validate.js", "~/Scripts/jquery.validate.unobtrusive.js", "~/Scripts/jquery.validate.unobtrusive.ext.js")

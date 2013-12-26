@@ -171,6 +171,10 @@ namespace Seeger.Web.UI
                 Title = ResourceFolder.Global.GetValue("Common.Designer", CultureInfo.CurrentUICulture) + " (" + PageItem.DisplayName + ")";
                 IncludeDesignerElements();
             }
+            else if (AdminSession.IsAuthenticated && Authorize(AdminSession.User))
+            {
+                RegisterDesignerLauncher();
+            }
 
             foreach (var interceptor in PageLifecycleInterceptors.GetEnabledInterceptors())
             {
@@ -191,6 +195,12 @@ namespace Seeger.Web.UI
             Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery-ui.min.js" });
 
             Form.Controls.Add(LoadControl("/Admin/Designer/DesignerElement.ascx"));
+        }
+
+        private void RegisterDesignerLauncher()
+        {
+            this.IncludeCssFile("/Styles/designer-launcher.css");
+            Form.Controls.Add(LoadControl("/Admin/Designer/Launcher.ascx"));
         }
 
         private bool Authorize(User user)

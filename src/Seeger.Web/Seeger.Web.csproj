@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\403.aspx" />
+    <Content Include="Admin\Designer\Launcher.ascx" />
     <Content Include="Admin\Files\BucketEdit.aspx" />
     <Content Include="Admin\Files\Buckets.aspx" />
     <Content Include="Admin\Files\Buckets_Grid.ascx" />
@@ -647,7 +648,9 @@
     <Content Include="App_Themes\Classic\images\uploadify-cancel.png" />
     <Content Include="App_Themes\Classic\uploadify.css" />
     <Content Include="Scripts\uploadify\uploadify.swf" />
+    <Content Include="Scripts\url.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\designer-launcher.css" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Default.aspx" />
     <Content Include="Templates\Default\Layouts\ThreeColumn1\Preview.gif" />
     <Content Include="Templates\Default\Layouts\ThreeColumn2\Default.aspx" />
@@ -742,6 +745,13 @@
     </Compile>
     <Compile Include="Admin\Designer\DesignerElement.ascx.designer.cs">
       <DependentUpon>DesignerElement.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Designer\Launcher.ascx.cs">
+      <DependentUpon>Launcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Designer\Launcher.ascx.designer.cs">
+      <DependentUpon>Launcher.ascx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Designer\SaveChanges.ashx.cs">
       <DependentUpon>SaveChanges.ashx</DependentUpon>

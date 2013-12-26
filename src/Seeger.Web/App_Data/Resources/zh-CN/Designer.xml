@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization prefix="Designer">
+  <item key="Launch" value="打开设计器" />
   <item key="ShowToolbox" value="显示工具栏" />
   <item key="HideToolbox" value="隐藏工具栏" />
   <item key="HighlightZones" value="突出显示页面区域" />
