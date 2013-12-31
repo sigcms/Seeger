@@ -17,6 +17,7 @@ namespace Seeger.Web
                                         .Include("~/Scripts/jquery.validate.js", "~/Scripts/jquery.validate.unobtrusive.js", "~/Scripts/jquery.validate.unobtrusive.ext.js")
                                         .Include("~/Scripts/string.format.js")
                                         .Include("~/Scripts/uploadify/jquery.uploadify.js")
+                                        .Include("~/Scripts/jquery.fileupload.js")
                                         .IncludeDirectory("~/Scripts/sig", "*.js", true);
 
             BundleTable.Bundles.Add(coreScriptBundle);

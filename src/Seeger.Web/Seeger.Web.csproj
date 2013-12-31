@@ -341,6 +341,7 @@
     <Content Include="Scripts\filebrowser\images\zip.png" />
     <Content Include="Scripts\filebrowser\jquery.filebrowser.css" />
     <Content Include="Scripts\filebrowser\jquery.filebrowser.js" />
+    <Content Include="Scripts\jquery.fileupload.js" />
     <Content Include="Scripts\jquery.sigvalidate.js" />
     <Content Include="Scripts\jquery.dropdown.js" />
     <Content Include="Scripts\jquery.looklesstab.js" />
@@ -374,9 +375,11 @@
     <Content Include="Scripts\sig\ui\BatchUploadDialog.js" />
     <Content Include="Scripts\sig\ui\Dialog.js" />
     <Content Include="Scripts\sig\ui\FileManager.js" />
+    <Content Include="Scripts\sig\ui\FileUpload.js" />
     <Content Include="Scripts\sig\ui\Message.js" />
     <Content Include="Scripts\sig\ui\SelectFileButton.js" />
     <Content Include="Scripts\sig\ui\SelectFileDialog.js" />
+    <Content Include="Scripts\sig\ui\UploadZone.js" />
     <Content Include="Scripts\sig\UrlUtil.js" />
     <Content Include="Scripts\sig\WebService.js" />
     <Content Include="Scripts\telerik\telerik.common.js" />

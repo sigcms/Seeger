@@ -1,5 +1,9 @@
 ﻿@import url(d.jqueryui.css);
 
+.ui-widget {
+    font-size: 1em;
+}
+
 .sig-toolbox
 {
     font-family: Verdana, Arial, Sans-Serif;

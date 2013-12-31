@@ -87,7 +87,8 @@ namespace Seeger.Web.UI.Admin.Handlers
                 Data = new FileUploadResult
                 {
                     FileName = fileName,
-                    VirtualPath = virtualFile.PublicUri
+                    VirtualPath = virtualFile.PublicUri,
+                    PublicUri = virtualFile.PublicUri
                 }
             };
 
@@ -108,7 +109,10 @@ namespace Seeger.Web.UI.Admin.Handlers
         {
             public string FileName { get; set; }
 
+            [Obsolete("Use PublicUri instead.")]
             public string VirtualPath { get; set; }
+
+            public string PublicUri { get; set; }
         }
     }
 }
