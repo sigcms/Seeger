@@ -97,7 +97,7 @@ namespace Seeger.Web
 
             int index = path.LastIndexOf('/');
 
-            if (index == 0)
+            if (index <= 0)
             {
                 return "/";
             }

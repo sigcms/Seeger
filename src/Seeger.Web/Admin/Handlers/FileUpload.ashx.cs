@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Seeger.Files;
 using Seeger.Globalization;
+using Seeger.Logging;
 using Seeger.Utils;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace Seeger.Web.UI.Admin.Handlers
 {
     public class FileUpload : AuthRequiredHttpHandler
     {
+        static readonly Logger _log = LogManager.GetCurrentClassLogger();
+
         public override HandlerAuthMode AuthMode
         {
             get
@@ -28,6 +31,7 @@ namespace Seeger.Web.UI.Admin.Handlers
             }
             catch (Exception ex)
             {
+                _log.ErrorException(UserReference.System(), ex, "Fail upload file. " + ex.Message);
                 WriteResult(context, OperationResult.CreateErrorResult(ex));
             }
         }
