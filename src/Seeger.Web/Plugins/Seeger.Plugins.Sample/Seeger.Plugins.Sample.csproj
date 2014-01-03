@@ -59,7 +59,6 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Mapping\BlogPostMap.cs" />
     <Compile Include="Data\NhMappingProvider.cs" />
     <Compile Include="Domain\BlogPost.cs" />
     <Compile Include="Events\Handlers\OnVaryByCustomStringRequested.cs" />

@@ -27,16 +27,4 @@
 
     </div>
 
-    <div>
-        <input type="text" id="text1" data-folder="/Html5" data-autorename="true" />
-    </div>
-
-    <button type="button" id="btn-upload">Upload</button>
-
-    <script>
-        $(function () {
-            sig.ui.UploadZone.init('#text1');
-        });
-    </script>
-
 </asp:Content>

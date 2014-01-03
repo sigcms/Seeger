@@ -9,6 +9,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 namespace Seeger.Data.Mapping
 {
+    [Obsolete("Use ConventionMappingCompiler instead.")]
     public static class ByCodeMappingLoader
     {
         public static HbmMapping LoadMappingFrom(params Assembly[] assemblies)

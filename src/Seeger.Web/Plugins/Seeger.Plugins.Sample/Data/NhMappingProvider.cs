@@ -1,5 +1,6 @@
 ﻿using Seeger.Data;
 using Seeger.Data.Mapping;
+using Seeger.Plugins.Sample.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,9 @@ namespace Seeger.Plugins.Sample.Data
     {
         public IEnumerable<NHibernate.Cfg.MappingSchema.HbmMapping> GetMappings()
         {
-            yield return ByCodeMappingLoader.LoadMappingFrom(typeof(NhMappingProvider).Assembly);
+            yield return new ConventionMappingCompiler("sample")
+                            .AddAssemblies(typeof(NhMappingProvider).Assembly)
+                            .CompileMapping();
         }
     }
 }
