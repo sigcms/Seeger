@@ -6,11 +6,26 @@ using System.Text;
 
 namespace Seeger.Data.Mapping
 {
-    public class ConventionModelInspector : ModelInspectorWrapper
+    public class ConventionModelInspector : WrappedSimpleModelInspector
     {
         public ConventionModelInspector()
-            : base(new SimpleModelInspector())
+            : this(new SimpleModelInspector())
         {
+        }
+
+        public ConventionModelInspector(SimpleModelInspector inspector)
+            : base(inspector)
+        {
+        }
+
+        public override bool IsPersistentProperty(System.Reflection.MemberInfo member)
+        {
+            if (member.GetCustomAttributes(typeof(NotMappedAttribute), false).Any())
+            {
+                return false;
+            }
+
+            return base.IsPersistentProperty(member);
         }
 
         public override bool IsEntity(Type type)

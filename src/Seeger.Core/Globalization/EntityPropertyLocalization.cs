@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Seeger.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Seeger.Globalization
 {
+    [Class]
     public class EntityPropertyLocalization
     {
+        [HiloId]
         public virtual int Id { get; set; }
 
         public virtual string EntityType { get; set; }
@@ -17,6 +20,7 @@ namespace Seeger.Globalization
 
         public virtual string Culture { get; set; }
 
+        [StringClob]
         public virtual string PropertyValue { get; set; }
     }
 }

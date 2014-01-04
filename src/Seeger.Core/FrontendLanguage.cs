@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Seeger.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Seeger
 {
+    [Class]
     public class FrontendLanguage
     {
         private string _domain = String.Empty;

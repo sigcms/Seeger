@@ -1,4 +1,5 @@
-﻿using Seeger.Security;
+﻿using Seeger.Data.Mapping;
+using Seeger.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace Seeger
 {
+    [Component]
     public class UserReference
     {
         public int Id { get; set; }

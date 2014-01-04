@@ -10,21 +10,8 @@ namespace Seeger.Data.Mapping.Impl
 {
     class RoleMap : ClassMapping<Role>
     {
-        public string TableName
-        {
-            get
-            {
-                return "cms_" + typeof(Role).Name;
-            }
-        }
-
         public RoleMap()
         {
-            Table(TableName);
-
-            this.HighLowId(c => c.Id, TableName);
-
-            Property(c => c.Name);
             Bag<RoleGrantedPermission>(c => c.GrantedPermissions, m =>
             {
                 m.Key(k => k.Column("RoleId"));

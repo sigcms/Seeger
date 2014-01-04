@@ -1,4 +1,5 @@
-﻿using Seeger.Data;
+﻿using NHibernate.Mapping.ByCode;
+using Seeger.Data;
 using Seeger.Data.Mapping;
 using Seeger.Plugins.Sample.Domain;
 using System;

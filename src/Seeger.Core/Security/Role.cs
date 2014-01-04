@@ -5,12 +5,14 @@ using System.Text;
 using Iesi.Collections.Generic;
 using Seeger.Plugins;
 using Seeger.Config;
+using Seeger.Data.Mapping;
 
 namespace Seeger.Security
 {
+    [Class]
     public class Role
     {
-        [EntityKey]
+        [EntityKey, HiloId]
         public virtual int Id { get; set; }
 
         public virtual string Name { get; set; }

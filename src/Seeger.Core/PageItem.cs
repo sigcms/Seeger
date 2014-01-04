@@ -77,6 +77,7 @@ namespace Seeger
         private string _layoutFullName;
         private Layout _layout;
 
+        [NotMapped]
         public virtual Layout Layout
         {
             get
@@ -128,7 +129,8 @@ namespace Seeger
 
         private string _skinFullName;
         private TemplateSkin _skin;
-
+        
+        [NotMapped]
         public virtual TemplateSkin Skin
         {
             get

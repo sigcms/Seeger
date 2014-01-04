@@ -64,7 +64,7 @@ namespace Seeger.Data
             config.Configure(nhibernateConfigFilePath);
 
             // Core mappings
-            config.AddMapping(ByCodeMappingLoader.LoadMappingFrom(Assembly.GetExecutingAssembly()));
+            config.AddMapping(new ConventionMappingCompiler("cms").AddAssemblies(Assembly.GetExecutingAssembly()).CompileMapping());
 
             var sessionFactory = SessionFactory;
             if (sessionFactory != null)

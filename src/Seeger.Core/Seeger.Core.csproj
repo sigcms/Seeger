@@ -76,7 +76,8 @@
     <Compile Include="Collections\TreeNodeExtensions.cs" />
     <Compile Include="Data\Mapping\ComponentAttribute.cs" />
     <Compile Include="Data\Mapping\ConventionModelInspector.cs" />
-    <Compile Include="Data\Mapping\ModelInspectorWrapper.cs" />
+    <Compile Include="Data\Mapping\WrappedSimpleModelInspector.cs" />
+    <Compile Include="Data\Mapping\NotMappedAttribute.cs" />
     <Compile Include="Data\Mapping\StringClobAttribute.cs" />
     <Compile Include="Data\Backup\IDbBackuper.cs" />
     <Compile Include="Data\Backup\MssqlBackuper.cs" />
@@ -93,12 +94,10 @@
     <Compile Include="Data\Mapping\ConventionModelMapper.cs" />
     <Compile Include="Data\Mapping\Extensions\IdMapperExtensions.cs" />
     <Compile Include="Data\Mapping\Impl\CustomRedirectMap.cs" />
-    <Compile Include="Data\Mapping\Impl\EntityPropertyLocalizationMap.cs" />
     <Compile Include="Data\Mapping\Extensions\IdMappings.cs" />
     <Compile Include="Data\Mapping\Impl\FrontendLanguageMap.cs" />
     <Compile Include="Data\Mapping\Impl\GlobalSettingMap.cs" />
     <Compile Include="Data\Mapping\HiloIdAttribute.cs" />
-    <Compile Include="Data\Mapping\Impl\LogEntryMap.cs" />
     <Compile Include="Data\UnitOfWorkAmbient.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UnitOfWorkScope.cs" />
@@ -151,7 +150,6 @@
     <Compile Include="Data\Mapping\Impl\RoleMap.cs" />
     <Compile Include="Data\Mapping\Impl\RoleGrantedPermissionMap.cs" />
     <Compile Include="Data\Mapping\Impl\SiteInfoMap.cs" />
-    <Compile Include="Data\Mapping\Impl\TaskItemMap.cs" />
     <Compile Include="Data\Mapping\Impl\UserMap.cs" />
     <Compile Include="Data\Mapping\Impl\LocatedWidgetMap.cs" />
     <Compile Include="Data\NhMappingProviders.cs" />

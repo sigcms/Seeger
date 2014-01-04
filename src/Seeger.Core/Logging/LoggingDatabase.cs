@@ -28,15 +28,11 @@ namespace Seeger.Logging
             _sessionFactory = new Lazy<ISessionFactory>(() =>
             {
                 var config = new Configuration();
+
+                config.SetProperty(NHibernate.Cfg.Environment.Hbm2ddlKeyWords, "auto-quote");
+
                 config.Configure(Database.ConfigurationFilePath);
-
-                var mapper = new ModelMapper();
-                mapper.AddMapping(typeof(LogEntryMap));
-
-                var mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
-                mapping.autoimport = false;
-
-                config.AddMapping(mapping);
+                config.AddMapping(new ConventionMappingCompiler("cms").AddEntityTypes(new[] { typeof(LogEntry) }).CompileMapping());
 
                 return config.BuildSessionFactory();
             }, true);

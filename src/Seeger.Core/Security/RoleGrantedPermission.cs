@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Seeger.Data.Mapping;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,10 @@ using System.Text.RegularExpressions;
 
 namespace Seeger.Security
 {
+    [Class]
     public class RoleGrantedPermission
     {
+        [HiloId]
         public virtual int Id { get; set; }
 
         public virtual string PluginName { get; set; }

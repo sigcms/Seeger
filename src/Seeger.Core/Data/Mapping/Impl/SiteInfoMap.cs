@@ -11,8 +11,6 @@ namespace Seeger.Data.Mapping.Impl
     {
         public SiteInfoMap()
         {
-            Table("cms_" + typeof(SiteInfo).Name);
-
             Cache(c => c.Usage(CacheUsage.ReadWrite));
 
             Id(c => c.Culture, m =>
@@ -20,11 +18,6 @@ namespace Seeger.Data.Mapping.Impl
                 m.Generator(Generators.Assigned);
             });
             Lazy(false);
-            Property(c => c.SiteTitle);
-            Property(c => c.SiteSubtitle);
-            Property(c => c.LogoFilePath);
-            Property(c => c.Copyright);
-            Property(c => c.MiiBeiAnNumber);
 
             Component(c => c.SEOInfo, m =>
             {

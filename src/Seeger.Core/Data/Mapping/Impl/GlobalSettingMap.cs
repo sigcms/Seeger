@@ -11,14 +11,10 @@ namespace Seeger.Data.Mapping.Impl
     {
         public GlobalSettingMap()
         {
-            Table("cms_" + typeof(GlobalSetting).Name);
-
             Id(c => c.Key, m =>
             {
-                m.Column("`Key`");
                 m.Generator(Generators.Assigned);
             });
-            Property(c => c.Value);
         }
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using Seeger.Data.Mapping;
 
 namespace Seeger
 {
+    [Class]
     public class SiteInfo
     {
         [EntityKey]

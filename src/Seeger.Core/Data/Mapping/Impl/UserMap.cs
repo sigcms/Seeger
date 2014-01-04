@@ -13,35 +13,14 @@ namespace Seeger.Data.Mapping.Impl
 {
     class UserMap : ClassMapping<User>
     {
-        public string TableName
-        {
-            get
-            {
-                return "cms_" + typeof(User).Name;
-            }
-        }
-
         public UserMap()
         {
-            Table(TableName);
-
-            this.HighLowId(c => c.Id, TableName);
-
-            Property(c => c.UserName);
-            Property(c => c.Nick);
-            Property(c => c.Password);
-            Property(c => c.Email);
-            Property(c => c.FailedPasswordAttemptCount);
-            Property(c => c.LastFailedPasswordAttemptTime);
-            Property(c => c.LastLoginTime);
-            Property(c => c.LastLoginIP);
-            Property(c => c.IsSuperAdmin);
             Property("_skinName", m =>
             {
                 m.Column("SkinName");
                 m.Access(Accessor.Field);
             });
-            Property(c => c.Language);
+
             IdBag<Role>(c => c.Roles, m =>
             {
                 m.Table("cms_UserInRole");

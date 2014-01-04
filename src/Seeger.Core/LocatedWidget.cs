@@ -7,11 +7,14 @@ using System.Xml.Linq;
 using Seeger.Data;
 using Seeger.Plugins;
 using Seeger.Plugins.Widgets;
+using Seeger.Data.Mapping;
 
 namespace Seeger
 {
+    [Class]
     public class LocatedWidget
     {
+        [HiloId]
         public virtual int Id { get; set; }
 
         public virtual int Order { get; set; }

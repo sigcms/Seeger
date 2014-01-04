@@ -6,15 +6,17 @@ using Seeger.Globalization;
 using Seeger.Web;
 using Seeger.Data;
 using Seeger.Templates;
+using Seeger.Data.Mapping;
 
 namespace Seeger.Security
 {
+    [Class]
     public class User
     {
         private string _skinName;
         private Skin _skin;
 
-        [EntityKey]
+        [EntityKey, HiloId]
         public virtual int Id { get; protected set; }
         
         public virtual string UserName { get; set; }
@@ -37,6 +39,7 @@ namespace Seeger.Security
         
         public virtual IList<Role> Roles { get; protected set; }
 
+        [NotMapped]
         public virtual Skin Skin
         {
             get

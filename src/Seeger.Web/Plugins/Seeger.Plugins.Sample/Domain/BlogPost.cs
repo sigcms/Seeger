@@ -38,6 +38,19 @@ namespace Seeger.Plugins.Sample.Domain
         Private = 1
     }
 
+    //public class BlogPostMap : ClassMapping<BlogPost>
+    //{
+    //    public BlogPostMap()
+    //    {
+    //        Table("sample_" + typeof(BlogPost).Name);
+    //        Component(x => x.Author, m =>
+    //        {
+    //            m.Property(c => c.Id, c => c.Column("Author_Id"));
+    //            m.Property(c => c.Name, c => c.Column("Author_Name"));
+    //        });
+    //    }
+    //}
+
     [Component]
     public class UserInfo
     {
