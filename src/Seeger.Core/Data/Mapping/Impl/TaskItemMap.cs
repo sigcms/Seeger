@@ -6,7 +6,7 @@ using Seeger.Tasks;
 using NHibernate;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class TaskItemMap : ClassMapping<TaskItem>
     {

@@ -6,7 +6,7 @@ using Seeger.Security;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class RoleMap : ClassMapping<Role>
     {

@@ -3,6 +3,7 @@ using NHibernate.Cfg;
 using NHibernate.Mapping.ByCode;
 using Seeger.Data;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Impl;
 using System;
 using System.Collections.Generic;
 using System.Linq;

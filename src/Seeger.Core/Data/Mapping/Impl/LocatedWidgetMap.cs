@@ -5,7 +5,7 @@ using System.Text;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class LocatedWidgetMap : ClassMapping<LocatedWidget>
     {

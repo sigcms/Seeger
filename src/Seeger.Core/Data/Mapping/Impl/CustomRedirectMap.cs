@@ -6,7 +6,7 @@ using System.Text;
 using NHibernate.Mapping.ByCode.Conformist;
 using NHibernate.Mapping.ByCode;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class CustomRedirectMap : ClassMapping<CustomRedirect>
     {

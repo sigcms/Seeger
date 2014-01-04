@@ -1,7 +1,6 @@
 ﻿using NHibernate;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
-using Seeger.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +14,14 @@ namespace Seeger.Data.Mapping
         private ConventionModelMapper _mapper;
         private HashSet<Type> _entityTypes = new HashSet<Type>();
 
+        public ConventionModelMapper Mapper
+        {
+            get
+            {
+                return _mapper;
+            }
+        }
+
         public ConventionMappingCompiler()
             : this(null)
         {
@@ -27,45 +34,8 @@ namespace Seeger.Data.Mapping
 
         public ConventionMappingCompiler AddMappings(IEnumerable<Type> types)
         {
-            Require.NotNull(types, "types");
-
-            foreach (var type in types.Where(x => typeof(IConformistHoldersProvider).IsAssignableFrom(x) && !x.IsGenericTypeDefinition))
-            {
-                AddMapping(type);
-            }
-
+            _mapper.AddMappings(types);
             return this;
-        }
-
-        private void AddMapping(Type type)
-        {
-            object mappingInstance;
-            try
-            {
-                mappingInstance = Activator.CreateInstance(type);
-            }
-            catch (Exception e)
-            {
-                throw new MappingException("Unable to instantiate mapping class (see InnerException): " + type, e);
-            }
-
-            var mapping = mappingInstance as IConformistHoldersProvider;
-            if (mapping == null)
-            {
-                throw new ArgumentOutOfRangeException("type", "The mapping class must be an implementation of IConformistHoldersProvider.");
-            }
-
-            AddMapping(mapping);
-        }
-
-        private void AddMapping(IConformistHoldersProvider mapping)
-        {
-            _mapper.AddMapping(mapping);
-
-            foreach (var type in mapping.CustomizersHolder.GetAllCustomizedEntities())
-            {
-                _entityTypes.Add(type);
-            }
         }
 
         public ConventionMappingCompiler AddAssemblies(params Assembly[] assemblies)
@@ -91,7 +61,7 @@ namespace Seeger.Data.Mapping
         {
             Require.NotNull(types, "types");
 
-            foreach (var type in types.Where(t => IsEntityType(t)))
+            foreach (var type in types.Where(t => IsEntity(t)))
             {
                 _entityTypes.Add(type);
             }
@@ -99,14 +69,21 @@ namespace Seeger.Data.Mapping
             return this;
         }
 
-        private bool IsEntityType(Type type)
+        private bool IsEntity(Type type)
         {
-            return type.GetCustomAttributes(typeof(EntityAttribute), false).Any();
+            return type.GetCustomAttributes(typeof(ClassAttribute), false).Any() && _mapper.ModelInspector.IsEntity(type);
         }
 
         public HbmMapping CompileMapping()
         {
-            var mapping = _mapper.CompileMappingFor(_entityTypes);
+            var types = new HashSet<Type>(_entityTypes);
+
+            foreach (var type in _mapper.CustomizersHolder.GetAllCustomizedEntities())
+            {
+                types.Add(type);
+            }
+
+            var mapping = _mapper.CompileMappingFor(types);
             mapping.autoimport = false;
 
             return mapping;

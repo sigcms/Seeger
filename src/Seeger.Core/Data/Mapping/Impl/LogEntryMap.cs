@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class LogEntryMap : ClassMapping<LogEntry>
     {

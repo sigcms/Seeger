@@ -9,7 +9,7 @@ using NHibernate.Mapping.ByCode.Conformist;
 
 using Seeger.Security;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Impl
 {
     class UserMap : ClassMapping<User>
     {

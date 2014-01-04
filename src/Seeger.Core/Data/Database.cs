@@ -58,7 +58,12 @@ namespace Seeger.Data
 
             var config = new Configuration();
 
+            // Default settings
+            config.SetProperty(NHibernate.Cfg.Environment.Hbm2ddlKeyWords, "auto-quote");
+
             config.Configure(nhibernateConfigFilePath);
+
+            // Core mappings
             config.AddMapping(ByCodeMappingLoader.LoadMappingFrom(Assembly.GetExecutingAssembly()));
 
             var sessionFactory = SessionFactory;
