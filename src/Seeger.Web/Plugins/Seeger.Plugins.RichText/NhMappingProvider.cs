@@ -11,7 +11,7 @@ namespace Seeger.Plugins.RichText
     {
         public IEnumerable<NHibernate.Cfg.MappingSchema.HbmMapping> GetMappings()
         {
-            yield return ByCodeMappingLoader.LoadMappingFrom(Assembly.GetExecutingAssembly());
+            yield return new ConventionMappingCompiler("cms").AddAssemblies(typeof(NhMappingProvider).Assembly).CompileMapping();
         }
     }
 }
