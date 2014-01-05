@@ -1,4 +1,5 @@
 ﻿using NHibernate.Mapping.ByCode;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace Seeger.Data.Mapping
         {
         }
 
+        public override bool IsPersistentId(System.Reflection.MemberInfo member)
+        {
+            if (member.GetCustomAttributes(typeof(IdAttribute), false).Any())
+            {
+                return true;
+            }
+
+            return base.IsPersistentId(member);
+        }
+
         public override bool IsPersistentProperty(System.Reflection.MemberInfo member)
         {
             if (member.GetCustomAttributes(typeof(NotMappedAttribute), false).Any())
@@ -30,6 +41,16 @@ namespace Seeger.Data.Mapping
 
         public override bool IsEntity(Type type)
         {
+            if (!type.IsClass)
+            {
+                return false;
+            }
+
+            if (type.GetCustomAttributes(typeof(EntityAttribute), false).Any())
+            {
+                return true;
+            }
+
             if (IsComponent(type))
             {
                 return false;
@@ -40,12 +61,7 @@ namespace Seeger.Data.Mapping
 
         public override bool IsRootEntity(Type type)
         {
-            if (IsComponent(type))
-            {
-                return false;
-            }
-
-            return base.IsRootEntity(type);
+            return type.IsClass && typeof(object).Equals(type.BaseType) && IsEntity(type);
         }
 
         public override bool IsComponent(Type type)
@@ -53,6 +69,10 @@ namespace Seeger.Data.Mapping
             if (type.GetCustomAttributes(typeof(ComponentAttribute), false).Any())
             {
                 return true;
+            }
+            if (type.GetCustomAttributes(typeof(EntityAttribute), false).Any())
+            {
+                return false;
             }
 
             return base.IsComponent(type);

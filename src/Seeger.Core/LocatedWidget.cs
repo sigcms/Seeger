@@ -8,13 +8,13 @@ using Seeger.Data;
 using Seeger.Plugins;
 using Seeger.Plugins.Widgets;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger
 {
-    [Class]
+    [Entity, Cache]
     public class LocatedWidget
     {
-        [HiloId]
         public virtual int Id { get; set; }
 
         public virtual int Order { get; set; }

@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Impl;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,14 +37,15 @@ namespace Seeger.Data.Mapping
         protected virtual void AppendDefaultEvents()
         {
             BeforeMapClass += MapTableName;
+            BeforeMapClass += ApplyClassLevelAttributeMappings;
             BeforeMapClass += NoPoidGuid;
-            BeforeMapClass += TryMapHiloId;
             BeforeMapClass += NoSetterPoidToField;
+            BeforeMapClass += ApplyIdMappings;
 
             BeforeMapProperty += MemberToFieldAccessor;
             BeforeMapProperty += MemberNoSetterToField;
             BeforeMapProperty += MemberReadOnlyAccessor;
-            BeforeMapProperty += TryMapStringClob;
+            BeforeMapProperty += ApplyPropertyAttributeMappings;
             BeforeMapProperty += TryMapComponent;
 
             BeforeMapComponent += MemberToFieldAccessor;
@@ -217,21 +219,29 @@ namespace Seeger.Data.Mapping
             classCustomizer.Table(GetTableName(type));
         }
 
-        private void TryMapHiloId(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
+        private void ApplyIdMappings(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
         {
             var member = MembersProvider.GetEntityMembersForPoid(type).FirstOrDefault(m => modelInspector.IsPersistentId(m));
-            if (member.GetCustomAttributes(typeof(HiloIdAttribute), true).Any())
+
+            if (member != null)
             {
-                classCustomizer.Id(null, IdMappings.HighLowId(GetTableName(type)));
+                var idAttr = member.GetCustomAttributes(typeof(IdAttribute), false).OfType<IdAttribute>().FirstOrDefault();
+
+                // If IdAttribute is not specified for persistent id property, then use the default id mapping strategy
+                if (idAttr == null)
+                {
+                    idAttr = new IdAttribute();
+                }
+
+                idAttr.ApplyMapping(modelInspector, type, GetTableName(type), member, classCustomizer);
             }
         }
 
-        private void TryMapStringClob(IModelInspector modelInspector, PropertyPath member, IPropertyMapper propertyCustomizer)
+        private void ApplyClassLevelAttributeMappings(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
         {
-            if (member.LocalMember.GetPropertyOrFieldType() == typeof(String)
-                && member.LocalMember.GetCustomAttributes(typeof(StringClobAttribute), false).Any())
+            foreach (ClassLevelAttribute attr in type.GetCustomAttributes(false).OfType<ClassLevelAttribute>())
             {
-                propertyCustomizer.Type(NHibernateUtil.StringClob);
+                attr.ApplyMapping(modelInspector, type, classCustomizer);
             }
         }
 
@@ -240,6 +250,14 @@ namespace Seeger.Data.Mapping
             if (modelInspector.IsComponent(member.LocalMember.DeclaringType))
             {
                 propertyCustomizer.Column(member.PreviousPath.LocalMember.Name + "_" + member.LocalMember.Name);
+            }
+        }
+
+        private void ApplyPropertyAttributeMappings(IModelInspector modelInspector, PropertyPath member, IPropertyMapper propertyCustomizer)
+        {
+            foreach (PropertyAttribute attr in member.LocalMember.GetCustomAttributes(false).OfType<PropertyAttribute>())
+            {
+                attr.ApplyMapping(modelInspector, member, propertyCustomizer);
             }
         }
 
@@ -258,5 +276,5 @@ namespace Seeger.Data.Mapping
 
             return prefix + type.Name;
         }
-   }
+    }
 }

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Linq.Expressions;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger
 {
-    [Class]
+    [Entity]
     public class GlobalSetting
     {
-        [EntityKey]
+        [EntityKey, Id]
         public virtual string Key { get; protected set; }
 
         [StringClob]

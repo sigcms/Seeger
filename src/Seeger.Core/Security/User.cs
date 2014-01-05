@@ -7,16 +7,17 @@ using Seeger.Web;
 using Seeger.Data;
 using Seeger.Templates;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger.Security
 {
-    [Class]
+    [Entity]
     public class User
     {
         private string _skinName;
         private Skin _skin;
 
-        [EntityKey, HiloId]
+        [EntityKey]
         public virtual int Id { get; protected set; }
         
         public virtual string UserName { get; set; }

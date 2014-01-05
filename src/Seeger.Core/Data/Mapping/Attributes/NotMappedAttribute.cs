@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
-    public class HiloIdAttribute : Attribute
+    public class NotMappedAttribute : Attribute
     {
     }
 }

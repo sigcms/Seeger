@@ -1,4 +1,5 @@
 ﻿using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,12 @@ using System.Text;
 
 namespace Seeger
 {
-    [Class]
+    [Entity, Cache]
     public class FrontendLanguage
     {
         private string _domain = String.Empty;
 
-        [EntityKey]
+        [EntityKey, Id]
         public virtual string Name { get; set; }
 
         public virtual string DisplayName { get; set; }

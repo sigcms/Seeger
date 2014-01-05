@@ -1,4 +1,5 @@
 ﻿using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,9 @@ using System.Text;
 
 namespace Seeger.Tasks
 {
-    [Class]
+    [Entity]
     public class TaskItem
     {
-        [HiloId]
         public virtual int Id { get; protected set; }
 
         public virtual string Name { get; set; }

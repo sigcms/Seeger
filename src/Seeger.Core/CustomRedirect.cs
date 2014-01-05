@@ -1,4 +1,5 @@
 ﻿using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,10 @@ using System.Text.RegularExpressions;
 
 namespace Seeger
 {
-    [Class]
+    [Entity, Cache]
     public class CustomRedirect
     {
-        [EntityKey, HiloId]
+        [EntityKey]
         public virtual int Id { get; protected set; }
 
         public virtual string From { get; set; }

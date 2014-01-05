@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
+using Seeger.Data.Mapping.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,7 +72,7 @@ namespace Seeger.Data.Mapping
 
         private bool IsEntity(Type type)
         {
-            return type.GetCustomAttributes(typeof(ClassAttribute), false).Any() && _mapper.ModelInspector.IsEntity(type);
+            return type.GetCustomAttributes(typeof(EntityAttribute), false).Any() && _mapper.ModelInspector.IsEntity(type);
         }
 
         public HbmMapping CompileMapping()

@@ -14,13 +14,14 @@ using Seeger.Plugins.Widgets;
 using Seeger.Templates;
 using Seeger.Collections;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger
 {
-    [Class]
+    [Entity, Cache]
     public class PageItem : ILocalizableEntity, ITreeNode<PageItem>
     {
-        [EntityKey, HiloId]
+        [EntityKey]
         public virtual int Id { get; set; }
         public virtual string UniqueName { get; set; }
         public virtual string DisplayName { get; set; }

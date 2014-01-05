@@ -1,4 +1,5 @@
 ﻿using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 using Seeger.Security;
 using System;
 using System.Collections.Generic;

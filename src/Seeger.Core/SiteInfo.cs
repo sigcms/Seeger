@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger
 {
-    [Class]
+    [Entity, Cache]
     public class SiteInfo
     {
-        [EntityKey]
+        [EntityKey, Id]
         public string Culture { get; set; }
         public string SiteTitle { get; set; }
         public string SiteSubtitle { get; set; }

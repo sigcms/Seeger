@@ -5,13 +5,14 @@ using System.Text;
 using System.Globalization;
 using Seeger.Globalization;
 using Seeger.Data.Mapping;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger.Plugins.RichText.Domain
 {
-    [Class]
+    [Entity]
     public class TextContent : ILocalizableEntity
     {
-        [EntityKey, HiloId]
+        [EntityKey]
         public virtual int Id { get; set; }
 
         public virtual string Name { get; set; }

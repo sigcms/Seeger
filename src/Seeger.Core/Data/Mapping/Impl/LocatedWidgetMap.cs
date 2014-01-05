@@ -11,8 +11,6 @@ namespace Seeger.Data.Mapping.Impl
     {
         public LocatedWidgetMap()
         {
-            Cache(c => c.Usage(CacheUsage.ReadWrite));
-
             Property(c => c.Attributes, m =>
             {
                 m.Type<EntityAttributeCollectionUserType>();

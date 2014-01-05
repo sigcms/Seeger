@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Seeger.Data.Mapping
+namespace Seeger.Data.Mapping.Attributes
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class ClassAttribute : Attribute
+    public class ComponentAttribute : Attribute
     {
     }
 }

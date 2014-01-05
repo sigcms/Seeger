@@ -11,12 +11,6 @@ namespace Seeger.Data.Mapping.Impl
     {
         public SiteInfoMap()
         {
-            Cache(c => c.Usage(CacheUsage.ReadWrite));
-
-            Id(c => c.Culture, m =>
-            {
-                m.Generator(Generators.Assigned);
-            });
             Lazy(false);
 
             Component(c => c.SEOInfo, m =>

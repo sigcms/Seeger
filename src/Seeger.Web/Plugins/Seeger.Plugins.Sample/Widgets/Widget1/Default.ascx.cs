@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using NHibernate.Linq;
 using Seeger.Plugins.Sample.Domain;
 using System.Text;
+using Seeger.Data.Mapping.Attributes;
 
 namespace Seeger.Plugins.Sample.Widgets.Widget1
 {
@@ -15,23 +16,21 @@ namespace Seeger.Plugins.Sample.Widgets.Widget1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var post = NhSession.Get<BlogPost>(1);
+            var post = new BlogPost
+            {
+                Title = "title",
+                Content = "content",
+                Visibility = PostVisibility.Private,
+                Order = 5,
+                Author = new UserInfo
+                {
+                    Id = 1,
+                    Name = "Admin"
+                }
+            };
 
-            //var post = new BlogPost
-            //{
-            //    Title = "title",
-            //    Content = "content",
-            //    Visibility = PostVisibility.Private,
-            //    Order = 5,
-            //    Author = new UserInfo
-            //    {
-            //        Id = 1,
-            //        Name = "Admin"
-            //    }
-            //};
-
-            //NhSession.Save(post);
-            //NhSession.Commit();
+            NhSession.Save(post);
+            NhSession.Commit();
         }
     }
 }

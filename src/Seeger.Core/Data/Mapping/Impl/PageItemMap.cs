@@ -11,8 +11,6 @@ namespace Seeger.Data.Mapping.Impl
     {
         public PageItemMap()
         {
-            Cache(c => c.Usage(CacheUsage.ReadWrite));
-
             Property("_skinFullName", m =>
             {
                 m.Column("SkinFullName");
