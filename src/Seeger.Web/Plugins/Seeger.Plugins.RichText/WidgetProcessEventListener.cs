@@ -23,7 +23,13 @@ namespace Seeger.Plugins.RichText
 
             if (e.LocatedWidgetViewModel.State == WidgetState.Removed)
             {
-                session.Delete(session.Get<TextContent>(e.LocatedWidget.Attributes.GetValue<int>("contentId")));
+                var contentId = e.LocatedWidget.Attributes.GetValue<int>("contentId");
+                var content = session.Get<TextContent>(contentId);
+
+                if (content != null)
+                {
+                    session.Delete(content);
+                }
             }
             else
             {
@@ -33,31 +39,52 @@ namespace Seeger.Plugins.RichText
                 {
                     TextContent content = null;
 
-                    var title = data.Value<string>("title") ?? String.Empty;
-                    var body = data.Value<string>("content") ?? String.Empty;
+                    var title = data.Value<string>("title");
+                    var body = data.Value<string>("content");
+
+                    // If the widget is just dragged to another location, both title and body will be null.
+                    // So we shouldn't change the TextContent instance's Name and Body in this case,
+                    // otherwise the original text will be lost unexpected.
+                    if (title == null && body == null)
+                    {
+                        return;
+                    }
+
                     var contentId = e.LocatedWidget.Attributes.GetValue<int>("ContentId");
 
                     if (contentId > 0)
                     {
                         content = session.Get<TextContent>(contentId);
                     }
-                    else
+                    
+                    if (content == null)
                     {
                         content = new TextContent();
-                        content.Name = title;
                         session.Save(content);
-                        e.LocatedWidget.Attributes.Add("ContentId", content.Id);
+                        e.LocatedWidget.Attributes.AddOrSet("ContentId", content.Id);
                     }
 
                     if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
                     {
-                        content.SetLocalized(c => c.Name, title, e.DesignerCulture);
-                        content.SetLocalized(c => c.Content, body, e.DesignerCulture);
+                        if (title != null)
+                        {
+                            content.SetLocalized(c => c.Name, title, e.DesignerCulture);
+                        }
+                        if (body != null)
+                        {
+                            content.SetLocalized(c => c.Content, body, e.DesignerCulture);
+                        }
                     }
                     else
                     {
-                        content.Name = title;
-                        content.Content = body;
+                        if (title != null)
+                        {
+                            content.Name = title;
+                        }
+                        if (body != null)
+                        {
+                            content.Content = body;
+                        }
                     }
                 }
             }

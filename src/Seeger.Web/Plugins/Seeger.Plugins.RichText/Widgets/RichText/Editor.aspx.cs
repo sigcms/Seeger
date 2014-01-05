@@ -58,14 +58,17 @@ namespace Seeger.Plugins.RichText.Widgets.RichText
 
                 if (cultureInfo != null)
                 {
-                    title = content.GetLocalized(x => x.Name, cultureInfo);
+                    title = content.GetLocalized(x => x.Name, cultureInfo) ?? title;
                 }
 
-                result.Add(new
+                if (!String.IsNullOrEmpty(title))
                 {
-                    content.Id,
-                    Title = title
-                });
+                    result.Add(new
+                    {
+                        content.Id,
+                        Title = title
+                    });
+                }
             }
 
             return result;
