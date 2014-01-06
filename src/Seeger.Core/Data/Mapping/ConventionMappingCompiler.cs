@@ -1,7 +1,8 @@
 ﻿using NHibernate;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Mapping.ByCode;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
+using Seeger.Data.Mapping.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,26 @@ namespace Seeger.Data.Mapping
         }
 
         public ConventionMappingCompiler()
-            : this(null)
+            : this(null, AttributeMapperFactories.Current)
+        {
+        }
+
+        public ConventionMappingCompiler(IAttributeMapperFactory attributeMapperFactory)
+            : this(null, attributeMapperFactory)
         {
         }
 
         public ConventionMappingCompiler(string tablePrefix)
+            : this(tablePrefix, AttributeMapperFactories.Current)
         {
-            _mapper = new ConventionModelMapper(tablePrefix);
+        }
+
+        public ConventionMappingCompiler(string tablePrefix, IAttributeMapperFactory attributeMapperFactory)
+        {
+            _mapper = new ConventionModelMapper(tablePrefix)
+            {
+                AttributeMapperFactory = attributeMapperFactory
+            };
         }
 
         public ConventionMappingCompiler AddMappings(IEnumerable<Type> types)

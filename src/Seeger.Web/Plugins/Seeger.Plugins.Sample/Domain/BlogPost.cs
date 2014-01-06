@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Seeger.Data.Mapping;
 using NHibernate.Mapping.ByCode.Conformist;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger.Plugins.Sample.Domain
 {

@@ -1,5 +1,6 @@
 ﻿using Seeger.Config;
 using Seeger.Data;
+using Seeger.Data.Mapping.Mappers;
 using Seeger.Events;
 using Seeger.Files;
 using Seeger.Licensing;
@@ -9,6 +10,7 @@ using Seeger.Tasks;
 using Seeger.Web.Events;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Web;
 
 namespace Seeger.Web.UI
@@ -23,6 +25,13 @@ namespace Seeger.Web.UI
 
             CmsConfiguration.Initialize();
             LicensingService.ValidateCurrentLicense();
+
+            // Attribute mapping factory
+            var mapperFactory = new AttributeMapperFactory();
+            mapperFactory.RegisterMappers(new[] { Assembly.Load("Seeger.Core") });
+
+            AttributeMapperFactories.Current = mapperFactory;
+
             Database.Initialize();
             PluginManager.StartupEnabledPlugins();
             TaskQueueExecutor.Start();

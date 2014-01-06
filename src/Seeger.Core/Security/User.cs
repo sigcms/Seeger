@@ -7,7 +7,7 @@ using Seeger.Web;
 using Seeger.Data;
 using Seeger.Templates;
 using Seeger.Data.Mapping;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger.Security
 {

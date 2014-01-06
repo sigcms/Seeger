@@ -14,7 +14,7 @@ using Seeger.Plugins.Widgets;
 using Seeger.Templates;
 using Seeger.Collections;
 using Seeger.Data.Mapping;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger
 {

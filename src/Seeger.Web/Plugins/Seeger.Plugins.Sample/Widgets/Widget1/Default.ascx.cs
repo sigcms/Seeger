@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using NHibernate.Linq;
 using Seeger.Plugins.Sample.Domain;
 using System.Text;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger.Plugins.Sample.Widgets.Widget1
 {

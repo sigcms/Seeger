@@ -8,7 +8,7 @@ using Seeger.Data;
 using Seeger.Plugins;
 using Seeger.Plugins.Widgets;
 using Seeger.Data.Mapping;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger
 {

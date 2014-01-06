@@ -7,6 +7,7 @@ using Seeger.Data.Mapping;
 using Seeger.Data.Context;
 using NLog;
 using Seeger.Plugins;
+using Seeger.Data.Mapping.Mappers;
 
 namespace Seeger.Data
 {
@@ -62,8 +63,8 @@ namespace Seeger.Data
             config.SetProperty(NHibernate.Cfg.Environment.Hbm2ddlKeyWords, "auto-quote");
 
             config.Configure(nhibernateConfigFilePath);
-
-            // Core mappings
+            
+            // Core cms mapping
             config.AddMapping(new ConventionMappingCompiler("cms").AddAssemblies(Assembly.GetExecutingAssembly()).CompileMapping());
 
             var sessionFactory = SessionFactory;
@@ -72,6 +73,7 @@ namespace Seeger.Data
                 sessionFactory.Dispose();
             }
 
+            // Add plugin mappings
             foreach (var plugin in PluginManager.EnabledPlugins)
             {
                 var mappingProviderType = NhMappingProviders.GetMappingProviderType(plugin.Name);

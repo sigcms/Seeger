@@ -6,7 +6,7 @@ using Iesi.Collections.Generic;
 using Seeger.Plugins;
 using Seeger.Config;
 using Seeger.Data.Mapping;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger.Security
 {

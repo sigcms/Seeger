@@ -1,7 +1,8 @@
 ﻿using NHibernate;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Impl;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
+using Seeger.Data.Mapping.Mappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,23 @@ namespace Seeger.Data.Mapping
 {
     public class ConventionModelMapper : ModelMapper
     {
+        private IAttributeMapperFactory _attributeMapperFactory = AttributeMapperFactories.Current;
+
         public ICustomizersHolder CustomizersHolder { get; private set; }
 
-        public string TablePrefix { get; private set; }
+        public MappingConventions Conventions { get; private set; }
+
+        public IAttributeMapperFactory AttributeMapperFactory
+        {
+            get
+            {
+                return _attributeMapperFactory;
+            }
+            set
+            {
+                _attributeMapperFactory = value;
+            }
+        }
 
         public ConventionModelMapper(string tablePrefix)
             : this(tablePrefix, new ConventionModelInspector())
@@ -29,7 +44,10 @@ namespace Seeger.Data.Mapping
         private ConventionModelMapper(string tablePrefix, IModelInspector modelInspector, ICustomizersHolder customizerHolder)
             : base(modelInspector, modelInspector as IModelExplicitDeclarationsHolder, customizerHolder, new DefaultCandidatePersistentMembersProvider())
         {
-            TablePrefix = tablePrefix;
+            Conventions = new MappingConventions
+            {
+                TablePrefix = tablePrefix
+            };
             CustomizersHolder = customizerHolder;
             AppendDefaultEvents();
         }
@@ -216,7 +234,7 @@ namespace Seeger.Data.Mapping
 
         private void MapTableName(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
         {
-            classCustomizer.Table(GetTableName(type));
+            classCustomizer.Table(Conventions.GetTableName(type));
         }
 
         private void ApplyIdMappings(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
@@ -233,15 +251,25 @@ namespace Seeger.Data.Mapping
                     idAttr = new IdAttribute();
                 }
 
-                idAttr.ApplyMapping(modelInspector, type, GetTableName(type), member, classCustomizer);
+                var context = new MappingContext(modelInspector, Conventions);
+
+                foreach (var mapper in _attributeMapperFactory.GetIdAttributeMappers(idAttr))
+                {
+                    mapper.ApplyMapping(idAttr, member, type, classCustomizer, context);
+                }
             }
         }
 
         private void ApplyClassLevelAttributeMappings(IModelInspector modelInspector, System.Type type, IClassAttributesMapper classCustomizer)
         {
-            foreach (ClassLevelAttribute attr in type.GetCustomAttributes(false).OfType<ClassLevelAttribute>())
+            var context = new MappingContext(modelInspector, Conventions);
+
+            foreach (Attribute attr in type.GetCustomAttributes(false))
             {
-                attr.ApplyMapping(modelInspector, type, classCustomizer);
+                foreach(var mapper in _attributeMapperFactory.GetClassAttributeMappers(attr))
+                {
+                    mapper.ApplyMapping(attr, type, classCustomizer, context);
+                }
             }
         }
 
@@ -255,26 +283,15 @@ namespace Seeger.Data.Mapping
 
         private void ApplyPropertyAttributeMappings(IModelInspector modelInspector, PropertyPath member, IPropertyMapper propertyCustomizer)
         {
-            foreach (PropertyAttribute attr in member.LocalMember.GetCustomAttributes(false).OfType<PropertyAttribute>())
-            {
-                attr.ApplyMapping(modelInspector, member, propertyCustomizer);
-            }
-        }
+            var context = new MappingContext(modelInspector, Conventions);
 
-        private string GetTableName(Type type)
-        {
-            if (String.IsNullOrEmpty(TablePrefix))
+            foreach (Attribute attr in member.LocalMember.GetCustomAttributes(false))
             {
-                return type.Name;
+                foreach (var mapper in _attributeMapperFactory.GetPropertyAttributeMappers(attr))
+                {
+                    mapper.ApplyMapping(attr, member, propertyCustomizer, context);
+                }
             }
-
-            var prefix = TablePrefix;
-            if (!prefix.EndsWith("_"))
-            {
-                prefix = prefix + "_";
-            }
-
-            return prefix + type.Name;
         }
     }
 }

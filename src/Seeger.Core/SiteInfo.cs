@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Globalization;
 using Seeger.Data.Mapping;
-using Seeger.Data.Mapping.Attributes;
+using Seeger.ComponentModel;
 
 namespace Seeger
 {
