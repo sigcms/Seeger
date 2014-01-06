@@ -167,7 +167,6 @@
     <Compile Include="Data\Mapping\Impl\UserMap.cs" />
     <Compile Include="Data\Mapping\Impl\LocatedWidgetMap.cs" />
     <Compile Include="Data\NhMappingProviders.cs" />
-    <Compile Include="EntityKeyAttribute.cs" />
     <Compile Include="EntityKeyManager.cs" />
     <Compile Include="EnumHelper.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />

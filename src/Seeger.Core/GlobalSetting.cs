@@ -11,7 +11,7 @@ namespace Seeger
     [Entity]
     public class GlobalSetting
     {
-        [EntityKey, Id]
+        [Id]
         public virtual string Key { get; protected set; }
 
         [StringClob]

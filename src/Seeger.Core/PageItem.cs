@@ -21,7 +21,6 @@ namespace Seeger
     [Entity, Cache]
     public class PageItem : ILocalizableEntity, ITreeNode<PageItem>
     {
-        [EntityKey]
         public virtual int Id { get; set; }
         public virtual string UniqueName { get; set; }
         public virtual string DisplayName { get; set; }

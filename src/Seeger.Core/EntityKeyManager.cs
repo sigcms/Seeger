@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.Reflection;
+using Seeger.ComponentModel;
+using Seeger.Data.Mapping;
 
 namespace Seeger
 {
@@ -55,7 +57,7 @@ namespace Seeger
             var propName = GetEntityKeyPropertyName(entityType);
 
             if (propName == null)
-                throw new InvalidOperationException("Cannot find entity key. Ensure the entity key property is attributed with " + typeof(EntityKeyAttribute) + ". Entity type: " + entityType);
+                throw new InvalidOperationException("Cannot find entity key. Ensure the entity key property is attributed with " + typeof(IdAttribute) + ". Entity type: " + entityType);
 
             var prop = entityType.GetProperty(propName);
 
@@ -67,13 +69,13 @@ namespace Seeger
 
         static PropertyInfo DoGetEntityKeyProperty(Type entityType)
         {
-            foreach (PropertyInfo prop in entityType.GetProperties())
+            foreach (var prop in entityType.GetProperties())
             {
-                var attr = prop.GetCustomAttributes(typeof(EntityKeyAttribute), false).FirstOrDefault() as EntityKeyAttribute;
+                var attr = prop.GetCustomAttributes(typeof(IdAttribute), false).FirstOrDefault() as IdAttribute;
                 if (attr != null) return prop;
             }
 
-            return null;
+            return entityType.GetProperty("Id", BindingFlags.Public | BindingFlags.Instance);
         }
     }
 }

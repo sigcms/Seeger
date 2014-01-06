@@ -12,7 +12,7 @@ namespace Seeger
     {
         private string _domain = String.Empty;
 
-        [EntityKey, Id]
+        [Id]
         public virtual string Name { get; set; }
 
         public virtual string DisplayName { get; set; }

@@ -11,7 +11,6 @@ namespace Seeger
     [Entity, Cache]
     public class CustomRedirect
     {
-        [EntityKey]
         public virtual int Id { get; protected set; }
 
         public virtual string From { get; set; }

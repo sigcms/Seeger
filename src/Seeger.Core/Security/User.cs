@@ -17,7 +17,6 @@ namespace Seeger.Security
         private string _skinName;
         private Skin _skin;
 
-        [EntityKey]
         public virtual int Id { get; protected set; }
         
         public virtual string UserName { get; set; }

@@ -11,7 +11,7 @@ namespace Seeger
     [Entity, Cache]
     public class SiteInfo
     {
-        [EntityKey, Id]
+        [Id]
         public string Culture { get; set; }
         public string SiteTitle { get; set; }
         public string SiteSubtitle { get; set; }
