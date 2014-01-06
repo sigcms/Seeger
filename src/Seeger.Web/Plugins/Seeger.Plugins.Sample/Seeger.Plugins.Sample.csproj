@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Data\NhMappingProvider.cs" />
     <Compile Include="Domain\BlogPost.cs" />
+    <Compile Include="Domain\EntityWithComponentId.cs" />
     <Compile Include="Events\Handlers\OnVaryByCustomStringRequested.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Widgets\Widget1\Default.ascx.cs">

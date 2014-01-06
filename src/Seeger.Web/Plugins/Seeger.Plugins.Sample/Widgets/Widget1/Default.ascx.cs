@@ -16,21 +16,30 @@ namespace Seeger.Plugins.Sample.Widgets.Widget1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var post = new BlogPost
-            {
-                Title = "title",
-                Content = "content",
-                Visibility = PostVisibility.Private,
-                Order = 5,
-                Author = new UserInfo
-                {
-                    Id = 1,
-                    Name = "Admin"
-                }
-            };
+            var entities = NhSession.Query<EntityWithComponentId>().ToList();
 
-            NhSession.Save(post);
-            NhSession.Commit();
+            //NhSession.Save(new EntityWithComponentId
+            //{
+            //    Id = new Identity { Field1 = 1, Field2 = 4 },
+            //    Property1 = "test"
+            //});
+            //NhSession.Commit();
+
+            //var post = new BlogPost
+            //{
+            //    Title = "title",
+            //    Content = "content",
+            //    Visibility = PostVisibility.Private,
+            //    Order = 5,
+            //    Author = new UserInfo
+            //    {
+            //        Id = 1,
+            //        Name = "Admin"
+            //    }
+            //};
+
+            //NhSession.Save(post);
+            //NhSession.Commit();
         }
     }
 }

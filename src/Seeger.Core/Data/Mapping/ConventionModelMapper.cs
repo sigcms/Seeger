@@ -275,7 +275,8 @@ namespace Seeger.Data.Mapping
 
         private void TryMapComponent(IModelInspector modelInspector, PropertyPath member, IPropertyMapper propertyCustomizer)
         {
-            if (modelInspector.IsComponent(member.LocalMember.DeclaringType))
+            if (modelInspector.IsComponent(member.LocalMember.DeclaringType)
+                && !modelInspector.IsPersistentId(member.PreviousPath.LocalMember))
             {
                 propertyCustomizer.Column(member.PreviousPath.LocalMember.Name + "_" + member.LocalMember.Name);
             }
