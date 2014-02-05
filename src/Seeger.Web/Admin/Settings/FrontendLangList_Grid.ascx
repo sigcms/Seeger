@@ -18,7 +18,7 @@
                     <td><%# Eval("DisplayName") %></td>
                     <td><%# Eval("BindedDomain") %></td>
                     <td>
-                        <a href="FrontendSettingsEdit.aspx?name=<%# Eval("Name") %>"><%= T("Common.Edit") %></a>
+                        <a href="FrontendLangEdit.aspx?name=<%# Eval("Name") %>"><%= T("Common.Edit") %></a>
                     </td>
                     <td>
                         <a href="#" class="grid-action" data-action="Delete" data-action-param-name="<%# Eval("Name") %>"><%= T("Common.Delete") %></a>

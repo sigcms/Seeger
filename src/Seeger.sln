@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Web", "Seeger.Web\Seeger.Web.csproj", "{5F68FE20-CA69-470E-822B-D2AF4CC72FF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Core", "Seeger.Core\Seeger.Core.csproj", "{673DD4E1-FCED-476D-8DDB-D474FB4C6578}"
