@@ -29,16 +29,20 @@ namespace Seeger.Plugins.ImageSlider
                 var sliderId = e.LocatedWidget.Attributes.GetValue<int>("SliderId");
                 if (sliderId > 0)
                 {
-                    session.Delete(session.Get<Slider>(sliderId));
+                    var slider = session.Get<Slider>(sliderId);
+                    if (slider != null)
+                    {
+                        session.Delete(slider);
+                    }
                 }
             }
             else
             {
-                var data = e.LocatedWidgetViewModel.CustomData as IDictionary<string, object>;
+                var data = e.LocatedWidgetViewModel.CustomData;
 
-                if (data == null || data.Count == 0) return;
+                if (data == null || !data.HasValues) return;
 
-                var json = data["ViewModelJson"] as string;
+                var json = data.Value<string>("ViewModel");
 
                 if (String.IsNullOrEmpty(json)) return;
 
@@ -47,6 +51,10 @@ namespace Seeger.Plugins.ImageSlider
                 var slider = model.Slider.Id > 0 ? session.Get<Slider>(model.Slider.Id) : new Slider();
 
                 slider.Name = model.Slider.Name;
+                slider.Width = model.Slider.Width;
+                slider.Height = model.Slider.Height;
+                slider.ShowNavigation = model.Slider.ShowNavigation;
+                slider.ShowPagination = model.Slider.ShowPagination;
 
                 // add new items or update existing items
                 foreach (var item in model.Slider.Items)
@@ -78,26 +86,6 @@ namespace Seeger.Plugins.ImageSlider
                 if (slider.Id == 0)
                 {
                     session.Save(slider);
-                }
-
-                // move temp images to final location
-
-                var finalFolderUrl = "/Files/Slider/" + DateTime.Today.ToString("yyyy-MM");
-
-                IOUtil.EnsureDirectoryCreated(HostingEnvironment.MapPath(finalFolderUrl));
-
-                foreach (var item in slider.Items)
-                {
-                    if (item.ImageUrl.StartsWith("/Files/Temp/", StringComparison.OrdinalIgnoreCase))
-                    {
-                        var imageFileName = Path.GetFileName(item.ImageUrl);
-                        var finalImageUrl = UrlUtil.Combine(finalFolderUrl, imageFileName);
-
-                        File.Move(HostingEnvironment.MapPath(item.ImageUrl), HostingEnvironment.MapPath(finalImageUrl));
-                        File.Move(HostingEnvironment.MapPath(item.ImageThumbUrl), HostingEnvironment.MapPath(SliderItem.GetThumbImageUrl(finalImageUrl)));
-
-                        item.ImageUrl = finalImageUrl;
-                    }
                 }
 
                 e.LocatedWidget.Attributes.AddOrSet("SliderId", slider.Id);

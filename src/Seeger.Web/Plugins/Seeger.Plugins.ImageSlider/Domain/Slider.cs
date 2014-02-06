@@ -1,4 +1,5 @@
-﻿using Seeger.Globalization;
+﻿using Seeger.ComponentModel;
+using Seeger.Globalization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +7,18 @@ using System.Web;
 
 namespace Seeger.Plugins.ImageSlider.Domain
 {
+    [Entity]
     public class Slider
     {
         public virtual int Id { get; set; }
+
+        public virtual int? Width { get; set; }
+
+        public virtual int? Height { get; set; }
+
+        public virtual bool ShowNavigation { get; set; }
+
+        public virtual bool ShowPagination { get; set; }
 
         public virtual string Name { get; set; }
 
@@ -20,6 +30,8 @@ namespace Seeger.Plugins.ImageSlider.Domain
         {
             Items = new List<SliderItem>();
             UtcCreatedAt = DateTime.UtcNow;
+            ShowPagination = true;
+            ShowNavigation = true;
         }
     }
 }

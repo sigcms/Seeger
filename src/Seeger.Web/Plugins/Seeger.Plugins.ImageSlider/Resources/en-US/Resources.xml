@@ -6,6 +6,7 @@
   <item key="Name" value="Name" />
   <item key="Image" value="Image" />
   <item key="Caption" value="Caption" />
+  <item key="Size" value="Size" />
   <item key="Description" value="Description" />
   <item key="NavigateUrl" value="Navigate URL" />
   <item key="UploadImage" value="Upload Image" />

@@ -2,6 +2,10 @@
 (
 	Id int not null,
 	Name nvarchar(300) not null,
+	Width int null,
+	Height int null,
+	ShowNavigation bit not null,
+	ShowPagination bit not null,
 	UtcCreatedAt datetime not null,
 
 	constraint PK_cms_Slider primary key (Id)

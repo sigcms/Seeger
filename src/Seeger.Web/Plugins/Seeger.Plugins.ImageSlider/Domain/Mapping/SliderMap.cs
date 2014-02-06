@@ -10,23 +10,8 @@ namespace Seeger.Plugins.ImageSlider.Domain.Mapping
 {
     public class SliderMap : ClassMapping<Slider>
     {
-        public string TableName
-        {
-            get
-            {
-                return "cms_" + typeof(Slider).Name;
-            }
-        }
-
         public SliderMap()
         {
-            Table(TableName);
-
-            this.HighLowId(c => c.Id, TableName);
-
-            Property(c => c.Name);
-            Property(c => c.UtcCreatedAt);
-
             Bag(c => c.Items, m =>
             {
                 m.Key(k =>

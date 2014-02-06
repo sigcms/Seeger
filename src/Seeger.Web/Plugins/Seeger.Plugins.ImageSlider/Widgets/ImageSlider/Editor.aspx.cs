@@ -30,6 +30,14 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
 
         protected int SliderId { get; private set; }
 
+        protected string DefaultName
+        {
+            get
+            {
+                return PageItem.DisplayName + " - " + T("ImageSlider");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             SliderId = WidgetAttributes.GetValue<int>("SliderId");
@@ -47,10 +55,7 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
             }
             else
             {
-                model.Slider = new Slider
-                {
-                    Name = ResourceFolder.Global.GetValue("Common.Unnamed", CultureInfo.CurrentUICulture)
-                };
+                model.Slider = new Slider();
             }
 
             return JsonConvertUtil.CamelCaseSerializeObject(model);

@@ -72,9 +72,9 @@
     <Content Include="db\install.sql" />
     <Content Include="Resources\en-US\Resources.xml" />
     <Content Include="Resources\zh-CN\Resources.xml" />
+    <Content Include="Scripts\arrows.png" />
     <Content Include="Scripts\jquery.slides.css" />
     <Content Include="Scripts\jquery.slides.min.js" />
-    <Content Include="Scripts\loading.gif" />
     <Content Include="Web.config" />
     <Content Include="Widgets\ImageSlider\Default.ascx" />
     <Content Include="Widgets\ImageSlider\Editor.aspx" />
@@ -116,13 +116,9 @@
     <Compile Include="Admin\Sliders_Grid.ascx.designer.cs">
       <DependentUpon>Sliders_Grid.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Mapping\SliderItemMap.cs" />
     <Compile Include="Domain\Mapping\SliderMap.cs" />
     <Compile Include="Domain\Slider.cs" />
     <Compile Include="Domain\SliderItem.cs" />
-    <Compile Include="Handlers\UploadImage.ashx.cs">
-      <DependentUpon>UploadImage.ashx</DependentUpon>
-    </Compile>
     <Compile Include="NhMappingProvider.cs" />
     <Compile Include="ImageSliderPlugin.cs" />
     <Compile Include="PageLifecycleInterceptor.cs" />
@@ -130,8 +126,6 @@
     <Compile Include="Models\SliderWidgetEditorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strings.cs" />
-    <Compile Include="Utils\ImageUtility.cs" />
-    <Compile Include="Utils\ThumbLagerThanOriginalImageBehavior.cs" />
     <Compile Include="Widgets\ImageSlider\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,7 +144,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="config.config" />
-    <Content Include="Handlers\UploadImage.ashx" />
     <Content Include="Admin\Admin.Master" />
     <Content Include="Admin\Web.config" />
     <None Include="Properties\PublishProfiles\Debug.pubxml" />

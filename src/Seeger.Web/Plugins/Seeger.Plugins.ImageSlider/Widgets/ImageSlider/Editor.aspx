@@ -5,6 +5,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-ui.min.js" />
+    <style type="text/css">
+        body {
+            font-family: '微软雅黑', sans-serif !important;
+        }
+        .slide-items-table {
+            border-collapse: collapse;
+            border: #ddd 1px solid;
+            width: 100%;
+        }
+        .slide-items-table td {
+            border: 0;
+            border-right: #ddd 1px solid;
+            border-bottom: #ddd 1px solid;
+        }
+        .form-group {
+            margin-bottom: 5px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+        .form-group input {
+            width: 95%;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -18,76 +46,66 @@
                     </td>
                 </tr>
                 <tr>
+                    <th><%= T("Size") %>:</th>
+                    <td>
+                        <input type="text" style="width:40px" data-bind="value: width" />
+                        &times;
+                        <input type="text" style="width:40px" data-bind="value: height" /> px
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <label>
+                            <input type="checkbox" data-bind="checked: showNavigation" />
+                            <%= T("Show navigation") %>
+                        </label>
+                        <label>
+                            <input type="checkbox" data-bind="checked: showPagination" />
+                            <%= T("Show pagination") %>
+                        </label>
+                    </td>
+                </tr>
+                <tr>
                     <th><%= T("Image") %>:</th>
                     <td>
-                        <div>
-                            <input type="file" id="ImageUpload" />
+                        <div style="margin-bottom:10px">
+                            <button type="button" class="button secondary btn-add-item" data-filter=".jpg;.png">添加图片</button>
                         </div>
-                        <table class="datatable">
-                            <thead>
-                                <tr>
-                                    <th><%= T("Image") %></th>
-                                    <th><%= T("Caption") %></th>
-                                    <th><%= T("NavigateUrl") %></th>
-                                    <th><%= T("Common.Operations") %></th>
-                                </tr>
-                            </thead>
+                        <table class="slide-items-table" data-bind="visible: items().length > 0">
                             <tbody>
                                 <!-- ko foreach: items -->
-                                <tr data-bind="visible: $root.editedItemClientId() !== clientId()" style="display:none">
+                                <tr>
+                                    <td style="width:150px;">
+                                        <div>
+                                            <img data-bind="attr: { src: imageUrl }" style="max-height:100px;max-width:150px" />
+                                        </div>
+                                    </td>
                                     <td>
-                                        <img data-bind="attr: { src: imageThumbUrl }" />
+                                        <div class="form-group">
+                                            <label><%= T("Caption") %>:</label>
+                                            <div>
+                                                <input type="text" data-bind="value: caption" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><%= T("Description") %>:</label>
+                                            <div>
+                                                <input type="text" data-bind="value: description" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label><%= T("NavigateUrl") %>:</label>
+                                            <div>
+                                                <input type="text" data-bind="value: navigateUrl" />
+                                            </div>
+                                        </div>
                                     </td>
-                                    <td data-bind="html: caption" style="vertical-align:middle"></td>
-                                    <td data-bind="html: navigateUrl" style="vertical-align:middle"></td>
-                                    <td style="text-align:center;vertical-align:middle">
-                                        <a href="#" data-bind="click: $root.editItem"><%= T("Common.Edit") %></a>
-                                        <a href="#" data-bind="click: $root.deleteItem"><%= T("Common.Delete") %></a>
-                                    </td>
-                                </tr>
-                                <tr data-bind="visible: $root.editedItemClientId() == clientId()" style="display:none">
-                                    <td colspan="4" data-bind="with: $root.editedItemClone">
-                                        <table class="formtable">
-                                            <tr>
-                                                <th><%= T("Image") %></th>
-                                                <td>
-                                                    <img data-bind="attr: { src: imageThumbUrl }" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th><%= T("Caption") %></th>
-                                                <td>
-                                                    <input type="text" data-bind="value: caption" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th><%= T("Description") %></th>
-                                                <td>
-                                                    <input type="text" data-bind="value: description" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th><%= T("NavigateUrl") %></th>
-                                                <td>
-                                                    <input type="text" data-bind="value: navigateUrl" />
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th></th>
-                                                <td>
-                                                    <button type="button" class="button primary" data-bind="click: $root.acceptEditedItem"><%= T("Common.OK") %></button>
-                                                    <button type="button" class="button secondary" data-bind="click: $root.cancelEditItem"><%= T("Common.Cancel") %></button>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <td>
+                                        <button type="button" class="button secondary" data-bind="click: $root.deleteItem">删除</button>
                                     </td>
                                 </tr>
                                 <!-- /ko -->
-                                <tr data-bind="visible: items().length == 0" class="no-record">
-                                    <td colspan="4">
-                                        <%= T("Message.NoRecordToDisplay") %>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </td>
@@ -102,32 +120,28 @@
             </table>
         </div>
     </form>
-    <script type="text/javascript" src="/Scripts/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/Scripts/sig.core.js"></script>
     <script type="text/javascript" src="/Scripts/Resources.ashx"></script>
     <script type="text/javascript">
+        window.aspNetAuth = '<%= AspNetAuth %>';
+
         $(function () {
+            var widget = editorContext.widget();
 
-            var aspNetAuth = '<%= AspNetAuth %>';
-
+            var defaultName = '<%= DefaultName %>';
             var viewModel = new ViewModel();
-            var sliderId = getSliderIdFromEditorContext() || <%= SliderId %>;
-            var $uploader = $('#ImageUpload');
+            var sliderId = widget.attribute('SliderId') || 0;
 
-            initImageUploader();
-
-            var json = getViewModelJsonFromEditorContext();
+            var json = widget.customData['ViewModel'];
             if (json) {
                 viewModel = ko.mapping.fromJS(JSON.parse(json), {}, viewModel);
                 bindViewModelToView(viewModel);
             } else {
                 PageMethods.GetViewModel(sliderId, function (json) {
                     var model = JSON.parse(json);
-                    // assign item client ids
-                    $.each(model.slider.items, function (i) {
-                        this.clientId = i + 1;
-                    });
-
+                    if (!model.slider.name) {
+                        model.slider.name = defaultName;
+                    }
                     viewModel = ko.mapping.fromJS(model, {}, viewModel);
                     bindViewModelToView(viewModel);
                 });
@@ -135,10 +149,6 @@
 
             function ViewModel() {
                 var _this = this;
-
-                this.editedItemClientId = ko.observable(-1);
-                this.editedItem = ko.observable();
-                this.editedItemClone = ko.observable();
 
                 this.maxDisplayOrder = function () {
                     var max = 0;
@@ -149,56 +159,14 @@
                     return max;
                 }
 
-                this.maxClientId = function () {
-                    var max = 0;
-                    $.each(_this.slider.items(), function () {
-                        var id = parseInt(this.clientId(), 10);
-                        if (id > max) max = id;
-                    });
-                    return max;
-                }
-
-                this.findItemByClientId = function (clientId) {
-                    var item = null;
-                    $.each(_this.items(), function () {
-                        if (this.clientId() == clientId) {
-                            item = this;
-                            return false;
-                        }
-                    });
-
-                    return item;
-                }
-
-                this.editItem = function (item) {
-                    _this.editedItem(item);
-                    _this.editedItemClone(ko.mapping.fromJS(ko.mapping.toJS(item)));
-                    _this.editedItemClientId(item.clientId());
-                }
-
-                this.acceptEditedItem = function () {
-                    var editedItem = _this.editedItem();
-                    ko.mapping.fromJS(ko.mapping.toJS(_this.editedItemClone), {}, editedItem);
-                    _this.editedItemClientId(-1);
-                    _this.editedItem(null);
-                    _this.editedItemClone(null);
-               }
-
-                this.cancelEditItem = function () {
-                    _this.editedItemClientId(-1);
-                    _this.editedItem(null);
-                    _this.editedItemClone(null);
-                }
-
                 this.deleteItem = function (item) {
                     if (!confirm(sig.Resources.get('Message.DeleteConfirm'))) return;
                     _this.slider.items.remove(item);
                 }
 
                 this.save = function () {
-                    var stateItem = editorContext.get_stateItem();
-                    var customData = stateItem.get_customData();
-                    customData['ViewModelJson'] = ko.mapping.toJSON(_this);
+                    widget.customData['ViewModel'] = ko.mapping.toJSON(_this);
+                    widget.markDirty();
                     editorContext.accept();
                 }
             }
@@ -207,44 +175,25 @@
                 ko.applyBindings(model);
             }
 
-            function getSliderIdFromEditorContext() {
-                var attrManager = editorContext.get_attributeManager();
-                var sliderId = attrManager.getValue('SliderId') || 0;
-                return sliderId;
-            }
+            sig.ui.SelectFileButton.init($('.btn-add-item'), {
+                allowMultiSelect: true,
+                onOK: function (files) {
+                    $.each(files, function () {
+                        var url = this.publicUri;
+                        var item = {
+                            caption: ko.observable(''),
+                            description: ko.observable(''),
+                            imageUrl: ko.observable(url),
+                            navigateUrl: ko.observable(''),
+                            displayOrder: ko.observable(viewModel.maxDisplayOrder() + 1)
+                        };
 
-            function getViewModelJsonFromEditorContext() {
-                var stateItem = editorContext.get_stateItem();
-                return stateItem.get_customData()['ViewModelJson'];
-            }
+                        viewModel.slider.items.push(item);
+                    });
 
-            function initImageUploader() {
-                $uploader.uploadify({
-                    swf: '/Scripts/uploadify/uploadify.swf',
-                    uploader: '/Plugins/Seeger.Plugins.ImageSlider/Handlers/UploadImage.ashx',
-                    fileTypeExts: '*.jpg;*.jpeg;*.png;',
-                    fileTypeDesc: '<%= T("Image") %>',
-                    multi: false,
-                    queueSizeLimit: 1,
-                    fileSizeLimit: '5MB',
-                    removeTimeout: 0,
-                    formData: { AspNetAuth: aspNetAuth },
-                    buttonText: '<%= T("UploadImage") %>...',
-                    onUploadSuccess: function (file, data, response) {
-                        var result = JSON.parse(data);
-                        if (result.Success) {
-                            var jsModel = JSON.parse(result.SliderItemViewModel);
-                            jsModel.clientId = viewModel.maxClientId() + 1;
-                            jsModel.displayOrder = viewModel.maxDisplayOrder() + 1;
-                            var item = ko.mapping.fromJS(jsModel);
-                            viewModel.slider.items.push(item);
-                            viewModel.editItem(item);
-                        } else {
-                            sig.ui.Message.error(result.Message);
-                        }
-                    }
-                });
-            }
+                    this.close();
+                }
+            });
         });
     </script>
 </body>

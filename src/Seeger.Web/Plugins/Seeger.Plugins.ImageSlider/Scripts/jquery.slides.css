@@ -1,65 +1,55 @@
-﻿.slider-widget {
+﻿.sig-slider-widget {
+    display: none;
     position: relative;
 }
 
-.slides_container {
-	overflow:hidden;
-	position:relative;
-	display:none;
-}
-.slides_container div.slide {
-	display:block;
-    height: 270px;
-}
-
-.slides_container .caption {
-	z-index:500;
-	position:absolute;
-    display: none;
-	bottom:-35px;
-	left:0;
-	height:25px;
-	padding:5px 20px 0 20px;
-	background:#000;
-	background:rgba(0,0,0,.5);
-	font-size:1.3em;
-	line-height:1.33;
-	color:#fff;
-	border-top:1px solid #000;
-	text-shadow:none;
-}
-    .slides_container .caption p {
-        margin: 0;
-        padding: 0;
-    }
-
-.slider-widget .pagination {
+.sig-slider-widget .slidesjs-pagination {
     position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 11;
+    list-style: none;
     margin: 0;
     padding: 0;
-    bottom: 5px;
-    right: 5px;
-    z-index: 1000;
-    list-style: none;
-    display: none;
 }
-    .slider-widget .pagination li {
-        float: left;
-        display: inline;
-        margin-left: 2px;
-    }
-    .slider-widget .pagination a {
-        display: block;
-        color: #ccc;
-        width: 18px;
-        height: 18px;
-        line-height: 18px;
-        text-align: center;
-        text-decoration: none;
-	    border: 1px solid #000;
-	    background:rgba(0,0,0,.5);
-    }
-    .slider-widget .pagination .current a {
-	    background:#f00;
-	    background:rgba(255,0,0,.5);
-    }
+.sig-slider-widget .slidesjs-pagination-item {
+    float: left;
+    display: inline-block;
+    margin-left: 5px;
+}
+.sig-slider-widget .slidesjs-pagination-item a {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #b3aeab;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-indent: -5000px;
+}
+.sig-slider-widget .slidesjs-pagination-item a.active {
+    background-color: #e60012;
+}
+.sig-slider-widget .slidesjs-navigation {
+    position: absolute;
+    top: 45%;
+    z-index: 11;
+    text-indent: -5000px;
+    text-decoration: none;
+    background-image: url(arrows.png);
+    width: 32px;
+    height: 32px;
+}
+.sig-slider-widget .slidesjs-previous {
+    left: 10px;
+}
+.sig-slider-widget .slidesjs-previous:hover {
+    background-position: 0 -32px;
+}
+.sig-slider-widget .slidesjs-next {
+    right: 10px;
+    background-position: -32px 0;
+}
+.sig-slider-widget .slidesjs-next:hover {
+    background-position: -32px -32px;
+}

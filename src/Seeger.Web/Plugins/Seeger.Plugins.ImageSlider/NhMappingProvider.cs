@@ -13,7 +13,7 @@ namespace Seeger.Plugins.ImageSlider
     {
         public IEnumerable<HbmMapping> GetMappings()
         {
-            yield return ByCodeMappingLoader.LoadMappingFrom(Assembly.GetExecutingAssembly());
+            yield return new ConventionMappingCompiler("cms").AddAssemblies(Assembly.GetExecutingAssembly()).CompileMapping();
         }
     }
 }

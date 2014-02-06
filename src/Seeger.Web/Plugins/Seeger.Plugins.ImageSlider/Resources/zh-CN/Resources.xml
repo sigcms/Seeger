@@ -6,11 +6,14 @@
   <item key="Name" value="名称" />
   <item key="Image" value="图片" />
   <item key="Caption" value="标题" />
+  <item key="Size" value="尺寸" />
   <item key="Description" value="描述" />
   <item key="NavigateUrl" value="链接地址" />
   <item key="UploadImage" value="上传图片" />
   <item key="Sliders" value="滚动图片集" />
   <item key="Slider name" value="图片集名称" />
+  <item key="Show navigation" value="显示前后按钮" />
+  <item key="Show pagination" value="显示分页" />
   <item key="Total items" value="图片数量" />
   <item key="Manage items" value="图片管理" />
   <item key="Add/Edit slider item" value="添加/修改图片" />

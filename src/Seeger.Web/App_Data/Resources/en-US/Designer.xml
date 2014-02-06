@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localization prefix="Designer">
+  <item key="Launch" value="Launch designer" />
   <item key="ShowToolbox" value="Show toolbox" />
   <item key="HideToolbox" value="Hide toolbox" />
   <item key="HighlightZones" value="Highlight zones" />

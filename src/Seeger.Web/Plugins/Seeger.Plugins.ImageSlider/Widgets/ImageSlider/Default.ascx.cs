@@ -26,7 +26,14 @@ namespace Seeger.Plugins.ImageSlider.Widgets.ImageSlider
             if (sliderId > 0)
             {
                 Slider = NhSession.Get<Slider>(sliderId);
-                Items = Slider.Items;
+                if (Slider != null)
+                {
+                    Items = Slider.Items;
+                }
+                else
+                {
+                    Visible = false;
+                }
             }
             else
             {
