@@ -44,9 +44,7 @@
             });
             _$element.find(Sig.Selectors.Toolbox_CloseButton).click(function () {
                 if (!_designer.get_hasChanged() || confirm(Sig.Messages.CloseConfirm_HasUnsavedChanges)) {
-                    var url = new Url(location.href);
-                    delete url.query.design;
-                    location.href = url;
+                    location.href = _designer.get_context().get_pageLiveUrl();
                 }
                 return false;
             });

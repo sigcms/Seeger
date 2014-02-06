@@ -53,9 +53,9 @@ namespace Seeger.Web.UI.Admin.Pages
                 LanguageHolder.Visible = true;
                 LanguageName.Text = culture.DisplayName;
 
-                PageTitle.Text = PageItem.GetLocalized(p => p.PageTitle);
-                PageMetaKeywords.Text = PageItem.GetLocalized(p => p.MetaKeywords);
-                PageMetaDescription.Text = PageItem.GetLocalized(p => p.MetaDescription);
+                PageTitle.Text = PageItem.GetLocalized(p => p.PageTitle, culture);
+                PageMetaKeywords.Text = PageItem.GetLocalized(p => p.MetaKeywords, culture);
+                PageMetaDescription.Text = PageItem.GetLocalized(p => p.MetaDescription, culture);
             }
             else
             {
@@ -71,9 +71,9 @@ namespace Seeger.Web.UI.Admin.Pages
             {
                 var culture = CultureInfo.GetCultureInfo(CultureCode);
                 
-                PageItem.SetLocalized(p => p.PageTitle, PageTitle.Text);
-                PageItem.SetLocalized(p => p.MetaKeywords, PageMetaKeywords.Text);
-                PageItem.SetLocalized(p => p.MetaDescription, PageMetaDescription.Text);
+                PageItem.SetLocalized(p => p.PageTitle, PageTitle.Text, culture);
+                PageItem.SetLocalized(p => p.MetaKeywords, PageMetaKeywords.Text, culture);
+                PageItem.SetLocalized(p => p.MetaDescription, PageMetaDescription.Text, culture);
             }
             else
             {

@@ -15,17 +15,16 @@ namespace Seeger.Web.UI.Admin.Designer
         {
             get
             {
-                var url = Request.RawUrl;
-                if (url.IndexOf('?') < 0)
+                var layoutPage = (LayoutPageBase)Page;
+                var page = layoutPage.PageItem;
+                var url = page.Layout.AspxVirtualPath + "?pageid=" + page.Id + "&design=true";
+
+                if (GlobalSettingManager.Instance.FrontendSettings.Multilingual)
                 {
-                    url += "?";
-                }
-                else
-                {
-                    url += "&";
+                    url += "&culture=" + layoutPage.PageCulture.Name;
                 }
 
-                return url += "design=true";
+                return url;
             }
         }
 

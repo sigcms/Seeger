@@ -13,6 +13,7 @@
 <sig:ScriptReference runat="server" Path="/Scripts/collections/LinkedList.js" />
 
 <sig:ScriptReference runat="server" Path="/Scripts/sig.core.js" />
+<sig:ScriptReference runat="server" Path="/Scripts/Resources.ashx" />
 
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.common.js" />
 <sig:ScriptReference runat="server" Path="/Scripts/designer/designer.logger.js" />
@@ -32,18 +33,18 @@
     Sig.Designer._pageLiveUrl = '<%= PageLiveUrl %>';
 
     // Init messages
-    Sig.Messages.ShowToobox = '<%= T("Designer.ShowToolbox") %>';
-    Sig.Messages.Edit = '<%= T("Common.Edit") %>';
-    Sig.Messages.Save = '<%= T("Common.Save") %>';
-    Sig.Messages.Remove = '<%= T("Common.Remove") %>';
-    Sig.Messages.Saving = '<%= T("Message.Saving") %>';
-    Sig.Messages.Loading = '<%= T("Message.Loading") %>';
-    Sig.Messages.NoChange = '<%= T("Designer.NoChange") %>';
-    Sig.Messages.HighlightZones = '<%= T("Designer.HighlightZones") %>';
-    Sig.Messages.CancelHighlightZones = '<%= T("Designer.CancelHighlightZones") %>';
-    Sig.Messages.ReloadConfirm_HasUnsavedChanges = '<%= T("Designer.ReloadConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.ChangePageCultureConfirm_HasUnsavedChanges = '<%= T("Designer.ChangePageCultureConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.CloseConfirm_HasUnsavedChanges = '<%= T("Designer.CloseConfirm_HasUnsavedChanges") %>';
-    Sig.Messages.SavedAndReloading = '<%= T("Designer.SavedAndReloading") %>';
+    Sig.Messages.ShowToobox = sig.Resources.get('Designer.ShowToolbox');
+    Sig.Messages.Edit = sig.Resources.get('Common.Edit');
+    Sig.Messages.Save = sig.Resources.get('Common.Save');
+    Sig.Messages.Remove = sig.Resources.get('Common.Remove');
+    Sig.Messages.Saving = sig.Resources.get('Message.Saving');
+    Sig.Messages.Loading = sig.Resources.get('Message.Loading');
+    Sig.Messages.NoChange = sig.Resources.get('Designer.NoChange');
+    Sig.Messages.HighlightZones = sig.Resources.get('Designer.HighlightZones');
+    Sig.Messages.CancelHighlightZones = sig.Resources.get('Designer.CancelHighlightZones');
+    Sig.Messages.ReloadConfirm_HasUnsavedChanges = sig.Resources.get('Designer.ReloadConfirm_HasUnsavedChanges');
+    Sig.Messages.ChangePageCultureConfirm_HasUnsavedChanges = sig.Resources.get('Designer.ChangePageCultureConfirm_HasUnsavedChanges');
+    Sig.Messages.CloseConfirm_HasUnsavedChanges = sig.Resources.get('Designer.CloseConfirm_HasUnsavedChanges');
+    Sig.Messages.SavedAndReloading = sig.Resources.get('Designer.SavedAndReloading');
 </script>
     
