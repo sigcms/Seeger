@@ -12,4 +12,5 @@
     color: #333 !important;
     font-size: 14px;
     box-shadow: 1px 1px 1px 0 #666;
+    z-index: 10000;
 }

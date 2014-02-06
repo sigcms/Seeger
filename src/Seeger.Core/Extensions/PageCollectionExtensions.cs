@@ -41,6 +41,8 @@ namespace Seeger
                 {
                     page.Pages.AdjustOrders(recursive);
                 }
+
+                last = page;
             }
         }
     }

@@ -41,6 +41,8 @@ namespace Seeger.Services
                     pages.AddBefore(to, from);
                 }
 
+                pages.AdjustOrders(false);
+
                 return;
             }
 
@@ -56,6 +58,8 @@ namespace Seeger.Services
                 {
                     pages.AddAfter(to, from);
                 }
+
+                pages.AdjustOrders(false);
             }
         }
     }
