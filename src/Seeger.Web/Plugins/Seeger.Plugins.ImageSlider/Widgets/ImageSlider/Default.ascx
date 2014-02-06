@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Default.ascx.cs" Inherits="Seeger.Plugins.ImageSlider.Widgets.ImageSlider.Default" %>
 
-<div id="slide-<%= ClientID %>" class="sig-slider-widget">
+<div id="slide-<%= ClientID %>" class="sig-slider-widget" style="<%= Slider.Items.Count < 2 ? "display:block": "display:none" %>">
     <% foreach (var item in Items)
        { %>
         <div>
@@ -16,7 +16,8 @@
     <% } %>
 </div>
 
-<sig:ScriptReference ID="ScriptReference1" runat="server" Path="/Scripts/jquery/jquery.min.js" />
+<% if (Slider.Items.Count > 1) { %>
+<sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
 <script type="text/javascript">
     (function ($) {
 
@@ -36,3 +37,4 @@
         });
     })(jQuery);
 </script>
+<% } %>
