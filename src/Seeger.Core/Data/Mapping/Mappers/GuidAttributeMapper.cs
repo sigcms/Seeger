@@ -12,7 +12,7 @@ namespace Seeger.Data.Mapping.Mappers
     {
         public void ApplyMapping(Attribute attribute, System.Reflection.MemberInfo idProperty, Type entityType, NHibernate.Mapping.ByCode.IClassAttributesMapper mapper, MappingContext context)
         {
-            mapper.Id(null, m => m.Generator(Generators.Guid));
+            mapper.Id(idProperty, m => m.Generator(Generators.Guid));
         }
     }
 }

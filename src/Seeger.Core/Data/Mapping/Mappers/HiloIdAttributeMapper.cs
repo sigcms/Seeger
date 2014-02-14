@@ -12,7 +12,7 @@ namespace Seeger.Data.Mapping.Mappers
     {
         public void ApplyMapping(Attribute attribute, System.Reflection.MemberInfo idProperty, Type entityType, IClassAttributesMapper mapper, MappingContext context)
         {
-            mapper.Id(null, IdMappings.HighLowId(context.Conventions.GetTableName(entityType)));
+            mapper.Id(idProperty, IdMappings.HighLowId(context.Conventions.GetTableName(entityType)));
         }
     }
 }
