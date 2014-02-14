@@ -20,6 +20,10 @@ namespace Seeger.Plugins.ImageSlider.Domain
 
         public virtual bool ShowPagination { get; set; }
 
+        public virtual bool AutoPlay { get; set; }
+
+        public virtual int AutoPlayInterval { get; set; }
+
         public virtual string Name { get; set; }
 
         public virtual IList<SliderItem> Items { get; protected set; }
@@ -32,6 +36,8 @@ namespace Seeger.Plugins.ImageSlider.Domain
             UtcCreatedAt = DateTime.UtcNow;
             ShowPagination = true;
             ShowNavigation = true;
+            AutoPlay = true;
+            AutoPlayInterval = 5000;
         }
     }
 }

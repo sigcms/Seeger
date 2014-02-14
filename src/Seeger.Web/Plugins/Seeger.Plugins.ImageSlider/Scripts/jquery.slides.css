@@ -29,7 +29,8 @@
 .sig-slider-widget .slidesjs-pagination-item a.active {
     background-color: #e60012;
 }
-.sig-slider-widget .slidesjs-navigation {
+.sig-slider-widget .slidesjs-next,
+.sig-slider-widget .slidesjs-previous {
     position: absolute;
     top: 45%;
     z-index: 11;
@@ -51,4 +52,8 @@
 }
 .sig-slider-widget .slidesjs-next:hover {
     background-position: -32px -32px;
+}
+.sig-slider-widget .slidesjs-play.slidesjs-navigation,
+.sig-slider-widget .slidesjs-stop.slidesjs-navigation {
+    display: none !important;
 }

@@ -55,6 +55,8 @@ namespace Seeger.Plugins.ImageSlider
                 slider.Height = model.Slider.Height;
                 slider.ShowNavigation = model.Slider.ShowNavigation;
                 slider.ShowPagination = model.Slider.ShowPagination;
+                slider.AutoPlay = model.Slider.AutoPlay;
+                slider.AutoPlayInterval = model.Slider.AutoPlayInterval;
 
                 // add new items or update existing items
                 foreach (var item in model.Slider.Items)

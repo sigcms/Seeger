@@ -54,6 +54,19 @@
                     </td>
                 </tr>
                 <tr>
+                    <th><%= T("Auto play") %></th>
+                    <td>
+                        <input type="checkbox" data-bind="checked: autoPlay" />
+                    </td>
+                </tr>
+                <tr data-bind="visible: autoPlay">
+                    <th><%= T("Auto play interval") %></th>
+                    <td>
+                        <input type="text" style="width:40px" data-bind="value: autoPlayInterval" />
+                        <%= T("ms") %>
+                    </td>
+                </tr>
+                <tr>
                     <th></th>
                     <td>
                         <label>

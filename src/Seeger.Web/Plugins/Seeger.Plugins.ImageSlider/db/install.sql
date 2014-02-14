@@ -6,6 +6,8 @@
 	Height int null,
 	ShowNavigation bit not null,
 	ShowPagination bit not null,
+	AutoPlay bit not null,
+	AutoPlayInterval int not null,
 	UtcCreatedAt datetime not null,
 
 	constraint PK_cms_Slider primary key (Id)

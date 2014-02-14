@@ -7,6 +7,8 @@
   <item key="Image" value="图片" />
   <item key="Caption" value="标题" />
   <item key="Size" value="尺寸" />
+  <item key="Auto play" value="自动播放" />
+  <item key="Auto play interval" value="自动播放间隔" />
   <item key="Description" value="描述" />
   <item key="NavigateUrl" value="链接地址" />
   <item key="UploadImage" value="上传图片" />

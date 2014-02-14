@@ -32,6 +32,11 @@
                 },
                 pagination: {
                     active: <%= Slider.ShowPagination ? "true" : "false" %>
+                },
+                play: {
+                    active: <%= Slider.AutoPlay ? "true" : "false" %>,
+                    auto: <%= Slider.AutoPlay ? "true" : "false" %>,
+                    interval: <%= Slider.AutoPlayInterval %>
                 }
             });
         });
