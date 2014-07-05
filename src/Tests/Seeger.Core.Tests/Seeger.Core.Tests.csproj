@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Seeger.Core\Seeger.Core.csproj">
-      <Project>{673dd4e1-fced-476d-8ddb-d474fb4c6578}</Project>
+      <Project>{673DD4E1-FCED-476D-8DDB-D474FB4C6578}</Project>
       <Name>Seeger.Core</Name>
     </ProjectReference>
   </ItemGroup>
