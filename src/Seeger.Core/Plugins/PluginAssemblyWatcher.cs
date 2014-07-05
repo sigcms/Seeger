@@ -17,7 +17,7 @@ namespace Seeger.Plugins
         {
             lock (_watchers)
             {
-                var pluginBinDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins\\" + pluginName + "\\bin");
+                var pluginBinDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins", pluginName, "bin");
                 var watcher = new FileSystemWatcher(pluginBinDirectory)
                 {
                     EnableRaisingEvents = true,

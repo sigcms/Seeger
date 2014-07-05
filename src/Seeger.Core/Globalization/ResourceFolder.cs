@@ -9,7 +9,7 @@ namespace Seeger.Globalization
 {
     public class ResourceFolder
     {
-        public static readonly ResourceFolder Global = new ResourceFolder(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\Resources"));
+        public static readonly ResourceFolder Global = new ResourceFolder(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Resources"));
 
         public string Path { get; private set; }
 

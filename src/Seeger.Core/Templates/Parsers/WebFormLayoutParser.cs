@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web.RegularExpressions;
+using System.Text.RegularExpressions;
 
 namespace Seeger.Templates.Parsers
 {
     public class WebFormLayoutParser : ILayoutFileParser
     {
-        static readonly DirectiveRegex _directiveRegex = new DirectiveRegex();
-        static readonly TagRegex _startTagRegex = new TagRegex();
-        static readonly EndTagRegex _endTagRegex = new EndTagRegex();
-        static readonly CommentRegex _commentRegex = new CommentRegex();
-        static readonly AspCodeRegex _codeRegex = new AspCodeRegex();
+		static readonly Regex _directiveRegex = new Regex("\\G<%\\s*@(\\s*(?<attrname>\\w[\\w:]*(?=\\W))(\\s*(?<equal>=)\\s*\"(?<attrval>[^\"]*)\"|\\s*(?<equal>=)\\s*'(?<attrval>[^']*)'|\\s*(?<equal>=)\\s*(?<attrval>[^\\s\"'%>]*)|(?<equal>)(?<attrval>\\s*?)))*\\s*?%>", RegexOptions.Compiled);
+		static readonly Regex _startTagRegex = new Regex("\\G<(?<tagname>[\\w:\\.]+)(\\s+(?<attrname>\\w[-\\w:]*)(\\s*=\\s*\"(?<attrval>[^\"]*)\"|\\s*=\\s*'(?<attrval>[^']*)'|\\s*=\\s*(?<attrval><%#.*?%>)|\\s*=\\s*(?<attrval>[^\\s=\"'/>]*)|(?<attrval>\\s*?)))*\\s*(?<empty>/)?>", RegexOptions.Compiled);
+		static readonly Regex _endTagRegex = new Regex("\\G</(?<tagname>[\\w:\\.]+)\\s*>", RegexOptions.Compiled);
+		static readonly Regex _commentRegex = new Regex("\\G<%--(([^-]*)-)*?-%>", RegexOptions.Compiled);
+		static readonly Regex _codeRegex = new Regex("\\G<%(?!@)(?<code>.*?)%>", RegexOptions.Compiled);
 
         public Func<string, string> ReadFileContent { get; set; }
 

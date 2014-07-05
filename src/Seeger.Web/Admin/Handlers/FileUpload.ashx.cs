@@ -46,8 +46,6 @@ namespace Seeger.Web.UI.Admin.Handlers
             }
 
             var file = context.Request.Files[0];
-            var extension = Path.GetExtension(file.FileName);
-
             var autoRename = context.Request["autoRename"] == "true";
 
             FileBucketMeta meta = null;

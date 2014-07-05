@@ -41,9 +41,9 @@ namespace Seeger.Data.Backup
             {
                 var dataSource = match.Groups["ds"].Value;
                 var appDataPath = HostingEnvironment.MapPath("~/App_Data/");
-                if (!appDataPath.EndsWith("\\"))
+                if (!appDataPath.EndsWith(Path.DirectorySeparatorChar.ToString()))
                 {
-                    appDataPath += "\\";
+                    appDataPath += Path.DirectorySeparatorChar;
                 }
 
                 dataSource = dataSource.Replace("|DataDirectory|", appDataPath);

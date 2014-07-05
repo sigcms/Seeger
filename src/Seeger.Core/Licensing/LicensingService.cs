@@ -14,7 +14,7 @@ namespace Seeger.Licensing
         static LicensingService()
         {
             CurrentLicense = License.InvalidLicense;
-            LicenseFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\seeger.licx");
+            LicenseFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "seeger.licx");
         }
 
         public static License CurrentLicense { get; private set; }
@@ -36,7 +36,7 @@ namespace Seeger.Licensing
 
         public static License ValidateLicenseKey(string licenseKey)
         {
-            string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"App_Data\seeger-temp.licx");
+            string tempPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "seeger-temp.licx");
 
             License license = License.InvalidLicense;
 

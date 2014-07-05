@@ -23,6 +23,6 @@ namespace Seeger.Files
 
     public static class FileBucketMetaStores
     {
-        public static IFileBucketMetaStore Current = new XmlFileBucketMetaStore(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Buckets"));
+        public static IFileBucketMetaStore Current = new XmlFileBucketMetaStore(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Buckets"));
     }
 }

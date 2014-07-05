@@ -13,21 +13,16 @@ namespace Seeger.Web.UI.Templates.Default
     class MenuRenderer
     {
         private PageCache _pageCache;
-        private FrontendSettings _frontendSettings;
-        private FrontendLanguage _currentLanguage;
 
         public CultureInfo Culture { get; private set; }
 
         public MenuRenderer(CultureInfo culture)
-        {
-            Require.NotNull(culture, "culture");
+		{
+			Require.NotNull (culture, "culture");
 
-            Culture = culture;
-
-            _pageCache = PageCache.From(Database.GetCurrentSession());
-            _frontendSettings = GlobalSettingManager.Instance.FrontendSettings;
-            _currentLanguage = FrontendLanguageCache.From(Database.GetCurrentSession()).FindByName(culture.Name);
-        }
+			Culture = culture;
+			_pageCache = PageCache.From (Database.GetCurrentSession ());
+		}
 
         public string Render()
         {
