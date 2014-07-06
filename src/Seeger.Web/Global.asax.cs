@@ -37,6 +37,7 @@ namespace Seeger.Web.UI
             TaskQueueExecutor.Start();
 
             ResourceBundler.Initialize();
+            WebApiConfig.Configure(System.Web.Http.GlobalConfiguration.Configuration);
 
             // TODO: Better to provide some IStartupTask interface
             if (FileBucketMetaStores.Current.GetBucketCount() == 0)
