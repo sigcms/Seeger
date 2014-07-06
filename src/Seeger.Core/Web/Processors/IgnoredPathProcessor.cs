@@ -12,6 +12,11 @@ namespace Seeger.Web.Processors
 
         public void Process(HttpProcessingContext context)
         {
+            if (context.RemainingSegments.Count > 0 && context.RemainingSegments[0].Equals("default.aspx", StringComparison.OrdinalIgnoreCase))
+            {
+                return;
+            }
+
             if (context.RemainingSegments.Count > 0 && _ignoredFolders.Contains(context.RemainingSegments[0]))
             {
                 context.StopProcessing = true;
