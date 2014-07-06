@@ -28,11 +28,6 @@
     </asp:ContentPlaceHolder>
 
     <div class="mgnt">
-        <asp:PlaceHolder runat="server" ID="PageTitlePanel">
-            <h1 class="mgnt-page-title">
-                <asp:Literal runat="server" ID="PageTitle"></asp:Literal>
-            </h1>
-        </asp:PlaceHolder>
 
         <sig:MessagePanel runat="server" ID="Message" Visible="false" />
 

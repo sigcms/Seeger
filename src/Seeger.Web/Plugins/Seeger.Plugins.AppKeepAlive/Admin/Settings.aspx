@@ -2,15 +2,26 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 
-    <div class="mgnt-toolbar">
-        <%= T("Current status") %>:
-        <% if (IsWorkerThreadRunning) { %>
-            <%= T("Running") %>
-            <button type="button" class="btn-stop"><%= T("Stop") %></button>
-        <% } else { %>
-            <%= T("Stopped") %>
-            <button type="button" class="btn-start"><%= T("Start") %></button>
-        <% } %>
+    <div class="page-header">
+        <h1>App Keep-Alive Settings</h1>
+    </div>
+
+    <div class="alert alert-info">
+        <p>
+            <%= T("Current status") %>:
+            <% if (IsWorkerThreadRunning) { %>
+                <%= T("Running") %>
+            <% } else { %>
+                <%= T("Stopped") %>
+            <% } %>
+        </p>
+        <p>
+            <% if (IsWorkerThreadRunning) { %>
+                <button type="button" class="btn-stop btn btn-danger"><%= T("Stop") %></button>
+            <% } else { %>
+                <button type="button" class="btn-start btn btn-success"><%= T("Start") %></button>
+            <% } %>
+        </p>
     </div>
 
     <table class="formtable">

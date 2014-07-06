@@ -2,9 +2,13 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 
-    <div class="mgnt-toolbar">
-        <button type="button" onclick="location.href='BucketEdit.aspx'">Create Bucket</button>
+    <div class="page-header">
+        <h1>
+            <a class="btn btn-success" href="BucketEdit.aspx" title="New Bucket"><i class="fa fa-plus fa-2x"></i></a>
+            <span>File Buckets</span>
+        </h1>
     </div>
+
     <div class="ajax-grid">
         <div class="grid-panel"></div>
     </div>

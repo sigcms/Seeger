@@ -1,6 +1,6 @@
 ﻿.mgnt
 {
-    padding: 10px;
+    padding: 15px;
     font-size: 14px;
 }
 .mgnt-page-title
@@ -315,28 +315,9 @@ label.required
 }
 
 /* Page List */
-#pagelist-container
-{
-}
 #pagelist-container .dropdown-content
 {
     min-width: 120px;
-}
-#pagelist-treepanel
-{
-}
-#pagelist-infopanel
-{
-    position: absolute;
-    right: 10px;
-    top: 80px;
-    width: 500px;
-    border: #ccc 1px solid;
-}
-#pagelist-infopanel legend
-{
-    font-weight: bold;
-    padding: 5px;
 }
 #pagelist-infopanel table
 {

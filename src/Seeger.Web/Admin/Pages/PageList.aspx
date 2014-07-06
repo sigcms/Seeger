@@ -14,25 +14,32 @@
         </Services>
     </asp:ScriptManagerProxy>
 
-    <div class="mgnt-toolbar">
-        <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">
-            <button type="button" onclick="addChildPage(null);return false;"><%= T("Page.AddRootPage") %></button>
-            <button id="add-child-button" type="button" onclick="addChildPage(selectedPage);return false;" disabled="disabled"><%= T("Page.AddChild") %></button>
-        </sig:AdminPlaceHolder>
-    </div>
-    <div id="pagelist-container">
-        <div id="no-page-hint" style="<%= GetNoPageHintPanelStyle() %>">
-            <%= T("Page.NoPageNow") %>
+    <div class="page-header">
+        <h1>
             <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">
-                , <a href='javascript:addChildPage(null);' title='<%= T("Page.ClickHereToAddPageRightNow") %>'><%= T("Page.AddPageRightNow") %></a>
+                <button type="button" class="btn btn-success" title="<%= T("Page.AddRootPage") %>" onclick="addChildPage(null);return false;"><i class="fa fa-plus fa-2x"></i></button>
             </sig:AdminPlaceHolder>
-        </div>
-        <div id="pagelist-treepanel">
-            <div id="PageTree" class="t-widget t-treeview t-reset">
-                <%= RenderPageTree() %>
+            <%= T("Menu.PageMgnt") %>
+        </h1>
+    </div>
+
+    <div id="pagelist-container" class="row">
+        <div class="col-sm-7">
+            <div id="no-page-hint" style="<%= GetNoPageHintPanelStyle() %>">
+                <%= T("Page.NoPageNow") %>
+                <sig:AdminPlaceHolder runat="server" PermissionGroup="PageMgnt" Permission="Add">
+                    , <a href='javascript:addChildPage(null);' title='<%= T("Page.ClickHereToAddPageRightNow") %>'><%= T("Page.AddPageRightNow") %></a>
+                </sig:AdminPlaceHolder>
+            </div>
+            <div id="pagelist-treepanel">
+                <div id="PageTree" class="t-widget t-treeview t-reset">
+                    <%= RenderPageTree() %>
+                </div>
             </div>
         </div>
-        <uc:PropertyPanel runat="server" />
+        <div class="col-sm-5">
+            <uc:PropertyPanel runat="server" />
+        </div>
     </div>
 </asp:Content>
 <asp:Content runat="server" ContentPlaceHolderID="FooterHolder">

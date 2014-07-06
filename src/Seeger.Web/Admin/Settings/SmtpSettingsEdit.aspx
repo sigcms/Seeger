@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 
+<div class="page-header">
+    <h1><%= T("Function.EmailSetting") %></h1>
+</div>
+
 <table class="formtable">
     <tr>
         <th><%= T("Email.Server")%></th>

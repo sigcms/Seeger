@@ -185,8 +185,6 @@
     <Content Include="App_Data\Resources\en-US\Seeger.xml" />
     <Content Include="App_Data\Resources\en-US\Seo.xml" />
     <Content Include="App_Data\Resources\en-US\Setting.xml" />
-    <Content Include="App_Data\Resources\en-US\SigDownload.xml" />
-    <Content Include="App_Data\Resources\en-US\SigImage.xml" />
     <Content Include="App_Data\Resources\en-US\SiteInfo.xml" />
     <Content Include="App_Data\Resources\en-US\SkinName.xml" />
     <Content Include="App_Data\Resources\en-US\TaskQueue.xml" />
@@ -203,9 +201,10 @@
     <Content Include="App_Data\Resources\zh-CN\Offline.xml" />
     <Content Include="App_Data\Resources\zh-CN\Licensing.xml" />
     <Content Include="App_Data\Resources\zh-CN\Seo.xml" />
-    <Content Include="App_Data\Resources\zh-CN\SigDownload.xml" />
-    <Content Include="App_Data\Resources\zh-CN\SigImage.xml" />
     <Content Include="App_Data\Resources\zh-CN\FileMgnt.xml" />
+    <Content Include="App_Themes\Classic\bootstrap.min.css" />
+    <Content Include="App_Themes\Classic\bootstrap.overrides.css" />
+    <Content Include="App_Themes\Classic\font-awesome.css" />
     <Content Include="App_Themes\Classic\images\icon-addhtml.png" />
     <Content Include="App_Themes\Classic\images\icon-excel.png" />
     <Content Include="App_Themes\Classic\images\icon-flash.png" />
@@ -300,6 +299,9 @@
     <Content Include="App_Themes\Classic\d.jqueryui.css" />
     <Content Include="Admin\Designer\Controls\AllWidgets.ascx" />
     <Content Include="Admin\Designer\Controls\WidgetList.ascx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\designer\designer.editorcontext.js" />
     <Content Include="Scripts\filebrowser\images\application.png" />
     <Content Include="Scripts\filebrowser\images\code.png" />
@@ -433,6 +435,13 @@
     <Content Include="packages.config" />
     <Content Include="NLog.config" />
     <Content Include="App_Data\nhibernate.sqlite.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1056,7 +1065,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Scripts\tinymce\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
+<div class="page-header">
+    <h1><%= T("Menu.Analytics") %></h1>
+</div>
+
 <table class="formtable">
     <tr>
         <th><%= T("Mgnt.AnalyticsCode") %></th>

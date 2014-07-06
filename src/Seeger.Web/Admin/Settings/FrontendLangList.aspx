@@ -2,8 +2,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="mgnt-toolbar">
-    <button type="button" onclick="location.href='FrontendLangEdit.aspx'"><%= T("Common.Add") %></button>
+<div class="page-header">
+    <h1>
+        <a href="FrontendLangEdit.aspx" class="btn btn-success" title="<%= T("Common.Add") %>"><i class="fa fa-2x fa-plus"></i></a>
+        <span><%= T("Globalization.FrontendLanguageList") %></span>
+    </h1>
 </div>
 
 <div class="ajax-grid">

@@ -2,14 +2,18 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 
-    <div class="mgnt-toolbar">
-        <button class="button primary btn-new-backup"><%= T("Create a new backup") %></button>
+    <div class="page-header">
+        <h1>
+            <button type="button" class="btn btn-success btn-new-backup" title="<%= T("Create new database backup") %>"><i class="fa fa-2x fa-plus"></i></button>
+            <span><%= T("Database Backup") %></span>
+        </h1>
     </div>
+
     <div class="ajax-grid">
         <div class="grid-panel"></div>
     </div>
 
-    <script type="text/javascript">
+    <script>
         $(function () {
             $('.btn-new-backup').click(function () {
                 if (!confirm(sig.Resources.get('Are you sure to create a new backup?'))) return false;

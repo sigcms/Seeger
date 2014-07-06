@@ -20,19 +20,5 @@ namespace Seeger.Web.UI.Admin
         {
             Message.Visible = false;
         }
-
-        protected override void OnPreRender(EventArgs e)
-        {
-            base.OnPreRender(e);
-
-            if (!String.IsNullOrEmpty(Page.Title))
-            {
-                PageTitle.Text = Page.Title;
-            }
-            else
-            {
-                PageTitlePanel.Visible = false;
-            }
-        }
     }
 }

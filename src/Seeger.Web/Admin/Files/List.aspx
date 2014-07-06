@@ -8,17 +8,21 @@
     </Services>
 </asp:ScriptManagerProxy>
 
-<div class="mgnt-toolbar">
-    <span class="file-current-path">
-        <%= T("FileMgnt.CurrentPath") %>: <%= CurrentPath %>
-    </span>
+<div class="page-header">
+    <h1>
+        <%= T("Menu.FileMgnt") %>
+        <small><%= CurrentPath %></small>
+    </h1>
+</div>
+
+<div class="btn-toolbar page-toolbar">
     <span class="file-actions">
-        <asp:Button ID="UpButton" Enabled="false" runat="server" UseSubmitBehavior="false" Text="<%$ T: FileMgnt.GoUpperLevel %>" />
-        <sig:AdminButton runat="server" OnClientClick="$('#create-folder-form').dialog('open');return false;" Text="<%$ T: FileMgnt.CreateFolder %>"
+        <asp:Button ID="UpButton" CssClass="btn btn-default" Enabled="false" runat="server" UseSubmitBehavior="false" Text="<%$ T: FileMgnt.GoUpperLevel %>" />
+        <sig:AdminButton runat="server" CssClass="btn btn-default" OnClientClick="$('#create-folder-form').dialog('open');return false;" Text="<%$ T: FileMgnt.CreateFolder %>"
              Function="FileMgnt" Operation="AddFolder" />
-        <sig:AdminButton runat="server" ID="UploadFileButton" Text="<%$ T: FileMgnt.UploadFile %>"
+        <sig:AdminButton runat="server" CssClass="btn btn-default" ID="UploadFileButton" Text="<%$ T: FileMgnt.UploadFile %>"
              Function="FileMgnt" Operation="UploadFile" />
-        <button type="button" onclick="location.href=location.href;"><%= T("Common.Reload") %></button>
+        <button type="button" class="btn btn-default" onclick="location.href=location.href;"><i class="fa fa-refresh text-muted"></i></button>
     </span>
 </div>
 

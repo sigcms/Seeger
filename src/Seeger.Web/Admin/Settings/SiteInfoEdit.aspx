@@ -2,17 +2,20 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="mgnt-toolbar">
+<div class="page-header">
     <asp:PlaceHolder runat="server" ID="LanguageHodler" Visible="false">
-        <span style="float:right;">
+        <div class="pull-right">
             <%= T("Globalization.SelectLanguage") %>:
             <asp:DropDownList runat="server" ID="LanguageList" AutoPostBack="true"
                               DataTextField="DisplayName" DataValueField="Name" AppendDataBoundItems="true"
                               OnSelectedIndexChanged="LanguageList_SelectedIndexChanged">
                 <asp:ListItem Text="<%$ T: Common.Default %>" Value="" />
             </asp:DropDownList>
-        </span>
+        </div>
     </asp:PlaceHolder>
+    <h1>
+        <%= T("Menu.SiteInfo") %>
+    </h1>
 </div>
 
 <table class="formtable">

@@ -68,6 +68,7 @@
     font-size: 13px;
     display: block;
     padding: 4px 18px;
+    color: #333;
     text-decoration: none;
 }
 .frame-menubar li > a:hover
@@ -86,6 +87,7 @@
     padding-bottom: 5px;
     font-size: 14px;
     font-weight: bold;
+    color: #333;
 }
 .frame-menubar .section-title
 {

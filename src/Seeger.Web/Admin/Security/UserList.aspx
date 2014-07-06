@@ -3,8 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="mgnt-toolbar">
-    <sig:AdminButton runat="server" OnClientClick="location.href='UserEdit.aspx';return false;" Text="<%$ T: User.Add %>" Function="UserMgnt" Operation="Add" />
+<div class="page-header">
+    <h1>
+        <sig:AdminPlaceHolder runat="server" PermissionGroup="UserMgnt" Permission="Add">
+            <a href="UserEdit.aspx" title="<%= T("User.Add") %>" class="btn btn-success"><i class="fa fa-2x fa-plus"></i></a>
+        </sig:AdminPlaceHolder>
+        <span><%= T("User.List") %></span>
+    </h1>
 </div>
 
 <div class="ajax-grid">

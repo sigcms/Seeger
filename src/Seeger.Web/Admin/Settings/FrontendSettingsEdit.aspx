@@ -5,6 +5,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadHolder" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
+
+    <div class="page-header">
+        <h1><%= T("Setting.FrontendSetting") %></h1>
+    </div>
+
     <table class="formtable">
         <sig:AdminPlaceHolder runat="server" Feature="Multilingual">
             <tr>

@@ -2,6 +2,10 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="MainHolder">
 
+    <div class="page-header">
+        <h1><%= T("Sliders") %></h1>
+    </div>
+
     <div class="ajax-grid"></div>
 
 </asp:Content>

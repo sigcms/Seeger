@@ -3,9 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="mgnt-toolbar">
-    <sig:AdminButton runat="server" OnClientClick="location.href='RoleEdit.aspx';return false;" Text="<%$ T: Role.Add %>"
-         Function="RoleMgnt" Operation="Add" />
+<div class="page-header">
+    <h1>
+        <sig:AdminPlaceHolder runat="server" PermissionGroup="RoleMgnt" Permission="Add">
+            <a href="RoleEdit.aspx" class="btn btn-success" title="<%= T("Role.Add") %>"><i class="fa fa-2x fa-plus"></i></a>
+        </sig:AdminPlaceHolder>
+        <span><%= T("Role.List") %></span>      
+    </h1>
 </div>
 
 <div class="ajax-grid">

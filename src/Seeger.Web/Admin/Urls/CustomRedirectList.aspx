@@ -3,12 +3,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
-<div class="mgnt-toolbar">
-    <sig:AdminButton runat="server" ID="AddButton" UseSubmitBehavior="false" 
-         OnClientClick="location.href='CustomRedirectEdit.aspx';return false;" 
-         Text="<%$ T: Common.Add %>"
-         Function="CustomRedirect"
-         Operation="Add" />
+<div class="page-header">
+    <h1>
+        <sig:AdminPlaceHolder runat="server" PermissionGroup="CustomRedirect" Permission="Add">
+            <a href="CustomRedirectEdit.aspx" class="btn btn-success"><i class="fa fa-2x fa-plus"></i></a>
+        </sig:AdminPlaceHolder>
+        <span><%= T("CustomRedirect.List") %></span>
+    </h1>
 </div>
 
 <div class="ajax-grid">
