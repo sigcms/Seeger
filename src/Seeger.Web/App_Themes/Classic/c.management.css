@@ -1,7 +1,7 @@
 ﻿.mgnt
 {
     padding: 10px;
-    font-size: 13px;
+    font-size: 14px;
 }
 .mgnt-page-title
 {
@@ -435,17 +435,12 @@ label.required
     }
 
 /* TinyMCE */
-.defaultSkin .mceIcon.mce_sigimage
-{
-    background-position: -380px 0;
+.mce-i-inserthtml:before {
+    content: "\e017";
 }
-.defaultSkin .mceIcon.mce_sigdownload
-{
-    background-image: url(images/icon-download.png);
-    background-position: center center;
+.mce-i-sigimage:before {
+    content: "\e014";
 }
-.defaultSkin .mceIcon.mce_inserthtml 
-{
-    background-image: url(images/icon-addhtml.png);
-    background-position: center center;
+.mce-i-sigdownload:before {
+    content: "\e001";
 }

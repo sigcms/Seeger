@@ -61,6 +61,19 @@
             }
 
             return path.substr(indexOfDot);
+        },
+        getFileName: function (path) {
+            if (!path) {
+                return null;
+            }
+
+            var index = path.lastIndexOf('/');
+            if (index >= 0) {
+                var filename = path.substr(index + 1);
+                return filename;
+            }
+
+            return null;
         }
     };
 })();

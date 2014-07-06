@@ -57,6 +57,11 @@
     updateForm: function (content) {
         $('#ContentTitle').val(content.Title);
         $('#ContentBody').val(content.Body);
+
+        var editor = tinymce.get('ContentBody');
+        if (editor) {
+            editor.setContent(content.Body);
+        }
     },
 
     loadContent: function (contentId, callback) {
@@ -66,7 +71,7 @@
     },
 
     submit: function () {
-        var content = tinyMCE.get('ContentBody').getContent();
+        var content = tinymce.get('ContentBody').getContent();
         var widget = editorContext.widget();
         widget.customData.title = $.trim($('#ContentTitle').val());
         widget.customData.content = content;
