@@ -5,6 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
+<div class="page-header">
+    <h1><%= T("Role.Edit") %></h1>
+</div>
+
 <table class="formtable">
     <tr>
         <th><label class="required"><%= T("Role.Name") %></label></th>

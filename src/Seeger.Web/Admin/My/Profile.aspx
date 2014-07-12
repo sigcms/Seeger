@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
+<div class="page-header">
+    <h1><%= T("User.MyProfile") %></h1>
+</div>
+
 <table class="formtable">
     <tr>
         <th><%= T("User.UserName") %></th>

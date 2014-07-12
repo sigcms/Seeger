@@ -3,6 +3,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
 
+<div class="page-header">
+    <h1><%= T("User.Edit") %></h1>
+</div>
+
 <table class="formtable">
     <tr>
         <th><label class="required"><%= T("User.UserName") %></label></th>

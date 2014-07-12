@@ -2,6 +2,11 @@
     AutoEventWireup="true" CodeBehind="FrontendLangEdit.aspx.cs" Inherits="Seeger.Web.UI.Admin.Settings.FrontendLangEdit" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainHolder" runat="server">
+
+    <div class="page-header">
+        <%= T("Globalization.EditFrontendLanguage") %>
+    </div>
+
     <table class="formtable">
         <tr>
             <th><%= T("Globalization.LanguageName") %></th>
