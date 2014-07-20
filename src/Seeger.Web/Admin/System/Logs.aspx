@@ -29,6 +29,11 @@
                     sig.ui.Message.error(e.get_message());
                 });
             });
+
+            $(document).on('click', '[data-toggle="view-log-detail"]', function () {
+                var $detail = $(this).closest('td').find('.log-detail');
+                $detail.toggle();
+            });
         });
     </script>
 

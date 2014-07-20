@@ -457,7 +457,7 @@
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\PublishProfiles\Debug.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <Content Include="Scripts\Resources.ashx" />
     <Content Include="Scripts\string.format.js" />
     <None Include="App_Data\nhibernate.sqlite.mono.config" />

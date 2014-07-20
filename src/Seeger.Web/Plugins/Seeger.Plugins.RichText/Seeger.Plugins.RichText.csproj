@@ -101,7 +101,7 @@
   <ItemGroup>
     <Content Include="config.config" />
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\Debug.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

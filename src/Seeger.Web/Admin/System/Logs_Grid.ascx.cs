@@ -13,23 +13,22 @@ namespace Seeger.Web.UI.Admin._System
 {
     public partial class Logs_Grid : AjaxGridUserControlBase
     {
+        protected IList<LogEntry> Items { get; private set; }
+
         public override void Bind(AjaxGridContext context)
         {
             var logs = NhSession.Query<LogEntry>()
                                 .OrderByDescending(x => x.UtcTimestamp)
                                 .Paging(Pager.PageSize);
 
-            List.DataSource = logs.Page(context.PageIndex);
-            List.DataBind();
+            Items = logs.Page(context.PageIndex).ToList();
 
             Pager.RecordCount = logs.Count;
             Pager.PageIndex = context.PageIndex;
         }
 
-        protected string GetOperatorHtml(object dataItem)
+        protected string GetOperatorHtml(LogEntry entry)
         {
-            var entry = (LogEntry)dataItem;
-
             if (entry.Operator == null) return null;
 
             if (String.IsNullOrEmpty(entry.Operator.Nick) || entry.Operator.Nick.Equals(entry.Operator.UserName, StringComparison.OrdinalIgnoreCase))
@@ -43,20 +42,6 @@ namespace Seeger.Web.UI.Admin._System
         protected string TransformMessage(string message)
         {
             return MarkupLanguage.Transform(message);
-        }
-
-        protected string GetLogLevelColor(LogLevel level)
-        {
-            if (level >= LogLevel.Error)
-            {
-                return "red";
-            }
-            if (level == LogLevel.Warn)
-            {
-                return "orange";
-            }
-
-            return null;
         }
     }
 }
