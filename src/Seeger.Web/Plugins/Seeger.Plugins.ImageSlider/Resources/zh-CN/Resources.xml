@@ -17,7 +17,7 @@
   <item key="Show navigation" value="显示前后按钮" />
   <item key="Show pagination" value="显示分页" />
   <item key="Total items" value="图片数量" />
-  <item key="Manage items" value="图片管理" />
+  <item key="Slider items" value="图片管理" />
   <item key="Add/Edit slider item" value="添加/修改图片" />
   <item key="Please enter the image url or select an image" value="请输入图片地址或选择一张图片" />
   <item key="View sliders" value="查看图片集" />

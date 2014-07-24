@@ -17,7 +17,7 @@
                     <td style="text-align:center"><%# Eval("Items.Count") %></td>
                     <td style="text-align:center"><%# ((DateTime)Eval("UtcCreatedAt")).ToLocalTime() %></td>
                     <td style="text-align:center">
-                        <a href="SliderItems.aspx?sliderId=<%# Eval("Id") %>"><%= T("Manage items") %></a>
+                        <a href="SliderItems.aspx?sliderId=<%# Eval("Id") %>"><%= T("Slider items") %></a>
                         <% if (CanDelete) { %>
                         <a href="#" data-action="Delete" data-action-param-id="<%# Eval("Id") %>"><%= T("Delete") %></a>
                         <% } %>

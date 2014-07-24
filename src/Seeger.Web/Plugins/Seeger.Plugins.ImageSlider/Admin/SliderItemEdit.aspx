@@ -2,6 +2,12 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainHolder" runat="server">
 
+    <div class="page-header">
+        <h1>
+            <%= T("Add/Edit slider item") %>
+        </h1>
+    </div>
+
     <table class="formtable">
         <tr>
             <th><%= T("Slider name") %></th>
