@@ -7,7 +7,7 @@ namespace Seeger.Web.Processors
 {
     public static class HttpProcessors
     {
-        public static IEnumerable<IHttpProcessor> Processors { get; private set; }
+        public static IList<IHttpProcessor> Processors { get; private set; }
 
         static HttpProcessors()
         {

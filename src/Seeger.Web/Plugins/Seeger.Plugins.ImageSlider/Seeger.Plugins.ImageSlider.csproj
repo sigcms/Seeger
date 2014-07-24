@@ -143,7 +143,7 @@
     <Content Include="config.config" />
     <Content Include="Admin\Admin.Master" />
     <Content Include="Admin\Web.config" />
-    <None Include="Properties\PublishProfiles\Debug.pubxml" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
