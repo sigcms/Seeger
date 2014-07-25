@@ -1,6 +1,3 @@
-/// Knockout Mapping plugin v2.4.1
-/// (c) 2013 Steven Sanderson, Roy Jacobs - http://knockoutjs.com/
-/// License: MIT (http://www.opensource.org/licenses/mit-license.php)
 (function (factory) {
 	// Module systems magic dance.
 
@@ -31,18 +28,27 @@
 		observe: []
 	};
 	var defaultOptions = _defaultOptions;
-
-	// Author: KennyTM @ StackOverflow
-	function unionArrays (x, y) {
-		var obj = {};
-		for (var i = x.length - 1; i >= 0; -- i) obj[x[i]] = x[i];
-		for (var i = y.length - 1; i >= 0; -- i) obj[y[i]] = y[i];
-		var res = [];
-
-		for (var k in obj) {
-			res.push(obj[k]);
-		};
-
+	
+	function unionArrays() {
+		var args = arguments,
+		l = args.length,
+		obj = {},
+		res = [],
+		i, j, k;
+		
+		while (l--) {
+			k = args[l];
+			i = k.length;
+			
+			while (i--) {
+				j = k[i];
+				if (!obj[j]) {
+					obj[j] = 1;
+					res.push(j);
+				}
+			}	
+		}
+		
 		return res;
 	}
 
@@ -185,7 +191,8 @@
 		defaultOptions = {
 			include: _defaultOptions.include.slice(0),
 			ignore: _defaultOptions.ignore.slice(0),
-			copy: _defaultOptions.copy.slice(0)
+			copy: _defaultOptions.copy.slice(0),
+			observe: _defaultOptions.observe.slice(0)
 		};
 	};
 
@@ -464,7 +471,7 @@
 					
 					if(options.observe.length > 0 && ko.utils.arrayIndexOf(options.observe, fullPropertyName) == -1)
 					{
-						mappedRootObject[indexer] = value();
+						mappedRootObject[indexer] = ko.utils.unwrapObservable(value);
 						options.copiedProperties[fullPropertyName] = true;
 						return;
 					}

@@ -243,6 +243,7 @@
     <Content Include="App_Themes\Classic\images\logo-en.png" />
     <Content Include="App_Themes\Classic\images\icon-new.png" />
     <Content Include="App_Themes\Classic\sig.ui.css" />
+    <Content Include="App_Themes\Classic\tinymce\content.css" />
     <Content Include="App_Themes\Classic\zh-CN\style.css" />
     <Content Include="App_Themes\Classic\zh-CN\page-designer.css" />
     <Content Include="Default.aspx" />
@@ -461,6 +462,7 @@
     <Content Include="Scripts\Resources.ashx" />
     <Content Include="Scripts\string.format.js" />
     <None Include="App_Data\nhibernate.sqlite.mono.config" />
+    <Content Include="Scripts\knockout.bindings.js" />
     <None Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <None Include="Scripts\tinymce\langs\readme.md" />

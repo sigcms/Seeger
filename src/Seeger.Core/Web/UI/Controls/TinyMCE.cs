@@ -31,6 +31,8 @@ namespace Seeger.Web.UI
             _settings["relative_urls"] = "false";
             _settings["convert_urls"] = "true";
 
+            _settings["content_css"] = "/App_Themes/Classic/tinymce/content.css";
+
             var adminSession = AdminSession.Current;
             if (adminSession != null)
             {
