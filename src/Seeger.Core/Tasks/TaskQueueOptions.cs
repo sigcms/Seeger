@@ -9,9 +9,12 @@ namespace Seeger.Tasks
     {
         public int WorkerNumber { get; set; }
 
+        public bool DeleteCompletedTasks { get; set; }
+
         public TaskQueueOptions()
         {
             WorkerNumber = 1;
+            DeleteCompletedTasks = true;
         }
 
         public TaskQueueOptions Clone()

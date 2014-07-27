@@ -156,7 +156,15 @@ namespace Seeger.Tasks
             try
             {
                 _taskRunner.Run(taskEntry);
-                _queueStore.MarkCompleted(taskEntry.Id);
+
+                if (_options.DeleteCompletedTasks)
+                {
+                    _queueStore.Delete(taskEntry.Id);
+                }
+                else
+                {
+                    _queueStore.MarkCompleted(taskEntry.Id);
+                }
             }
             catch (Exception ex)
             {

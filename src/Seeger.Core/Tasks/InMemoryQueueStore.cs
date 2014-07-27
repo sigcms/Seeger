@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace Seeger.Tasks
 {
@@ -10,17 +11,18 @@ namespace Seeger.Tasks
     {
         private Dictionary<TaskStatus, List<TaskEntry>> _tasksByStatus = new Dictionary<TaskStatus, List<TaskEntry>>();
         private Dictionary<int, TaskEntry> _tasksById = new Dictionary<int, TaskEntry>();
-        private int _totalCompleted = 0;
 
         public string QueueName { get; private set; }
 
         public InMemoryQueueStore(string queueName)
         {
             QueueName = queueName;
+
             _tasksByStatus.Add(TaskStatus.Pending, new List<TaskEntry>());
             _tasksByStatus.Add(TaskStatus.InProgress, new List<TaskEntry>());
             _tasksByStatus.Add(TaskStatus.Aborted, new List<TaskEntry>());
             _tasksByStatus.Add(TaskStatus.Failed, new List<TaskEntry>());
+            _tasksByStatus.Add(TaskStatus.Completed, new List<TaskEntry>());
         }
 
         public TaskEntry Next()
@@ -52,6 +54,8 @@ namespace Seeger.Tasks
         public void Append(Type taskType, string description, object state)
         {
             var task = new TaskEntry(QueueName, taskType, description, state);
+
+            task.Id = IdAllocator.Next();
             task.Status = TaskStatus.Pending;
 
             _tasksByStatus[task.Status].Add(task);
@@ -82,9 +86,13 @@ namespace Seeger.Tasks
 
         public void MarkCompleted(int taskId)
         {
-            // We need to remove completed tasks to reduce memory usage
-            _totalCompleted++;
-            RemoveTask(GetTaskById(taskId));
+            ChangeTaskStatus(GetTaskById(taskId), TaskStatus.Completed);
+        }
+
+        public void Delete(int taskId)
+        {
+            var task = GetTaskById(taskId);
+            RemoveTask(task);
         }
 
         public void Reset(params int[] taskIds)
@@ -110,7 +118,7 @@ namespace Seeger.Tasks
             _tasksByStatus[task.Status].Remove(task);
 
             task.Status = newStatus;
-            if (newStatus == TaskStatus.Completed || newStatus == TaskStatus.Failed)
+            if (newStatus == TaskStatus.Completed || newStatus == TaskStatus.Failed || newStatus == TaskStatus.Aborted)
             {
                 task.LastStoppedAtUtc = DateTime.UtcNow;
             }
@@ -125,8 +133,8 @@ namespace Seeger.Tasks
             stat.StatusCounts.Add(TaskStatus.Pending, _tasksByStatus[TaskStatus.Pending].Count);
             stat.StatusCounts.Add(TaskStatus.InProgress, _tasksByStatus[TaskStatus.InProgress].Count);
             stat.StatusCounts.Add(TaskStatus.Failed, _tasksByStatus[TaskStatus.Failed].Count);
-            stat.StatusCounts.Add(TaskStatus.Aborted, 0);
-            stat.StatusCounts.Add(TaskStatus.Completed, _totalCompleted);
+            stat.StatusCounts.Add(TaskStatus.Aborted, _tasksByStatus[TaskStatus.Aborted].Count);
+            stat.StatusCounts.Add(TaskStatus.Completed, _tasksByStatus[TaskStatus.Completed].Count);
 
             return stat;
         }
@@ -139,6 +147,16 @@ namespace Seeger.Tasks
                                          .Take(pageSize)
                                          .Select(t => t.Clone())
                                          .ToList();
+        }
+
+        static class IdAllocator
+        {
+            static int _id;
+
+            public static int Next()
+            {
+                return Interlocked.Increment(ref _id);
+            }
         }
     }
 }

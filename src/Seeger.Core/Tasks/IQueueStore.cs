@@ -17,6 +17,8 @@ namespace Seeger.Tasks
 
         void MarkCompleted(int taskId);
 
+        void Delete(int taskId);
+
         void Reset(params int[] taskIds);
 
         QueueStatistics Stat();

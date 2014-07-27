@@ -9,8 +9,8 @@ namespace Seeger.Tasks
     {
         Pending = 0,
         InProgress = 1,
-        Aborted = 4,
-        Completed = 2,
-        Failed = 3
+        Aborted = 2,
+        Completed = 3,
+        Failed = 4
     }
 }

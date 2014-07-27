@@ -77,9 +77,7 @@ namespace Seeger.Tasks
             using (var session = OpenSession())
             using (var tx = session.BeginTransaction())
             {
-                var newTask = task.Clone();
-                newTask.QueueName = QueueName;
-                session.Save(newTask);
+                session.Save(task);
                 tx.Commit();
             }
         }
@@ -114,6 +112,18 @@ namespace Seeger.Tasks
                     task.LastStoppedAtUtc = DateTime.UtcNow;
                     tx.Commit();
                 }
+            }
+        }
+
+        public void Delete(int taskId)
+        {
+            using (var session = OpenSession())
+            using (var tx = session.BeginTransaction())
+            {
+                session.CreateQuery("delete " + typeof(TaskEntry).FullName + " where Id = :id")
+                       .SetInt32("id", taskId)
+                       .ExecuteUpdate();
+                tx.Commit();
             }
         }
 
