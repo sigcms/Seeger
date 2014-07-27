@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.0.0.2000\lib\net35\NLog.dll</HintPath>
     </Reference>
@@ -61,9 +65,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="Rhino.Licensing">
@@ -235,6 +236,18 @@
     <Compile Include="Plugins\Widgets\WidgetPaths.cs" />
     <Compile Include="Require.cs" />
     <Compile Include="Services\PageMovementService.cs" />
+    <Compile Include="Tasks\DbQueueStore.cs" />
+    <Compile Include="Tasks\DefaultTaskRunner.cs" />
+    <Compile Include="Tasks\InMemoryQueueStore.cs" />
+    <Compile Include="Tasks\ITask.cs" />
+    <Compile Include="Tasks\IQueueStore.cs" />
+    <Compile Include="Tasks\ITaskRunner.cs" />
+    <Compile Include="Tasks\QueueStatistics.cs" />
+    <Compile Include="Tasks\TaskEntry.cs" />
+    <Compile Include="Tasks\TaskQueue.cs" />
+    <Compile Include="Tasks\TaskQueueOptions.cs" />
+    <Compile Include="Tasks\TaskQueues.cs" />
+    <Compile Include="Tasks\TaskStatus.cs" />
     <Compile Include="Templates\LayoutCollection.cs" />
     <Compile Include="Licensing\LicensingService.cs" />
     <Compile Include="DefaultSiteInfo.cs" />
@@ -242,17 +255,8 @@
     <Compile Include="GlobalSettingManager.cs" />
     <Compile Include="SmtpSettings.cs" />
     <Compile Include="Caching\SiteInfoCache.cs" />
-    <Compile Include="TaskQueueSettings.cs" />
     <Compile Include="Config\TinyMceFontConfig.cs" />
     <Compile Include="Config\TinyMceFontConfigCollection.cs" />
-    <Compile Include="Tasks\Emails\EmailTaskData.cs" />
-    <Compile Include="Tasks\Emails\EmailTaskExecutor.cs" />
-    <Compile Include="Tasks\Emails\EmailTaskQueue.cs" />
-    <Compile Include="Tasks\ITaskExecutor.cs" />
-    <Compile Include="Tasks\TaskExecutorFactory.cs" />
-    <Compile Include="Tasks\TaskItem.cs" />
-    <Compile Include="Tasks\TaskQueue.cs" />
-    <Compile Include="Tasks\TaskQueueExecutor.cs" />
     <Compile Include="Templates\TemplateSkin.cs" />
     <Compile Include="Templates\TemplateSkinCollection.cs" />
     <Compile Include="Templates\Parsers\FileReferencingUtil.cs" />

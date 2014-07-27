@@ -14,6 +14,10 @@ namespace Seeger.Web
     {
         public static void Configure(HttpConfiguration config)
         {
+            var settings = config.Formatters.JsonFormatter.SerializerSettings;
+            settings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+            settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+
             config.Services.Replace(typeof(IHttpControllerSelector), new AreaHttpControllerSelector(config));
 
             HttpAreaRegistration.RegisterAllAreas();

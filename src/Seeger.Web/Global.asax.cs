@@ -33,8 +33,8 @@ namespace Seeger.Web.UI
             AttributeMapperFactories.Current = mapperFactory;
 
             Database.Initialize();
-            PluginManager.StartupEnabledPlugins();
-            TaskQueueExecutor.Start();
+
+            TaskQueues.StartDefaultQueues();
 
             ResourceBundler.Initialize();
             WebApiConfig.Configure(System.Web.Http.GlobalConfiguration.Configuration);
@@ -50,6 +50,8 @@ namespace Seeger.Web.UI
 
                 service.SetDefault(meta.BucketId);
             }
+
+            PluginManager.StartupEnabledPlugins();
 
             Event.Raise(new ApplicationStarted(this));
         }
@@ -80,6 +82,8 @@ namespace Seeger.Web.UI
 
         void Application_End(object sender, EventArgs e)
         {
+            TaskQueues.StopAll();
+
             Event.Raise(new ApplicationEnded(this));
             _logger.Info(UserReference.System(), "Application ended");
         }

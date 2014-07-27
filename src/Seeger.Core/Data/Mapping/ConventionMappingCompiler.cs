@@ -66,17 +66,22 @@ namespace Seeger.Data.Mapping
             {
                 var types = asm.GetTypes();
                 AddMappings(types);
-                AddEntityTypes(types);
+                AddEntityTypes(types.Where(t => IsEntity(t)));
             }
 
             return this;
+        }
+
+        public ConventionMappingCompiler AddEntityTypes(params Type[] types)
+        {
+            return AddEntityTypes(types as IEnumerable<Type>);
         }
 
         public ConventionMappingCompiler AddEntityTypes(IEnumerable<Type> types)
         {
             Require.NotNull(types, "types");
 
-            foreach (var type in types.Where(t => IsEntity(t)))
+            foreach (var type in types)
             {
                 _entityTypes.Add(type);
             }

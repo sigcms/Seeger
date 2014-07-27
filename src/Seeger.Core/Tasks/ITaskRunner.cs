@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Seeger.Tasks
 {
-    public interface ITaskExecutor
+    public interface ITaskRunner
     {
-        void Execute(TaskItem task);
+        void Run(TaskEntry taskEntry);
     }
 }

@@ -162,17 +162,22 @@ create table cms_SiteInfo
 	constraint PK_cms_SiteInfo primary key (Culture)
 );
 
-create table cms_TaskItem
+create table cms_TaskEntry
 (
 	Id int not null,
-	Name nvarchar(50) null,
-	Type nvarchar(50) not null,
-	Data text null,
-	Completed bit not null,
-	CompletedTime datetime null,
-	CreatedTime datetime not null,
+	[Description] nvarchar(100) not null,
+	QueueName nvarchar(50) not null,
+	`State` text null,
+	TaskType nvarchar(300) not null,
+	`Status` int not null,
+	TotalRetries int not null,
+	ErrorMessage nvarchar(300) null,
+	ErrorDetail text null,
+	CreatedAtUtc datetime not null,
+	LastStartedAtUtc datetime null,
+	LastStoppedAtUtc datetime null,
 
-	constraint PK_cms_TaskItem primary key (Id)
+	constraint PK_cms_TaskEntry primary key (Id)
 );
 
 create table cms_EntityPropertyLocalization
@@ -212,9 +217,9 @@ insert into cms_HiValue values ('cms_Role', 1);
 insert into cms_HiValue values ('cms_RoleGrantedPermission', 1);
 insert into cms_HiValue values ('cms_User', 1);
 insert into cms_HiValue values ('cms_UserInRole', 1);
+insert into cms_HiValue values ('cms_TaskEntry', 0);
 insert into cms_HiValue values ('cms_CustomRedirect', 0);
 insert into cms_HiValue values ('cms_LocatedWidget', 0);
-insert into cms_HiValue values ('cms_TaskItem', 1);
 insert into cms_HiValue values ('cms_EntityPropertyLocalization', 0);
 insert into cms_HiValue values ('cms_LogEntry', 0);
 

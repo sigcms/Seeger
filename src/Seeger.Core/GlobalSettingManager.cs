@@ -20,8 +20,6 @@ namespace Seeger
 
         public SmtpSettings Smtp { get; private set; }
 
-        public TaskQueueSettings TaskQueue { get; private set; }
-
         public string GetValue(string key)
         {
             Require.NotNullOrEmpty(key, "key");
@@ -139,7 +137,6 @@ namespace Seeger
             DefaultSiteInfo = new DefaultSiteInfo(this);
             FrontendSettings = new FrontendSettings(this);
             Smtp = new SmtpSettings(this);
-            TaskQueue = new TaskQueueSettings(this);
         }
 
         #endregion

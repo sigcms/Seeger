@@ -425,3 +425,15 @@ label.required
 .mce-i-sigdownload:before {
     content: "\e001";
 }
+
+.num-box {
+    margin: 10px auto;
+}
+.num-box .num-label {
+    font-weight: normal;
+    display: block;
+    color: #888;
+}
+.num-box .value {
+    font-size: 40px;
+}

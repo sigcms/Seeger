@@ -10,7 +10,6 @@
     <menu title="{ Menu.FrontendSettings }" function="SiteSetting" operation="FrontendSetting" url="Settings/FrontendSettingsEdit.aspx" />
     <menu title="{ Menu.FrontendLanguages }" function="SiteSetting" operation="FrontendLanguage" feature="Multilingual" url="Settings/FrontendLangList.aspx" />
     <menu title="{ Menu.EmailSettings }" function="SiteSetting" operation="EmailSetting" url="Settings/SmtpSettingsEdit.aspx" />
-    <menu title="{ Menu.TaskQueueSettings }" function="SiteSetting" operation="TaskQueueSetting" url="Settings/TaskQueueSettingsEdit.aspx" />
   </menu>
   <menu>
     <menu title="{ Menu.RoleMgnt }" function="RoleMgnt" url="Security/RoleList.aspx" />
@@ -23,5 +22,6 @@
     <menu title="{ Menu.PluginMgnt }" function="PluginMgnt" url="Plugins/PluginList.aspx" />
     <menu title="{ Menu.DbBackup }" function="System" operation="DbBackup" url="System/DbBackups.aspx" />
     <menu title="{ Menu.Logs }" function="System" operation="Logs" url="System/Logs.aspx" />
+    <menu title="Task Queues" function="System" operation="TaskQueues" url="System/Queues.aspx" />
   </menu>
 </admin-menu>

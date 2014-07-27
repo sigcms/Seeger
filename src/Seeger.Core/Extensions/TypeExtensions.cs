@@ -7,6 +7,12 @@ namespace Seeger
 {
     public static class TypeExtensions
     {
+        public static string AssemblyQualifiedNameWithoutVersion(this Type type)
+        {
+            string[] str = type.AssemblyQualifiedName.Split(',');
+            return string.Format("{0},{1}", str[0], str[1]);
+        }
+
         public static object GetDefaultValue(this Type type)
         {
             Require.NotNull(type, "type");
