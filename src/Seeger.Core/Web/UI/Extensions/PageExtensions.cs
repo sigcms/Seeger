@@ -9,6 +9,7 @@ namespace Seeger.Web.UI
 {
     public static class PageExtensions
     {
+        [Obsolete("Use Page.Styles instead.")]
         public static void IncludeCssFile(this Page page, string cssFilePath)
         {
             var control = new LiteralControl

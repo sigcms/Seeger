@@ -13,6 +13,7 @@ using Seeger.Plugins;
 using Seeger.Config;
 using Seeger.Globalization;
 using Seeger.Security;
+using System.Web;
 
 namespace Seeger.Web.UI
 {
@@ -121,6 +122,38 @@ namespace Seeger.Web.UI
             }
         }
 
+        public PageResources PageResources
+        {
+            get
+            {
+                return PageResources.GetCurrent(Context);
+            }
+        }
+
+        public IList<StyleResource> Styles
+        {
+            get
+            {
+                return PageResources.Styles;
+            }
+        }
+
+        public IList<ScriptResource> HeadScripts
+        {
+            get
+            {
+                return PageResources.HeadScripts;
+            }
+        }
+
+        public IList<ScriptResource> FootScripts
+        {
+            get
+            {
+                return PageResources.FootScripts;
+            }
+        }
+
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
@@ -184,23 +217,29 @@ namespace Seeger.Web.UI
 
         private void IncludeDesignerElements()
         {
-            this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css"));
-
+            Styles.Add(new StyleResource { Path = AdminSession.Skin.GetFileVirtualPath("page-designer.css") });     
+       
             if (AdminSession.Skin.ContainsFile("page-designer.css", AdminSession.UICulture))
             {
-                this.IncludeCssFile(AdminSession.Skin.GetFileVirtualPath("page-designer.css", AdminSession.UICulture));
+                Styles.Add(new StyleResource{ Path = AdminSession.Skin.GetFileVirtualPath("page-designer.css", AdminSession.UICulture) });
             }
 
-            Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery.min.js" });
-            Header.Controls.Add(new ScriptReference { Path = "/Scripts/jquery/jquery-ui.min.js" });
+            HeadScripts.Add(new ScriptResource { Path = "/Scripts/jquery/jquery.min.js" });
+            HeadScripts.Add(new ScriptResource { Path = "/Scripts/jquery/jquery-ui.min.js" });
 
-            Form.Controls.Add(LoadControl("/Admin/Designer/DesignerElement.ascx"));
+            if (Form != null)
+            {
+                Form.Controls.Add(LoadControl("/Admin/Designer/DesignerElement.ascx"));
+            }
         }
 
         private void RegisterDesignerLauncher()
         {
-            this.IncludeCssFile("/Styles/designer-launcher.css");
-            Form.Controls.Add(LoadControl("/Admin/Designer/Launcher.ascx"));
+            Styles.Add(new StyleResource { Path = "/Styles/designer-launcher.css" });
+            if (Form != null)
+            {
+                Form.Controls.Add(LoadControl("/Admin/Designer/Launcher.ascx"));
+            }
         }
 
         private bool Authorize(User user)
@@ -224,14 +263,17 @@ namespace Seeger.Web.UI
             {
                 foreach (var path in PageItem.Skin.GetCssFileVirtualPaths(PageCulture))
                 {
-                    this.IncludeCssFile(path);
+                    Styles.Add(new StyleResource { Path = path });
                 }
             }
         }
 
         protected virtual void FixFromActionUrl()
         {
-            Form.Action = Request.RawUrl;
+            if (Form != null)
+            {
+                Form.Action = Request.RawUrl;
+            }
         }
 
         protected virtual void SetupSeo()

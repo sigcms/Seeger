@@ -5,9 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <asp:PlaceHolder runat="server">
+        <%= PageResources.GetCurrent().RenderStyles() %>
+        <%= PageResources.GetCurrent().RenderHeadScripts() %>
+    </asp:PlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
+<body runat="server">
     <div class="container">
         <div class="header">
             <div class="header-inner">
@@ -35,7 +38,9 @@
                 </div>
             </div>
         </div>
-    </div>    
-    </form>
+    </div>
+    <asp:PlaceHolder runat="server">
+        <%= PageResources.GetCurrent().RenderFootScripts() %>
+    </asp:PlaceHolder>
 </body>
 </html>

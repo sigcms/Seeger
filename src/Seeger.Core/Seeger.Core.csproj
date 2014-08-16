@@ -335,6 +335,9 @@
     <Compile Include="Web\UI\IPageLifecycleInterceptor.cs" />
     <Compile Include="Web\UI\PageLifecycleInterceptors.cs" />
     <Compile Include="Web\UI\Pager.cs" />
+    <Compile Include="Web\UI\PageResources.cs" />
+    <Compile Include="Web\UI\ScriptResource.cs" />
+    <Compile Include="Web\UI\StyleResource.cs" />
     <Compile Include="Web\UI\WidgetControlLoader.cs" />
     <Compile Include="Web\UI\WidgetDesignerRenderer.cs" />
     <Compile Include="Web\UrlUtil.cs" />
