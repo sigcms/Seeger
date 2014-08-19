@@ -19,6 +19,7 @@ namespace Seeger.Web
             settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
 
             config.Services.Replace(typeof(IHttpControllerSelector), new AreaHttpControllerSelector(config));
+            config.Filters.Add(new HandleErrorAttribute());
 
             HttpAreaRegistration.RegisterAllAreas();
         }

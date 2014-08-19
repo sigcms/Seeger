@@ -44,6 +44,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\WebApi\System.Net.Http.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Papapapa\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -295,6 +299,7 @@
     <Compile Include="Web\FrontendEnvironment.cs" />
     <Compile Include="Web\Http\AreaAttribute.cs" />
     <Compile Include="Web\Http\Dispatcher\AreaHttpControllerSelector.cs" />
+    <Compile Include="Web\Http\HandleErrorAttribute.cs" />
     <Compile Include="Web\Http\HttpAreaRegistration.cs" />
     <Compile Include="Web\Http\HttpAreaRegistrationContext.cs" />
     <Compile Include="Web\Processors\CultureProcessor.cs" />
