@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery.min.js" />
+    <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-migrate.min.js" />
     <sig:ScriptReference runat="server" Path="/Scripts/jquery/jquery-ui.min.js" />
     <sig:ScriptReference runat="server" Path="/Scripts/sig.common.js" />
     <sig:ScriptReference runat="server" Path="/Scripts/jquery.sigvalidate.js" />

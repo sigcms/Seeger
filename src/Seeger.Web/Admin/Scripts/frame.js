@@ -29,10 +29,6 @@
         function resizeLayout() {
             var mainPanelHeight = documentHeight - headerHeight;
 
-            if ($.browser.msie) {
-                mainPanelHeight -= 7;
-            }
-
             $frameMain.height(mainPanelHeight);
             $menubar.height(mainPanelHeight);
 

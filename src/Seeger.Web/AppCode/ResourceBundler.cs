@@ -18,7 +18,7 @@ namespace Seeger.Web
                                         .Include("~/Scripts/string.format.js")
                                         .Include("~/Scripts/uploadify/jquery.uploadify.js")
                                         .Include("~/Scripts/jquery.fileupload.js")
-                                        .Include("~/Scripts/bootstrap.min.js")
+                                        .Include("~/Scripts/bootstrap.js")
                                         .IncludeDirectory("~/Scripts/sig", "*.js", true);
 
             BundleTable.Bundles.Add(coreScriptBundle);
