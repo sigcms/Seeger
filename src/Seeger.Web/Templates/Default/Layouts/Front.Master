@@ -39,6 +39,7 @@
             </div>
         </div>
     </div>
+    <form runat="server"></form>
     <asp:PlaceHolder runat="server">
         <%= PageResources.GetCurrent().RenderFootScripts() %>
     </asp:PlaceHolder>

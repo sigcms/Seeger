@@ -49,6 +49,11 @@ namespace Seeger.Security
             if (group == null) return false;
 
             var permission = group.Permissions.Find(permissionName);
+            if (permission == null)
+            {
+                return false;
+            }
+
             var higherWeighted = group.Permissions.Where(it => it.Weight > permission.Weight);
 
             foreach (var each in higherWeighted)

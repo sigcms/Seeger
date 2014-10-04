@@ -35,7 +35,7 @@
                 var href = $menusLinks[i].attr("href");
 
                 // jquery.attr('href') method will return absolute url in IE (version < 9)
-                if ($.browser.msie && $.browser.version < 9 && href.indexOf('http://') == 0) {
+                if (href && href.indexOf('http://') == 0) {
                     href = href.substr(location.href.length);
                 }
 
