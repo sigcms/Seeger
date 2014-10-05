@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Core.Tests", "Tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Plugins.Seo", "Seeger.Web\Plugins\Seeger.Plugins.Seo\Seeger.Plugins.Seo.csproj", "{05B8F8D7-AD0A-4CEC-BADB-6CBA6FE8BF89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Seeger.Plugins.Comments", "Seeger.Web\Plugins\Seeger.Plugins.Comments\Seeger.Plugins.Comments.csproj", "{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +137,16 @@ Global
 		{05B8F8D7-AD0A-4CEC-BADB-6CBA6FE8BF89}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{05B8F8D7-AD0A-4CEC-BADB-6CBA6FE8BF89}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{05B8F8D7-AD0A-4CEC-BADB-6CBA6FE8BF89}.Release|x86.ActiveCfg = Release|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +159,7 @@ Global
 		{62B4CB24-2944-466D-8FA0-5DDD8AF72934} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 		{F5445BBC-C11A-411F-B353-33928B2B45F4} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 		{05B8F8D7-AD0A-4CEC-BADB-6CBA6FE8BF89} = {C0C80F45-8370-4644-9F69-631256CA0B22}
+		{4DBE04C7-2A47-4059-9343-3AB5D0DFBC95} = {C0C80F45-8370-4644-9F69-631256CA0B22}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Seeger.Web\Seeger.Web.csproj

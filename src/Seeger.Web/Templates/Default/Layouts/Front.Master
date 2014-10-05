@@ -1,10 +1,17 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Front.master.cs" Inherits="Seeger.Web.UI.Templates.Default.Layouts.Front" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head runat="server">
     <title></title>
+    <link type="text/css" rel="stylesheet" href="/App_Themes/Classic/bootstrap.min.css" />
+    <script src="/Scripts/jquery/jquery.min.js"></script>
+    <script src="/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="/Scripts/knockout.js"></script>
+    <script src="/Scripts/knockout.mapping.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
     <asp:PlaceHolder runat="server">
         <%= PageResources.GetCurrent().RenderStyles() %>
         <%= PageResources.GetCurrent().RenderHeadScripts() %>
