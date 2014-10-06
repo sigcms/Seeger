@@ -15,7 +15,7 @@ namespace Seeger.Plugins.Comments.Api
     public class CommentsController : ApiController
     {
         [HttpGet]
-        public PagedDataList<Comment> Get(string subjectId, int start = Int32.MaxValue, int limit = 10)
+        public PagedDataList<CommentModel> Get(string subjectId, int start = Int32.MaxValue, int limit = 10)
         {
             var session = Database.GetCurrentSession();
             var query = session.Query<Comment>()
@@ -32,17 +32,17 @@ namespace Seeger.Plugins.Comments.Api
                              .Take(limit)
                              .ToList();
 
-            return new PagedDataList<Comment>
+            return new PagedDataList<CommentModel>
             {
-                Items = items,
+                Items = items.Select(it => new CommentModel(it)).ToList(),
                 TotalItems = total
             };
         }
 
         [HttpGet, ActionName("Replies")]
-        public List<PagedDataList<Comment>> GetReplies(string commentIds, int start = 0, int limit = 5)
+        public List<PagedDataList<CommentModel>> GetReplies(string commentIds, int start = 0, int limit = 5)
         {
-            var result = new List<PagedDataList<Comment>>();
+            var result = new List<PagedDataList<CommentModel>>();
             var commentIdArray = commentIds.Split(',').Select(it => Convert.ToInt32(it)).ToArray();
 
             foreach (var commentId in commentIdArray)
@@ -57,9 +57,9 @@ namespace Seeger.Plugins.Comments.Api
                                  .Take(limit)
                                  .ToList();
 
-                result.Add(new PagedDataList<Comment>
+                result.Add(new PagedDataList<CommentModel>
                 {
-                    Items = items,
+                    Items = items.Select(it => new CommentModel(it)).ToList(),
                     TotalItems = total
                 });
             }
@@ -68,7 +68,7 @@ namespace Seeger.Plugins.Comments.Api
         }
 
         [HttpPost, CommentAuthorize]
-        public Comment Post(Comment model)
+        public CommentModel Post(Comment model)
         {
             var session = Database.GetCurrentSession();
 
@@ -97,7 +97,45 @@ namespace Seeger.Plugins.Comments.Api
 
             session.Commit();
 
-            return comment;
+            return new CommentModel(comment);
+        }
+    }
+
+    public class CommentModel
+    {
+        public int Id { get; set; }
+
+        public string Content { get; set; }
+
+        public int TotalReplies { get; set; }
+
+        public int? ParentCommentId { get; set; }
+
+        public string CommenterId { get; set; }
+
+        public string CommenterNick { get; set; }
+
+        public string CommenterAvatar { get; set; }
+
+        public DateTime PostedTime { get; set; }
+
+        public string HumanizedPostedTime { get; set; }
+
+        public CommentModel()
+        {
+        }
+
+        public CommentModel(Comment comment)
+        {
+            Id = comment.Id;
+            Content = comment.Content;
+            TotalReplies = comment.TotalReplies;
+            ParentCommentId = comment.ParentCommentId;
+            CommenterId = comment.CommenterId;
+            CommenterNick = comment.CommenterNick;
+            CommenterAvatar = comment.CommenterAvatar;
+            PostedTime = comment.PostedTimeUtc.ToLocalTime();
+            HumanizedPostedTime = PostedTime.Humanize();
         }
     }
 }

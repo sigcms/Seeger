@@ -1,11 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Default.ascx.cs" Inherits="Seeger.Plugins.Comments.Widgets.Comments.Default" %>
 
 <div id="cmt-comment-list">
-    <div data-bind="visible: loading">
+    <div data-bind="visible: loading" class="cmt-loading">
         <i class="fa fa-spin fa-refresh"></i>
     </div>
     <div data-bind="visible: !loading()">
-        <ul class="media-list" data-bind="foreach: comments">
+        <ul class="media-list cmt-comments" data-bind="foreach: comments">
             <li class="media cmt-comment-item">
                 <a href="#" class="pull-left">
                     <img class="media-object" src="http://placehold.it/64x64" />
@@ -16,8 +16,8 @@
                     </h4>
                     <p data-bind="html: content"></p>
                     <p>
-                        <span data-bind="text: postedTimeUtc"></span>
-                        <a href="#" data-bind="click: $root.toggleReply">回复</a>
+                        <span data-bind="text: humanizedPostedTime"></span>
+                        <a href="#" data-bind="click: function ($data, e) { $root.startReply($data, '', e); }">回复</a>
                     </p>
                     <div data-bind="visible: replies().length > 0">
                         <ul class="media-list" data-bind="foreach: replies">
@@ -29,13 +29,17 @@
                                     <p>
                                         <span data-bind="text: commenterNick"></span>
                                         <span data-bind="html: content"></span>
+                                        <a href="#" data-bind="click: $root.startInlineReply.bind($data, $parent)">回复</a>
                                     </p>
                                     <p>
-                                        <span data-bind="text: postedTimeUtc"></span>
+                                        <span data-bind="text: humanizedPostedTime"></span>
                                     </p>
                                 </div>
                             </li>
                         </ul>
+                        <div data-bind="visible: totalUnloadedReplies() > 0" class="cmt-more-replies">
+                            <a href="#" data-bind="click: $root.moreReplies">更多回复 <span class="cmt-total-unloaded-replies">(<span data-bind="text: totalUnloadedReplies"></span>)</span></a>
+                        </div>
                     </div>
                     <div data-bind="if: replying" class="cmt-comment-box-container">
                         <div data-bind="template: { name: 'CommentBoxTemplate', data: { submitHandler: $root.submitReply, model: $root.activeComment.commentBox, isReply: true } }"></div>
@@ -43,8 +47,8 @@
                 </div>
             </li>
         </ul>
-        <div data-bind="visible: hasMore">
-            <button type="button" class="btn btn-default btn-block" data-bind="click: more">加载更多...</button>
+        <div data-bind="visible: hasMore" class="cmt-more-comments">
+            <button type="button" class="btn btn-default btn-block" data-bind="click: more">更多评论 <span class="cmt-total-unloaded-comments">(<span data-bind="text: totalUnloadedComments"></span>)</span></button>
         </div>
     </div>
 </div>
@@ -56,7 +60,7 @@
     <div class="cmt-comment-box">
         <form data-bind="submit: model.submit">
             <div class="form-group">
-                <textarea class="form-control" name="Content" 
+                <textarea class="form-control" name="Content"
                     data-bind="value: model.content, attr: { 'data-val-required': '请填写' + (isReply ? '回复' : '评论') }"
                     data-val="true"></textarea>
                 <span data-valmsg-for="Content" data-valmsg-replace="true"></span>

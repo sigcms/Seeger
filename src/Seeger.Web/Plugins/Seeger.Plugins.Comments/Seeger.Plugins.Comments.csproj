@@ -87,6 +87,7 @@
     <Compile Include="Comment.cs" />
     <Compile Include="CommentsPlugin.cs" />
     <Compile Include="Data\CommentNhMappingProvider.cs" />
+    <Compile Include="DateTimeHumanizer.cs" />
     <Compile Include="DefaultAuthenticationContext.cs" />
     <Compile Include="DefaultSubjectContext.cs" />
     <Compile Include="IAuthenticationContext.cs" />
@@ -112,6 +113,7 @@
   <ItemGroup>
     <Content Include="config.config" />
     <Content Include="db\install.sql" />
+    <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Scripts\comments.js" />
     <Content Include="Widgets\Comments\Default.ascx" />
   </ItemGroup>

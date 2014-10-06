@@ -18,7 +18,9 @@
 
         self.loadingMore = ko.observable(false);
 
-        self.hasMore = ko.observable(true);
+        self.hasMore = ko.observable(false);
+
+        self.totalUnloadedComments = ko.observable();
 
         self.comments = ko.observableArray();
 
@@ -45,19 +47,17 @@
 
         self.activeComment = null;
 
-        self.toggleReply = function (comment, e) {
-            if (comment.replying()) {
-                self.cancelReply(comment, e);
-            } else {
-                if (self.activeComment) {
-                    self.cancelReply(self.activeComment, e);
-                }
-
-                self.startReply(comment, e);
+        // Comments will have at most 2 levels: root comment and replies.
+        // Reply to an other reply will be represented as an inline reply to the replied reply
+        self.startInlineReply = function (rootComment, reply, e) {
+            if (self.activeComment && self.activeComment.id() !== rootComment.id()) {
+                self.cancelReply(self.activeComment, e);
             }
+
+            self.startReply(rootComment, '@' + reply.commenterNick() + ' ', e);
         }
 
-        self.startReply = function (comment, e) {
+        self.startReply = function (comment, content, e) {
             self.activeComment = comment;
 
             if (!comment.commentBox) {
@@ -74,6 +74,10 @@
                 comment.commentBox.initValidation();
             }
 
+            if (content) {
+                comment.commentBox.content(content);
+            }
+
             comment.replying(true);
         }
 
@@ -88,6 +92,15 @@
             self.activeComment = null;
         }
 
+        self.moreReplies = function (comment) {
+            var start = 0;
+            if (comment.replies().length > 0) {
+                start = comment.replies()[comment.replies().length - 1].id() + 1;
+            }
+
+            loadReplies([comment.id()], start, 5);
+        }
+
         function onDataLoaded(data) {
             var hasReplyCommentIds = [];
 
@@ -100,49 +113,65 @@
 
             totalLoadedItems += data.items.length;
             self.hasMore(totalLoadedItems < data.totalItems);
+            self.totalUnloadedComments(data.totalItems - totalLoadedItems);
 
             if (data.length > 0) {
                 start = data.items[data.items.length - 1].id - 1;
             }
 
             if (hasReplyCommentIds.length > 0) {
-                $.ajax({
-                    url: '/api/cmt/comments/replies?commentIds=' + hasReplyCommentIds.join(','),
-                    type: 'GET',
-                    contentType: 'application/json'
-                })
-                .done(function (data) {
-                    $.each(data, function (i) {
-                        var replies = this;
-                        var commentId = hasReplyCommentIds[i];
-                        var comment = null;
-                        var comments = self.comments();
-                        
-                        for (var i = 0, len = comments.length; i < len; i++) {
-                            if (comments[i].id() === commentId) {
-                                comment = comments[i];
-                                break;
-                            }
-                        }
-
-                        $.each(replies.items, function () {
-                            comment.replies.push(mapCommentFromJS(this));
-                        });
-                    });
-                });
+                loadReplies(hasReplyCommentIds, 0, 3);
             }
+        }
+
+        function loadReplies(commentIds, start, limit) {
+            var url = '/api/cmt/comments/replies?commentIds=' + commentIds.join(',');
+            if (start) {
+                url += '&start=' + start;
+            }
+            if (limit) {
+                url += '&limit=' + limit;
+            }
+
+            return $.ajax({
+                url: url,
+                type: 'GET',
+                contentType: 'application/json'
+            })
+            .done(function (data) {
+                $.each(data, function (i) {
+                    var replies = this;
+                    var commentId = commentIds[i];
+                    var comment = null;
+                    var comments = self.comments();
+
+                    for (var i = 0, len = comments.length; i < len; i++) {
+                        if (comments[i].id() === commentId) {
+                            comment = comments[i];
+                            break;
+                        }
+                    }
+
+                    $.each(replies.items, function () {
+                        comment.replies.push(mapCommentFromJS(this));
+                    });
+
+                    comment.totalUnloadedReplies(comment.totalUnloadedReplies() - replies.items.length);
+                });
+            });
         }
 
         function mapCommentFromJS(comment) {
             var vm = ko.mapping.fromJS(comment);
             vm.replies = ko.observableArray();
             vm.replying = ko.observable(false);
+            vm.totalUnloadedReplies = ko.observable(comment.totalReplies);
             return vm;
         }
 
         function nextBatch() {
             return $.ajax({
-                url: '/api/cmt/comments?subjectId=' + opts.subjectId + '&start=' + start + '&limit=' + (opts.limit || 20),
+                url: '/api/cmt/comments?subjectId=' + opts.subjectId + '&start=' + start + '&limit=' + (opts.limit || 10),
                 type: 'GET',
                 contentType: 'application/json'
             });

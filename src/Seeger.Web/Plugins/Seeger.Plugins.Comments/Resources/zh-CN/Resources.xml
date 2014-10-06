@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localization>
+  <item key="Just now" value="刚刚" />
+  <item key="{0} seconds ago" value="{0}秒前" />
+  <item key="{0} minutes ago" value="{0}分钟前" />
+  <item key="{0} hours ago" value="{0}小时前" />
+  <item key="{0} days ago" value="{0}天前" />
+</localization>
