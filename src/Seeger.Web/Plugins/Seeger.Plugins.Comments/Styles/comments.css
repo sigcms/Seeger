@@ -34,6 +34,9 @@
 .cmt-reply-item .cmt-comment-body {
   margin-left: 40px;
 }
+.cmt-reply-item .cmt-comment-body .cmt-comment-content {
+  font-size: 13px;
+}
 .cmt-btn-post-comment {
   float: right;
 }

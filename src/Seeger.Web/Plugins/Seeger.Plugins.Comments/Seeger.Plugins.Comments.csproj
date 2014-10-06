@@ -90,6 +90,7 @@
     <Compile Include="DateTimeHumanizer.cs" />
     <Compile Include="DefaultAuthenticationContext.cs" />
     <Compile Include="DefaultSubjectContext.cs" />
+    <Compile Include="Events\CommentPosted.cs" />
     <Compile Include="IAuthenticationContext.cs" />
     <Compile Include="ISubjectContext.cs" />
     <Compile Include="PageLifecycleInterceptor.cs" />

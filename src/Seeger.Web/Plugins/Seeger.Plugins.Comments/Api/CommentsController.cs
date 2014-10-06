@@ -8,6 +8,8 @@ using System.Net.Http;
 using System.Web.Http;
 using NHibernate.Linq;
 using System.Web;
+using Seeger.Events;
+using Seeger.Plugins.Comments.Events;
 
 namespace Seeger.Plugins.Comments.Api
 {
@@ -96,6 +98,8 @@ namespace Seeger.Plugins.Comments.Api
             }
 
             session.Commit();
+
+            Event.Raise(new CommentPosted(comment));
 
             return new CommentModel(comment);
         }
