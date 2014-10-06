@@ -61,7 +61,7 @@
             self.activeComment = comment;
 
             if (!comment.commentBox) {
-                var $container = $(e.target).closest('.cmt-comment-item').find('.cmt-comment-box-container');
+                var $container = $(e.target).closest('.cmt-root-comment-item').find('.cmt-comment-box-container');
                 comment.commentBox = new CommentBox({
                     container: $container,
                     subjectId: opts.subjectId,
@@ -71,14 +71,16 @@
                         self.completeReply(comment, mapCommentFromJS(data));
                     }
                 });
-                comment.commentBox.initValidation();
-            }
-
-            if (content) {
-                comment.commentBox.content(content);
+                comment.commentBox.init();
             }
 
             comment.replying(true);
+            comment.commentBox.content('');
+            comment.commentBox.focus();
+
+            if (content) {
+                comment.commentBox.insert(content);
+            }
         }
 
         self.cancelReply = function (comment) {
@@ -93,11 +95,7 @@
         }
 
         self.moreReplies = function (comment) {
-            var start = 0;
-            if (comment.replies().length > 0) {
-                start = comment.replies()[comment.replies().length - 1].id() + 1;
-            }
-
+            var start = comment.nextBatchReplyStartId || 0;
             loadReplies([comment.id()], start, 5);
         }
 
@@ -156,6 +154,7 @@
                         comment.replies.push(mapCommentFromJS(this));
                     });
 
+                    comment.nextBatchReplyStartId = replies.items[replies.items.length - 1].id + 1;
                     comment.totalUnloadedReplies(comment.totalUnloadedReplies() - replies.items.length);
                 });
             });
@@ -183,12 +182,28 @@
         var opts = $.extend(true, {}, options);
         var $container = $(opts.container);
 
+        if ($container.length === 0)
+            throw 'CommentBox requires a container dom element.';
+
+        self.init = function () {
+            self.initValidation();
+
+            $container.on('click', '.cmt-emotions a', function (e) {
+                self.insert($(this).html());
+                e.preventDefault();
+            });
+        }
+
         self.initValidation = function () {
             sig.cmt.reparseUnobtrusiveValidation($container.find('form'));
         }
 
         self.applyBindings = function () {
             ko.applyBindings(self, $container[0]);
+        }
+
+        self.focus = function () {
+            $container.find('textarea').focus();
         }
 
         self.onSubmitted = opts.onSubmitted;
@@ -199,6 +214,34 @@
 
         self.validate = function () {
             return $container.find('form').valid();
+        }
+
+        self.insert = function (text) {
+            if (text === null || text === undefined || text === '') {
+                return;
+            }
+
+            var textarea = $container.find('textarea')[0];
+            //IE support
+            if (document.selection) {
+                textarea.focus();
+                sel = document.selection.createRange();
+                sel.text = text;
+            }
+                //MOZILLA and others
+            else if (textarea.selectionStart || textarea.selectionStart == '0') {
+                var startPos = textarea.selectionStart;
+                var endPos = textarea.selectionEnd;
+                textarea.value = textarea.value.substring(0, startPos)
+                    + text
+                    + textarea.value.substring(endPos, textarea.value.length);
+                textarea.selectionStart = startPos + text.length;
+                textarea.selectionEnd = startPos + text.length;
+            } else {
+                textarea.value += text;
+            }
+
+            $(textarea).trigger('change');
         }
 
         self.submit = function () {

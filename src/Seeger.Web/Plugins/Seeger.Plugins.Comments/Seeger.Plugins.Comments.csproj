@@ -92,6 +92,7 @@
     <Compile Include="DefaultSubjectContext.cs" />
     <Compile Include="IAuthenticationContext.cs" />
     <Compile Include="ISubjectContext.cs" />
+    <Compile Include="PageLifecycleInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Subject.cs" />
@@ -103,6 +104,20 @@
     <Compile Include="Widgets\Comments\Default.ascx.designer.cs">
       <DependentUpon>Default.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentBox_Authorized.ascx.cs">
+      <DependentUpon>CommentBox_Authorized.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentBox_Authorized.ascx.designer.cs">
+      <DependentUpon>CommentBox_Authorized.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentBox_Unauthorized.ascx.cs">
+      <DependentUpon>CommentBox_Unauthorized.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentBox_Unauthorized.ascx.designer.cs">
+      <DependentUpon>CommentBox_Unauthorized.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Seeger.Core\Seeger.Core.csproj">
@@ -113,18 +128,30 @@
   <ItemGroup>
     <Content Include="config.config" />
     <Content Include="db\install.sql" />
+    <Content Include="Images\noimage.jpg" />
     <Content Include="Resources\zh-CN\Resources.xml" />
     <Content Include="Scripts\comments.js" />
+    <Content Include="Styles\comments.css">
+      <DependentUpon>comments.less</DependentUpon>
+    </Content>
     <Content Include="Widgets\Comments\Default.ascx" />
+    <Content Include="Widgets\Comments\Templates\CommentBox_Authorized.ascx" />
+    <Content Include="Widgets\Comments\Templates\CommentBox_Unauthorized.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Events\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\comments.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\comments.css.map">
+      <DependentUpon>comments.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -133,7 +133,7 @@ namespace Seeger.Plugins.Comments.Api
             ParentCommentId = comment.ParentCommentId;
             CommenterId = comment.CommenterId;
             CommenterNick = comment.CommenterNick;
-            CommenterAvatar = comment.CommenterAvatar;
+            CommenterAvatar = String.IsNullOrEmpty(comment.CommenterAvatar) ? "/Plugins/" + Strings.PluginName + "/Images/noimage.jpg" : comment.CommenterAvatar;
             PostedTime = comment.PostedTimeUtc.ToLocalTime();
             HumanizedPostedTime = PostedTime.Humanize();
         }
