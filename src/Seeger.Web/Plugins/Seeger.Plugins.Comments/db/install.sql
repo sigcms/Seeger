@@ -1,6 +1,7 @@
 ﻿create table cmt_Comment
 (
 	Id int not null,
+	SubjectType varchar(50) null,
 	SubjectId nvarchar(50) not null,
 	SubjectTitle nvarchar(100) null,
 	Content nvarchar(max) null,

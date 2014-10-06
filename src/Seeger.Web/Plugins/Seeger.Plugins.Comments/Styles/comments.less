@@ -1,5 +1,18 @@
-﻿.cmt-comment-item {
+﻿.cmt-comment-panel {
+    margin-top: 20px;
+}
+
+.cmt-loading {
+    font-size: 40px;
+    color: #eee;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.cmt-comment-item {
     margin: 10px 0;
+    min-height: 56px;
+    clear: both;
 
     .cmt-avatar {
         float: left;
@@ -9,6 +22,10 @@
             width: 50px;
             height: 50px;
         }
+    }
+
+    .cmt-nick {
+        color: #3071a9;
     }
 
     .cmt-comment-body {
@@ -48,14 +65,15 @@
     }
 }
 
-.cmt-btn-post-comment {
-    float: right;
+.cmt-comment-box {
+    margin: 15px 0;
 }
 
 .cmt-emotions {
     min-width: 450px;
 
     >a {
+        text-decoration: none;
         display: inline-block;
         margin: 2px 5px;
         color: #666;
@@ -66,6 +84,7 @@
 
         &:hover {
             color: #666;
+            text-decoration: none;
             background-color: #eee;
         }
     }

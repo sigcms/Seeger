@@ -33,6 +33,11 @@ namespace Seeger.Plugins.Comments
                 subject.Title = httpContext.Items["Comments.SubjectTitle"].ToString();
             }
 
+            if (httpContext.Items["Comments.SubjectType"] != null)
+            {
+                subject.Type = httpContext.Items["Comments.SubjectType"].ToString();
+            }
+
             return subject;
         }
     }

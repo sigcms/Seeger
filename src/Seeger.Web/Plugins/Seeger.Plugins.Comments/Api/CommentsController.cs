@@ -17,11 +17,11 @@ namespace Seeger.Plugins.Comments.Api
     public class CommentsController : ApiController
     {
         [HttpGet]
-        public PagedDataList<CommentModel> Get(string subjectId, int start = Int32.MaxValue, int limit = 10)
+        public PagedDataList<CommentModel> Get(string subjectType, string subjectId, int start = Int32.MaxValue, int limit = 10)
         {
             var session = Database.GetCurrentSession();
             var query = session.Query<Comment>()
-                               .Where(c => c.SubjectId == subjectId && c.ParentCommentId == null);
+                               .Where(c => c.SubjectType == subjectType && c.SubjectId == subjectId && c.ParentCommentId == null);
 
             var total = query.Count();
 
@@ -77,6 +77,7 @@ namespace Seeger.Plugins.Comments.Api
             var parent = model.ParentCommentId == null ? null : session.Get<Comment>(model.ParentCommentId.Value);
             var comment = new Comment
             {
+                SubjectType = model.SubjectType,
                 SubjectId = model.SubjectId,
                 SubjectTitle = model.SubjectTitle,
                 Content = HttpUtility.HtmlEncode(model.Content),

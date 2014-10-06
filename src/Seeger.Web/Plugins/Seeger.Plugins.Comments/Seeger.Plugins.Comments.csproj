@@ -119,6 +119,13 @@
     <Compile Include="Widgets\Comments\Templates\CommentBox_Unauthorized.ascx.designer.cs">
       <DependentUpon>CommentBox_Unauthorized.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentList_Header.ascx.cs">
+      <DependentUpon>CommentList_Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\Comments\Templates\CommentList_Header.ascx.designer.cs">
+      <DependentUpon>CommentList_Header.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Seeger.Core\Seeger.Core.csproj">
@@ -138,11 +145,14 @@
     <Content Include="Widgets\Comments\Default.ascx" />
     <Content Include="Widgets\Comments\Templates\CommentBox_Authorized.ascx" />
     <Content Include="Widgets\Comments\Templates\CommentBox_Unauthorized.ascx" />
+    <Content Include="Widgets\Comments\Templates\CommentList_Header.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
   </ItemGroup>

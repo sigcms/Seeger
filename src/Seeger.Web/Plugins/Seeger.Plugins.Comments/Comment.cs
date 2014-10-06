@@ -12,6 +12,8 @@ namespace Seeger.Plugins.Comments
         [HiloId]
         public virtual int Id { get; set; }
 
+        public virtual string SubjectType { get; set; }
+
         public virtual string SubjectId { get; set; }
 
         public virtual string SubjectTitle { get; set; }

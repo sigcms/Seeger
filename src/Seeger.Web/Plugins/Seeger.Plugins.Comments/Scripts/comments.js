@@ -20,6 +20,8 @@
 
         self.hasMore = ko.observable(false);
 
+        self.totalComments = ko.observable();
+
         self.totalUnloadedComments = ko.observable();
 
         self.comments = ko.observableArray();
@@ -27,6 +29,7 @@
         self.prepend = function (comment) {
             self.comments.unshift(mapCommentFromJS(comment));
             totalLoadedItems++;
+            self.totalComments(self.totalComments() + 1);
         }
 
         self.load = function () {
@@ -45,36 +48,41 @@
             });
         }
 
-        self.activeComment = null;
-
         // Comments will have at most 2 levels: root comment and replies.
         // Reply to an other reply will be represented as an inline reply to the replied reply
         self.startInlineReply = function (rootComment, reply, e) {
-            if (self.activeComment && self.activeComment.id() !== rootComment.id()) {
-                self.cancelReply(self.activeComment, e);
-            }
-
             self.startReply(rootComment, '@' + reply.commenterNick() + ' ', e);
         }
 
         self.startReply = function (comment, content, e) {
-            self.activeComment = comment;
+            var needInit = false;
 
             if (!comment.commentBox) {
                 var $container = $(e.target).closest('.cmt-root-comment-item').find('.cmt-comment-box-container');
                 comment.commentBox = new CommentBox({
                     container: $container,
+                    subjectType: opts.subjectType,
                     subjectId: opts.subjectId,
                     subjectTitle: opts.subjectTitle,
                     parentCommentId: comment.id(),
                     onSubmitted: function (data) {
                         self.completeReply(comment, mapCommentFromJS(data));
+                    },
+                    onCanceled: function () {
+                        self.cancelReply(comment);
                     }
                 });
-                comment.commentBox.init();
+
+                needInit = true;
             }
 
             comment.replying(true);
+
+            // Have to init after setting replying to true, because the dom is created after replying set to true
+            if (needInit) {
+                comment.commentBox.init();
+            }
+
             comment.commentBox.content('');
             comment.commentBox.focus();
 
@@ -85,13 +93,11 @@
 
         self.cancelReply = function (comment) {
             comment.replying(false);
-            self.activeComment = null;
         }
 
         self.completeReply = function (comment, reply) {
             comment.replies.push(reply);
             comment.replying(false);
-            self.activeComment = null;
         }
 
         self.moreReplies = function (comment) {
@@ -100,6 +106,8 @@
         }
 
         function onDataLoaded(data) {
+            self.totalComments(data.totalItems);
+
             var hasReplyCommentIds = [];
 
             $.each(data.items, function () {
@@ -170,7 +178,7 @@
 
         function nextBatch() {
             return $.ajax({
-                url: '/api/cmt/comments?subjectId=' + opts.subjectId + '&start=' + start + '&limit=' + (opts.limit || 10),
+                url: '/api/cmt/comments?subjectId=' + opts.subjectId + '&subjectType=' + opts.subjectType + '&start=' + start + '&limit=' + (opts.limit || 10),
                 type: 'GET',
                 contentType: 'application/json'
             });
@@ -208,6 +216,8 @@
 
         self.onSubmitted = opts.onSubmitted;
 
+        self.onCanceled = opts.onCanceled;
+
         self.content = ko.observable();
 
         self.submitting = ko.observable(false);
@@ -244,6 +254,12 @@
             $(textarea).trigger('change');
         }
 
+        self.cancel = function () {
+            if (self.onCanceled) {
+                self.onCanceled.apply(self, []);
+            }
+        }
+
         self.submit = function () {
             if (!self.validate()) {
                 return false;
@@ -252,6 +268,7 @@
             self.submitting(true);
 
             var model = {
+                subjectType: opts.subjectType,
                 subjectId: opts.subjectId,
                 subjectTitle: opts.subjectTitle,
                 content: self.content(),

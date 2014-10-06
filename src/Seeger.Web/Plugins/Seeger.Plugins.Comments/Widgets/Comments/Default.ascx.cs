@@ -21,6 +21,18 @@ namespace Seeger.Plugins.Comments.Widgets.Comments
             IsCommenterAuthenticated = AuthenticationContexts.Current.IsAuthenticated(new HttpContextWrapper(Context));
         }
 
+        protected string RenderCommentListHeader()
+        {
+            var templateName = "CommentList_Header.ascx";
+            var templateVirtualPath = UrlUtil.Combine(Widget.VirtualPath, "Templates/Custom/" + templateName);
+            if (!File.Exists(Server.MapPath(templateVirtualPath)))
+            {
+                templateVirtualPath = UrlUtil.Combine(Widget.VirtualPath, "Templates/" + templateName);
+            }
+
+            return ControlHelper.RenderControl(LoadControl(templateVirtualPath));
+        }
+
         protected string RenderCommentBoxTemplate()
         {
             var templateName = IsCommenterAuthenticated ? "CommentBox_Authorized.ascx" : "CommentBox_Unauthorized.ascx";
