@@ -24,3 +24,4 @@ src/Seeger.Web/App_Data/Assemblies/
 src/Seeger.Web/Files
 src/Seeger.Web/App_Data/Buckets/
 /src/Seeger.Web/App_Data/Qiniu
+PublishProfiles
