@@ -33,6 +33,8 @@ namespace Seeger.Web.Processors
 
             for (var i = 0; i < segments.Count; i++)
             {
+                var matched = false;
+
                 foreach (var candidate in candidates)
                 {
                     if (candidate.UrlSegment.Equals(segments[i], StringComparison.OrdinalIgnoreCase))
@@ -40,8 +42,14 @@ namespace Seeger.Web.Processors
                         matchedPage = candidate;
                         candidates = candidate.Pages;
                         context.RemainingSegments.RemoveAt(0);
+                        matched = true;
                         break;
                     }
+                }
+
+                if (!matched)
+                {
+                    break;
                 }
             }
 
