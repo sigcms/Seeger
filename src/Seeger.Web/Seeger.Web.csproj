@@ -577,9 +577,9 @@
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\Api\AdminApiController.cs" />
+    <Compile Include="Admin\Api\AdminRoutePrefixAttribute.cs" />
     <Compile Include="Admin\Api\Queues\QueueModel.cs" />
     <Compile Include="Admin\Api\Queues\QueuesController.cs" />
-    <Compile Include="Admin\Bootstrapping\AdminHttpAreaRegistration.cs" />
     <Compile Include="Admin\Controls\SeegerNews.ascx.cs">
       <DependentUpon>SeegerNews.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

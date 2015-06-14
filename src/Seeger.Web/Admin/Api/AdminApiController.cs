@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Seeger.Web.UI.Admin.Api
 {
-    [Area("admin"), Authorize]
+    [RoutePrefix("api/admin"), Authorize]
     public class AdminApiController : ApiController
     {
     }

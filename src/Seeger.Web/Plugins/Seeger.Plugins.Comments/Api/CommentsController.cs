@@ -13,10 +13,10 @@ using Seeger.Plugins.Comments.Events;
 
 namespace Seeger.Plugins.Comments.Api
 {
-    [Area("cmt")]
+    [RoutePrefix("api/cmt/comments")]
     public class CommentsController : ApiController
     {
-        [HttpGet]
+        [Route]
         public PagedDataList<CommentModel> Get(string subjectType, string subjectId, int start = Int32.MaxValue, int limit = 10)
         {
             var session = Database.GetCurrentSession();
@@ -41,7 +41,7 @@ namespace Seeger.Plugins.Comments.Api
             };
         }
 
-        [HttpGet, ActionName("Replies")]
+        [Route("replies")]
         public List<PagedDataList<CommentModel>> GetReplies(string commentIds, int start = 0, int limit = 5)
         {
             var result = new List<PagedDataList<CommentModel>>();
@@ -69,7 +69,7 @@ namespace Seeger.Plugins.Comments.Api
             return result;
         }
 
-        [HttpPost, CommentAuthorize]
+        [HttpPost, Route, CommentAuthorize]
         public CommentModel Post(Comment model)
         {
             var session = Database.GetCurrentSession();

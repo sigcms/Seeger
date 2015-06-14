@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Web;
+using System.Web.Http;
 
 namespace Seeger.Web.UI
 {
@@ -37,8 +38,9 @@ namespace Seeger.Web.UI
             TaskQueues.StartDefaultQueues();
 
             ResourceBundler.Initialize();
-            WebApiConfig.Configure(System.Web.Http.GlobalConfiguration.Configuration);
 
+            GlobalConfiguration.Configure(WebApiConfig.Configure);
+            
             // TODO: Better to provide some IStartupTask interface
             if (FileBucketMetaStores.Current.GetBucketCount() == 0)
             {

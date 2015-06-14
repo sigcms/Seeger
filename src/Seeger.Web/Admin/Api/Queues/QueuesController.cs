@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Seeger.Web.UI.Admin.Api.Queues
 {
+    [AdminRoutePrefix("queues")]
     public class QueuesController : AdminApiController
     {
+        [Route]
         public IEnumerable<QueueModel> Get()
         {
             var models = new List<QueueModel>();
