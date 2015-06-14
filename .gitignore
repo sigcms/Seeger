@@ -12,6 +12,7 @@ TestResults
 
 *.user
 
+packages/
 
 src/Seeger.Web/App_Data/logs/
 
