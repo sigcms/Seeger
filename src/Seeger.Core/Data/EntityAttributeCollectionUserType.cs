@@ -31,12 +31,57 @@ namespace Seeger.Data
 
         public new bool Equals(object x, object y)
         {
-            return false;
+            if (x == null && y == null)
+            {
+                return true;
+            }
+            if (x == null || y == null)
+            {
+                return false;
+            }
+            if (Object.ReferenceEquals(x, y))
+            {
+                return true;
+            }
+
+            var collectionX = (EntityAttributeCollection)x;
+            var collectionY = (EntityAttributeCollection)y;
+
+            if (collectionX.Count != collectionY.Count)
+            {
+                return false;
+            }
+
+            foreach (var kv in collectionX)
+            {
+                if (!kv.Value.Equals(collectionY.GetValue(kv.Key)))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public int GetHashCode(object x)
         {
-            return x.GetHashCode();
+            return GetHashCode((EntityAttributeCollection)x);
+        }
+
+        private int GetHashCode(EntityAttributeCollection collection)
+        {
+            unchecked
+            {
+                int hash = 17;
+
+                foreach (var kv in collection)
+                {
+                    hash = (hash * 397) ^ kv.Key.GetHashCode();
+                    hash = (hash * 397) ^ kv.Value.GetHashCode();
+                }
+
+                return hash;
+            }
         }
 
         public bool IsMutable

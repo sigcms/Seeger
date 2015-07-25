@@ -79,11 +79,19 @@
     <Compile Include="Widgets\Widget1\Editor.aspx.designer.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\Widget2\Default.ascx.cs">
+      <DependentUpon>Default.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Widgets\Widget2\Default.ascx.designer.cs">
+      <DependentUpon>Default.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="database\setup.sql" />
     <Content Include="packages.config" />
     <Content Include="Widgets\Widget1\Editor.aspx" />
+    <Content Include="Widgets\Widget2\Default.ascx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />

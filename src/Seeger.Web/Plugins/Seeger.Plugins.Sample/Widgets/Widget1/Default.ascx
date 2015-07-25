@@ -2,6 +2,5 @@
 <%@ OutputCache Duration="15" VaryByParam="none" VaryByCustom="Site" %>
 
 <div>
-    Site: <%= String.IsNullOrEmpty(PageItem.BindedDomains) ? "Root" : PageItem.BindedDomains %>
-    <%= DateTime.Now %>
+    <%= PageUniqueName %>
 </div>
