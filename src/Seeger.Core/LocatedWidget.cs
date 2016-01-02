@@ -22,6 +22,8 @@ namespace Seeger
         public virtual string PluginName { get; set; }
 
         public virtual string WidgetName { get; set; }
+
+        public virtual string ViewName { get; set; }
         
         public virtual string ZoneName { get; set; }
 

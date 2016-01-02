@@ -30,6 +30,8 @@ namespace Seeger.Plugins.Widgets
 
         public Type InterceptorType { get; set; }
 
+        public Type WidgetControllerType { get; set; }
+
         public string VirtualPath
         {
             get
@@ -62,6 +64,16 @@ namespace Seeger.Plugins.Widgets
             }
         }
 
+        public string ViewsFolderVirtualPath
+        {
+            get
+            {
+                return UrlUtil.Combine(VirtualPath, "Views");
+            }
+        }
+
+        public List<WidgetViewDefinition> Views { get; set; }
+
         public PluginDefinition Plugin { get; private set; }
 
         public IWidgetProcessEventListener WidgetProcessEventListener { get; set; }
@@ -75,6 +87,7 @@ namespace Seeger.Plugins.Widgets
 
             Name = name;
             Plugin = plugin;
+            Views = new List<WidgetViewDefinition>();
             EditorSettings = new WidgetEditorSettings();
             ResourcesFolder = new ResourceFolder(HostingEnvironment.MapPath(ResourceFolderVirtualPath));
         }

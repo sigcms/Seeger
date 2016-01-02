@@ -79,6 +79,7 @@
     <Compile Include="Widgets\Widget1\Editor.aspx.designer.cs">
       <DependentUpon>Editor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Widgets\Widget1\Widget1Controller.cs" />
     <Compile Include="Widgets\Widget2\Default.ascx.cs">
       <DependentUpon>Default.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,6 +106,9 @@
       <Project>{673DD4E1-FCED-476D-8DDB-D474FB4C6578}</Project>
       <Name>Seeger.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Widgets\Widget1\Views\Custom1\Default.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

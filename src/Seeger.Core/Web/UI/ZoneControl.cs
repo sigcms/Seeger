@@ -1,7 +1,12 @@
-﻿using Seeger.Plugins;
+﻿using RazorEngine;
+using RazorEngine.Templating;
+using Seeger.Plugins;
+using Seeger.Plugins.Widgets;
 using Seeger.Templates;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -92,28 +97,58 @@ namespace Seeger.Web.UI
             var widget = plugin.FindWidget(locatedWidget.WidgetName);
             if (widget == null) return;
 
-            var control = WidgetControlLoader.Load(widget, Page, IsInDesignMode);
-
-            Controls.Add(control);
-
-            var widgetControl = control as WidgetControlBase;
-
-            if (widgetControl == null)
+            if (!String.IsNullOrEmpty(locatedWidget.ViewName))
             {
-                // Check if the widget control is using output cache
-                var cachingControl = control as PartialCachingControl;
-                if (cachingControl != null)
+                object model = null;
+
+                if (widget.WidgetControllerType != null)
                 {
-                    widgetControl = cachingControl.CachedControl as WidgetControlBase;
-                }
-            }
+                    var context = new WidgetContext
+                    {
+                        Page = locatedWidget.Page,
+                        LocatedWidget = locatedWidget
+                    };
+                    var controller = (IWidgetController)Activator.CreateInstance(widget.WidgetControllerType);
+                    controller.PreRender(context);
 
-            if (widgetControl != null)
+                    model = context.Model;
+                }
+
+                // render
+                var view = widget.Views.Find(v => v.Name == locatedWidget.ViewName);
+                var viewPath = Server.MapPath(UrlUtil.Combine(view.VirtualPath, "Default" + view.Extension));
+                var viewContent = File.ReadAllText(viewPath, System.Text.Encoding.UTF8);
+                var modelType = model == null ? null : model.GetType();
+                var html = Engine.Razor.RunCompile(viewContent, widget.Plugin.Name + "." + widget.Name + "." + view.Name, modelType, model, null);
+
+                var control = new LiteralControl(html);
+                Controls.Add(control);
+            }
+            else
             {
-                widgetControl.LocatedWidget = locatedWidget;
-                widgetControl.Widget = widget;
-                widgetControl.IsInDesignMode = IsInDesignMode;
-                widgetControl.WidgetAttributes.AddRange(locatedWidget.Attributes);
+                var control = WidgetControlLoader.Load(widget, Page, IsInDesignMode);
+
+                Controls.Add(control);
+
+                var widgetControl = control as WidgetControlBase;
+
+                if (widgetControl == null)
+                {
+                    // Check if the widget control is using output cache
+                    var cachingControl = control as PartialCachingControl;
+                    if (cachingControl != null)
+                    {
+                        widgetControl = cachingControl.CachedControl as WidgetControlBase;
+                    }
+                }
+
+                if (widgetControl != null)
+                {
+                    widgetControl.LocatedWidget = locatedWidget;
+                    widgetControl.Widget = widget;
+                    widgetControl.IsInDesignMode = IsInDesignMode;
+                    widgetControl.WidgetAttributes.AddRange(locatedWidget.Attributes);
+                }
             }
         }
     }

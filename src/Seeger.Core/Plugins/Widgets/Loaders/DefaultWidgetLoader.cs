@@ -18,6 +18,7 @@ namespace Seeger.Plugins.Widgets.Loaders
             var directory = HostingEnvironment.MapPath(WidgetPaths.WidgetDirectoryVirtualPath(plugin.Name, widgetName));
             var widget = new WidgetDefinition(Path.GetFileName(directory), plugin);
             Configure(widget);
+            LoadViews(widget);
             return widget;
         }
 
@@ -42,6 +43,28 @@ namespace Seeger.Plugins.Widgets.Loaders
             if (widget.DisplayName == null)
             {
                 widget.DisplayName = new LocalizableText(String.Format("{{ Plugin={0}, Key={1} }}", widget.Plugin.Name, widget.Name));
+            }
+        }
+
+        private void LoadViews(WidgetDefinition widget)
+        {
+            var viewsDir = new DirectoryInfo(Server.MapPath(widget.ViewsFolderVirtualPath));
+            if (!viewsDir.Exists)
+            {
+                return;
+            }
+
+            foreach (var viewDir in viewsDir.GetDirectories())
+            {
+                if (viewsDir.IsHidden()) continue;
+
+                var viewFile = viewDir.GetFiles("Default.*", SearchOption.TopDirectoryOnly).FirstOrDefault();
+                var view = new WidgetViewDefinition(widget)
+                {
+                    Name = viewDir.Name,
+                    Extension = viewFile.Extension
+                };
+                widget.Views.Add(view);
             }
         }
 

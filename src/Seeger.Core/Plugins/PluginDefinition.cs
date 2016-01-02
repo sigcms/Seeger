@@ -28,6 +28,8 @@ namespace Seeger.Plugins
 
         public Type PluginType { get; set; }
 
+        public IList<Assembly> Assemblies { get; set; }
+
         public string VirtualPath
         {
             get
@@ -73,6 +75,7 @@ namespace Seeger.Plugins
             Require.NotNullOrEmpty(name, "name");
 
             Name = name;
+            Assemblies = new List<Assembly>();
             Widgets = new List<WidgetDefinition>();
             Menu = new XmlMenu();
             PermissionGroups = new PermissionGroupCollection();

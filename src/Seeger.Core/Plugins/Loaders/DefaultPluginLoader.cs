@@ -13,12 +13,14 @@ using Seeger.Web.UI;
 using Seeger.Collections;
 using Seeger.Security;
 using Seeger.Data;
+using Seeger.Plugins.Widgets;
 
 namespace Seeger.Plugins.Loaders
 {
     public class DefaultPluginLoader : IPluginLoader
     {
         private IWidgetLoader _widgetLoader;
+        static readonly string[] _widgetControllerSuffixes = new[] { "WidgetController", "Controller" };
 
         public DefaultPluginLoader(IWidgetLoader widgetLoader)
         {
@@ -33,6 +35,8 @@ namespace Seeger.Plugins.Loaders
 
             if (assemblies != null)
             {
+                plugin.Assemblies = assemblies.ToList();
+
                 var extensionTypes = FindExtensionTypes(assemblies);
                 plugin.PluginType = extensionTypes.PluginType;
 
@@ -54,6 +58,44 @@ namespace Seeger.Plugins.Loaders
                 {
                     var widget = _widgetLoader.LoadWidget(plugin, Path.GetFileName(widgetFolder));
                     plugin.Widgets.Add(widget);
+                }
+            }
+
+            // load widget controllers
+            if (assemblies != null)
+            {
+                foreach (var type in assemblies.SelectMany(asm => asm.GetTypes()))
+                {
+                    if (!typeof(IWidgetController).IsAssignableFrom(type))
+                    {
+                        continue;
+                    }
+
+                    var attr = type.GetCustomAttribute<WidgetControllerAttribute>();
+                    if (attr == null)
+                    {
+                        continue;
+                    }
+
+                    var widgetName = attr.WidgetName;
+                    if (String.IsNullOrEmpty(widgetName))
+                    {
+                        widgetName = type.Name;
+                        foreach (var suffix in _widgetControllerSuffixes)
+                        {
+                            if (widgetName.EndsWith(suffix) && widgetName.Length > suffix.Length)
+                            {
+                                widgetName = widgetName.Substring(0, widgetName.Length - suffix.Length);
+                                break;
+                            }
+                        }
+                    }
+
+                    var widget = plugin.FindWidget(widgetName);
+                    if (widget != null)
+                    {
+                        widget.WidgetControllerType = type;
+                    }
                 }
             }
 

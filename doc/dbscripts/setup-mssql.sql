@@ -232,3 +232,6 @@ insert into cms_FrontendLanguage values ('zh-CN', '简体中文', '');
 insert into cms_GlobalSetting values ('Seeger.SiteInfo.SiteTitle', '西格CMS');
 insert into cms_GlobalSetting values ('Seeger.SiteInfo.PageTitle', '西格CMS');
 insert into cms_GlobalSetting values ('Seeger.SiteInfo.Copyright', '&copy; 2011 西格CMS');
+
+/* Version 1.0.1 */
+alter table cms_LocatedWidget add ViewName varchar(50) null;

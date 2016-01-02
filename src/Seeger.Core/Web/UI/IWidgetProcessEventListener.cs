@@ -7,6 +7,7 @@ using System.Globalization;
 
 namespace Seeger.Web.UI
 {
+    // TODO: Move to IWidgetController
     public interface IWidgetProcessEventListener
     {
         void OnProcessing(WidgetProcessEventArgs e);
