@@ -24,6 +24,7 @@ namespace Seeger.Web.UI
         {
             _settings = new NameValueCollection();
 
+            _settings["verify_html"] = "false";
             _settings["menubar"] = "false";
             _settings["plugins"] = "fullscreen code link paste textcolor sigimage sigdownload inserthtml";
             _settings["toolbar"] = "code fullscreen | styleselect | alignleft aligncenter alignright alignjustify | bold italic forecolor backcolor | bullist numlist | link inserthtml sigimage sigdownload";
@@ -155,18 +156,26 @@ namespace Seeger.Web.UI
         private void RenderScripts(HtmlTextWriter writer)
         {
             var selector = "#" + ClientID;
-            var settings = new Dictionary<string, string>();
+            var settings = new Dictionary<string, object>();
 
             settings.Add("selector", selector);
 
             foreach (var key in _settings.AllKeys)
             {
-                settings.Add(key, _settings[key]);
+                var value = _settings[key];
+                if (value == "true" || value == "false")
+                {
+                    settings[key] = Boolean.Parse(value);
+                }
+                else
+                {
+                    settings[key] = value;
+                }
             }
 
             if (settings.ContainsKey("language"))
             {
-                settings["language"] = settings["language"].Replace('-', '_');
+                settings["language"] = settings["language"].AsString().Replace('-', '_');
             }
 
             var json = JsonConvert.SerializeObject(settings);
