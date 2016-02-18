@@ -58,7 +58,7 @@
                 filter: '.jpg;.jpeg;.png;.gif',
                 allowMultiSelect: false,
                 onOK: function (files) {
-                    $('#<%= ImageUrl.ClientID %>').val(files[0].virtualPath);
+                    $('#<%= ImageUrl.ClientID %>').val(files[0].publicUri);
                     dialog.close();
                 }
             });
